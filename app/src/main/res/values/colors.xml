@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="progress_track_light">#FCDCCD</color>
+    <color name="primaryColor">#FA4501</color>
+    <color name="onPrimaryColor">#FFFFFF</color>
+    <color name="onBackground">#201D1D</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="stroke_colour">#DADADA</color>
+    <color name="gray">#AFAFAF</color>
+</resources>

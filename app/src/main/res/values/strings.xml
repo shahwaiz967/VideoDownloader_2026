@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="download_without_limits">Download Without Limits</string>
+    <string name="select_language">Select Language</string>
+    <string name="next">Next</string>
+    <string name="system_default">System Default</string>
+    <string name="all_languages">All Languages</string>
+    <string name="what_s_included">What\'s Included</string>
+    <string name="go">Go</string>
+    <string name="premium_subtitle">Enjoy Fast Downloads And Unlimited Video Access With A 3-Day Free Trial, Then Rs 1,400/Week. Cancel Anytime.</string>
+    <string name="features">Features</string>
+    <string name="basic">Basic</string>
+    <string name="trial_disabled">Trial Disabled</string>
+    <string name="most_popular">⭐ Most Popular</string>
+    <string name="best_value">Best value</string>
+    <string name="weekly_plan">Weekly Plan</string>
+    <string name="weekly_price">Rs 1,400</string>
+    <string name="monthly_price">Rs 5,000</string>
+    <string name="free_trial_3days">3-Day Free Trial</string>
+    <string name="no_charge_today">No Charge Today</string>
+    <string name="user_reviews">User Reviews</string>
+    <string name="start_free_trial">Start Free Trial</string>
+    <string name="buy_now">Buy now</string>
+    <string name="trial_started">3-Day free trial started!</string>
+    <string name="the_first_3_days_are_free">The first 3 days are free. After the trial, %s per week will be charged automatically unless cancelled at least 24 hours before the end of the trial period.</string>
+    <string name="the_first_3_days_are">%s per week will be charged automatically unless cancelled at least 24 hours before the end of the trial period.</string>
+    <string name="enable_free_trial">Enable Free Trial</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Unlimited Downloads, Zero Limits\nTry Free For 3 Days • Then Rs 1,400/Week • Cancel Anytime</string>
+    <string name="monthly_plan">Monthly Plan</string>
+    <string name="no_payment_now">No Payment Now</string>
+
+    <!--Language-->
+    <string name="english">English</string>
+    <string name="korean">Korean</string>
+    <string name="turkey">Turkey</string>
+    <string name="arabic">Arabic</string>
+    <string name="italian">Italian</string>
+    <string name="japanese">Japanese</string>
+    <string name="persian">Persian</string>
+    <string name="german">German</string>
+    <string name="chinese">Chinese</string>
+    <string name="azerbaijan">Azerbaijan</string>
+    <string name="search_amp_download_videos"><![CDATA[Search & Download Videos]]></string>
+    <string name="paste_link">Paste Link</string>
+    <string name="download">Download</string>
+    <string name="quick_access">Quick Access</string>
+    <string name="search_or_paste_link_to_download">Search or Paste Link to Download</string>
+</resources>

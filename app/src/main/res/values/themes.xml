@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.VideoDownloader" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+
+        <item name="colorSecondary">@color/primaryColor</item>
+        <item name="colorOnSecondary">@color/onPrimaryColor</item>
+
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+        <item name="android:fontFamily">@font/segoe_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Theme.VideoDownloader" parent="Base.Theme.VideoDownloader" />
+</resources>

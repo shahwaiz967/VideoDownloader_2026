@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.SplashFragment"
+        tools:layout="@layout/fragment_splash"/>
+
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language"/>
+    <fragment
+        android:id="@+id/premiumFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.PremiumFragment"
+        android:label="premium_fragment"
+        tools:layout="@layout/fragment_premium"/>
+
+    <fragment
+        android:id="@+id/socityFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.SocietyFragment"
+        android:label="socity_fragment"
+        tools:layout="@layout/fragment_socity">
+        <argument
+            android:name="name"
+            app:argType="string"/>
+    </fragment>
+</navigation>

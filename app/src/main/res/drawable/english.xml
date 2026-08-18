@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="27dp"
+    android:height="27dp"
+    android:viewportWidth="27"
+    android:viewportHeight="27">
+  <group>
+    <clip-path
+        android:pathData="M13.5,27C20.956,27 27,20.956 27,13.5C27,6.044 20.956,0 13.5,0C6.044,0 0,6.044 0,13.5C0,20.956 6.044,27 13.5,27Z"/>
+    <path
+        android:pathData="M-6.837,-1.671H33.563V28.364H-6.837V-1.671Z"
+        android:fillColor="#00247D"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M13.5,27C20.956,27 27,20.956 27,13.5C27,6.044 20.956,0 13.5,0C6.044,0 0,6.044 0,13.5C0,20.956 6.044,27 13.5,27Z"/>
+    <path
+        android:pathData="M29.04,28.363L13.363,16.704L-2.326,28.363H-6.837V24.997L8.846,13.346L-6.837,1.679V-1.671H-2.325L13.363,9.988L29.041,-1.671H33.563V1.679L17.88,13.347L33.563,24.997V28.364L29.04,28.363Z"
+        android:fillColor="#ffffff"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M13.5,27C20.956,27 27,20.956 27,13.5C27,6.044 20.956,0 13.5,0C6.044,0 0,6.044 0,13.5C0,20.956 6.044,27 13.5,27Z"/>
+    <path
+        android:pathData="M-3.831,28.363H-6.837L11.868,14.373L-6.837,0.567V-1.672L11.916,12.183L30.552,-1.672H33.563L14.806,12.186L33.563,26.123V28.362L14.926,14.423L-3.831,28.363Z"
+        android:fillColor="#CF142B"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M13.5,27C20.956,27 27,20.956 27,13.5C27,6.044 20.956,0 13.5,0C6.044,0 0,6.044 0,13.5C0,20.956 6.044,27 13.5,27Z"/>
+    <path
+        android:pathData="M17.03,29.264H9.7V17.013H-8.635V9.679H9.7V-2.272H17.034V9.679H35.369V17.013H17.03V29.264Z"
+        android:fillColor="#ffffff"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M13.5,27C20.956,27 27,20.956 27,13.5C27,6.044 20.956,0 13.5,0C6.044,0 0,6.044 0,13.5C0,20.956 6.044,27 13.5,27Z"/>
+    <path
+        android:pathData="M15.563,29.264H11.163V15.545H-8.637V11.146H11.163V-2.272H15.563V11.146H35.363V15.545H15.563V29.264Z"
+        android:fillColor="#CF142B"/>
+  </group>
+</vector>
