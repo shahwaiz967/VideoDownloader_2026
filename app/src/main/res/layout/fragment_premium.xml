@@ -342,6 +342,7 @@
         android:layout_marginHorizontal="8dp"
         app:icon="@drawable/arrow_right"
         app:iconSize="18dp"
+        android:padding="@dimen/_10sdp"
         app:iconGravity="end"
         app:layout_constraintBottom_toTopOf="@id/tvNoPaymentBottom"
         app:layout_constraintEnd_toEndOf="parent"

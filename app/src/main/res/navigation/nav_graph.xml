@@ -38,4 +38,20 @@
             android:name="name"
             app:argType="string"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/fragment_main"/>
+    <fragment
+        android:id="@+id/reelFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.ReelFragment"
+        android:label="reel_fragment"
+        tools:layout="@layout/fragment_reel"/>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.SettingFragment"
+        android:label="setting_fragment"
+        tools:layout="@layout/fragment_setting"/>
 </navigation>

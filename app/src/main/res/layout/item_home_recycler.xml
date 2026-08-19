@@ -27,7 +27,7 @@
             android:id="@+id/item_title"
             android:fontFamily="@font/segoe_semibold"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
             android:textSize="@dimen/_8ssp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

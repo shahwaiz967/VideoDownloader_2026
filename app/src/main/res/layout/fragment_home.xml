@@ -7,111 +7,20 @@
     android:fitsSystemWindows="true"
     tools:context=".features.ui.fragments.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
 
-        <ImageView
-            android:id="@+id/ivLogo"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/icon_download"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvToolbarTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Video Downloader"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivLogo"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <ImageView
-            android:id="@+id/ivPremium"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/premium"
-            android:src="@drawable/icon_premium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tab_card"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:id="@+id/tab_card"
-            app:strokeWidth="@dimen/_2sdp"
-            app:strokeColor="@color/black"
-            app:cardCornerRadius="@dimen/_6sdp"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ivSettings"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:fontFamily="@font/segoe_bold"
-                android:id="@+id/ivTabBadge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="@dimen/_14ssp"
-                />
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-
-        <ImageView
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:id="@+id/ivSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_settings"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ivMore"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/ivMore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_more_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:layout_marginStart="@dimen/_20sdp"
         android:id="@+id/tvTitle"
         android:fontFamily="@font/segoe_bold"
 
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_16sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search_amp_download_videos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"

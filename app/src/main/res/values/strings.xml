@@ -49,4 +49,8 @@
     <string name="download">Download</string>
     <string name="quick_access">Quick Access</string>
     <string name="search_or_paste_link_to_download">Search or Paste Link to Download</string>
+    <string name="setting">Setting</string>
+    <string name="ads_free_experience">Ads free Experience</string>
+    <string name="all_music">All Music</string>
+    <string name="all_videos">All Videos</string>
 </resources>
