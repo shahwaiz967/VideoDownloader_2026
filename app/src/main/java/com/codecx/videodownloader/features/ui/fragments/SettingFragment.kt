@@ -24,6 +24,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }
+
+        binding.historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
+        binding.historyRow.tvLanguage.text = "History"
+
+        binding.bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
+        binding.bookMarkRow.tvLanguage.text = "Bookmarks"
     }
 
 
