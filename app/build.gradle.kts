@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -52,4 +53,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     implementation("com.github.bumptech.glide:glide:5.0.5")
+
+    // Koin Core
+    implementation("io.insert-koin:koin-core:4.1.0")
+
+    // Koin for Android
+    implementation("io.insert-koin:koin-android:4.1.0")
 }

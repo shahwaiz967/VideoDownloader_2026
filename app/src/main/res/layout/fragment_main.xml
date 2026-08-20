@@ -56,7 +56,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_marginEnd="@dimen/_8sdp"
             android:id="@+id/tab_card"
-            app:strokeWidth="@dimen/_1sdp"
+            app:strokeWidth="@dimen/_2sdp"
             app:strokeColor="@color/black"
             app:cardCornerRadius="@dimen/_6sdp"
             android:layout_width="@dimen/_20sdp"

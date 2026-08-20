@@ -32,5 +32,15 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
                 }
             })
         }
+
+        binding.ebayReview.tvReviewText.text = "Smooth & Relaiable Performance"
+        binding.ebayReview.tvReviewerName.text = "Ebay Moyar"
+
+        binding.emilyReview.tvReviewText.text = "Upgraded to premium no ads & blazing speed"
+        binding.emilyReview.tvReviewerName.text = "Emily Carter"
+
+        binding.noahReview.tvReviewText.text = "Good value for money no ads. Love it"
+        binding.noahReview.tvReviewerName.text = "Noah Mitchell"
+
     }
 }

@@ -8,6 +8,7 @@
     tools:context=".features.ui.fragments.PlayerFragment">
 
     <com.google.android.material.button.MaterialButton
+        android:paddingVertical="@dimen/_10sdp"
         android:id="@+id/all_Video_Button"
         android:layout_marginVertical="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_25sdp"
@@ -23,6 +24,7 @@
         app:iconGravity="start"/>
 
     <com.google.android.material.button.MaterialButton
+        android:paddingVertical="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginVertical="@dimen/_10sdp"
         android:id="@+id/all_Music_button"

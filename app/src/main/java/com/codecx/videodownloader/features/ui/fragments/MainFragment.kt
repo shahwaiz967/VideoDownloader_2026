@@ -6,10 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.ImageView
+import android.widget.Toast
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentMainBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.button.MaterialButton
 
 
 class MainFragment : BaseFragment<FragmentMainBinding>(){
@@ -30,7 +35,29 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
             loadFragment(HomeFragment())
         }
 
+        binding.tabCard.setOnClickListener {
+            tabBottomSheet()
+        }
        navigation()
+    }
+
+    private fun tabBottomSheet(){
+        val bottomSheet = BottomSheetDialog(requireContext())
+        bottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        bottomSheet.setContentView(R.layout.tab_bottom_sheet)
+
+        val backArrow = bottomSheet.findViewById<ImageView>(R.id.backButton)
+        val btnAddTab = bottomSheet.findViewById<MaterialButton>(R.id.btnAddTab)
+
+        backArrow?.setOnClickListener {
+            bottomSheet.dismiss()
+        }
+        btnAddTab?.setOnClickListener {
+            Toast.makeText(requireContext(), "Add Tab", Toast.LENGTH_SHORT).show()
+        }
+        bottomSheet.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        bottomSheet.show()
     }
 
     private fun navigation(){

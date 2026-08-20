@@ -163,6 +163,30 @@ fun Long.getTimeFormat(pattern: String = "hh:mm a"): String {
     return SimpleDateFormat(pattern, Locale.getDefault()).format(this).toString()
 }
 
+fun Long.formatDuration(): String {
+    val totalSeconds = this / 1000
+    val hours = totalSeconds / 3600
+    val minutes = (totalSeconds % 3600) / 60
+    val seconds = totalSeconds % 60
+    return if (hours > 0) {
+        String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds)
+    } else {
+        String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+    }
+}
+
+fun Long.formatFileSize(): String {
+    if (this <= 0) return "0 B"
+    val units = arrayOf("B", "KB", "MB", "GB", "TB")
+    val digitGroups = (Math.log10(this.toDouble()) / Math.log10(1024.0)).toInt()
+    return String.format(
+        Locale.getDefault(),
+        "%.1f %s",
+        this / Math.pow(1024.0, digitGroups.toDouble()),
+        units[digitGroups]
+    )
+}
+
 fun Activity.keepScreenActive() {
     window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 }
