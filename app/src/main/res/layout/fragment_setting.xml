@@ -300,7 +300,130 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Browser"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/segoe_semibold"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                app:strokeWidth="0dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rowSetDefaultBrowser"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ivDefaultBrowserIcon"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:src="@drawable/ic_default_browser"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvDefaultBrowser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Set Default Browser"
+                            android:fontFamily="@font/segoe_semibold"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="@dimen/_13ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/swDefaultBrowser"
+                            app:layout_constraintStart_toEndOf="@id/ivDefaultBrowserIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/swDefaultBrowser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:trackTint="@color/primaryColor"
+                            app:thumbTint="@color/white"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        app:layout_constraintTop_toBottomOf="@id/rowSetDefaultBrowser"
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
+                        />
+
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/searchEngine"/>
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/cacheRow"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/segoe_semibold"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/rateUSRow"/>
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/shareRow"/>
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/feedBaCKRow"/>
+                    <include
+                        layout="@layout/item_setting_row"
+                        android:id="@+id/privacyRow"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
+
+
 
 
     </androidx.core.widget.NestedScrollView>

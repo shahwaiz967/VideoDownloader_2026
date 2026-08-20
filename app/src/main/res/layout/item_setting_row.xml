@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -35,11 +35,24 @@
             android:textColor="?attr/colorOnSurface"
             android:textSize="@dimen/_13ssp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ivLanguageArrow"
+            app:layout_constraintEnd_toStartOf="@id/tvSearchEngine"
             app:layout_constraintStart_toEndOf="@id/ivLanguageIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:text="Google"
+            android:visibility="gone"
+            android:id="@+id/tvSearchEngine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivLanguageArrow"
+            />
+
         <ImageView
+            android:visibility="visible"
             android:id="@+id/ivLanguageArrow"
             android:layout_width="18dp"
             android:layout_height="18dp"
@@ -48,6 +61,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/clearCache"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/primaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+            <TextView
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_6sdp"
+                android:textColor="@color/primaryColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clear"
+            />
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View

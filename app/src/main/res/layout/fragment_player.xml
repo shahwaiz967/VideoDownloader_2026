@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:paddingHorizontal="@dimen/_10sdp"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.ui.fragments.PlayerFragment">
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/all_videos"
         android:textSize="@dimen/_12ssp"
+        app:iconTint="@null"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:icon="@drawable/icon_all_videos"
@@ -27,12 +29,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/all_music"
+        app:iconTint="@null"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:icon="@drawable/icon_all_music"
         app:cornerRadius="@dimen/_10sdp"
         app:iconGravity="start"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_chip_layout"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+
+        android:id="@+id/chipRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/all_Music_button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_media_recycler"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        android:id="@+id/media_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipRecycler"/>
 
 
 

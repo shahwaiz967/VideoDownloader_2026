@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:id="@+id/chip_item"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="@dimen/_1sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
+    app:strokeColor="@color/primaryColor"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/chipText"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Folder"/>
+
+
+</com.google.android.material.card.MaterialCardView>
