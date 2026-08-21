@@ -7,37 +7,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.ui.fragments.PlayerFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:paddingVertical="@dimen/_10sdp"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
         android:id="@+id/all_Video_Button"
-        android:layout_marginVertical="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/_50sdp"
         android:layout_height="wrap_content"
-        android:text="@string/all_videos"
-        android:textSize="@dimen/_12ssp"
-        app:iconTint="@null"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:icon="@drawable/icon_all_videos"
-        app:cornerRadius="@dimen/_10sdp"
-        app:iconGravity="start"/>
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardBackgroundColor="@color/primaryColor"
+        app:layout_constraintEnd_toStartOf="@+id/all_Music_button"
+        app:layout_constraintStart_toStartOf="@+id/chipRecycler"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:paddingVertical="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <com.google.android.material.button.MaterialButton
-        android:paddingVertical="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:layout_marginVertical="@dimen/_10sdp"
+            <ImageView
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/icon_all_videos"/>
+            <TextView
+                android:fontFamily="@font/segoe_bold"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_videos"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
         android:id="@+id/all_Music_button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardBackgroundColor="@color/primaryColor"
+        app:layout_constraintStart_toEndOf="@id/all_Video_Button"
+        app:layout_constraintEnd_toEndOf="@+id/chipRecycler"
+        app:layout_constraintTop_toTopOf="parent" >
+        <LinearLayout
+            android:paddingVertical="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/icon_all_music"/>
+            <TextView
+                android:fontFamily="@font/segoe_bold"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_music"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+<!--
+    <com.google.android.material.button.MaterialButton
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
         android:text="@string/all_music"
-        app:iconTint="@null"
         android:textSize="@dimen/_12ssp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:icon="@drawable/icon_all_music"
         app:cornerRadius="@dimen/_10sdp"
-        app:iconGravity="start"/>
+
+        app:icon="@drawable/icon_all_music"
+        app:iconGravity="start"
+        app:iconTint="@null"
+        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/item_chip_layout"

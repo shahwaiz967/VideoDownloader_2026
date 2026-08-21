@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Video Downloader</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello History fragment</string>
     <string name="download_without_limits">Download Without Limits</string>
     <string name="select_language">Select Language</string>
     <string name="next">Next</string>
@@ -55,4 +55,10 @@
     <string name="all_videos">All Videos</string>
     <string name="clear">Clear</string>
     <string name="add_tab">+ Add Tab</string>
+    <string name="home">Home</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Check out this amazing app: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Share via</string>
+    <string name="feedback_subject">App Feedback - Video Downloader</string>
+    <string name="send_feedback">Send Feedback</string>
 </resources>

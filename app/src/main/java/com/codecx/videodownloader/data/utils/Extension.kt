@@ -2,6 +2,7 @@ package com.codecx.videodownloader.data.utils
 
 import android.R
 import android.app.Activity
+import android.app.role.RoleManager
 import android.content.Context
 import android.graphics.RenderEffect
 import android.graphics.Shader
@@ -33,6 +34,7 @@ import com.codecx.videodownloader.features.ui.activities.MainActivity
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -253,3 +255,35 @@ fun Fragment.runWhenResumed(action: () -> Unit) {
         }
     }
 }
+
+fun Context.clearAppCache(){
+    try {
+        cacheDir?.deleteRecursively()
+        externalCacheDir?.deleteRecursively()
+
+        Toast.makeText(this, "Cache cleared successfully", Toast.LENGTH_SHORT).show()
+    }catch (e: Exception){
+        e.printStackTrace()
+        Toast.makeText(this, "Failed to clear cache", Toast.LENGTH_SHORT).show()
+    }
+}
+
+private fun File.deleteRecursively(): Boolean {
+    if (isDirectory) {
+        val children = listFiles() ?: return false
+        for (child in children) {
+            child.deleteRecursively()
+        }
+    }
+    return delete()
+}
+
+fun Context.isDefaultBrowser(): Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val roleManager = getSystemService(RoleManager::class.java)
+        roleManager.isRoleHeld(RoleManager.ROLE_BROWSER)
+    } else {
+        false
+    }
+}
+

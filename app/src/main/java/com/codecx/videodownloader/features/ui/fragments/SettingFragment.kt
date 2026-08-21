@@ -1,12 +1,18 @@
 package com.codecx.videodownloader.features.ui.fragments
 
+import android.app.role.RoleManager
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.utils.clearAppCache
+import com.codecx.videodownloader.data.utils.isDefaultBrowser
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSettingBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -29,6 +35,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             safeNavigate(R.id.languageFragment)
         }
         rows()
+        setupListeners()
 
     }
 
@@ -65,6 +72,90 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             privacyRow.view3.visibility = View.GONE
         }
     }
+
+    private fun setupListeners(){
+
+        val packageName = requireContext().packageName
+        with(binding){
+
+            historyRow.root.setOnClickListener {
+                safeNavigate(R.id.historyFragment)
+            }
+            bookMarkRow.root.setOnClickListener {
+                safeNavigate(R.id.bookMarkFragment)
+            }
+            cacheRow.clearCache.setOnClickListener {
+                requireContext().clearAppCache()
+            }
+            shareRow.root.setOnClickListener {
+                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, getString(R.string.share_message, packageName))
+                }
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)))
+            }
+            rateUSRow.root.setOnClickListener {
+                try {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("market://details?id=$packageName")
+                        )
+                    )
+                } catch (e: Exception) {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+                        )
+                    )
+                }
+            }
+
+            feedBaCKRow.root.setOnClickListener {
+                val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:support@videodownloader.app")
+                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject))
+                }
+                startActivity(Intent.createChooser(emailIntent, getString(R.string.send_feedback)))
+            }
+            privacyRow.root.setOnClickListener {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-video-downloader.html")
+                    )
+                )
+            }
+
+            swDefaultBrowser.setOnCheckedChangeListener { _, bool ->
+                if (bool){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+                        val roleManager = requireContext().getSystemService(RoleManager::class.java)
+                        if (roleManager.isRoleAvailable(RoleManager.ROLE_BROWSER) &&
+                            !roleManager.isRoleHeld(RoleManager.ROLE_BROWSER)
+                        ) {
+
+                            val intent = roleManager.createRequestRoleIntent(
+                                RoleManager.ROLE_BROWSER
+                            )
+
+                            startActivityForResult(intent, 100)
+                        }
+                    }
+                }
+                else{
+                    val intent = Intent(
+                        Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS
+                    )
+                    startActivity(intent)
+                }
+            }
+
+
+        }
+    }
+
 
 
 }

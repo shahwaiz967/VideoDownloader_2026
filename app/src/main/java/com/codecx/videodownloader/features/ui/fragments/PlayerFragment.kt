@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.data.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentPlayerBinding
 import com.codecx.videodownloader.features.adapters.PlayerChipAdapter
@@ -55,7 +56,6 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 chipAdapter.setSelectedFolder("All")
                 mediaAdapter.submitList(viewModel.videos.value.toList())
                 chipAdapter.submitFolders(viewModel.videoFolders.value)
-                binding.mediaRecycler.adapter = null
                 binding.mediaRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.mediaRecycler.adapter = mediaAdapter
 
@@ -70,7 +70,6 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 chipAdapter.setSelectedFolder("All")
                 mediaAdapter.submitList(viewModel.audios.value.toList())
                 chipAdapter.submitFolders(viewModel.audioFolders.value)
-                binding.mediaRecycler.adapter = null
                 binding.mediaRecycler.layoutManager = LinearLayoutManager(requireContext())
                 binding.mediaRecycler.adapter = mediaAdapter
 
@@ -83,8 +82,13 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
 
     private fun setupMediaAdapter() {
         mediaAdapter = PlayerMediaAdapter { media ->
-            Toast.makeText(requireContext(), "Clicked on ${media.title}", Toast.LENGTH_SHORT).show()
+            val bundle = Bundle()
+            bundle.putString("videoPath", media.path)
+            bundle.putString("videoTitle", media.title)
+            bundle.putBoolean("isAudio", media.isAudio)
+            safeNavigate(R.id.mediaPlayFragment, bundle)
         }
+
         binding.mediaRecycler.apply {
             layoutManager = if (viewModel.showingVideos) {
                 GridLayoutManager(requireContext(), 2)
@@ -135,20 +139,14 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     }
 
     private fun setupFolderAdapter() {
-
         chipAdapter = PlayerChipAdapter { folder ->
-
             viewModel.selectedFolder = folder
-
             if (viewModel.showingVideos) {
-
                 viewModel.loadVideos(
                     requireContext(),
                     folder
                 )
-
             } else {
-
                 viewModel.loadAudio(
                     requireContext(),
                     folder

@@ -54,4 +54,41 @@
         android:name="com.codecx.videodownloader.features.ui.fragments.SettingFragment"
         android:label="setting_fragment"
         tools:layout="@layout/fragment_setting"/>
+    <fragment
+        android:id="@+id/mediaPlayFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.MediaPlayFragment"
+        android:label="media_play_fragment"
+        tools:layout="@layout/fragment_media_play">
+        <argument
+            android:name="videoPath"
+            app:argType="string" />
+        <argument
+            android:name="videoTitle"
+            app:argType="string" />
+        <argument
+            android:name="isAudio"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.PlayerFragment"
+        android:label="player_fragment"
+        tools:layout="@layout/fragment_player"/>
+
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.DownloadFragment"
+        tools:layout="@layout/fragment_download"/>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.HistoryFragment"
+        tools:layout="@layout/fragment_history"/>
+
+    <fragment
+        android:id="@+id/bookMarkFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.BookMarkFragment"
+        tools:layout="@layout/fragment_book_mark"/>
+
 </navigation>
