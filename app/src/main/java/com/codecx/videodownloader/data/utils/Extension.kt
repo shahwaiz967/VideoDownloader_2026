@@ -18,6 +18,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -284,6 +285,29 @@ fun Context.isDefaultBrowser(): Boolean {
         roleManager.isRoleHeld(RoleManager.ROLE_BROWSER)
     } else {
         false
+    }
+}
+
+object ThemeManager {
+
+    private const val PREFS = "theme_prefs"
+    private const val KEY_DARK_MODE = "dark_mode"
+
+    fun isDarkMode(context: Context): Boolean {
+        return context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getBoolean(KEY_DARK_MODE, false)
+    }
+
+    fun setDarkMode(context: Context, enabled: Boolean) {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_DARK_MODE, enabled)
+            .apply()
+
+        AppCompatDelegate.setDefaultNightMode(
+            if (enabled) AppCompatDelegate.MODE_NIGHT_YES
+            else AppCompatDelegate.MODE_NIGHT_NO
+        )
     }
 }
 

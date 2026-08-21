@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:paddingVertical="8dp"
-    android:background="@color/white"
+    android:background="@color/card_color"
     android:layout_height="wrap_content">
 
     <TextView
@@ -15,7 +15,7 @@
         android:text="Feature"
         android:textSize="13sp"
         android:gravity="center_vertical"
-        android:textColor="?attr/colorOnSurface"
+        android:textColor="@color/onBackground"
         app:layout_constraintHorizontal_weight="1.5"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toStartOf="@id/view1"

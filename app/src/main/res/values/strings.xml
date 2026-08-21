@@ -61,4 +61,6 @@
     <string name="share_via">Share via</string>
     <string name="feedback_subject">App Feedback - Video Downloader</string>
     <string name="send_feedback">Send Feedback</string>
+    <string name="advertisement">Advertisement...</string>
+    <string name="trending_reels">Trending reels</string>
 </resources>

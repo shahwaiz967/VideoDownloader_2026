@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="progress_track_light">#4A3428</color>
+    <color name="primaryColor">#FF5722</color>
+    <color name="onPrimaryColor">#FFFFFF</color>
+    <color name="onBackground">#EDEDED</color>
+    <color name="backgroundColor">#121212</color>
+    <color name="stroke_colour">#817979</color>
+    <color name="gray">#B3A9A9</color>
+    <color name="card_color">#383131</color>
+
+</resources>

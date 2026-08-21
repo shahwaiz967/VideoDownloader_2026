@@ -9,4 +9,7 @@
     <color name="backgroundColor">#FFFFFF</color>
     <color name="stroke_colour">#DADADA</color>
     <color name="gray">#AFAFAF</color>
+
+    <color name="card_color">#FFFFFF</color>
+
 </resources>

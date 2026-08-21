@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.utils.ThemeManager
 import com.codecx.videodownloader.data.utils.clearAppCache
 import com.codecx.videodownloader.data.utils.isDefaultBrowser
 import com.codecx.videodownloader.data.utils.safeNavigate
@@ -150,6 +151,11 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                     )
                     startActivity(intent)
                 }
+            }
+            swDarkMode.isChecked = ThemeManager.isDarkMode(requireContext())
+
+            swDarkMode.setOnCheckedChangeListener { _, isChecked ->
+                ThemeManager.setDarkMode(requireContext(), isChecked)
             }
 
 

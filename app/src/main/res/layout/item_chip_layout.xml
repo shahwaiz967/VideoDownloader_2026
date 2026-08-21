@@ -13,6 +13,7 @@
     app:cardBackgroundColor="@android:color/transparent">
 
     <TextView
+        android:textColor="@color/onBackground"
         android:id="@+id/chipText"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginVertical="@dimen/_8sdp"
