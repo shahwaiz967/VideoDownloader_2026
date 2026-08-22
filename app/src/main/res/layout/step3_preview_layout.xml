@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:padding="@dimen/_5sdp"
+    android:clipToPadding="false"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hand"
+        android:translationY="20dp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivStepImage3"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/ivStepImage3"
+        app:layout_constraintTop_toTopOf="@+id/ivStepImage3" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ivStepImage3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/card_color"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_corner_round"
+                    android:clickable="false"
+                    android:paddingVertical="10dp"
+                    android:fontFamily="@font/segoe_regular"
+                    android:insetBottom="0dp"
+                    android:insetTop="0dp"
+                    android:maxLines="1"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="0dp"
+                    android:text="@string/in_progress"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_7ssp"
+                    app:cornerRadius="5dp"
+                    app:backgroundTint="@null"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:insetBottom="0dp"
+                    android:insetTop="0dp"
+                    android:minHeight="0dp"
+                    app:cornerRadius="5dp"
+                    android:paddingHorizontal="0dp"
+                    android:text="@string/completed"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/white"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#DADADA"
+                    android:textColor="#9F9FA1"
+                    android:paddingVertical="10dp"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_7ssp"
+                    app:iconGravity="textStart"
+                    app:icon="@drawable/complete_icon"
+                    app:iconSize="@dimen/_8sdp"
+                    app:iconTint="@color/gray" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    app:strokeWidth="0dp"
+                    app:cardElevation="0dp">
+                    <ImageView
+                        android:id="@+id/step3_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/step3_preview_image" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+                <LinearLayout
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_bold"
+                        android:text="@string/video"
+                        android:textColor="@color/dark_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_semibold"
+                        android:text="1.0/5.0 MB - 15 %"
+                        android:textColor="@color/light_gray"
+                        android:textSize="@dimen/_6ssp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:progress="50"
+                        app:trackColor="#CCCCCC"
+                        app:trackCornerRadius="@dimen/_10sdp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.media3.common.Player
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
-import com.codecx.videodownloader.data.viewmodel.VideoPlayerViewModel
+import com.codecx.videodownloader.features.viewmodel.VideoPlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentMediaPlayBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel

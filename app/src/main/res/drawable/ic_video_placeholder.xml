@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="56dp"
+    android:height="56dp"
+    android:viewportWidth="56"
+    android:viewportHeight="56">
+
+    <!-- Background -->
+    <path
+        android:fillColor="#F0F0F0"
+        android:pathData="M0,8 C0,3.6 3.6,0 8,0 L48,0 C52.4,0 56,3.6 56,8 L56,48 C56,52.4 52.4,56 48,56 L8,56 C3.6,56 0,52.4 0,48 Z"/>
+
+    <!-- Mountain / landscape shape -->
+    <path
+        android:fillColor="#CCCCCC"
+        android:pathData="M0,38 L14,22 L26,32 L36,20 L56,38 Z"/>
+
+    <!-- Sun circle -->
+    <path
+        android:fillColor="#CCCCCC"
+        android:pathData="M38,18 C38,21.3 35.3,24 32,24 C28.7,24 26,21.3 26,18 C26,14.7 28.7,12 32,12 C35.3,12 38,14.7 38,18 Z"/>
+
+    <!-- Bottom fill -->
+    <path
+        android:fillColor="#CCCCCC"
+        android:pathData="M0,38 L56,38 L56,56 L0,56 Z"/>
+
+    <!-- Play button circle background -->
+    <path
+        android:fillColor="#80000000"
+        android:pathData="M28,20 C28,23.3 25.3,26 22,26 C18.7,26 16,23.3 16,20 C16,16.7 18.7,14 22,14 C25.3,14 28,16.7 28,20 Z"
+        android:translateX="6"
+        android:translateY="8"/>
+
+    <!-- Play triangle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,25 L24,35 L32,30 Z"/>
+
+</vector>

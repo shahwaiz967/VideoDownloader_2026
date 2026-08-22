@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:layout_height="wrap_content"
+    app:strokeWidth="0dp"
+    app:cardElevation="@dimen/_3sdp"
+    app:cardBackgroundColor="@color/card_color">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/media_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/media_download_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/media_title"
+            app:layout_constraintStart_toEndOf="@id/media_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download"
+            android:textColor="@color/onBackground"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/segoe_semibold"/>
+
+        <TextView
+            android:id="@+id/tvFileSize"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@+id/download_icon"
+            android:textColor="@color/primaryColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.5 MB"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/segoe_semibold"/>
+
+        <ImageView
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:id="@+id/download_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/download_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

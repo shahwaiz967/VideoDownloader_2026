@@ -9,7 +9,12 @@
     <color name="backgroundColor">#FFFFFF</color>
     <color name="stroke_colour">#DADADA</color>
     <color name="gray">#AFAFAF</color>
-
     <color name="card_color">#FFFFFF</color>
+
+    <color name="insta_card_color">#F6F7FB</color>
+    
+    <color name="dark_gray">#9F9FA1</color>"
+    <color name="light_gray">#B3A9A9</color>"
+    <color name="item_language">#F4F4F4</color>
 
 </resources>

@@ -11,4 +11,10 @@
     <color name="gray">#B3A9A9</color>
     <color name="card_color">#383131</color>
 
+    <color name="insta_card_color">#383131</color>
+    <color name="dark_gray">#9F9FA1</color>"
+    <color name="light_gray">#B3A9A9</color>"
+
+    <color name="item_language">#383131</color>
+
 </resources>

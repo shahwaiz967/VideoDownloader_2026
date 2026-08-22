@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.safeNavigate
-import com.codecx.videodownloader.data.viewmodel.PlayerViewModel
+import com.codecx.videodownloader.features.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentPlayerBinding
 import com.codecx.videodownloader.features.adapters.PlayerChipAdapter
 import com.codecx.videodownloader.features.adapters.PlayerMediaAdapter

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardTab"
@@ -8,7 +8,12 @@
     android:layout_margin="@dimen/_6sdp"
     app:cardBackgroundColor="@color/card_color"
     app:cardCornerRadius="@dimen/_12sdp"
-    app:cardElevation="@dimen/_3sdp">
+    app:cardElevation="@dimen/_3sdp"
+
+    app:strokeWidth="3dp"
+    app:strokeColor="@color/primaryColor">
+
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -79,4 +84,4 @@
         </LinearLayout>
     </FrameLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
