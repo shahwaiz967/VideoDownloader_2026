@@ -17,7 +17,7 @@ import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.databinding.DownloadBottomSheetFragmentBinding
 import com.codecx.videodownloader.features.adapters.DownloadOptionAdapter
-import com.codecx.videodownloader.features.viewmodel.DownloadViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

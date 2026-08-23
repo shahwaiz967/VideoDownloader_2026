@@ -1,4 +1,4 @@
-package com.codecx.videodownloader.features.viewmodel
+package com.codecx.videodownloader.features.ui.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

@@ -63,6 +63,7 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:3.2.3")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.2.3")
     implementation("io.ktor:ktor-client-logging:3.2.3")
+    implementation("io.ktor:ktor-serialization-gson:3.2.3")
 
     implementation("com.github.bumptech.glide:glide:5.0.5")
 

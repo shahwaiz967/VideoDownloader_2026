@@ -252,9 +252,9 @@
                     <include
                         layout="@layout/item_setting_row"
                         android:id="@+id/historyRow"/>
-                    <include
+                    <!--<include
                         layout="@layout/item_setting_row"
-                        android:id="@+id/bookMarkRow"/>
+                        android:id="@+id/bookMarkRow"/>-->
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/rowDarkMode"

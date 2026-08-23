@@ -46,8 +46,8 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
             historyRow.tvLanguage.text = "History"
 
-            bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
-            bookMarkRow.tvLanguage.text = "Bookmarks"
+           /* bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
+            bookMarkRow.tvLanguage.text = "Bookmarks"*/
 
             cacheRow.ivLanguageIcon.setImageResource(R.drawable.ic_clear_cache)
             cacheRow.view3.visibility = View.GONE
@@ -82,9 +82,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             historyRow.root.setOnClickListener {
                 safeNavigate(R.id.historyFragment)
             }
-            bookMarkRow.root.setOnClickListener {
+            /*bookMarkRow.root.setOnClickListener {
                 safeNavigate(R.id.bookMarkFragment)
-            }
+            }*/
             cacheRow.clearCache.setOnClickListener {
                 requireContext().clearAppCache()
             }

@@ -14,13 +14,12 @@ import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.data.utils.showToast
-import com.codecx.videodownloader.features.viewmodel.DownloadViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var tabId: Long = -1L

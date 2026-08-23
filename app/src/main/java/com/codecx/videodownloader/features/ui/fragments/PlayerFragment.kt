@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.safeNavigate
-import com.codecx.videodownloader.features.viewmodel.PlayerViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentPlayerBinding
 import com.codecx.videodownloader.features.adapters.PlayerChipAdapter
 import com.codecx.videodownloader.features.adapters.PlayerMediaAdapter

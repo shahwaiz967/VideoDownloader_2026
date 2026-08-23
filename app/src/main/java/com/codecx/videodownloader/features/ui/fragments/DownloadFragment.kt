@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +13,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.codecx.videodownloader.R
 import com.codecx.videodownloader.databinding.FragmentDownloadBinding
 import com.codecx.videodownloader.features.adapters.DownloadFragmentAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
-import com.codecx.videodownloader.features.viewmodel.DownloadViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel

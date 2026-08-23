@@ -1,4 +1,4 @@
-package com.codecx.videodownloader.features.viewmodel
+package com.codecx.videodownloader.features.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.codecx.videodownloader.data.models.TabModel
