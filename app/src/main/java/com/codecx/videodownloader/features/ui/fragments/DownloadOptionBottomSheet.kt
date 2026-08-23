@@ -117,7 +117,6 @@ class DownloadOptionBottomSheet : BottomSheetDialogFragment() {
         requireContext().showToast(
             getString(R.string.download_started)
         )
-
         dismiss()
 
     }

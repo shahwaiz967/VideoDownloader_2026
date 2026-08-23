@@ -1,10 +1,14 @@
 package com.codecx.videodownloader.data.models
 
-import com.google.gson.annotations.SerializedName
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Serializable
+@Entity(tableName = "downloads")
 data class DownloadModel(
+    @PrimaryKey
     val id: Long = System.currentTimeMillis(),
     val title: String,
     val url: String,

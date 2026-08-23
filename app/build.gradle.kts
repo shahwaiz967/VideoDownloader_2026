@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     id("kotlin-parcelize")
@@ -79,4 +81,8 @@ dependencies {
 
     // Gson (JSON parsing)
     implementation("com.google.code.gson:gson:2.11.0")
+
+    implementation("androidx.work:work-runtime-ktx:2.10.1")
+
+    implementation ("com.airbnb.android:lottie:+")
 }

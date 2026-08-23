@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navHost: NavHostFragment
     private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

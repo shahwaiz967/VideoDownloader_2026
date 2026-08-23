@@ -88,5 +88,10 @@
     <string name="download_started">Download Started</string>
     <string name="not_available">Not Available</string>
     <string name="loading">Loading...</string>
+    <string name="download_complete">Download Complete</string>
+    <string name="no_downloads">No Downloads</string>
+    <string name="open_folder">Open Folder</string>
+    <string name="share">Share</string>
+    <string name="view">View</string>
 
 </resources>

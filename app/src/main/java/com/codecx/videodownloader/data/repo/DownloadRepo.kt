@@ -32,8 +32,11 @@ import io.ktor.utils.io.readAvailable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -53,6 +56,9 @@ class DownloadRepo(
 
     private val _completedDownloads = MutableStateFlow<List<DownloadModel>>(emptyList())
     val completedDownloads: StateFlow<List<DownloadModel>> = _completedDownloads.asStateFlow()
+
+    private val _downloadCompleteEvent = MutableSharedFlow<DownloadModel>()
+    val downloadCompleteEvent: SharedFlow<DownloadModel> = _downloadCompleteEvent.asSharedFlow()
 
     // ── Internal mutable lists ────────────────────────────────────────────────
     private val activeList = mutableListOf<DownloadModel>()
@@ -88,17 +94,6 @@ class DownloadRepo(
         }
     }
 
-    suspend fun startDownload(downloadItem: DownloadModel, onDone: (DownloadModel?) -> Unit) {
-        startDownload(
-            item = downloadItem,
-            onProgress = {},
-            onComplete = onDone,
-            onError = { error ->
-                onDone(null)
-            }
-        )
-    }
-
 
     private fun emitActive() {
         _activeDownloads.value = activeList.toList()
@@ -114,27 +109,14 @@ class DownloadRepo(
         onComplete: (DownloadModel) -> Unit,
         onError: (String) -> Unit
     ) = withContext(Dispatchers.IO) {
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val notificationId = item.id.toInt()
         var mediaUri: Uri? = null
-
         try {
             Log.d(TAG, "Starting download: ${item.url}")
 
-            val progressNotificationBuilder = NotificationCompat.Builder(context, AppConstants.NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.stat_sys_download)
-                .setContentTitle(item.title.ifEmpty { "Downloading..." })
-                .setContentText("Starting download...")
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .setOnlyAlertOnce(true)
-                .setOngoing(true)
-                .setProgress(100, 0, true)
-
-            notificationManager.notify(notificationId, progressNotificationBuilder.build())
-
             webClient.prepareGet(item.url) {
                 headers.append(
-                    "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                    "User-Agent",
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
                 )
                 headers.append("Accept", "*/*")
                 headers.append("Accept-Encoding", "identity")
@@ -143,7 +125,6 @@ class DownloadRepo(
                 val isSuccess = response.status.isSuccess()
 
                 if (!isSuccess && code != 206) {
-                    notificationManager.cancel(notificationId)
                     withContext(Dispatchers.Main) { onError("Server error: $code") }
                     return@execute
                 }
@@ -161,32 +142,37 @@ class DownloadRepo(
                 val fileName = FileUtils.generateFileName(item.title, ext)
                 var savedPath = ""
 
-                val outputStream: OutputStream = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    val mimeType = if (item.isAudio) "audio/mpeg" else "video/mp4"
-                    val collection = if (item.isAudio) MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
-                    else MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+                val outputStream: OutputStream =
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        val mimeType = if (item.isAudio) "audio/mpeg" else "video/mp4"
+                        val collection =
+                            if (item.isAudio) MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+                            else MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
 
-                    val values = ContentValues().apply {
-                        put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
-                        put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
-                        put(
-                            MediaStore.MediaColumns.RELATIVE_PATH,
-                            if (item.isAudio) "${Environment.DIRECTORY_MUSIC}/${STORAGE_FOLDER}"
-                            else "${Environment.DIRECTORY_MOVIES}/${STORAGE_FOLDER}"
-                        )
-                        put(MediaStore.MediaColumns.IS_PENDING, 1)
+                        val values = ContentValues().apply {
+                            put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+                            put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
+                            put(
+                                MediaStore.MediaColumns.RELATIVE_PATH,
+                                if (item.isAudio) "${Environment.DIRECTORY_MUSIC}/${STORAGE_FOLDER}"
+                                else "${Environment.DIRECTORY_MOVIES}/${STORAGE_FOLDER}"
+                            )
+                            put(MediaStore.MediaColumns.IS_PENDING, 1)
+                        }
+
+                        val uri = context.contentResolver.insert(collection, values)
+                            ?: throw Exception("Failed to create file in MediaStore")
+                        mediaUri = uri
+                        savedPath = uri.toString()
+                        context.contentResolver.openOutputStream(uri)
+                            ?: throw Exception("Failed to open output stream")
+                    } else {
+                        val dir =
+                            if (item.isAudio) FileUtils.getAudioDirectory() else FileUtils.getDownloadDirectory()
+                        val file = File(dir, fileName)
+                        savedPath = file.absolutePath
+                        FileOutputStream(file)
                     }
-
-                    val uri = context.contentResolver.insert(collection, values) ?: throw Exception("Failed to create file in MediaStore")
-                    mediaUri = uri
-                    savedPath = uri.toString()
-                    context.contentResolver.openOutputStream(uri) ?: throw Exception("Failed to open output stream")
-                } else {
-                    val dir = if (item.isAudio) FileUtils.getAudioDirectory() else FileUtils.getDownloadDirectory()
-                    val file = File(dir, fileName)
-                    savedPath = file.absolutePath
-                    FileOutputStream(file)
-                }
 
                 var downloadedBytes = 0L
                 var lastProgress = -1
@@ -212,12 +198,6 @@ class DownloadRepo(
                         if (progress != lastProgress && (currentTime - lastNotificationTime > 500)) {
                             lastProgress = progress
                             lastNotificationTime = currentTime
-
-                            progressNotificationBuilder
-                                .setContentText("$progress%")
-                                .setProgress(100, progress, false)
-                            notificationManager.notify(notificationId, progressNotificationBuilder.build())
-
                             activeItem = activeItem.copy(progress = progress)
                             synchronized(activeList) {
                                 val index = activeList.indexOfFirst { it.id == activeItem.id }
@@ -227,7 +207,7 @@ class DownloadRepo(
                                 }
                             }
 
-                            withContext(Dispatchers.Main) { onProgress(progress) }
+                            onProgress(progress)
                         }
                     }
                 }
@@ -235,7 +215,8 @@ class DownloadRepo(
                 ensureActive()
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && mediaUri != null) {
-                    val values = ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }
+                    val values =
+                        ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }
                     context.contentResolver.update(mediaUri, values, null, null)
                 }
 
@@ -246,7 +227,6 @@ class DownloadRepo(
                     fileSize = fileSize,
                     progress = 100
                 )
-
                 synchronized(activeList) {
                     activeList.removeAll { it.id == activeItem.id }
                     emitActive()
@@ -255,17 +235,13 @@ class DownloadRepo(
                     completedList.add(0, completed)
                     emitCompleted()
                 }
-
-                notificationManager.cancel(notificationId)
-                showCompletionNotification(context, item.title)
-
-                withContext(Dispatchers.Main) { onComplete(completed) }
+                onComplete(completed)
+                _downloadCompleteEvent.emit(completed)
             }
 
         } catch (e: CancellationException) {
             Log.d(TAG, "Download cancelled: ${item.url}")
             mediaUri?.let { context.contentResolver.delete(it, null, null) }
-            notificationManager.cancel(notificationId)
             synchronized(activeList) {
                 activeList.removeAll { it.id == item.id }
                 emitActive()
@@ -274,28 +250,14 @@ class DownloadRepo(
         } catch (e: Exception) {
             Log.e(TAG, "Write/Download failed: ${e.message}", e)
             mediaUri?.let { context.contentResolver.delete(it, null, null) }
-            notificationManager.cancel(notificationId)
             synchronized(activeList) {
                 activeList.removeAll { it.id == item.id }
                 emitActive()
             }
-            withContext(Dispatchers.Main) { onError("Download failed: ${e.message}") }
+            onError("Download failed: ${e.message}")
         }
     }
 
-
-    private fun showCompletionNotification(context: Context, title: String) {
-        val manager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val notification =
-            NotificationCompat.Builder(context, AppConstants.NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.stat_sys_download_done)
-                .setContentTitle("Download Complete")
-                .setContentText(title)
-                .setAutoCancel(true)
-                .build()
-        manager.notify(System.currentTimeMillis().toInt(), notification)
-    }
 
     fun loadCompletedFromFolder(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {

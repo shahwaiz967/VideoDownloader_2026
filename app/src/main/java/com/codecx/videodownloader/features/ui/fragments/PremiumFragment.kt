@@ -26,13 +26,20 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnStartTrial.setOnClickListener {
-            safeNavigate(R.id.mainFragment,null, navOptions {
+            safeNavigate(R.id.mainFragment, null, navOptions {
                 popUpTo(R.id.nav_graph) {
                     inclusive = true
                 }
             })
         }
 
+        binding.btnBack.setOnClickListener {
+            safeNavigate(R.id.mainFragment, null, navOptions {
+                popUpTo(R.id.nav_graph) {
+                    inclusive = true
+                }
+            })
+        }
         binding.ebayReview.tvReviewText.text = "Smooth & Relaiable Performance"
         binding.ebayReview.tvReviewerName.text = "Ebay Moyar"
 

@@ -92,15 +92,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
                     }
                 }
-                launch {
-                    downloadViewModel.downloadEvent.collectLatest {
-                        if (it != null) {
-                            requireContext().showToast(
-                                getString(R.string.completed)
-                            )
-                        }
-                    }
-                }
             }
         }
     }

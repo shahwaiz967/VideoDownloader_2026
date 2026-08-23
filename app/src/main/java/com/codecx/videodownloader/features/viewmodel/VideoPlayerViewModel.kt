@@ -21,7 +21,6 @@ class VideoPlayerViewModel(
 
         val mediaPath = videoPlayerRepo.getMediaPath(path)
 
-        // Don't recreate/change the media if it's already loaded
         if (currentPath == mediaPath) {
             return
         }
