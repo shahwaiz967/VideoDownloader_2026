@@ -1,9 +1,9 @@
-import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)
     id("kotlin-parcelize")
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.codecx.videodownloader"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -22,19 +22,24 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+    kotlin {
+        compilerOptions {
+            languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3)
+        }
     }
     buildFeatures {
         viewBinding = true
         buildConfig = true
     }
+
 }
 
 dependencies {
@@ -43,10 +48,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.ui.test)
-    implementation(libs.firebase.dataconnect)
     implementation(libs.material)
-    implementation(libs.transport.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
@@ -56,8 +60,6 @@ dependencies {
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
 
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     implementation("io.ktor:ktor-client-core:3.2.3")
     implementation("io.ktor:ktor-client-okhttp:3.2.3")
@@ -78,8 +80,6 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.3.1")
     implementation("androidx.media3:media3-common:1.3.1")
 
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Gson (JSON parsing)
     implementation("com.google.code.gson:gson:2.11.0")

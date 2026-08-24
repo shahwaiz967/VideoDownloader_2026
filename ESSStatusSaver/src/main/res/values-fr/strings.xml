@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StatusSaver</string>
+    <string name="this_action_may_contain_ads">Cette action peut contenir des publicités</string>
+    <string name="language_selection">Choix de la langue</string>
+    <string name="done">Terminé</string>
+    <string name="save_status">Enregistrer le statut</string>
+    <string name="quick_access">Accès rapide</string>
+    <string name="view_save_share"><![CDATA[Voir, Enregistrer & Partager]]></string>
+    <string name="intro_d1"><![CDATA[Photos et vidéos, enregistrées instantanément.]]></string>
+    <string name="intro_d2">Téléchargez les médias de statut en un seul clic.</string>
+    <string name="intro_d3">Tous les statuts WhatsApp au même endroit</string>
+    <string name="upgrade_premium">Passer en Premium</string>
+    <string name="unlock_the_best_video_downloader_with_add_free_experience">Débloquez le meilleur téléchargeur vidéo avec une expérience sans publicité</string>
+    <string name="notification">Notification</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="language">Langue</string>
+    <string name="share">Partager</string>
+    <string name="rate_us">Évaluez-nous</string>
+    <string name="saved">Enregistré !</string>
+    <string name="fail_to_save">Échec de l\'enregistrement</string>
+    <string name="repost">Republier</string>
+    <string name="save">Enregistrer</string>
+    <string name="please_select_the_statuses_folder_specifically">Veuillez sélectionner spécifiquement le dossier \'.Statuses\'.</string>
+    <string name="images">Images</string>
+    <string name="videos">Vidéos</string>
+    <string name="loading">Chargement....</string>
+    <string name="allow_permission">Autoriser la permission</string>
+    <string name="select_path">Sélectionner le chemin</string>
+    <string name="no_data_found">Aucune donnée trouvée</string>
+</resources>

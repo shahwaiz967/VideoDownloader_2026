@@ -149,6 +149,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun navigate(@StringRes title: Int) {
+
         val bundle = Bundle().apply {
             putInt("name", title)
             putLong("tabId", tabId)

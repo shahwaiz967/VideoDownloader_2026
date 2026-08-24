@@ -18,12 +18,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.databinding.FragmentInAppBrowserBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
 import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.getValue
 
 class InAppBrowserFragment :
     BaseFragment<FragmentInAppBrowserBinding>() {
 
     private val tabViewModel: TabViewModel by activityViewModels()
+    private val viewModel: HistoryBookViewM by viewModel()
 
     private var currentTabId: String? = null
 
@@ -140,13 +145,17 @@ class InAppBrowserFragment :
                     super.onPageFinished(view, url)
 
                     url ?: return
+                    val title = view?.title ?: url
 
                     binding.etUrl.setText(url)
+                    viewModel.addHistory(title, url)
+                    viewModel.addBookmark(title,url)
 
                     updateCurrentTab(
                         title = view?.title ?: url,
                         url = url
                     )
+
 
                     updateNavButtons()
                 }

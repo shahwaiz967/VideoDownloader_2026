@@ -1,12 +1,16 @@
 package com.codecx.videodownloader.data.di
 
+import androidx.room.Room
+import com.codecx.videodownloader.data.dao.AppDatabase
 import com.codecx.videodownloader.data.repo.DownloadRepo
+import com.codecx.videodownloader.data.repo.HistoryBookRepo
 import com.codecx.videodownloader.data.repo.PlayerRepositry
 import com.codecx.videodownloader.data.repo.TabRepository
 import com.codecx.videodownloader.data.repo.VideoPlayerRepo
 import com.codecx.videodownloader.data.utils.AppConstants
 import com.codecx.videodownloader.data.utils.ReelApiService
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
 import com.codecx.videodownloader.features.ui.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.VideoPlayerViewModel
@@ -35,17 +39,32 @@ val appModule = module {
     singleOf(::ReelApiService)
 
 
+    // Room Database
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            AppDatabase::class.java,
+            "history_bookmark_database"
+        ).build()
+    }
+
+    // DAOs
+    single { get<AppDatabase>().historyDao() }
+    single { get<AppDatabase>().bookmarkDao() }
+
     // Repositories
     factoryOf(::PlayerRepositry)
     singleOf(::DownloadRepo)
     singleOf(::TabRepository)
     factoryOf(::VideoPlayerRepo)
+    factoryOf(::HistoryBookRepo)
 
     // ViewModels
     viewModel { DownloadViewModel(get(), androidContext()) }
     viewModelOf(::TabViewModel)
     viewModelOf(::VideoPlayerViewModel)
     viewModelOf(::PlayerViewModel)
+    viewModelOf(::HistoryBookViewM)
 
 
 }

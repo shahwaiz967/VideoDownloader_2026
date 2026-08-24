@@ -1,0 +1,50 @@
+<resources>
+    <string name="this_action_may_contain_ads">This action may contain ads</string>
+    <string name="language_selection">Language Selection</string>
+    <string name="done">Done</string>
+    <string name="save_status">Save Status</string>
+    <string name="quick_access">Quick Access</string>
+    <string name="view_save_share"><![CDATA[View,Save,& Share]]></string>
+    <string name="intro_d1"><![CDATA[Photos & videos, instantly saved.]]></string>
+    <string name="intro_d2">Download status media in one tap.</string>
+    <string name="intro_d3">All whatsaApp status in one place</string>
+    <string name="upgrade_premium">Upgrade Premium</string>
+    <string name="unlock_the_best_video_downloader_with_add_free_experience">Unlock the best Video Downloader with Add Free Experience</string>
+    <string name="notification">Notification</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="language">Language</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="saved">Saved!</string>
+    <string name="fail_to_save">Fail to save</string>
+    <string name="repost">Repost</string>
+    <string name="save">Save</string>
+    <string name="please_select_the_statuses_folder_specifically">Please select the \'.Statuses\' folder specifically.</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="loading">Loading....</string>
+    <string name="allow_permission">Allow Permission</string>
+    <string name="select_path">Select Path</string>
+    <string name="no_data_found">No Data Found</string>
+
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="dd">Digital widget clock</string>
+    <string name="ad">Analog widget clock</string>
+    <string name="languages">Languages</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="monthly">Monthly</string>
+    <string name="weekly">Weekly</string>
+    <string name="yearly">Yearly</string>
+    <string name="complete_access_to_all_widgets">Complete access to all widgets</string>
+    <string name="future_updates">Future updates</string>
+    <string name="support_more_quality_widgets">Support more quality widgets</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="purchase_now">Purchase Now</string>
+    <string name="restore_purchase">Restore purchase</string>
+    <string name="upgrade_to_pro">Upgrade to Pro</string>
+    <string name="settings">Settings</string>
+    <string name="privacy_url">https://www.google.com/</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StatusSaver</string>
+    <string name="this_action_may_contain_ads">इस क्रिया में विज्ञापन हो सकते हैं</string>
+    <string name="language_selection">भाषा चयन</string>
+    <string name="done">हो गया</string>
+    <string name="save_status">स्टेटस सेव करें</string>
+    <string name="quick_access">त्वरित पहुँच</string>
+    <string name="view_save_share"><![CDATA[देखें, सेव करें और शेयर करें]]></string>
+    <string name="intro_d1"><![CDATA[फोटो और वीडियो, तुरंत सेव करें।]]></string>
+    <string name="intro_d2">एक टैप में स्टेटस मीडिया डाउनलोड करें।</string>
+    <string name="intro_d3">सभी WhatsApp स्टेटस एक ही जगह पर</string>
+    <string name="upgrade_premium">प्रीमियम में अपग्रेड करें</string>
+    <string name="unlock_the_best_video_downloader_with_add_free_experience">विज्ञापन-मुक्त अनुभव के साथ सर्वश्रेष्ठ वीडियो डाउनलोडर अनलॉक करें</string>
+    <string name="notification">नोटिफिकेशन</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="language">भाषा</string>
+    <string name="share">शेयर करें</string>
+    <string name="rate_us">हमें रेट करें</string>
+    <string name="saved">सेव हो गया!</string>
+    <string name="fail_to_save">सेव करने में विफल</string>
+    <string name="repost">रीपोस्ट करें</string>
+    <string name="save">सेव करें</string>
+    <string name="please_select_the_statuses_folder_specifically">कृपया विशेष रूप से \'.Statuses\' फोल्डर चुनें।</string>
+    <string name="images">इमेज</string>
+    <string name="videos">वीडियो</string>
+    <string name="loading">लोड हो रहा है....</string>
+    <string name="allow_permission">अनुमति दें</string>
+    <string name="select_path">पाथ चुनें</string>
+    <string name="no_data_found">कोई डेटा नहीं मिला</string>
+</resources>

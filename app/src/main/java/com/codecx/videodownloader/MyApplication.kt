@@ -7,14 +7,13 @@ import com.codecx.videodownloader.data.utils.ThemeManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class MyApplication(): Application() {
+class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules(appModule)
             androidContext(this@MyApplication)
+            modules(appModule)
         }
-
         AppCompatDelegate.setDefaultNightMode(
             if (ThemeManager.isDarkMode(this)) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO

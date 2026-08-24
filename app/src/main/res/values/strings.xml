@@ -111,5 +111,7 @@
     <string name="_1_open_thread_amp_tap"><![CDATA[1. Open Threads & tap “Share”]]></string>
     <string name="_1_open_facebook"><![CDATA[1. Open Facebook and copy the\nlink of any video, reel or post ]]></string>
     <string name="_1_open_instagram"><![CDATA[1. Open Instagram and copy the\nlink of any video, reel or post ]]></string>
+    <string name="history">" History"</string>
+    <string name="bookmark">BookMark</string>
 
 </resources>

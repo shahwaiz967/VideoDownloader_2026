@@ -18,3 +18,10 @@ data class BookMarkItem(
     val url: String,
     val timestamp: Long = System.currentTimeMillis()
 )
+
+data class BrowserItem(
+    val id: Int,
+    val title: String,
+    val url: String,
+    val timestamp: Long
+)

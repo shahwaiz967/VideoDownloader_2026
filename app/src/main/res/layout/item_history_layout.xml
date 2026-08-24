@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Title"
-            android:id="@+id/history_title"/>
+            android:id="@+id/tvTitle"/>
         <TextView
             android:textColor="@color/onBackground"
             android:layout_marginTop="@dimen/_5sdp"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Url"
-            android:id="@+id/history_url"/>
+            android:id="@+id/tvUrl"/>
         <TextView
             android:textColor="@color/onBackground"
             android:layout_marginTop="@dimen/_5sdp"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Time"
-            android:id="@+id/history_time"/>
+            android:id="@+id/tvTime"/>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
