@@ -8,8 +8,6 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val vmModule = module {
-
-
     viewModel {
         HomeViewModel(
             appRepoImp = AppRepoImp(
@@ -20,9 +18,6 @@ val vmModule = module {
     }
 }
 
-val factoryModule = module {
-
-}
 
 val singleModule = module {
     single {

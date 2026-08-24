@@ -1,6 +1,6 @@
-
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
     id("kotlin-parcelize")
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
@@ -33,6 +33,7 @@ android {
     kotlin {
         compilerOptions {
             languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3)
+            freeCompilerArgs.add("-Xskip-prerelease-check")
         }
     }
     buildFeatures {
@@ -70,8 +71,7 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:5.0.5")
 
-    // Koin for Android
-    implementation("io.insert-koin:koin-android:4.1.0")
+
 
     implementation("androidx.media3:media3-exoplayer:1.3.1")
     implementation("androidx.media3:media3-ui:1.3.1")

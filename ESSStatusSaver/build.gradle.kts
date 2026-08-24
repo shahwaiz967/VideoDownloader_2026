@@ -14,10 +14,6 @@ android {
     defaultConfig {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("String", "SUB_MONTHLY", "\"sub_monthly\"")
-        buildConfigField("String", "SUB_WEEKLY", "\"sub_weekly\"")
-        buildConfigField("String", "SUB_YEARLY", "\"sub_yearly\"")
     }
 
     buildTypes {
@@ -38,6 +34,7 @@ android {
          compilerOptions {
              languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3)
              freeCompilerArgs.add("-Xexplicit-backing-fields")
+             freeCompilerArgs.add("-Xskip-prerelease-check")
          }
     }
 
@@ -65,6 +62,7 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
     api(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.constraintlayout.compose)
 
 
     api(libs.koin.androidx.compose)
