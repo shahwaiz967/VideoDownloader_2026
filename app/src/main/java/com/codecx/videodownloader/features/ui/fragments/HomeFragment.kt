@@ -7,11 +7,17 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.makeText
+import androidx.annotation.StringRes
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.states.ResultState
+import com.codecx.videodownloader.data.utils.getClipboardText
+import com.codecx.videodownloader.data.utils.isValidUrl
+import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
@@ -38,12 +44,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         quickAccessButtons()
         observeDownload()
         binding.btnPasteLink.setOnClickListener {
-            val url = binding.etUrl.text.toString().trim()
-            if (url.isEmpty()) {
-                binding.etUrl.error = "Enter URL"
-                return@setOnClickListener
+            val text = requireContext().getClipboardText()
+            if (!text.isNullOrEmpty()) {
+                binding.etUrl.setText(text)
+                if (!text.isValidUrl()) {
+                    makeText(requireContext(), getString(R.string.invalid_url), Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                downloadViewModel.getDownloadInfo(text)
+            } else {
+                makeText(requireContext(),
+                    getString(R.string.empty_clipboard), Toast.LENGTH_SHORT).show()
             }
-            downloadViewModel.getDownloadInfo(url)
         }
 
         binding.btnDownload.setOnClickListener {
@@ -58,41 +70,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun observeDownload() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    downloadViewModel.downloadInfo.collectLatest { result ->
-                        when (result) {
-                            is ResultState.Success -> {
-                                binding.btnDownload.isEnabled = true
-                                binding.btnDownload.text = getString(R.string.download)
-                                DownloadOptionBottomSheet.newInstance()
-                                    .show(parentFragmentManager, DownloadOptionBottomSheet.TAG)
-                            }
 
-                            is ResultState.Loading -> {
-                                binding.btnDownload.isEnabled = false
-                                binding.btnDownload.text = getString(R.string.loading)
-                            }
-
-                            is ResultState.Error -> {
-                                requireContext().showToast(
-                                    result.message
-                                )
-                                downloadViewModel.clearResult()
-                            }
-
-                            is ResultState.Init -> {
-                                binding.btnDownload.isEnabled = true
-                                binding.btnDownload.text = getString(R.string.download)
-                            }
-
-                        }
-
-                    }
-                }
+        observeDownloadState(
+            viewModel = downloadViewModel,
+            onLoading = {
+                binding.btnDownload.isEnabled = false
+                binding.btnDownload.text = getString(R.string.loading)
+            },
+            onSuccess = {
+                binding.btnDownload.isEnabled = true
+                binding.btnDownload.text = getString(R.string.download)
+            },
+            onReset = {
+                binding.btnDownload.isEnabled = true
+                binding.btnDownload.text = getString(R.string.download)
             }
-        }
+        )
     }
 
     private fun checkClipboardAndPaste() {
@@ -122,42 +115,42 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun quickAccessButtons() {
         binding.facebookButton.itemIcon.setImageResource(R.drawable.facebook_icon)
         binding.facebookButton.itemTitle.text = "FB Saver"
-        binding.facebookButton.cardRoot.setOnClickListener { navigate("Facebook") }
+        binding.facebookButton.cardRoot.setOnClickListener { navigate(R.string.facebook) }
 
         binding.whatsappButton.itemIcon.setImageResource(R.drawable.whatsapp_icon)
         binding.whatsappButton.itemTitle.text = "Status Saver"
-        binding.whatsappButton.cardRoot.setOnClickListener { navigate("WhatsApp") }
+        binding.whatsappButton.cardRoot.setOnClickListener { navigate(R.string.whatsapp) }
 
         binding.instagramButton.itemIcon.setImageResource(R.drawable.instagram_icon)
         binding.instagramButton.itemTitle.text = "IG Saver"
-        binding.instagramButton.cardRoot.setOnClickListener { navigate("Instagram") }
+        binding.instagramButton.cardRoot.setOnClickListener { navigate(R.string.instagram) }
 
         binding.tiktokButton.itemIcon.setImageResource(R.drawable.tiktok_icon)
         binding.tiktokButton.itemTitle.text = "TikTok"
-        binding.tiktokButton.cardRoot.setOnClickListener { navigate("TikTok") }
+        binding.tiktokButton.cardRoot.setOnClickListener { navigate(R.string.tiktok) }
 
         binding.dailymotionButton.itemIcon.setImageResource(R.drawable.dailymotion_icon)
         binding.dailymotionButton.itemTitle.text = "dly Motion"
-        binding.dailymotionButton.cardRoot.setOnClickListener { navigate("DailyMotion") }
+        binding.dailymotionButton.cardRoot.setOnClickListener { navigate(R.string.dailymotion) }
 
         binding.twitterButton.itemIcon.setImageResource(R.drawable.twitter_icon)
         binding.twitterButton.itemTitle.text = "eX"
-        binding.twitterButton.cardRoot.setOnClickListener { navigate("Twitter") }
+        binding.twitterButton.cardRoot.setOnClickListener { navigate(R.string.twitter) }
 
         binding.pintresButton.itemIcon.setImageResource(R.drawable.pintres_icon)
         binding.pintresButton.itemTitle.text = "PinNest"
-        binding.pintresButton.cardRoot.setOnClickListener { navigate("PinNest") }
+        binding.pintresButton.cardRoot.setOnClickListener { navigate(R.string.pinnest) }
 
         binding.threadButton.itemIcon.setImageResource(R.drawable.thread_icon)
         binding.threadButton.itemTitle.text = "Thredy"
-        binding.threadButton.cardRoot.setOnClickListener { navigate("Thread") }
+        binding.threadButton.cardRoot.setOnClickListener { navigate(R.string.thread) }
 
     }
 
 
-    private fun navigate(title: String) {
+    private fun navigate(@StringRes title: Int) {
         val bundle = Bundle().apply {
-            putString("name", title)
+            putInt("name", title)
             putLong("tabId", tabId)
         }
         safeNavigate(R.id.socityFragment, bundle)
@@ -186,17 +179,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    /*private fun openDownloadSheet(
-        response: DownloadApiResponse
-    ) {
-
-        DownloadOptionBottomSheet
-            .newInstance(response)
-            .show(
-                parentFragmentManager,
-                DownloadOptionBottomSheet.TAG
-            )
-    }*/
 
 
 }

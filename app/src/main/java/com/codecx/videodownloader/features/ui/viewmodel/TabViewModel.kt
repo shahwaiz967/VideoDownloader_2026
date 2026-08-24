@@ -1,9 +1,9 @@
 package com.codecx.videodownloader.features.ui.viewmodel
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import com.codecx.videodownloader.data.models.TabModel
 import com.codecx.videodownloader.data.repo.TabRepository
-import kotlinx.coroutines.flow.StateFlow
 
 class TabViewModel(
     private val repository: TabRepository
@@ -15,11 +15,11 @@ class TabViewModel(
         return repository.addTab()
     }
 
-    fun selectTab(tabId: Long) {
+    fun selectTab(tabId: String) {
         repository.selectTab(tabId)
     }
 
-    fun removeTab(tabId: Long) {
+    fun removeTab(tabId: String) {
         repository.removeTab(tabId)
     }
 
@@ -28,14 +28,43 @@ class TabViewModel(
     }
 
     fun updateTab(
-        tabId: Long,
+        tabId: String,
         title: String? = null,
-        url: String? = null
+        url: String? = null,
+        favicon: Int? = null
     ) {
         repository.updateTab(
-            tabId,
-            title,
-            url
+            tabId = tabId,
+            title = title,
+            url = url,
+            favicon = favicon
         )
+    }
+
+    fun getSelectedTab(): TabModel? {
+        return repository.getSelectedTab()
+    }
+
+    fun getTabCount(): Int {
+        return repository.getTabCount()
+    }
+
+    fun saveWebViewState(
+        tabId: String,
+        state: Bundle
+    ) {
+        repository.saveWebViewState(tabId, state)
+    }
+
+    fun getWebViewState(
+        tabId: String
+    ): Bundle? {
+        return repository.getWebViewState(tabId)
+    }
+
+    fun removeWebViewState(
+        tabId: String
+    ) {
+        repository.removeWebViewState(tabId)
     }
 }

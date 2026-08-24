@@ -14,6 +14,7 @@ navigationUiKtx = "2.9.8"
 roomKtx = "2.8.4"
 transportRuntime = "4.1.1"
 firebaseDataconnect = "17.4.0"
+uiTest = "1.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 transport-runtime = { group = "com.google.android.datatransport", name = "transport-runtime", version.ref = "transportRuntime" }
 firebase-dataconnect = { group = "com.google.firebase", name = "firebase-dataconnect", version.ref = "firebaseDataconnect" }
+androidx-ui-test = { group = "androidx.compose.ui", name = "ui-test", version.ref = "uiTest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -2,50 +2,57 @@ package com.codecx.videodownloader.features.ui.fragments
 
 import android.app.DownloadManager
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.models.DownloadModel
-import com.codecx.videodownloader.data.models.TabModel
 import com.codecx.videodownloader.data.utils.safeNavigate
-import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
 import com.codecx.videodownloader.databinding.FragmentMainBinding
-import com.codecx.videodownloader.features.adapters.TabAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
+import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 
 
 class MainFragment : BaseFragment<FragmentMainBinding>(){
 
-    private val tabViewModel: TabViewModel by viewModel()
+    private val tabViewModel: TabViewModel by activityViewModel()
     private val downloadViewModel : DownloadViewModel by activityViewModel()
     private val STORAGE_FOLDER = "VideoDownloader"
 
     private lateinit var ivThumbnail : ImageView
+
+    private var currentTab = TAB_HOME
+
+    companion object {
+        const val TAB_HOME = 0
+        const val TAB_DOWNLOADS = 1
+        const val TAB_REELS = 2
+        const val TAB_PLAYER = 3
+
+        private const val PREFS_NAME = "vd_prefs"
+        private const val KEY_DEFAULT_PROMPT_SHOWN = "default_prompt_shown"
+    }
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -59,12 +66,14 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
         super.onViewCreated(view, savedInstanceState)
         if (savedInstanceState == null){
             loadFragment(HomeFragment())
+            selectTab(TAB_HOME)
         }
 
         binding.tabCard.setOnClickListener {
-            tabBottomSheet()
+            showTabsSheet()
         }
        navigation()
+        refreshTabBadge()
 
         observeDownloadCompletion()
     }
@@ -79,23 +88,101 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
         }
     }
 
+    private fun selectTab(tab: Int) {
+        currentTab = tab
+
+        setTabActive(
+            binding.ivNavHome,
+            binding.tvNavHome,
+            tab == TAB_HOME
+        )
+
+        setTabActive(
+            binding.ivNavDownloads,
+            binding.tvNavDownloads,
+            tab == TAB_DOWNLOADS
+        )
+
+        setTabActive(
+            binding.ivNavReels,
+            binding.tvNavReels,
+            tab == TAB_REELS
+        )
+
+        setTabActive(
+            binding.ivNavPlayer,
+            binding.tvNavPlayer,
+            tab == TAB_PLAYER
+        )
+    }
+
+    private fun setTabActive(
+        icon: ImageView,
+        label: TextView,
+        isActive: Boolean
+    ) {
+        val color = ContextCompat.getColor(
+            requireContext(),
+            R.color.white
+        )
+
+        icon.setColorFilter(color)
+        label.setTextColor(color)
+
+        label.setTypeface(
+            null,
+            if (isActive) Typeface.BOLD
+            else Typeface.NORMAL
+        )
+    }
+
+    private fun showTabsSheet() {
+        TabsBottomSheetFragment(
+            onTabSelected = { tab ->
+
+                tabViewModel.selectTab(tab.id)
+                if (tab.url != "about:blank") {
+                    openInAppBrowser(tab.url, false)
+                } else {
+                    safeNavigate(R.id.inAppBrowserFragment)
+                }
+            },
+            onTabsChanged = {
+                refreshTabBadge()
+            }
+        ).show(
+            requireActivity().supportFragmentManager,
+            TabsBottomSheetFragment.TAG
+        )
+    }
+
+    private fun refreshTabBadge() {
+        (binding.ivTabBadge as? TextView)?.text = tabViewModel.getTabCount().toString()
+    }
+
+
 
 
     private fun navigation(){
         binding.navHome.setOnClickListener {
             loadFragment(HomeFragment())
+            selectTab(TAB_HOME)
         }
         binding.navDownloads.setOnClickListener {
             loadFragment(DownloadFragment())
+            selectTab(TAB_DOWNLOADS)
         }
         binding.navPlayer.setOnClickListener {
             loadFragment(PlayerFragment())
+            selectTab(TAB_PLAYER)
         }
         binding.navReels.setOnClickListener {
             safeNavigate(R.id.reelFragment)
+            selectTab(TAB_REELS)
         }
         binding.btnReels.setOnClickListener {
             safeNavigate(R.id.reelFragment)
+            selectTab(TAB_REELS)
         }
         binding.ivPremium.setOnClickListener {
             safeNavigate(R.id.premiumFragment)
@@ -112,68 +199,43 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
             .commit()
     }
 
-    private fun tabBottomSheet() {
+    fun openInAppBrowser(
+        url: String,
+        createNewTab: Boolean = false
+    ) {
 
-        val bottomSheet = BottomSheetDialog(requireContext())
-        bottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        bottomSheet.setContentView(R.layout.tab_bottom_sheet)
+        if (createNewTab) {
+            val newTab = tabViewModel.addTab()
 
-        val backArrow = bottomSheet.findViewById<ImageView>(R.id.backButton)
-        val btnAddTab = bottomSheet.findViewById<MaterialButton>(R.id.btnAddTab)
-        val btnClearAll = bottomSheet.findViewById<TextView>(R.id.btnClearAll)
-        val tvTabCount = bottomSheet.findViewById<TextView>(R.id.tvTabCount)
-        val rvTabs = bottomSheet.findViewById<RecyclerView>(R.id.rvTabs)
+            tabViewModel.updateTab(
+                tabId = newTab.id,
+                title = url,
+                url = url
+            )
 
-        val adapter = TabAdapter(
-            onTabClick = { tab ->
-                tabViewModel.selectTab(tab.id)
-                bottomSheet.dismiss()
-                openTab(tab)
-            },
-            onCloseClick = { tab ->
-                tabViewModel.removeTab(tab.id)
-            }
-        )
+            refreshTabBadge()
+        } else {
 
-        rvTabs?.apply {
-            layoutManager = GridLayoutManager(requireContext(),2)
-            this.adapter = adapter
-            setHasFixedSize(false)
-            isNestedScrollingEnabled = false
-        }
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(
-                Lifecycle.State.STARTED
-            ) {
-                tabViewModel.tabs.collect { tabs ->
-                    adapter.submitList(tabs)
-                    tvTabCount?.text = "Tabs (${tabs.size})"
-                    binding.ivTabBadge.text = tabs.size.toString()
-                }
+            val selectedTab = tabViewModel.getSelectedTab()
+
+            selectedTab?.let {
+                tabViewModel.updateTab(
+                    tabId = it.id,
+                    url = url
+                )
             }
         }
 
-        backArrow?.setOnClickListener {
-            bottomSheet.dismiss()
+        val bundle = Bundle().apply {
+            putString("url", url)
         }
 
-        btnAddTab?.setOnClickListener {
-            val newTab = tabViewModel.addTab()
-            bottomSheet.dismiss()
-            openTab(newTab)
-        }
-
-        btnClearAll?.setOnClickListener {
-            tabViewModel.clearAll()
-            bottomSheet.dismiss()
-            val newTab = tabViewModel.addTab()
-            openTab(newTab)
-        }
-        bottomSheet.window?.setBackgroundDrawableResource(
-            android.R.color.transparent
+        safeNavigate(
+            R.id.inAppBrowserFragment,
+            bundle
         )
-        bottomSheet.show()
     }
+
 
     private fun showDownloadCompleteSheet(item: DownloadModel) {
         val bottomSheet = BottomSheetDialog(requireContext())
@@ -316,15 +378,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    private fun openTab(tab: TabModel) {
-
-        loadFragment(
-            HomeFragment.newInstance(
-                tabId = tab.id
-            )
-        )
     }
 
 }

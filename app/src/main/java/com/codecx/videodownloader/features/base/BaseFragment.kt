@@ -25,4 +25,5 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): viewBinding
 
+
 }

@@ -93,5 +93,23 @@
     <string name="open_folder">Open Folder</string>
     <string name="share">Share</string>
     <string name="view">View</string>
+    <string name="empty_clipboard">Empty ClipBoard</string>
+    <string name="invalid_url">Invalid URL</string>
+
+
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">For Instagram</string>
+    <string name="tiktok">For TikTok</string>
+    <string name="dailymotion">For Dailymotion</string>
+    <string name="twitter">For X</string>
+    <string name="pinnest">For PinNest</string>
+    <string name="thread">For Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Open Dailymotion & tap “Share”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Open X & tap “Share”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Open Threads & tap “Share”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Open Facebook and copy the\nlink of any video, reel or post ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Open Instagram and copy the\nlink of any video, reel or post ]]></string>
 
 </resources>

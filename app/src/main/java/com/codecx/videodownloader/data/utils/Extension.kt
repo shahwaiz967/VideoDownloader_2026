@@ -3,12 +3,14 @@ package com.codecx.videodownloader.data.utils
 import android.R
 import android.app.Activity
 import android.app.role.RoleManager
+import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
@@ -31,9 +33,13 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.features.ui.activities.MainActivity
+import com.codecx.videodownloader.features.ui.fragments.DownloadOptionBottomSheet
+import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
@@ -48,10 +54,54 @@ fun Activity.applyBlur() {
     }
 }
 
+/*fun String.isValidUrl(): Boolean {
+    return startsWith("http://") || startsWith("https://")
+}*/
+
+fun Context.getClipboardText(): String? {
+    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    return clipboard.primaryClip?.getItemAt(0)?.text?.toString()
+}
+
 fun Activity.removeBlur() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val v = window.decorView.findViewById<View?>(R.id.content)
         v?.setRenderEffect(null)
+    }
+}
+
+fun Fragment.observeDownloadState(
+    viewModel: DownloadViewModel,
+    onLoading: () -> Unit,
+    onSuccess: () -> Unit,
+    onReset: () -> Unit
+) {
+    viewLifecycleOwner.lifecycleScope.launch {
+        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            viewModel.downloadInfo.collectLatest { result ->
+                when (result) {
+                    is ResultState.Success -> {
+                        onSuccess()
+                        DownloadOptionBottomSheet.newInstance()
+                            .show(parentFragmentManager, DownloadOptionBottomSheet.TAG)
+                    }
+
+                    is ResultState.Loading -> {
+                        onLoading()
+                    }
+
+                    is ResultState.Error -> {
+                        requireContext().showToast(result.message)
+                        viewModel.clearResult()
+                        onReset()
+                    }
+
+                    is ResultState.Init -> {
+                        onReset()
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -150,6 +200,12 @@ fun View.beInvisibleIf(value: Boolean) {
     } else {
         beVisible()
     }
+}
+fun String.isValidUrl(): Boolean {
+    return Patterns.WEB_URL.matcher(this).matches() ||
+            this.startsWith("http://") ||
+            this.startsWith("https://") ||
+            this.startsWith("www.")
 }
 
 fun String.showLog(message: String?) {

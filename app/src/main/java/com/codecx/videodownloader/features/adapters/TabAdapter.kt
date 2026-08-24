@@ -1,7 +1,11 @@
 package com.codecx.videodownloader.features.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.codecx.videodownloader.R
@@ -9,78 +13,97 @@ import com.codecx.videodownloader.data.models.TabModel
 import com.codecx.videodownloader.databinding.TabItemLayotBinding
 
 class TabAdapter(
+    private var tabs: MutableList<TabModel>,
     private val onTabClick: (TabModel) -> Unit,
-    private val onCloseClick: (TabModel) -> Unit
-) : RecyclerView.Adapter<TabAdapter.ViewHolder>() {
+    private val onTabClose: (TabModel) -> Unit
+) : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
 
-    private val tabs = mutableListOf<TabModel>()
+    inner class TabViewHolder(
+        view: View
+    ) : RecyclerView.ViewHolder(view) {
 
-    inner class ViewHolder(
-        private val binding: TabItemLayotBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+        val card: CardView = view.findViewById(R.id.cardTab)
 
-        fun bind(tab: TabModel) {
+        val icon: ImageView =
+            view.findViewById(R.id.imgTabIcon)
 
-            binding.tvTabTitle.text = tab.title
-            binding.tvTabUrl.text = tab.url
+        val title: TextView =
+            view.findViewById(R.id.tvTabTitle)
 
-            if (tab.isSelected) {
+        val url: TextView =
+            view.findViewById(R.id.tvTabUrl)
 
-                binding.cardTab.strokeWidth = 2
-
-                binding.cardTab.strokeColor =
-                    ContextCompat.getColor(
-                        binding.root.context,
-                        R.color.primaryColor
-                    )
-
-            } else {
-
-                binding.cardTab.strokeWidth = 2
-
-                binding.cardTab.strokeColor =
-                    ContextCompat.getColor(
-                        binding.root.context,
-                        R.color.white
-                    )
-            }
-
-            binding.root.setOnClickListener {
-                onTabClick(tab)
-            }
-
-            binding.btnCloseTab.setOnClickListener {
-                onCloseClick(tab)
-            }
-        }
+        val closeBtn: ImageView =
+            view.findViewById(R.id.btnCloseTab)
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): TabViewHolder {
 
-        val binding = TabItemLayotBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
+        val view = LayoutInflater.from(parent.context)
+            .inflate(
+                R.layout.tab_item_layot,
+                parent,
+                false
+            )
 
-        return ViewHolder(binding)
+        return TabViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
+        holder: TabViewHolder,
         position: Int
     ) {
-        holder.bind(tabs[position])
+
+        val tab = tabs[position]
+
+        holder.title.text = tab.title
+        holder.url.text = tab.url
+
+        holder.icon.setImageResource(
+            tab.favicon
+        )
+
+        holder.card.setCardBackgroundColor(
+            if (tab.isSelected) {
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.primaryColor
+                )
+            } else {
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    android.R.color.white
+                )
+            }
+        )
+
+        holder.card.setOnClickListener {
+            onTabClick(tab)
+        }
+
+        holder.closeBtn.setOnClickListener {
+
+            if (tabs.size > 1) {
+                onTabClose(tab)
+            }
+        }
+
+        holder.closeBtn.visibility =
+            if (tabs.size > 1) {
+                View.VISIBLE
+            } else {
+                View.INVISIBLE
+            }
     }
 
     override fun getItemCount(): Int {
         return tabs.size
     }
 
-    fun submitList(newTabs: List<TabModel>) {
+    fun updateTabs(newTabs: List<TabModel>) {
 
         tabs.clear()
         tabs.addAll(newTabs)

@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.ui.test)
     implementation(libs.firebase.dataconnect)
     implementation(libs.material)
     implementation(libs.transport.runtime)
