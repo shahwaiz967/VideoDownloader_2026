@@ -1,11 +1,8 @@
-import java.io.FileInputStream
-import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
-    id("kotlinx-serialization")
-
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -34,8 +31,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlin{
          compilerOptions {
@@ -51,7 +48,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
+    api(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -67,13 +64,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.kotlinx.serialization.json)
+    api(libs.kotlinx.serialization.json)
 
-    implementation(libs.androidx.constraintlayout.compose)
-    implementation(libs.billing)
 
-    implementation(libs.koin.androidx.compose)
-    implementation(libs.androidx.datastore.preferences)
+    api(libs.koin.androidx.compose)
     implementation("androidx.compose.material:material-icons-extended:1.7.0")
 
     implementation(libs.coil.compose)

@@ -1,8 +1,7 @@
 package com.codecx.statussaver.data.di
 
-import com.codecx.statussaver.core.utils.BillingHelperNew
-import com.codecx.statussaver.data.repos.UserPreferences
 import com.codecx.statussaver.data.repos.appRepo.AppRepoImp
+import com.codecx.statussaver.data.repos.appRepo.UserPreferences
 import com.codecx.statussaver.features.composes.mainBoarding.home.HomeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
@@ -29,7 +28,5 @@ val singleModule = module {
     single {
         UserPreferences(context = androidContext())
     }
-    single {
-        BillingHelperNew(context = androidContext())
-    }
+
 }

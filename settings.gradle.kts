@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Video Downloader"
 include(":app")
+include (":ESSStatusSaver")

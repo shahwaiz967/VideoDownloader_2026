@@ -33,7 +33,6 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -52,7 +51,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.codecx.statussaver.BuildConfig
 import com.codecx.statussaver.R
 import com.codecx.statussaver.core.ui.theme.StatusSaverTheme
-import com.codecx.statussaver.core.utils.BillingHelperNew
 import com.codecx.statussaver.data.models.PricesMenu
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

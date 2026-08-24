@@ -2,6 +2,7 @@ package com.codecx.videodownloader.features.ui.fragments
 
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.codecx.statussaver.features.activities.MainActivity
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.getClipboardText
@@ -48,13 +50,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             if (!text.isNullOrEmpty()) {
                 binding.etUrl.setText(text)
                 if (!text.isValidUrl()) {
-                    makeText(requireContext(), getString(R.string.invalid_url), Toast.LENGTH_SHORT).show()
+                    makeText(
+                        requireContext(),
+                        getString(R.string.invalid_url),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 downloadViewModel.getDownloadInfo(text)
             } else {
-                makeText(requireContext(),
-                    getString(R.string.empty_clipboard), Toast.LENGTH_SHORT).show()
+                makeText(
+                    requireContext(),
+                    getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -119,7 +127,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         binding.whatsappButton.itemIcon.setImageResource(R.drawable.whatsapp_icon)
         binding.whatsappButton.itemTitle.text = "Status Saver"
-        binding.whatsappButton.cardRoot.setOnClickListener { navigate(R.string.whatsapp) }
+        binding.whatsappButton.cardRoot.setOnClickListener {
+            startActivity(Intent(requireContext(), MainActivity::class.java))
+        }
 
         binding.instagramButton.itemIcon.setImageResource(R.drawable.instagram_icon)
         binding.instagramButton.itemTitle.text = "IG Saver"
@@ -179,7 +189,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         }
     }
-
 
 
 }

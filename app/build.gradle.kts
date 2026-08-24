@@ -43,10 +43,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":ESSStatusSaver"))
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.ui.test)
@@ -70,16 +70,12 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:5.0.5")
 
-    // Koin Core
-    implementation("io.insert-koin:koin-core:4.1.0")
-
     // Koin for Android
     implementation("io.insert-koin:koin-android:4.1.0")
 
     implementation("androidx.media3:media3-exoplayer:1.3.1")
     implementation("androidx.media3:media3-ui:1.3.1")
     implementation("androidx.media3:media3-common:1.3.1")
-
 
     // Gson (JSON parsing)
     implementation("com.google.code.gson:gson:2.11.0")

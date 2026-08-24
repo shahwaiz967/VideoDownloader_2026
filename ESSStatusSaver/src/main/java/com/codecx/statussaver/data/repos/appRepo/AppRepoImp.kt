@@ -13,7 +13,6 @@ import com.codecx.statussaver.core.utils.PathUtils
 import com.codecx.statussaver.core.utils.exceptions.PathRequired
 import com.codecx.statussaver.core.utils.exceptions.PermissionRequired
 import com.codecx.statussaver.data.models.StatusItem
-import com.codecx.statussaver.data.repos.UserPreferences
 import kotlinx.coroutines.flow.first
 import java.io.File
 import androidx.core.net.toUri
@@ -39,7 +38,7 @@ class AppRepoImp(private val appContext: Context, val userPreferences: UserPrefe
         if (!isPermissionGranted()) throw PermissionRequired()
         val savedStatus = getUserSavedStatuses()
         if (SDK_INT >= R) {
-            val treePathUri = userPreferences.userSelectedDirPath.first()
+            val treePathUri = userPreferences.userSelectedDirPath
             if (treePathUri.isEmpty()) throw PathRequired()
             val rootFolder = DocumentFile.fromTreeUri(appContext, treePathUri.toUri())
             if (rootFolder == null || !rootFolder.exists()) throw PathRequired()

@@ -62,22 +62,16 @@ class InAppBrowserFragment :
     }
 
     private fun loadSelectedTab() {
-
         val selectedTab =
             tabViewModel.getSelectedTab()
-
-        if (selectedTab == null) {
-            loadUrl("https://www.google.com")
-            return
+        val intentUri = arguments?.getString("url")
+        val resolvedUrl = intentUri ?: run {
+            if (selectedTab?.url == "about:blank" || selectedTab == null) {
+                "https://www.google.com"
+            } else
+                selectedTab.url
         }
-
-        currentTabId = selectedTab.id
-
-        if (selectedTab.url == "about:blank") {
-            binding.webView.loadUrl("https://www.google.com")
-        } else {
-            loadUrl(selectedTab.url)
-        }
+        loadUrl(resolvedUrl)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -149,7 +143,7 @@ class InAppBrowserFragment :
 
                     binding.etUrl.setText(url)
                     viewModel.addHistory(title, url)
-                    viewModel.addBookmark(title,url)
+                    viewModel.addBookmark(title, url)
 
                     updateCurrentTab(
                         title = view?.title ?: url,
