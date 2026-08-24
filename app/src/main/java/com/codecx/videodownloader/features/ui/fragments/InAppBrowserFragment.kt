@@ -14,7 +14,6 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.databinding.FragmentInAppBrowserBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -27,7 +26,7 @@ import kotlin.getValue
 class InAppBrowserFragment :
     BaseFragment<FragmentInAppBrowserBinding>() {
 
-    private val tabViewModel: TabViewModel by activityViewModels()
+    private val tabViewModel: TabViewModel by activityViewModel()
     private val viewModel: HistoryBookViewM by viewModel()
 
     private var currentTabId: String? = null
