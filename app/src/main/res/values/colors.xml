@@ -16,5 +16,6 @@
     <color name="dark_gray">#9F9FA1</color>"
     <color name="light_gray">#B3A9A9</color>"
     <color name="item_language">#F4F4F4</color>
+    <color name="app_blue">#2D87E6</color>
 
 </resources>

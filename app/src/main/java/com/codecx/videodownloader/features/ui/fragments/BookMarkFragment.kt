@@ -7,28 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 
-import com.codecx.videodownloader.databinding.FragmentHistoryBinding
-import com.codecx.videodownloader.features.adapters.HistoryBookMarkAdapter
+import com.codecx.videodownloader.databinding.FragmentBookmarkBinding
+import com.codecx.videodownloader.features.adapters.BookMarkAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
-import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
+import com.codecx.videodownloader.features.ui.viewmodel.BookMarkViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.getValue
 
-class BookMarkFragment : BaseFragment<FragmentHistoryBinding>() {
+class BookMarkFragment : BaseFragment<FragmentBookmarkBinding>() {
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentHistoryBinding {
-        return FragmentHistoryBinding.inflate(inflater)
+    ): FragmentBookmarkBinding {
+        return FragmentBookmarkBinding.inflate(inflater)
     }
 
-    private val viewModel: HistoryBookViewM by viewModel()
-    private val adapter = HistoryBookMarkAdapter()
+    private val viewModel: BookMarkViewModel by viewModel()
+    private val adapter = BookMarkAdapter()
 
 
 
@@ -40,6 +41,12 @@ class BookMarkFragment : BaseFragment<FragmentHistoryBinding>() {
         }
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.btnClearAll.setOnClickListener {
+            viewModel.clearBookmarks()
+        }
     }
 
 

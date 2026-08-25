@@ -2,6 +2,7 @@ package com.codecx.videodownloader
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.ads.MobileAds
 import com.codecx.statussaver.data.di.singleModule
 import com.codecx.statussaver.data.di.vmModule
 import com.codecx.videodownloader.data.di.appModule
@@ -21,5 +22,6 @@ class MyApplication : Application() {
             if (ThemeManager.isDarkMode(this)) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO
         )
+        MobileAds.initialize(this) {}
     }
 }

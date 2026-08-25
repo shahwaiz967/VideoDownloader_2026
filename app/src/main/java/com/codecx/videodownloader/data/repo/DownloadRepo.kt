@@ -1,7 +1,5 @@
 package com.codecx.videodownloader.data.repo
 
-import android.R
-import android.app.NotificationManager
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
@@ -10,11 +8,16 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import androidx.core.app.NotificationCompat
+import androidx.work.Constraints
+import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.codecx.videodownloader.data.models.DownloadApiResponse
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.models.DownloadRequest
 import com.codecx.videodownloader.data.models.DownloadStatus
+import com.codecx.videodownloader.data.states.DownloadWorker
 import com.codecx.videodownloader.data.utils.AppConstants
 import com.codecx.videodownloader.data.utils.FileUtils
 import io.ktor.client.HttpClient
@@ -103,6 +106,22 @@ class DownloadRepo(
         _completedDownloads.value = completedList.toList()
     }
 
+    fun startDownload(downloadItem: DownloadModel) {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val downloadWorkRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
+            .setConstraints(constraints)
+            .setInputData(DownloadWorker.createInputData(downloadItem))
+            .build()
+
+        WorkManager.getInstance(context).enqueueUniqueWork(
+            "download_${downloadItem.id}",
+            ExistingWorkPolicy.KEEP,
+            downloadWorkRequest
+        )
+    }
     suspend fun startDownload(
         item: DownloadModel,
         onProgress: (Int) -> Unit,
@@ -259,7 +278,7 @@ class DownloadRepo(
     }
 
 
-    fun loadCompletedFromFolder(context: Context) {
+    fun loadCompletedFromFolder() {
         CoroutineScope(Dispatchers.IO).launch {
             val items = mutableListOf<DownloadModel>()
 

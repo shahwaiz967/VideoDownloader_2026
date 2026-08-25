@@ -24,6 +24,7 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
 
     private var isFullscreen = false
 
+
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -85,7 +86,6 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
     private fun setupListeners() {
 
         binding.ivBack.setOnClickListener {
-
             findNavController().popBackStack()
         }
 

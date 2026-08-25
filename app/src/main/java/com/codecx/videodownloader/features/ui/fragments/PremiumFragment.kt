@@ -14,7 +14,6 @@ import com.codecx.videodownloader.features.base.BaseFragment
 
 class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
-
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,11 +25,7 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnStartTrial.setOnClickListener {
-            safeNavigate(R.id.mainFragment, null, navOptions {
-                popUpTo(R.id.nav_graph) {
-                    inclusive = true
-                }
-            })
+
         }
 
         binding.btnBack.setOnClickListener {

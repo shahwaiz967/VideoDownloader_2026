@@ -7,6 +7,9 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.RenderEffect
 import android.graphics.Shader
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +24,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.FileProvider
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -33,6 +38,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.features.ui.activities.MainActivity
 import com.codecx.videodownloader.features.ui.fragments.DownloadOptionBottomSheet
@@ -54,9 +60,15 @@ fun Activity.applyBlur() {
     }
 }
 
-/*fun String.isValidUrl(): Boolean {
-    return startsWith("http://") || startsWith("https://")
-}*/
+fun Context.isInternetAvailable(): Boolean {
+    val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = connectivityManager.activeNetwork ?: return false
+    val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+    return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) && capabilities.hasCapability(
+        NetworkCapabilities.NET_CAPABILITY_VALIDATED
+    )
+}
 
 fun Context.getClipboardText(): String? {
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -366,4 +378,46 @@ object ThemeManager {
         )
     }
 }
+
+
+enum class SearchEngine(val title: String, val searchUrl: String, val homeUrl: String){
+    GOOGLE("Google", "https://www.google.com/search?q=", "https://www.google.com"),
+    BING("Bing", "https://www.bing.com/search?q=", "https://www.bing.com"),
+    DUCKDUCKGO("DuckDuckGo", "https://duckduckgo.com/?q=", "https://duckduckgo.com"),
+    BAIDU("Baidu", "https://www.baidu.com/s?wd=", "https://www.baidu.com"),
+    YANDEX("Yandex", "https://yandex.com/search/?text=", "https://yandex.com"),
+    YAHOO("Yahoo", "https://search.yahoo.com/search?p=", "https://search.yahoo.com"),
+    SOGOU("Sogou", "https://www.sogou.com/web?query=", "https://www.sogou.com"),
+    QIK("Qik", "https://www.qik.com/search?q=", "https://www.qik.com"),
+    BRAVE("Brave", "https://search.brave.com/search?q=", "https://search.brave.com"),
+    STARTPAGE("Startpage", "https://startpage.com/sp/search?query=", "https://startpage.com"),
+    ECOSIA("Ecosia", "https://www.ecosia.org/search?q=", "https://www.ecosia.org"),
+}
+
+
+
+
+object SearchEngineManager {
+    private const val PREFS = "search_engine_prefs"
+    private const val KEY_SEARCH_ENGINE = "search_engine"
+
+    fun getSelectedSearchEngine(context: Context): SearchEngine {
+        val name = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getString(KEY_SEARCH_ENGINE, SearchEngine.GOOGLE.name)
+        return try {
+            SearchEngine.valueOf(name ?: SearchEngine.GOOGLE.name)
+        } catch (e: Exception) {
+            SearchEngine.GOOGLE
+        }
+    }
+
+    fun setSelectedSearchEngine(context: Context, searchEngine: SearchEngine) {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .edit()
+            .putString(KEY_SEARCH_ENGINE, searchEngine.name)
+            .apply()
+    }
+}
+
+
 

@@ -1,34 +1,34 @@
 package com.codecx.videodownloader.features.ui.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.work.Constraints
-import androidx.work.ExistingWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import com.codecx.videodownloader.data.models.DownloadApiResponse
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.repo.DownloadRepo
-import com.codecx.videodownloader.data.states.DownloadWorker
 import com.codecx.videodownloader.data.states.ResultState
+import com.codecx.videodownloader.data.utils.ReelApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class DownloadViewModel(
     private val repository: DownloadRepo,
-    private val context: Context
+    reelApiService: ReelApiService
 ) : ViewModel() {
 
+    val trendingVideos = reelApiService.getTrendingVideos().stateIn(
+        viewModelScope, SharingStarted.Eagerly,
+        ResultState.Loading
+    )
     private val _downloadInfo =
         MutableStateFlow<ResultState<DownloadApiResponse>>(ResultState.Init)
 
@@ -68,24 +68,10 @@ class DownloadViewModel(
     }
 
     fun startDownload(downloadItem: DownloadModel) {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        val downloadWorkRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
-            .setConstraints(constraints)
-            .setInputData(DownloadWorker.createInputData(downloadItem))
-            .build()
-
-
-        WorkManager.getInstance(context).enqueueUniqueWork(
-            "download_${downloadItem.id}",
-            ExistingWorkPolicy.KEEP,
-            downloadWorkRequest
-        )
+        repository.startDownload(downloadItem)
     }
 
     fun refreshDownloads() {
-        repository.loadCompletedFromFolder(context)
+        repository.loadCompletedFromFolder()
     }
 }

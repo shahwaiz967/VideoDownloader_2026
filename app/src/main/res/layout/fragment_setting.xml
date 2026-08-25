@@ -19,9 +19,9 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_8sdp"
             android:src="@drawable/back_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -252,9 +252,9 @@
                     <include
                         layout="@layout/item_setting_row"
                         android:id="@+id/historyRow"/>
-                    <!--<include
+                    <include
                         layout="@layout/item_setting_row"
-                        android:id="@+id/bookMarkRow"/>-->
+                        android:id="@+id/bookMarkRow"/>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/rowDarkMode"

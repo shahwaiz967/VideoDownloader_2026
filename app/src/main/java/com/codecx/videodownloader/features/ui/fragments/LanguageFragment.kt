@@ -11,6 +11,7 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.graphics.toColorInt
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.models.LanguageModel
@@ -54,6 +55,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         defaultRadioBtn.buttonTintList = ColorStateList.valueOf(Color.WHITE)
         defaultCard.setCardBackgroundColor("#FA4501".toColorInt())
         languageRecycler()
+
 
     }
 

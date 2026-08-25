@@ -15,6 +15,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import com.codecx.videodownloader.data.utils.SearchEngineManager
+import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.databinding.FragmentInAppBrowserBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
@@ -64,9 +66,10 @@ class InAppBrowserFragment :
         val selectedTab =
             tabViewModel.getSelectedTab()
         val intentUri = arguments?.getString("url")
+        val searchEngine = SearchEngineManager.getSelectedSearchEngine(requireContext())
         val resolvedUrl = intentUri ?: run {
             if (selectedTab?.url == "about:blank" || selectedTab == null) {
-                "https://www.google.com"
+                searchEngine.homeUrl
             } else
                 selectedTab.url
         }
@@ -139,10 +142,9 @@ class InAppBrowserFragment :
 
                     url ?: return
                     val title = view?.title ?: url
-
+                    
                     binding.etUrl.setText(url)
                     viewModel.addHistory(title, url)
-                    viewModel.addBookmark(title, url)
 
                     updateCurrentTab(
                         title = view?.title ?: url,
@@ -191,7 +193,7 @@ class InAppBrowserFragment :
     private fun setupControls() {
 
         binding.btnClose.setOnClickListener {
-            navigateBack()
+           navigateBack()
         }
 
         binding.btnBack.setOnClickListener {
@@ -200,6 +202,15 @@ class InAppBrowserFragment :
                 binding.webView.goBack()
             } else {
                 navigateBack()
+            }
+        }
+
+        binding.btnBookmark.setOnClickListener {
+            val url = binding.webView.url
+            val title = binding.webView.title ?: url ?: "No Title"
+            if (url != null) {
+                viewModel.addBookmark(title, url)
+                requireContext().showToast("Bookmarked")
             }
         }
 
@@ -231,8 +242,8 @@ class InAppBrowserFragment :
                             "https://$input"
 
                         } else {
-
-                            "https://www.google.com/search?q=${
+                            val searchEngine = SearchEngineManager.getSelectedSearchEngine(requireContext())
+                            "${searchEngine.searchUrl}${
                                 Uri.encode(input)
                             }"
                         }
@@ -293,8 +304,6 @@ class InAppBrowserFragment :
         val canGoBack =
             binding.webView.canGoBack()
 
-        val canGoForward =
-            binding.webView.canGoForward()
 
         binding.btnBack.isEnabled =
             canGoBack

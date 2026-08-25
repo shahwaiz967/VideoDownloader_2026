@@ -31,6 +31,10 @@ class HistoryBookViewM(private val repository: HistoryBookRepo) : ViewModel() {
         repository.deleteBookmark(id)
     }
 
+    fun clearBookmarks() = viewModelScope.launch {
+        repository.clearBookmarks()
+    }
+
     fun clearHistory() = viewModelScope.launch {
         repository.clearHistory()
     }

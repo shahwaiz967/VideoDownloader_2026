@@ -69,6 +69,8 @@
             android:name="isAudio"
             app:argType="boolean"
             android:defaultValue="false"/>
+
+        <deepLink app:uri="app://videodownloader/play?videoPath={videoPath}&amp;videoTitle={videoTitle}&amp;isAudio={isAudio}" />
     </fragment>
 
     <fragment
@@ -89,7 +91,7 @@
     <fragment
         android:id="@+id/bookMarkFragment"
         android:name="com.codecx.videodownloader.features.ui.fragments.BookMarkFragment"
-        tools:layout="@layout/fragment_book_mark"/>
+        tools:layout="@layout/fragment_history"/>
 
     <fragment
         android:id="@+id/inAppBrowserFragment"

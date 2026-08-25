@@ -11,12 +11,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.utils.SearchEngine
+import com.codecx.videodownloader.data.utils.SearchEngineManager
 import com.codecx.videodownloader.data.utils.ThemeManager
 import com.codecx.videodownloader.data.utils.clearAppCache
 import com.codecx.videodownloader.data.utils.isDefaultBrowser
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSettingBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>() {
     override fun bindLayout(
@@ -44,10 +47,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
         with(binding){
 
             historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
-            historyRow.tvLanguage.text = "History"
+            historyRow.tvLanguage.text = getString(R.string.history)
 
-           /* bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
-            bookMarkRow.tvLanguage.text = "Bookmarks"*/
+            bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
+            bookMarkRow.tvLanguage.text = getString(R.string.bookmark)
 
             cacheRow.ivLanguageIcon.setImageResource(R.drawable.ic_clear_cache)
             cacheRow.view3.visibility = View.GONE
@@ -58,6 +61,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             searchEngine.tvSearchEngine.visibility = View.VISIBLE
             searchEngine.ivLanguageIcon.setImageResource(R.drawable.ic_search)
             searchEngine.tvLanguage.text = "Search Engine"
+
 
             rateUSRow.ivLanguageIcon.setImageResource(R.drawable.rate_us_icon)
             rateUSRow.tvLanguage.text = "Rate Us"
@@ -76,15 +80,21 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
     private fun setupListeners(){
 
+
         val packageName = requireContext().packageName
         with(binding){
+
+            btnUpgradeNow.setOnClickListener {
+                safeNavigate(R.id.premiumFragment)
+            }
 
             historyRow.root.setOnClickListener {
                 safeNavigate(R.id.historyFragment)
             }
-            /*bookMarkRow.root.setOnClickListener {
+            bookMarkRow.root.setOnClickListener {
                 safeNavigate(R.id.bookMarkFragment)
-            }*/
+            }
+
             cacheRow.clearCache.setOnClickListener {
                 requireContext().clearAppCache()
             }
@@ -129,6 +139,11 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 )
             }
 
+            searchEngine.root.setOnClickListener {
+                showSearchEngineDialog()
+            }
+            searchEngine.tvSearchEngine.text = SearchEngineManager.getSelectedSearchEngine(requireContext()).title
+
             swDefaultBrowser.setOnCheckedChangeListener { _, bool ->
                 if (bool){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
@@ -157,11 +172,31 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             swDarkMode.setOnCheckedChangeListener { _, isChecked ->
                 ThemeManager.setDarkMode(requireContext(), isChecked)
             }
+            swDefaultBrowser.isChecked = requireContext().isDefaultBrowser()
 
 
         }
     }
 
+    private fun showSearchEngineDialog(){
+        val engine = SearchEngine.values()
+        val engineTitle = engine.map { it.title }.toTypedArray()
+        val currentEngine = SearchEngineManager.getSelectedSearchEngine(requireContext())
+        val checkedItem = engine.indexOf(currentEngine)
 
-
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.select_search_engine))
+            .setSingleChoiceItems(engineTitle,checkedItem) { dialog,which ->
+                val searchEngine = engine[which]
+                SearchEngineManager.setSelectedSearchEngine(requireContext(),searchEngine)
+                binding.searchEngine.tvSearchEngine.text = searchEngine.title
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel"){dialog,_ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 }
+
+

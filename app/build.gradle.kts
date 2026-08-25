@@ -55,10 +55,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    //GooglePlay
+    implementation("com.google.android.gms:play-services-ads:25.2.0")
+
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
 
-
+    //Ktor
     implementation("io.ktor:ktor-client-core:3.2.3")
     implementation("io.ktor:ktor-client-okhttp:3.2.3")
     implementation("io.ktor:ktor-client-content-negotiation:3.2.3")
@@ -66,10 +69,27 @@ dependencies {
     implementation("io.ktor:ktor-client-logging:3.2.3")
     implementation("io.ktor:ktor-serialization-gson:3.2.3")
 
+
+    //Glide
     implementation("com.github.bumptech.glide:glide:5.0.5")
 
 
+    //LifeCycle
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-process:2.10.0")
 
+
+    //FireBase
+    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
+    implementation("com.google.firebase:firebase-perf")
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-config")
+    implementation("com.google.firebase:firebase-inappmessaging-display")
+
+    //ExoPlayer
     implementation("androidx.media3:media3-exoplayer:1.3.1")
     implementation("androidx.media3:media3-ui:1.3.1")
     implementation("androidx.media3:media3-common:1.3.1")

@@ -9,6 +9,7 @@ import com.codecx.videodownloader.data.repo.TabRepository
 import com.codecx.videodownloader.data.repo.VideoPlayerRepo
 import com.codecx.videodownloader.data.utils.AppConstants
 import com.codecx.videodownloader.data.utils.ReelApiService
+import com.codecx.videodownloader.features.ui.viewmodel.BookMarkViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
 import com.codecx.videodownloader.features.ui.viewmodel.PlayerViewModel
@@ -60,11 +61,12 @@ val appModule = module {
     factoryOf(::HistoryBookRepo)
 
     // ViewModels
-    viewModel { DownloadViewModel(get(), androidContext()) }
+    viewModelOf(::DownloadViewModel)
     viewModelOf(::TabViewModel)
     viewModelOf(::VideoPlayerViewModel)
     viewModelOf(::PlayerViewModel)
     viewModelOf(::HistoryBookViewM)
+    viewModelOf(::BookMarkViewModel)
 
 
 }

@@ -17,6 +17,9 @@ interface BookMarksDao {
     @Query("DELETE FROM bookmark WHERE id = :id")
     suspend fun deleteById(id: Int)
 
+    @Query("DELETE FROM bookmark")
+    suspend fun clearAll()
+
     @Query("SELECT COUNT(*) FROM bookmark WHERE url = :url")
     suspend fun isBookmarked(url: String): Int
 }

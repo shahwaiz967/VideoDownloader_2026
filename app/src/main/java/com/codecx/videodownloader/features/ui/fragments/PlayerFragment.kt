@@ -1,12 +1,17 @@
 package com.codecx.videodownloader.features.ui.fragments
 
 import android.Manifest
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
@@ -16,6 +21,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.safeNavigate
+import com.codecx.videodownloader.data.utils.showToast
+import java.io.File
+import androidx.appcompat.app.AlertDialog
+import com.codecx.videodownloader.data.models.MediaModel
 import com.codecx.videodownloader.features.ui.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentPlayerBinding
 import com.codecx.videodownloader.features.adapters.PlayerChipAdapter
@@ -27,6 +36,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     private lateinit var chipAdapter: PlayerChipAdapter
     private lateinit var mediaAdapter: PlayerMediaAdapter
+    private var deleteLauncher: ActivityResultLauncher<IntentSenderRequest?>? = null
+
     private val viewModel: PlayerViewModel by viewModel()
 
     override fun bindLayout(
@@ -45,6 +56,14 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
         setupClickListeners()
 
         checkPermissionsAndLoad()
+
+        deleteLauncher = registerForActivityResult<IntentSenderRequest?, ActivityResult?>(
+            ActivityResultContracts.StartIntentSenderForResult()
+        ) { result: ActivityResult? ->
+            if (result!!.resultCode == Activity.RESULT_OK) {
+               loadFoldersAndMedia(forceRefresh = true)
+            }
+        }
     }
 
     private fun setupClickListeners() {
@@ -57,7 +76,6 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 chipAdapter.submitFolders(viewModel.videoFolders.value)
                 binding.mediaRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.mediaRecycler.adapter = mediaAdapter
-
                 loadFoldersAndMedia()
             }
         }
@@ -71,22 +89,24 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 chipAdapter.submitFolders(viewModel.audioFolders.value)
                 binding.mediaRecycler.layoutManager = LinearLayoutManager(requireContext())
                 binding.mediaRecycler.adapter = mediaAdapter
-
                 loadFoldersAndMedia()
             }
         }
     }
 
-
-
     private fun setupMediaAdapter() {
-        mediaAdapter = PlayerMediaAdapter { media ->
-            val bundle = Bundle()
-            bundle.putString("videoPath", media.path)
-            bundle.putString("videoTitle", media.title)
-            bundle.putBoolean("isAudio", media.isAudio)
-            safeNavigate(R.id.mediaPlayFragment, bundle)
-        }
+        mediaAdapter = PlayerMediaAdapter(
+            onItemClick = { media ->
+                val bundle = Bundle()
+                bundle.putString("videoPath", media.path)
+                bundle.putString("videoTitle", media.title)
+                bundle.putBoolean("isAudio", media.isAudio)
+                safeNavigate(R.id.mediaPlayFragment, bundle)
+            },
+            onDeleteClick = { media ->
+                performDelete(media)
+            }
+        )
 
         binding.mediaRecycler.apply {
             layoutManager = if (viewModel.showingVideos) {
@@ -98,10 +118,26 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
         }
     }
 
+
+    private fun performDelete(media: MediaModel) {
+        viewModel.deleteMedia(
+            context = requireContext(),
+            media = media,
+            onIntentSenderNeeded = { pendingIntent ->
+                val intentSenderRequest = IntentSenderRequest.Builder(pendingIntent.intentSender).build()
+                deleteLauncher?.launch(intentSenderRequest)
+            },
+            onSuccess = {
+                loadFoldersAndMedia(forceRefresh = true)
+                requireContext().showToast("Deleted successfully")
+            }
+        )
+    }
+
+
+
     private fun observeData() {
-
         viewLifecycleOwner.lifecycleScope.launch {
-
             viewLifecycleOwner.repeatOnLifecycle(
                 Lifecycle.State.STARTED
             ) {
@@ -165,7 +201,6 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
         binding.chipRecycler.adapter = chipAdapter
     }
 
-
     private fun checkPermissionsAndLoad() {
         val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arrayOf(
@@ -193,15 +228,15 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
             loadFoldersAndMedia()
         }
     }
-    private fun loadFoldersAndMedia() {
+
+    private fun loadFoldersAndMedia(forceRefresh: Boolean = false) {
         if (viewModel.showingVideos) {
-            viewModel.loadVideoFolders(requireContext())
-            viewModel.loadVideos(requireContext(), viewModel.selectedFolder)
+            viewModel.loadVideoFolders(requireContext(), forceRefresh)
+            viewModel.loadVideos(requireContext(), viewModel.selectedFolder, forceRefresh)
         } else {
-            viewModel.loadAudioFolder(requireContext())
-            viewModel.loadAudio(requireContext(), viewModel.selectedFolder)
+            viewModel.loadAudioFolder(requireContext(), forceRefresh)
+            viewModel.loadAudio(requireContext(), viewModel.selectedFolder, forceRefresh)
         }
     }
-
 
 }

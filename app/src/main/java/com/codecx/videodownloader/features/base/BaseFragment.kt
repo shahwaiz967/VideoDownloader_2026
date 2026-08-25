@@ -1,5 +1,6 @@
 package com.codecx.videodownloader.features.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): viewBinding
+
 
 
 }

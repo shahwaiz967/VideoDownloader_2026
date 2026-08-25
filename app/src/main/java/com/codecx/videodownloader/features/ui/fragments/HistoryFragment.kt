@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.databinding.FragmentHistoryBinding
@@ -33,6 +34,13 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
         }
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
+
+        binding.ivBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.btnClearAll.setOnClickListener {
+            viewModel.clearHistory()
+        }
     }
 
 

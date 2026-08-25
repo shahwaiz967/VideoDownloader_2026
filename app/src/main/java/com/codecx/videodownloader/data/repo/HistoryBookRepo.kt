@@ -32,5 +32,6 @@ class HistoryBookRepo(
     }
 
     suspend fun deleteBookmark(id: Int) = bookmarkDao.deleteById(id)
+    suspend fun clearBookmarks() = bookmarkDao.clearAll()
     suspend fun isBookmarked(url: String) = bookmarkDao.isBookmarked(url) > 0
 }

@@ -1,5 +1,8 @@
 package com.codecx.statussaver.features.composes.mainBoarding.mediaView
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,6 +46,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.toRoute
@@ -127,9 +132,17 @@ fun MediaViewScreen(navEntry: NavBackStackEntry) {
     }, onNavUp = {
         navController.popBackStack()
     }, onVideoPlay = { item ->
-        item.getPlayIntent()?.let { intent ->
+        /*item.getPlayIntent()?.let { intent ->
             context.startActivity(intent)
-        }
+        }*/
+        val encodedPath = Uri.encode(item.path)
+        val encodedTitle = Uri.encode(item.title)
+        val deepLinkUri = "app://videodownloader/play?videoPath=$encodedPath&videoTitle=$encodedTitle&isAudio=false".toUri()
+
+        val intent = Intent(Intent.ACTION_VIEW, deepLinkUri)
+        intent.setPackage(context.packageName)
+        context.startActivity(intent)
+
     }, tabId = args.tabId)
 }
 

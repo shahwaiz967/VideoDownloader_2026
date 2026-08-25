@@ -3,6 +3,9 @@ package com.codecx.videodownloader.features.adapters
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +21,11 @@ import com.codecx.videodownloader.data.utils.formatFileSize
 import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.databinding.ItemAudioBinding
 import com.codecx.videodownloader.databinding.ItemMediaRecyclerBinding
+import java.io.File
 
 class PlayerMediaAdapter(
-    private val onItemClick: (MediaModel) -> Unit
+    private val onItemClick: (MediaModel) -> Unit,
+    private val onDeleteClick: (MediaModel) -> Unit
 ) : ListAdapter<MediaModel, RecyclerView.ViewHolder>(MediaDiffCallback()) {
 
     companion object {
@@ -64,17 +69,46 @@ class PlayerMediaAdapter(
             binding.root.setOnClickListener { onItemClick(media) }
             binding.ivMore.setOnClickListener { showPopupMenu(it, media) }
             binding.ivShare.setOnClickListener {
-                binding.root.context.showToast("Share: ${media.title}")
+                try {
+                    val shareUri = getFileUri(media) ?: return@setOnClickListener
+                    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                        type = if (media.isAudio) "audio/*" else "video/*"
+                        putExtra(Intent.EXTRA_STREAM, shareUri)
+                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    it.context.startActivity(Intent.createChooser(shareIntent, "Share via"))
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
             binding.ivDelete.setOnClickListener {
-                binding.root.context.showToast("Delete: ${media.title}")
+                onDeleteClick(media)
+            }
+        }
+
+        private fun getFileUri(item: MediaModel): Uri? {
+            return try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    Uri.parse(item.path)
+                } else {
+
+                    val file = File(item.path)
+                    if (!file.exists()) return null
+                    androidx.core.content.FileProvider.getUriForFile(
+                        binding.root.context,
+                        "${binding.root.context.packageName}.fileprovider",
+                        file
+                    )
+                }
+            } catch (e: Exception) {
+                null
             }
         }
 
         private fun showPopupMenu(anchor: View, media: MediaModel) {
             val popup = PopupMenu(anchor.context, anchor)
             popup.menu.add(0, 1, 0, "Copy Path")
-            popup.menu.add(0, 2, 1, "Convert to Audio")
+            //popup.menu.add(0, 2, 1, "Convert to Audio")
             popup.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     1 -> {
@@ -105,12 +139,17 @@ class PlayerMediaAdapter(
         private fun showPopupMenu(anchor: View, media: MediaModel) {
             val popup = PopupMenu(anchor.context, anchor)
             popup.menu.add(0, 1, 0, "Copy Path")
+            popup.menu.add(0, 2, 1, "Delete")
             popup.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     1 -> {
                         val clipboard = anchor.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         clipboard.setPrimaryClip(ClipData.newPlainText("path", media.path))
                         anchor.context.showToast("Path copied to clipboard")
+                        true
+                    }
+                    2 -> {
+                        onDeleteClick(media)
                         true
                     }
                     else -> false

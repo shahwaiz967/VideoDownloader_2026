@@ -30,8 +30,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_margin="@dimen/_18sdp"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:alpha="0.3"
                     android:src="@drawable/close_small_ic"
                     app:tint="@color/onBackground" />

@@ -34,13 +34,13 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import java.io.File
 
 
-class MainFragment : BaseFragment<FragmentMainBinding>(){
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val tabViewModel: TabViewModel by activityViewModel()
-    private val downloadViewModel : DownloadViewModel by activityViewModel()
+    private val downloadViewModel: DownloadViewModel by activityViewModel()
     private val STORAGE_FOLDER = "VideoDownloader"
 
-    private lateinit var ivThumbnail : ImageView
+    private lateinit var ivThumbnail: ImageView
 
     private var currentTab = TAB_HOME
 
@@ -64,18 +64,46 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState == null){
-            loadFragment(HomeFragment())
-            selectTab(TAB_HOME)
-        }
 
         binding.tabCard.setOnClickListener {
             showTabsSheet()
         }
-       navigation()
+        navigation()
         refreshTabBadge()
-
+        initStartupPage()
         observeDownloadCompletion()
+    }
+    private fun initStartupPage() {
+        val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
+        if (currentFragment != null) {
+            updateTab(currentFragment)
+        } else {
+            loadFragment(HomeFragment())
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val current = childFragmentManager.findFragmentById(R.id.fragmentContainer)
+        if (current != null && current::class == fragment::class) {
+            return
+        }
+
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+
+        updateTab(fragment)
+    }
+
+    fun updateTab(fragment: Fragment) {
+        val tab = when (fragment) {
+            is HomeFragment -> TAB_HOME
+            is DownloadFragment -> TAB_DOWNLOADS
+            is PlayerFragment -> TAB_PLAYER
+            is ReelFragment -> TAB_REELS
+            else -> currentTab
+        }
+        selectTab(tab)
     }
 
     private fun observeDownloadCompletion() {
@@ -161,28 +189,21 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
     }
 
 
-
-
-    private fun navigation(){
+    private fun navigation() {
         binding.navHome.setOnClickListener {
             loadFragment(HomeFragment())
-            selectTab(TAB_HOME)
         }
         binding.navDownloads.setOnClickListener {
             loadFragment(DownloadFragment())
-            selectTab(TAB_DOWNLOADS)
         }
         binding.navPlayer.setOnClickListener {
             loadFragment(PlayerFragment())
-            selectTab(TAB_PLAYER)
         }
         binding.navReels.setOnClickListener {
             safeNavigate(R.id.reelFragment)
-            selectTab(TAB_REELS)
         }
         binding.btnReels.setOnClickListener {
             safeNavigate(R.id.reelFragment)
-            selectTab(TAB_REELS)
         }
         binding.ivPremium.setOnClickListener {
             safeNavigate(R.id.premiumFragment)
@@ -193,11 +214,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
     }
 
 
-    private fun loadFragment(fragment: Fragment){
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer,fragment)
-            .commit()
-    }
+
 
     fun openInAppBrowser(
         url: String,
@@ -255,7 +272,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(){
         tvAuthor?.text = "Just now · ${item.fileSize}"
 
 
-        if (item.thumbnailUrl.isNotEmpty()){
+        if (item.thumbnailUrl.isNotEmpty()) {
             Glide.with(requireContext())
                 .load(item.thumbnailUrl)
                 .placeholder(R.drawable.ic_video_placeholder)
