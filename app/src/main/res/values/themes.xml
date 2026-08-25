@@ -12,6 +12,13 @@
         <item name="android:fontFamily">@font/segoe_regular</item>
         <item name="android:includeFontPadding">false</item>
     </style>
-
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="RoundMediaTen">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10%</item>
+    </style>
     <style name="Theme.VideoDownloader" parent="Base.Theme.VideoDownloader" />
 </resources>

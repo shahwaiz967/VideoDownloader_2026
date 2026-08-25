@@ -33,7 +33,7 @@ class DownloadWorker(
 
     private fun createForegroundInfo(item: DownloadModel): ForegroundInfo {
         notificationId = if (item.id == 0L) System.currentTimeMillis().toInt() else item.id.toInt()
-        title = item.title.ifEmpty { "Downloading...." }
+        title = item.title.ifEmpty { appContext.getString(com.codecx.videodownloader.R.string.downloading) }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             manager.apply {
                 createNotificationChannel(
@@ -69,7 +69,7 @@ class DownloadWorker(
         val notification =
             NotificationCompat.Builder(appContext, AppConstants.NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.stat_sys_download_done)
-                .setContentTitle("Download Complete")
+                .setContentTitle(appContext.getString(com.codecx.videodownloader.R.string.download_complete))
                 .setContentText(title)
                 .setAutoCancel(true)
                 .setOngoing(false)

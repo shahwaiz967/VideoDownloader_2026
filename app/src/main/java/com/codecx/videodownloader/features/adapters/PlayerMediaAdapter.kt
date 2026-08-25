@@ -76,7 +76,7 @@ class PlayerMediaAdapter(
                         putExtra(Intent.EXTRA_STREAM, shareUri)
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     }
-                    it.context.startActivity(Intent.createChooser(shareIntent, "Share via"))
+                    it.context.startActivity(Intent.createChooser(shareIntent, it.context.getString(R.string.share_via)))
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -107,14 +107,14 @@ class PlayerMediaAdapter(
 
         private fun showPopupMenu(anchor: View, media: MediaModel) {
             val popup = PopupMenu(anchor.context, anchor)
-            popup.menu.add(0, 1, 0, "Copy Path")
+            popup.menu.add(0, 1, 0, anchor.context.getString(R.string.copy_path))
             //popup.menu.add(0, 2, 1, "Convert to Audio")
             popup.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     1 -> {
                         val clipboard = anchor.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         clipboard.setPrimaryClip(ClipData.newPlainText("path", media.path))
-                        anchor.context.showToast("Path copied to clipboard")
+                        anchor.context.showToast(anchor.context.getString(R.string.path_copied_to_clipboard))
                         true
                     }
                     else -> false
@@ -138,14 +138,14 @@ class PlayerMediaAdapter(
 
         private fun showPopupMenu(anchor: View, media: MediaModel) {
             val popup = PopupMenu(anchor.context, anchor)
-            popup.menu.add(0, 1, 0, "Copy Path")
-            popup.menu.add(0, 2, 1, "Delete")
+            popup.menu.add(0, 1, 0, anchor.context.getString(R.string.copy_path))
+            popup.menu.add(0, 2, 1, anchor.context.getString(R.string.delete))
             popup.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     1 -> {
                         val clipboard = anchor.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         clipboard.setPrimaryClip(ClipData.newPlainText("path", media.path))
-                        anchor.context.showToast("Path copied to clipboard")
+                        anchor.context.showToast(anchor.context.getString(R.string.path_copied_to_clipboard))
                         true
                     }
                     2 -> {

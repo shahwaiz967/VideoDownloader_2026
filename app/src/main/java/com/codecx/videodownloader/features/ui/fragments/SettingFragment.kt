@@ -54,26 +54,26 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
             cacheRow.ivLanguageIcon.setImageResource(R.drawable.ic_clear_cache)
             cacheRow.view3.visibility = View.GONE
-            cacheRow.tvLanguage.text = "Clear Cache"
+            cacheRow.tvLanguage.text = getString(R.string.clear_cache)
             cacheRow.clearCache.visibility = View.VISIBLE
             cacheRow.ivLanguageArrow.visibility = View.GONE
 
             searchEngine.tvSearchEngine.visibility = View.VISIBLE
             searchEngine.ivLanguageIcon.setImageResource(R.drawable.ic_search)
-            searchEngine.tvLanguage.text = "Search Engine"
+            searchEngine.tvLanguage.text = getString(R.string.search_engine)
 
 
             rateUSRow.ivLanguageIcon.setImageResource(R.drawable.rate_us_icon)
-            rateUSRow.tvLanguage.text = "Rate Us"
+            rateUSRow.tvLanguage.text = getString(R.string.rate_us)
 
             shareRow.ivLanguageIcon.setImageResource(R.drawable.share_icon)
-            shareRow.tvLanguage.text = "Share"
+            shareRow.tvLanguage.text = getString(R.string.share)
 
             feedBaCKRow.ivLanguageIcon.setImageResource(R.drawable.feedback_icon)
-            feedBaCKRow.tvLanguage.text = "Feedback"
+            feedBaCKRow.tvLanguage.text = getString(R.string.feedback)
 
             privacyRow.ivLanguageIcon.setImageResource(R.drawable.privicy_policy_icon)
-            privacyRow.tvLanguage.text = "Privacy Policy"
+            privacyRow.tvLanguage.text = getString(R.string.privacy_policy)
             privacyRow.view3.visibility = View.GONE
         }
     }
@@ -192,7 +192,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 binding.searchEngine.tvSearchEngine.text = searchEngine.title
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel"){dialog,_ ->
+            .setNegativeButton(getString(R.string.cancel)){dialog,_ ->
                 dialog.dismiss()
             }
             .show()

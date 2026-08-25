@@ -27,7 +27,7 @@
             android:padding="7dp"
             android:visibility="gone"
             android:src="@drawable/back_arrow"
-            android:contentDescription="Back"
+            android:contentDescription="@string/back"
             app:tint="#212121" />
 
 

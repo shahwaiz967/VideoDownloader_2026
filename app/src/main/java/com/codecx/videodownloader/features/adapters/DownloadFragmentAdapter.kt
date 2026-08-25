@@ -81,7 +81,7 @@ class DownloadFragmentAdapter(private val isCompleted: Boolean, private val mCon
         fun bind(item: DownloadModel) {
             binding.tvTitle.text = item.title
             binding.tvFileSize.text = item.fileSize
-            binding.tvPlatform.text = item.platform.ifEmpty { "Downloaded" }
+            binding.tvPlatform.text = item.platform.ifEmpty { mContext.getString(R.string.downloaded) }
 
             if (item.thumbnailUrl.isNotEmpty()) {
                 Glide.with(binding.root.context)

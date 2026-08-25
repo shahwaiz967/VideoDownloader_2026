@@ -177,7 +177,7 @@ private fun HomeScreenContent(
                 ) {
                     Spacer(modifier = Modifier.width(16.dp))
                     Text(
-                        "WA Status Saver",
+                        stringResource(R.string.save_status),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )

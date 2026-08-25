@@ -24,7 +24,7 @@
             android:src="@drawable/back_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:tint="@android:color/black"
-            android:contentDescription="Back"/>
+            android:contentDescription="@string/back"/>
 
 
         <EditText
@@ -37,7 +37,7 @@
             android:paddingHorizontal="12dp"
             android:textSize="13sp"
             android:textColor="@color/black"
-            android:hint="Search or enter URL"
+            android:hint="@string/search_or_enter_url"
             android:singleLine="true"
             android:inputType="textUri"
             android:imeOptions="actionGo"

@@ -1,0 +1,221 @@
+<resources>
+    <string name="app_name">Video Yükləyici</string>
+    <string name="hello_blank_fragment">Salam Tarix seqmenti</string>
+    <string name="download_without_limits">Limitsiz Yükləyin</string>
+    <string name="select_language">Dil Seçin</string>
+    <string name="next">Növbəti</string>
+    <string name="system_default">Sistem Standartı</string>
+    <string name="all_languages">Bütün Dillər</string>
+    <string name="what_s_included">Nələr Daxildir</string>
+    <string name="go">Get</string>
+    <string name="premium_subtitle">Sürətli Yükləmələrdən Və Limitsiz Video Girişindən 3 Günlük Pulsuz Sınaq ilə Zövq Alın, Sonra Həftədə 1,400 Rs. İstədiyiniz Zaman Ləğv Edin.</string>
+    <string name="features">Xüsusiyyətlər</string>
+    <string name="basic">Əsas</string>
+    <string name="trial_disabled">Sınaq Deaktiv Edildi</string>
+    <string name="most_popular">⭐ Ən Populyar</string>
+    <string name="best_value">Ən yaxşı dəyər</string>
+    <string name="weekly_plan">Həftəlik Plan</string>
+    <string name="weekly_price">1,400 Rs</string>
+    <string name="monthly_price">5,000 Rs</string>
+    <string name="free_trial_3days">3 Günlük Pulsuz Sınaq</string>
+    <string name="no_charge_today">Bu Gün Ödəniş Yoxdur</string>
+    <string name="user_reviews">İstifadəçi Rəyləri</string>
+    <string name="start_free_trial">Pulsuz Sınağa Başla</string>
+    <string name="buy_now">İndi al</string>
+    <string name="trial_started">3 Günlük pulsuz sınaq başladı!</string>
+    <string name="the_first_3_days_are_free">İlk 3 gün pulsuzdur. Sınaqdan sonra, sınaq müddətinin bitməsinə ən azı 24 saat qalmış ləğv edilməzsə, həftədə %s avtomatik olaraq tutulacaq.</string>
+    <string name="the_first_3_days_are">Sınaq müddətinin bitməsinə ən azı 24 saat qalmış ləğv edilməzsə, həftədə %s avtomatik olaraq tutulacaq.</string>
+    <string name="enable_free_trial">Pulsuz Sınağı Aktivləşdir</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Limitsiz Yükləmələr, Sıfır Limit\n3 Gün Pulsuz Sınayın • Sonra Həftədə 1,400 Rs • İstədiyiniz Zaman Ləğv Edin</string>
+    <string name="monthly_plan">Aylıq Plan</string>
+    <string name="no_payment_now">İndi Ödəniş Yoxdur</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Pleyer</string>
+    <string name="clear_all">Hamısını təmizlə</string>
+    <string name="back">Geri</string>
+    <string name="tab">Tab</string>
+    <string name="tabs">Tablar</string>
+    <string name="just_now">İndicə</string>
+    <string name="downloading">Yüklənir...</string>
+    <string name="downloaded">Yükləndi</string>
+    <string name="cancel">Ləğv et</string>
+    <string name="likes">bəyənmələr</string>
+    <string name="like">Bəyən</string>
+    <string name="title">Başlıq</string>
+
+    <!-- Languages -->
+    <string name="english_us">İngilis (ABŞ)</string>
+    <string name="english">İngilis</string>
+    <string name="arabic">Ərəb</string>
+    <string name="bangla">Benqal</string>
+    <string name="chinese_simplified">Çin (Sadələşdirilmiş)</string>
+    <string name="chinese_hong_kong">Çin (Honq Konq)</string>
+    <string name="chinese">Çin</string>
+    <string name="dutch">Niderland</string>
+    <string name="french_canada">Fransız (Kanada)</string>
+    <string name="french_france">Fransız (Fransa)</string>
+    <string name="french">Fransız</string>
+    <string name="german">Alman</string>
+    <string name="greek">Yunan</string>
+    <string name="hindi">Hind</string>
+    <string name="indonesian">İndoneziya</string>
+    <string name="italian">İtalyan</string>
+    <string name="japanese">Yapon</string>
+    <string name="korean">Koreya</string>
+    <string name="malay">Malay</string>
+    <string name="persian">Fars</string>
+    <string name="polish">Polyak</string>
+    <string name="portuguese_brazil">Portuqal (Braziliya)</string>
+    <string name="portuguese_portugal">Portuqal (Portuqaliya)</string>
+    <string name="portuguese">Portuqal</string>
+    <string name="russian">Rus</string>
+    <string name="spanish_latin_america">İspan (Latın Amerikası)</string>
+    <string name="spanish_spain">İspan (İspaniya)</string>
+    <string name="spanish_us">İspan (ABŞ)</string>
+    <string name="spanish">İspan</string>
+    <string name="swedish">İsveç</string>
+    <string name="tamil">Tamil</string>
+    <string name="thai">Tay</string>
+    <string name="turkish">Türk</string>
+    <string name="ukrainian">Ukrayna</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vyetnam</string>
+    <string name="azerbaijan">Azərbaycan</string>
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Videoları Axtarın və Yükləyin]]></string>
+    <string name="paste_link">Linki Yapışdır</string>
+    <string name="download">Yüklə</string>
+    <string name="quick_access">Sürətli Giriş</string>
+    <string name="search_or_paste_link_to_download">Yükləmək üçün Axtarın və ya Linki Yapışdırın</string>
+    <string name="enter_url">URL daxil edin</string>
+    <string name="fb_saver">FB Yükləyici</string>
+    <string name="status_saver">Status Yükləyici</string>
+    <string name="ig_saver">IG Yükləyici</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Axtarın və ya URL daxil edin</string>
+    <string name="no_title">Başlıq yoxdur</string>
+    <string name="bookmarked">Əlfəcin edildi</string>
+
+    <!-- Settings -->
+    <string name="setting">Parametr</string>
+    <string name="general">Ümumi</string>
+    <string name="dark_mode">Qaranlıq rejim</string>
+    <string name="browser">Brauzer</string>
+    <string name="set_default_browser">Standart Brauzer Təyin Et</string>
+    <string name="search_engine">Axtarış Motoru</string>
+    <string name="clear_cache">Keşi Təmizlə</string>
+    <string name="rate_us">Bizi Qiymətləndirin</string>
+    <string name="feedback">Rəy</string>
+    <string name="privacy_policy">Məxfilik Siyasəti</string>
+    <string name="others">Digərləri</string>
+    <string name="no_ads">Reklam Yoxdur</string>
+    <string name="just_smooth">Sadəcə Hamar</string>
+    <string name="fast_downloading">Yüklənir...</string>
+    <string name="special_gift">🎁 Xüsusi Hədiyyə</string>
+    <string name="upgrade_now">İndi Təkmilləşdirin</string>
+    <string name="ads_free_experience">Reklamsız Təcrübə</string>
+    <string name="cache_cleared_successfully">Keş uğurla təmizləndi</string>
+    <string name="failed_to_clear_cache">Keşi təmizləmək alınmadı</string>
+
+    <!-- Player -->
+    <string name="all_music">Bütün Musiqilər</string>
+    <string name="all_videos">Bütün Videolar</string>
+    <string name="deleted_successfully">Uğurla silindi</string>
+    <string name="copy_path">Yolu Kopyala</string>
+    <string name="path_copied_to_clipboard">Yol mübadilə buferinə kopyalandı</string>
+    <string name="delete">Sil</string>
+
+    <string name="clear">Təmizlə</string>
+    <string name="add_tab">+ Tab Əlavə Et</string>
+    <string name="home">Ev</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Bu heyrətamiz proqramı yoxlayın: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Vasitəsilə paylaş</string>
+    <string name="feedback_subject">Tətbiq Rəyi - Video Yükləyici</string>
+    <string name="send_feedback">Rəy Göndər</string>
+    <string name="advertisement">Reklam...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Trend olan reels</string>
+    <string name="share_video">Videonu Paylaş</string>
+    <string name="failed_to_share">Videonu paylaşmaq alınmadı</string>
+    <string name="no_videos_found">Video tapılmadı</string>
+    <string name="network_error">Şəbəkə xətası: %s</string>
+    <string name="reel_video">Reel Videosu</string>
+    <string name="view_stories_private">Gizli hesablardan hekayələrə və yükləmələrə baxın</string>
+    <string name="why_login_required">Niyə Giriş Tələb Olunur?</string>
+    <string name="open_instagram">Instagram-ı açın</string>
+    <string name="how_to_download">Necə Yükləmək olar</string>
+    <string name="copy_link">Linki Kopyala</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Pinterest-i Açın və 3 Nöqtəyə (•••) Toxunun]]></string>
+    <string name="_2_click_copy_link">2. “Linki Kopyala” düyməsini basın</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Tətbiqi Açın</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Kopyalanmış link\navtomatik yapışdırılacaq.\nSadəcə Yükləyə toxunun.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Tərəqqiyi Yoxlayın</string>
+    <string name="track_progress_and_open">Tərəqqiyi izləyin və açın</string>
+    <string name="your_download_file">yüklədiyiniz faylı</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Davam edir</string>
+    <string name="completed">Tamamlandı</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Tiktok-u açın və <font color="#FF0000">\'\'Paylaş\'\'</font> düyməsini BASIN</string>
+    <string name="copy_link_amp_open_video_downloader">Linki Kopyalayın və <font color="#FF0000">\'\'Video Yükləyici\'\'</font>-ni Açın</string>
+    <string name="select_quality">Keyfiyyəti Seçin</string>
+    <string name="download_started">Yükləmə Başladı</string>
+    <string name="not_available">Mövcud deyil</string>
+    <string name="loading">Yüklənir...</string>
+    <string name="download_complete">Yükləmə Tamamlandı</string>
+    <string name="no_downloads">Yükləmə Yoxdur</string>
+    <string name="open_folder">Qovluğu Aç</string>
+    <string name="share">Paylaş</string>
+    <string name="view">Bax</string>
+    <string name="empty_clipboard">Mübadilə Buferini Boşalt</string>
+    <string name="invalid_url">Yanlış URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram üçün</string>
+    <string name="tiktok">TikTok üçün</string>
+    <string name="dailymotion">Dailymotion üçün</string>
+    <string name="twitter">X üçün</string>
+    <string name="pinnest">PinNest üçün</string>
+    <string name="thread">Thread üçün</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Dailymotion-u Açın və “Paylaş”a toxunun]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. X-i Açın və “Paylaş”a toxunun]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Threads-i Açın və “Paylaş”a toxunun]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Facebook-u açın və hər hansı bir video,\nreel və ya postun linkini kopyalayın ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Instagram-ı açın və hər hansı bir video,\nreel və ya postun linkini kopyalayın ]]></string>
+    <string name="history">Tarix</string>
+    <string name="bookmark">Əlfəcin</string>
+    <string name="select_search_engine">Axtarış Motorunu Seçin</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Su Nişanı Yoxdur</string>
+    <string name="sd_no_watermark">SD · Su Nişanı Yoxdur</string>
+    <string name="with_watermark">Su Nişanı İlə</string>
+    <string name="audio_only">Yalnız Audio</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Hamar və Etibarlı Performans</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Reklamsız və inanılmaz sürətli premium versiyasına təkmilləşdirildi</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Reklamsız pula yaxşı dəyər. Onu sevirəm</string>
+</resources>

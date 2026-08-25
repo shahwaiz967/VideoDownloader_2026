@@ -25,13 +25,14 @@
             android:layout_height="@dimen/_30sdp"
             android:padding="@dimen/_8sdp"
             android:src="@drawable/back_arrow"
+            android:contentDescription="@string/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/onBackground" />
 
         <TextView
-            android:text="Hello"
+            tools:text="History"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivBack"
@@ -50,7 +51,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="end"
-            android:text="Clear All"
+            android:text="@string/clear_all"
             android:textColor="@color/primaryColor"
             android:textSize="@dimen/_14ssp"
             app:layout_constraintBottom_toBottomOf="parent"

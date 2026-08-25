@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Video Downloader"
+            android:text="@string/app_name"
             android:textColor="@color/onBackground"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -143,7 +143,7 @@
                 android:id="@+id/tvNavHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
+                android:text="@string/home"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
@@ -173,7 +173,7 @@
                 android:id="@+id/tvNavDownloads"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Download"
+                android:text="@string/download"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
@@ -213,7 +213,7 @@
                 android:id="@+id/tvNavReels"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reels"
+                android:text="@string/reels"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
@@ -244,7 +244,7 @@
                 android:id="@+id/tvNavPlayer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Player"
+                android:text="@string/player"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>

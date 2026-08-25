@@ -56,8 +56,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     //GooglePlay
-    implementation("com.google.android.gms:play-services-ads:25.2.0")
-
+    implementation("com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk:1.2.1")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
 

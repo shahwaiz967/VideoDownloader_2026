@@ -129,7 +129,7 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
             },
             onSuccess = {
                 loadFoldersAndMedia(forceRefresh = true)
-                requireContext().showToast("Deleted successfully")
+                requireContext().showToast(getString(R.string.deleted_successfully))
             }
         )
     }

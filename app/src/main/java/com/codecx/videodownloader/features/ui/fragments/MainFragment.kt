@@ -269,7 +269,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         val tvAuthor = bottomSheet.findViewById<TextView>(R.id.tvAuthor)
 
         tvTitle?.text = item.title
-        tvAuthor?.text = "Just now · ${item.fileSize}"
+        tvAuthor?.text = "${getString(R.string.just_now)} · ${item.fileSize}"
 
 
         if (item.thumbnailUrl.isNotEmpty()) {
@@ -294,7 +294,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                     putExtra(Intent.EXTRA_STREAM, shareUri)
                     addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 }
-                startActivity(Intent.createChooser(shareIntent, "Share via"))
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)))
             } catch (e: Exception) {
                 e.printStackTrace()
             }

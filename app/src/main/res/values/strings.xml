@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Video Downloader</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello History fragment</string>
     <string name="download_without_limits">Download Without Limits</string>
     <string name="select_language">Select Language</string>
@@ -33,26 +32,110 @@
     <string name="monthly_plan">Monthly Plan</string>
     <string name="no_payment_now">No Payment Now</string>
 
-    <!--Language-->
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Player</string>
+    <string name="clear_all">Clear All</string>
+    <string name="back">Back</string>
+    <string name="tab">Tab</string>
+    <string name="tabs">Tabs</string>
+    <string name="just_now">Just now</string>
+    <string name="downloading">Downloading...</string>
+    <string name="downloaded">Downloaded</string>
+    <string name="cancel">Cancel</string>
+    <string name="likes">likes</string>
+    <string name="like">Like</string>
+    <string name="title">Title</string>
+
+    <!-- Languages -->
+    <string name="english_us">English (US)</string>
     <string name="english">English</string>
-    <string name="korean">Korean</string>
-    <string name="turkey">Turkey</string>
     <string name="arabic">Arabic</string>
+    <string name="bangla">Bangla</string>
+    <string name="chinese_simplified">Chinese (Simplified)</string>
+    <string name="chinese_hong_kong">Chinese (Hong Kong)</string>
+    <string name="chinese">Chinese</string>
+    <string name="dutch">Dutch</string>
+    <string name="french_canada">French (Canada)</string>
+    <string name="french_france">French (France)</string>
+    <string name="french">French</string>
+    <string name="german">German</string>
+    <string name="greek">Greek</string>
+    <string name="hindi">Hindi</string>
+    <string name="indonesian">Indonesian</string>
     <string name="italian">Italian</string>
     <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="malay">Malay</string>
     <string name="persian">Persian</string>
-    <string name="german">German</string>
-    <string name="chinese">Chinese</string>
+    <string name="polish">Polish</string>
+    <string name="portuguese_brazil">Portuguese (Brazil)</string>
+    <string name="portuguese_portugal">Portuguese (Portugal)</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="russian">Russian</string>
+    <string name="spanish_latin_america">Spanish (Latin America)</string>
+    <string name="spanish_spain">Spanish (Spain)</string>
+    <string name="spanish_us">Spanish (US)</string>
+    <string name="spanish">Spanish</string>
+    <string name="swedish">Swedish</string>
+    <string name="tamil">Tamil</string>
+    <string name="thai">Thai</string>
+    <string name="turkish">Turkish</string>
+    <string name="ukrainian">Ukrainian</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnamese</string>
     <string name="azerbaijan">Azerbaijan</string>
+
+    <!-- Home & Quick Access -->
     <string name="search_amp_download_videos"><![CDATA[Search & Download Videos]]></string>
     <string name="paste_link">Paste Link</string>
     <string name="download">Download</string>
     <string name="quick_access">Quick Access</string>
     <string name="search_or_paste_link_to_download">Search or Paste Link to Download</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Search or enter URL</string>
+    <string name="no_title">No Title</string>
+    <string name="bookmarked">Bookmarked</string>
+
+    <!-- Settings -->
     <string name="setting">Setting</string>
+    <string name="general">General</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="browser">Browser</string>
+    <string name="set_default_browser">Set Default Browser</string>
+    <string name="search_engine">Search Engine</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="feedback">Feedback</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="others">Others</string>
+    <string name="no_ads">No Ads</string>
+    <string name="just_smooth">Just Smooth</string>
+    <string name="fast_downloading">Downloading...</string>
+    <string name="special_gift">🎁 Special Gift</string>
+    <string name="upgrade_now">Upgrade Now</string>
     <string name="ads_free_experience">Ads free Experience</string>
+    <string name="cache_cleared_successfully">Cache cleared successfully</string>
+    <string name="failed_to_clear_cache">Failed to clear cache</string>
+
+    <!-- Player -->
     <string name="all_music">All Music</string>
     <string name="all_videos">All Videos</string>
+    <string name="deleted_successfully">Deleted successfully</string>
+    <string name="copy_path">Copy Path</string>
+    <string name="path_copied_to_clipboard">Path copied to clipboard</string>
+    <string name="delete">Delete</string>
+
     <string name="clear">Clear</string>
     <string name="add_tab">+ Add Tab</string>
     <string name="home">Home</string>
@@ -62,7 +145,14 @@
     <string name="feedback_subject">App Feedback - Video Downloader</string>
     <string name="send_feedback">Send Feedback</string>
     <string name="advertisement">Advertisement...</string>
+
+    <!-- Reels & Social -->
     <string name="trending_reels">Trending reels</string>
+    <string name="share_video">Share Video</string>
+    <string name="failed_to_share">Failed to share video</string>
+    <string name="no_videos_found">No videos found</string>
+    <string name="network_error">Network error: %s</string>
+    <string name="reel_video">Reel Video</string>
     <string name="view_stories_private">View stories and downloads from private accounts</string>
     <string name="why_login_required">Why Login Required?</string>
     <string name="open_instagram">Open Instagram</string>
@@ -96,7 +186,7 @@
     <string name="empty_clipboard">Empty ClipBoard</string>
     <string name="invalid_url">Invalid URL</string>
 
-
+    <!-- Platforms -->
     <string name="facebook">Facebook</string>
     <string name="whatsapp">WhatsApp</string>
     <string name="instagram">For Instagram</string>
@@ -111,8 +201,21 @@
     <string name="_1_open_thread_amp_tap"><![CDATA[1. Open Threads & tap “Share”]]></string>
     <string name="_1_open_facebook"><![CDATA[1. Open Facebook and copy the\nlink of any video, reel or post ]]></string>
     <string name="_1_open_instagram"><![CDATA[1. Open Instagram and copy the\nlink of any video, reel or post ]]></string>
-    <string name="history">" History"</string>
+    <string name="history">History</string>
     <string name="bookmark">Bookmark</string>
     <string name="select_search_engine">Select Search Engine</string>
 
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · No Watermark</string>
+    <string name="sd_no_watermark">SD · No Watermark</string>
+    <string name="with_watermark">With Watermark</string>
+    <string name="audio_only">Audio Only</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Smooth &amp; Reliable Performance</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Upgraded to premium no ads &amp; blazing speed</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Good value for money no ads. Love it</string>
 </resources>

@@ -41,7 +41,7 @@
                 android:backgroundTint="#80000000"
                 android:paddingHorizontal="@dimen/_8sdp"
                 android:paddingVertical="@dimen/_4sdp"
-                android:text="00:44"
+                tools:text="00:44"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"

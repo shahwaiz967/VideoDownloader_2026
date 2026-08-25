@@ -57,7 +57,7 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
         binding.btnDownload.setOnClickListener {
             val url = binding.etUrl.text.toString().trim()
             if (url.isEmpty()) {
-                binding.etUrl.error = "Enter URL"
+                binding.etUrl.error = getString(R.string.enter_url)
                 return@setOnClickListener
             }
             downloadViewModel.getDownloadInfo(url)

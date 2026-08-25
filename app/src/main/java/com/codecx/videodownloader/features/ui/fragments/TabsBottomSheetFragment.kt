@@ -130,6 +130,6 @@ class TabsBottomSheetFragment(
     private fun updateTabCount(count: Int) {
 
         tvTabCount.text =
-            "$count Tab${if (count != 1) "s" else ""}"
+            "$count ${if (count == 1) getString(R.string.tab) else getString(R.string.tabs)}"
     }
 }

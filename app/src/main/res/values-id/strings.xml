@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pengunduh Video</string>
+    <string name="hello_blank_fragment">Halo fragmen Riwayat</string>
+    <string name="download_without_limits">Unduh Tanpa Batas</string>
+    <string name="select_language">Pilih Bahasa</string>
+    <string name="next">Selanjutnya</string>
+    <string name="system_default">Default Sistem</string>
+    <string name="all_languages">Semua Bahasa</string>
+    <string name="what_s_included">Apa Saja yang Termasuk</string>
+    <string name="go">Mulai</string>
+    <string name="premium_subtitle">Nikmati Unduhan Cepat dan Akses Video Tanpa Batas Dengan Uji Coba Gratis 3 Hari, Kemudian Rs 1,400/Minggu. Batalkan Kapan Saja.</string>
+    <string name="features">Fitur</string>
+    <string name="basic">Dasar</string>
+    <string name="trial_disabled">Uji Coba Dinonaktifkan</string>
+    <string name="most_popular">⭐ Paling Populer</string>
+    <string name="best_value">Nilai Terbaik</string>
+    <string name="weekly_plan">Paket Mingguan</string>
+    <string name="weekly_price">Rs 1,400</string>
+    <string name="monthly_price">Rs 5,000</string>
+    <string name="free_trial_3days">Uji Coba Gratis 3 Hari</string>
+    <string name="no_charge_today">Tidak Ada Biaya Hari Ini</string>
+    <string name="user_reviews">Ulasan Pengguna</string>
+    <string name="start_free_trial">Mulai Uji Coba Gratis</string>
+    <string name="buy_now">Beli Sekarang</string>
+    <string name="trial_started">Uji Coba Gratis 3 Hari dimulai!</string>
+    <string name="the_first_3_days_are_free">3 hari pertama gratis. Setelah uji coba, %s per minggu akan ditagih secara otomatis kecuali dibatalkan setidaknya 24 jam sebelum akhir masa uji coba.</string>
+    <string name="the_first_3_days_are">%s per minggu akan ditagih secara otomatis kecuali dibatalkan setidaknya 24 jam sebelum akhir masa uji coba.</string>
+    <string name="enable_free_trial">Aktifkan Uji Coba Gratis</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Unduhan Tanpa Batas, Nol Batas\nCoba Gratis Selama 3 Hari • Kemudian Rs 1,400/Minggu • Batalkan Kapan Saja</string>
+    <string name="monthly_plan">Paket Bulanan</string>
+    <string name="no_payment_now">Tidak Ada Pembayaran Sekarang</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Pemutar</string>
+    <string name="clear_all">Bersihkan Semua</string>
+    <string name="back">Kembali</string>
+    <string name="tab">Tab</string>
+    <string name="tabs">Tab</string>
+    <string name="just_now">Baru saja</string>
+    <string name="downloading">Mengunduh...</string>
+    <string name="downloaded">Diunduh</string>
+    <string name="cancel">Batal</string>
+    <string name="likes">suka</string>
+    <string name="like">Suka</string>
+    <string name="title">Judul</string>
+
+    <!-- Languages -->
+    <string name="english_us">Inggris (AS)</string>
+    <string name="english">Inggris</string>
+    <string name="arabic">Arab</string>
+    <string name="bangla">Bengali</string>
+    <string name="chinese_simplified">Mandarin (Sederhana)</string>
+    <string name="chinese_hong_kong">Mandarin (Hong Kong)</string>
+    <string name="chinese">Mandarin</string>
+    <string name="dutch">Belanda</string>
+    <string name="french_canada">Prancis (Kanada)</string>
+    <string name="french_france">Prancis (Prancis)</string>
+    <string name="french">Prancis</string>
+    <string name="german">Jerman</string>
+    <string name="greek">Yunani</string>
+    <string name="hindi">Hindi</string>
+    <string name="indonesian">Indonesia</string>
+    <string name="italian">Italia</string>
+    <string name="japanese">Jepang</string>
+    <string name="korean">Korea</string>
+    <string name="malay">Melayu</string>
+    <string name="persian">Persia</string>
+    <string name="polish">Polandia</string>
+    <string name="portuguese_brazil">Portugis (Brasil)</string>
+    <string name="portuguese_portugal">Portugis (Portugal)</string>
+    <string name="portuguese">Portugis</string>
+    <string name="russian">Rusia</string>
+    <string name="spanish_latin_america">Spanyol (Amerika Latin)</string>
+    <string name="spanish_spain">Spanyol (Spanyol)</string>
+    <string name="spanish_us">Spanyol (AS)</string>
+    <string name="spanish">Spanyol</string>
+    <string name="swedish">Swedia</string>
+    <string name="tamil">Tamil</string>
+    <string name="thai">Thailand</string>
+    <string name="turkish">Turki</string>
+    <string name="ukrainian">Ukraina</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnam</string>
+    <string name="azerbaijan">Azerbaijan</string>
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Cari & Unduh Video]]></string>
+    <string name="paste_link">Tempel Tautan</string>
+    <string name="download">Unduh</string>
+    <string name="quick_access">Akses Cepat</string>
+    <string name="search_or_paste_link_to_download">Cari atau Tempel Tautan untuk Mengunduh</string>
+    <string name="enter_url">Masukkan URL</string>
+    <string name="fb_saver">Penghemat FB</string>
+    <string name="status_saver">Penghemat Status</string>
+    <string name="ig_saver">Penghemat IG</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Cari atau masukkan URL</string>
+    <string name="no_title">Tidak Ada Judul</string>
+    <string name="bookmarked">Ditandai</string>
+
+    <!-- Settings -->
+    <string name="setting">Pengaturan</string>
+    <string name="general">Umum</string>
+    <string name="dark_mode">Mode Gelap</string>
+    <string name="browser">Peramban</string>
+    <string name="set_default_browser">Jadikan Peramban Default</string>
+    <string name="search_engine">Mesin Pencari</string>
+    <string name="clear_cache">Bersihkan Cache</string>
+    <string name="rate_us">Nilai Kami</string>
+    <string name="feedback">Umpan Balik</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="others">Lainnya</string>
+    <string name="no_ads">Tanpa Iklan</string>
+    <string name="just_smooth">Sangat Lancar</string>
+    <string name="fast_downloading">Mengunduh...</string>
+    <string name="special_gift">🎁 Hadiah Spesial</string>
+    <string name="upgrade_now">Tingkatkan Sekarang</string>
+    <string name="ads_free_experience">Pengalaman Tanpa Iklan</string>
+    <string name="cache_cleared_successfully">Cache berhasil dibersihkan</string>
+    <string name="failed_to_clear_cache">Gagal membersihkan cache</string>
+
+    <!-- Player -->
+    <string name="all_music">Semua Musik</string>
+    <string name="all_videos">Semua Video</string>
+    <string name="deleted_successfully">Berhasil dihapus</string>
+    <string name="copy_path">Salin Jalur</string>
+    <string name="path_copied_to_clipboard">Jalur disalin ke papan klip</string>
+    <string name="delete">Hapus</string>
+
+    <string name="clear">Bersihkan</string>
+    <string name="add_tab">+ Tambah Tab</string>
+    <string name="home">Beranda</string>
+    <string name="about_blank">Tentang:kosong</string>
+    <string name="share_message">Coba aplikasi luar biasa ini: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Bagikan melalui</string>
+    <string name="feedback_subject">Umpan Balik Aplikasi - Pengunduh Video</string>
+    <string name="send_feedback">Kirim Umpan Balik</string>
+    <string name="advertisement">Iklan...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Reels populer</string>
+    <string name="share_video">Bagikan Video</string>
+    <string name="failed_to_share">Gagal membagikan video</string>
+    <string name="no_videos_found">Tidak ada video ditemukan</string>
+    <string name="network_error">Kesalahan jaringan: %s</string>
+    <string name="reel_video">Video Reel</string>
+    <string name="view_stories_private">Lihat cerita dan unduhan dari akun pribadi</string>
+    <string name="why_login_required">Mengapa Perlu Masuk?</string>
+    <string name="open_instagram">Buka Instagram</string>
+    <string name="how_to_download">Cara Mengunduh</string>
+    <string name="copy_link">Salin Tautan</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Buka Pinterest & Ketuk 3 Titik (•••)]]></string>
+    <string name="_2_click_copy_link">2. Klik “Salin Tautan”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Buka Aplikasi</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Tautan yang disalin akan\nditempel secara otomatis.\nCukup ketuk Unduh.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Periksa Kemajuan</string>
+    <string name="track_progress_and_open">Lacak kemajuan dan buka</string>
+    <string name="your_download_file">file unduhan Anda</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Dalam Proses</string>
+    <string name="completed">Selesai</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Buka Tiktok dan KLIK &lt;font color="#FF0000"&gt;\'\'Bagikan\'\'&lt;/font&gt;</string>
+    <string name="copy_link_amp_open_video_downloader">Salin Tautan &amp; Buka &lt;font color="#FF0000"&gt;\'\'Pengunduh Video\'\'&lt;/font&gt;</string>
+    <string name="select_quality">Pilih Kualitas</string>
+    <string name="download_started">Unduhan Dimulai</string>
+    <string name="not_available">Tidak Tersedia</string>
+    <string name="loading">Memuat...</string>
+    <string name="download_complete">Unduhan Selesai</string>
+    <string name="no_downloads">Tidak Ada Unduhan</string>
+    <string name="open_folder">Buka Folder</string>
+    <string name="share">Bagikan</string>
+    <string name="view">Lihat</string>
+    <string name="empty_clipboard">Kosongkan Papan Klip</string>
+    <string name="invalid_url">URL Tidak Valid</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Untuk Instagram</string>
+    <string name="tiktok">Untuk TikTok</string>
+    <string name="dailymotion">Untuk Dailymotion</string>
+    <string name="twitter">Untuk X</string>
+    <string name="pinnest">Untuk PinNest</string>
+    <string name="thread">Untuk Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Buka Dailymotion & ketuk “Bagikan”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Buka X & ketuk “Bagikan”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Buka Threads & ketuk “Bagikan”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Buka Facebook dan salin\ntautan dari video, reel, atau pos apa pun ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Buka Instagram dan salin\ntautan dari video, reel, atau pos apa pun ]]></string>
+    <string name="history">Riwayat</string>
+    <string name="bookmark">Markah Buku</string>
+    <string name="select_search_engine">Pilih Mesin Pencari</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Tanpa Tanda Air</string>
+    <string name="sd_no_watermark">SD · Tanpa Tanda Air</string>
+    <string name="with_watermark">Dengan Tanda Air</string>
+    <string name="audio_only">Hanya Audio</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Performa Lancar &amp; Andal</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Ditingkatkan ke premium tanpa iklan &amp; kecepatan sangat tinggi</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Nilai yang bagus untuk uang tanpa iklan. Suka sekali</string>
+</resources>

@@ -69,7 +69,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.btnDownload.setOnClickListener {
             val url = binding.etUrl.text.toString().trim()
             if (url.isEmpty()) {
-                binding.etUrl.error = "Enter URL"
+                binding.etUrl.error = getString(R.string.enter_url)
                 return@setOnClickListener
             }
             downloadViewModel.getDownloadInfo(url)
@@ -122,37 +122,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun quickAccessButtons() {
         binding.facebookButton.itemIcon.setImageResource(R.drawable.facebook_icon)
-        binding.facebookButton.itemTitle.text = "FB Saver"
+        binding.facebookButton.itemTitle.text = getString(R.string.fb_saver)
         binding.facebookButton.cardRoot.setOnClickListener { navigate(R.string.facebook) }
 
         binding.whatsappButton.itemIcon.setImageResource(R.drawable.whatsapp_icon)
-        binding.whatsappButton.itemTitle.text = "Status Saver"
+        binding.whatsappButton.itemTitle.text = getString(R.string.status_saver)
         binding.whatsappButton.cardRoot.setOnClickListener {
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
 
         binding.instagramButton.itemIcon.setImageResource(R.drawable.instagram_icon)
-        binding.instagramButton.itemTitle.text = "IG Saver"
+        binding.instagramButton.itemTitle.text = getString(R.string.ig_saver)
         binding.instagramButton.cardRoot.setOnClickListener { navigate(R.string.instagram) }
 
         binding.tiktokButton.itemIcon.setImageResource(R.drawable.tiktok_icon)
-        binding.tiktokButton.itemTitle.text = "TikTok"
+        binding.tiktokButton.itemTitle.text = getString(R.string.tiktok_title)
         binding.tiktokButton.cardRoot.setOnClickListener { navigate(R.string.tiktok) }
 
         binding.dailymotionButton.itemIcon.setImageResource(R.drawable.dailymotion_icon)
-        binding.dailymotionButton.itemTitle.text = "dly Motion"
+        binding.dailymotionButton.itemTitle.text = getString(R.string.dailymotion_title)
         binding.dailymotionButton.cardRoot.setOnClickListener { navigate(R.string.dailymotion) }
 
         binding.twitterButton.itemIcon.setImageResource(R.drawable.twitter_icon)
-        binding.twitterButton.itemTitle.text = "eX"
+        binding.twitterButton.itemTitle.text = getString(R.string.twitter_title)
         binding.twitterButton.cardRoot.setOnClickListener { navigate(R.string.twitter) }
 
         binding.pintresButton.itemIcon.setImageResource(R.drawable.pintres_icon)
-        binding.pintresButton.itemTitle.text = "PinNest"
+        binding.pintresButton.itemTitle.text = getString(R.string.pinnest_title)
         binding.pintresButton.cardRoot.setOnClickListener { navigate(R.string.pinnest) }
 
         binding.threadButton.itemIcon.setImageResource(R.drawable.thread_icon)
-        binding.threadButton.itemTitle.text = "Thredy"
+        binding.threadButton.itemTitle.text = getString(R.string.thread_title)
         binding.threadButton.cardRoot.setOnClickListener { navigate(R.string.thread) }
 
     }

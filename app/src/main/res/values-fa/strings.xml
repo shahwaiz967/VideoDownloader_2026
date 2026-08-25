@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">دانلود کننده ویدیو</string>
+    <string name="hello_blank_fragment">سلام قطعه تاریخچه</string>
+    <string name="download_without_limits">دانلود بدون محدودیت</string>
+    <string name="select_language">انتخاب زبان</string>
+    <string name="next">بعدی</string>
+    <string name="system_default">پیش‌فرض سیستم</string>
+    <string name="all_languages">همه زبان‌ها</string>
+    <string name="what_s_included">آنچه شامل می‌شود</string>
+    <string name="go">برو</string>
+    <string name="premium_subtitle">از دانلود سریع و دسترسی نامحدود به ویدیوها با ۳ روز آزمایشی رایگان لذت ببرید، سپس ۱۴۰۰ روپیه در هفته. هر زمان خواستید لغو کنید.</string>
+    <string name="features">ویژگی‌ها</string>
+    <string name="basic">پایه</string>
+    <string name="trial_disabled">آزمایشی غیرفعال شد</string>
+    <string name="most_popular">⭐ محبوب‌ترین</string>
+    <string name="best_value">بهترین ارزش</string>
+    <string name="weekly_plan">برنامه هفتگی</string>
+    <string name="weekly_price">۱۴۰۰ روپیه</string>
+    <string name="monthly_price">۵۰۰۰ روپیه</string>
+    <string name="free_trial_3days">۳ روز آزمایشی رایگان</string>
+    <string name="no_charge_today">امروز هزینه‌ای ندارد</string>
+    <string name="user_reviews">نظرات کاربران</string>
+    <string name="start_free_trial">شروع دوره آزمایشی رایگان</string>
+    <string name="buy_now">اکنون بخرید</string>
+    <string name="trial_started">۳ روز آزمایشی رایگان شروع شد!</string>
+    <string name="the_first_3_days_are_free">۳ روز اول رایگان است. پس از دوره آزمایشی، %s در هفته به‌طور خودکار کسر می‌شود مگر اینکه حداقل ۲۴ ساعت قبل از پایان دوره آزمایشی لغو شود.</string>
+    <string name="the_first_3_days_are">%s در هفته به‌طور خودکار کسر می‌شود مگر اینکه حداقل ۲۴ ساعت قبل از پایان دوره آزمایشی لغو شود.</string>
+    <string name="enable_free_trial">فعال‌سازی دوره آزمایشی رایگان</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">پریمیوم</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">دانلود نامحدود، بدون محدودیت\n۳ روز رایگان امتحان کنید • سپس ۱۴۰۰ روپیه در هفته • هر زمان خواستید لغو کنید</string>
+    <string name="monthly_plan">برنامه ماهانه</string>
+    <string name="no_payment_now">اکنون پرداختی ندارید</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">ریلز</string>
+    <string name="player">پخش‌کننده</string>
+    <string name="clear_all">پاک کردن همه</string>
+    <string name="back">بازگشت</string>
+    <string name="tab">برگه</string>
+    <string name="tabs">برگه‌ها</string>
+    <string name="just_now">همین الان</string>
+    <string name="downloading">در حال دانلود...</string>
+    <string name="downloaded">دانلود شد</string>
+    <string name="cancel">لغو</string>
+    <string name="likes">لایک</string>
+    <string name="like">لایک</string>
+    <string name="title">عنوان</string>
+
+    <!-- Languages -->
+    <string name="english_us">انگلیسی (آمریکا)</string>
+    <string name="english">انگلیسی</string>
+    <string name="arabic">عربی</string>
+    <string name="bangla">بنگالی</string>
+    <string name="chinese_simplified">چینی (ساده‌شده)</string>
+    <string name="chinese_hong_kong">چینی (هنگ‌کنگ)</string>
+    <string name="chinese">چینی</string>
+    <string name="dutch">هلندی</string>
+    <string name="french_canada">فرانسوی (کانادا)</string>
+    <string name="french_france">فرانسوی (فرانسه)</string>
+    <string name="french">فرانسوی</string>
+    <string name="german">آلمانی</string>
+    <string name="greek">یونانی</string>
+    <string name="hindi">هندی</string>
+    <string name="indonesian">اندونزیایی</string>
+    <string name="italian">ایتالیایی</string>
+    <string name="japanese">ژاپنی</string>
+    <string name="korean">کره‌ای</string>
+    <string name="malay">مالایی</string>
+    <string name="persian">فارسی</string>
+    <string name="polish">لهستانی</string>
+    <string name="portuguese_brazil">پرتغالی (برزیل)</string>
+    <string name="portuguese_portugal">پرتغالی (پرتغال)</string>
+    <string name="portuguese">پرتغالی</string>
+    <string name="russian">روسی</string>
+    <string name="spanish_latin_america">اسپانیایی (آمریکای لاتین)</string>
+    <string name="spanish_spain">اسپانیایی (اسپانیا)</string>
+    <string name="spanish_us">اسپانیایی (آمریکا)</string>
+    <string name="spanish">اسپانیایی</string>
+    <string name="swedish">سوئدی</string>
+    <string name="tamil">تامیلی</string>
+    <string name="thai">تایلندی</string>
+    <string name="turkish">ترکی</string>
+    <string name="ukrainian">اوکراینی</string>
+    <string name="urdu">اردو</string>
+    <string name="vietnamese">ویتنامی</string>
+    <string name="azerbaijan">آذربایجانی</string>
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[جستجو و دانلود ویدیوها]]></string>
+    <string name="paste_link">جای‌گذاری پیوند</string>
+    <string name="download">دانلود</string>
+    <string name="quick_access">دسترسی سریع</string>
+    <string name="search_or_paste_link_to_download">برای دانلود جستجو کنید یا پیوند را جای‌گذاری کنید</string>
+    <string name="enter_url">URL را وارد کنید</string>
+    <string name="fb_saver">ذخیره‌کننده FB</string>
+    <string name="status_saver">ذخیره‌کننده وضعیت</string>
+    <string name="ig_saver">ذخیره‌کننده IG</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">جستجو یا وارد کردن URL</string>
+    <string name="no_title">بدون عنوان</string>
+    <string name="bookmarked">نشان‌گذاری شد</string>
+
+    <!-- Settings -->
+    <string name="setting">تنظیمات</string>
+    <string name="general">عمومی</string>
+    <string name="dark_mode">حالت تاریک</string>
+    <string name="browser">مرورگر</string>
+    <string name="set_default_browser">تنظیم مرورگر پیش‌فرض</string>
+    <string name="search_engine">موتور جستجو</string>
+    <string name="clear_cache">پاک کردن حافظه پنهان</string>
+    <string name="rate_us">به ما امتیاز دهید</string>
+    <string name="feedback">بازخورد</string>
+    <string name="privacy_policy">سیاست حریم خصوصی</string>
+    <string name="others">سایر موارد</string>
+    <string name="no_ads">بدون تبلیغات</string>
+    <string name="just_smooth">فقط روان</string>
+    <string name="fast_downloading">در حال دانلود...</string>
+    <string name="special_gift">🎁 هدیه ویژه</string>
+    <string name="upgrade_now">اکنون ارتقا دهید</string>
+    <string name="ads_free_experience">تجربه بدون تبلیغات</string>
+    <string name="cache_cleared_successfully">حافظه پنهان با موفقیت پاک شد</string>
+    <string name="failed_to_clear_cache">پاک کردن حافظه پنهان ناموفق بود</string>
+
+    <!-- Player -->
+    <string name="all_music">همه موسیقی‌ها</string>
+    <string name="all_videos">همه ویدیوها</string>
+    <string name="deleted_successfully">با موفقیت حذف شد</string>
+    <string name="copy_path">کپی مسیر</string>
+    <string name="path_copied_to_clipboard">مسیر در کلیپ‌بورد کپی شد</string>
+    <string name="delete">حذف</string>
+
+    <string name="clear">پاک کردن</string>
+    <string name="add_tab">+ افزودن برگه</string>
+    <string name="home">خانه</string>
+    <string name="about_blank">درباره:خالی</string>
+    <string name="share_message">این برنامه شگفت‌انگیز را بررسی کنید: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">اشتراک‌گذاری از طریق</string>
+    <string name="feedback_subject">بازخورد برنامه - دانلود کننده ویدیو</string>
+    <string name="send_feedback">ارسال بازخورد</string>
+    <string name="advertisement">تبلیغات...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">ریلزهای پرطرفدار</string>
+    <string name="share_video">اشتراک‌گذاری ویدیو</string>
+    <string name="failed_to_share">اشتراک‌گذاری ویدیو ناموفق بود</string>
+    <string name="no_videos_found">ویدیویی یافت نشد</string>
+    <string name="network_error">خطای شبکه: %s</string>
+    <string name="reel_video">ویدیوی ریلز</string>
+    <string name="view_stories_private">مشاهده داستان‌ها و دانلودها از حساب‌های خصوصی</string>
+    <string name="why_login_required">چرا ورود لازم است؟</string>
+    <string name="open_instagram">باز کردن اینستاگرام</string>
+    <string name="how_to_download">نحوه دانلود</string>
+    <string name="copy_link">کپی پیوند</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[۱. پینترست را باز کنید و روی ۳ نقطه (•••) ضربه بزنید]]></string>
+    <string name="_2_click_copy_link">۲. روی «کپی پیوند» کلیک کنید</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">برنامه را باز کنید</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">پیوند کپی شده\nبه‌طور خودکار جای‌گذاری می‌شود.\nکافیست روی دانلود ضربه بزنید.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">بررسی پیشرفت</string>
+    <string name="track_progress_and_open">پیشرفت را پیگیری کنید و باز کنید</string>
+    <string name="your_download_file">فایل دانلودی شما</string>
+    <string name="video">ویدیو</string>
+    <string name="in_progress">در حال انجام</string>
+    <string name="completed">تکمیل شد</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">تیک‌تاک را باز کنید و روی <font color="#FF0000">\'\'اشتراک‌گذاری\'\'</font> کلیک کنید</string>
+    <string name="copy_link_amp_open_video_downloader">کپی پیوند و باز کردن <font color="#FF0000">\'\'دانلود کننده ویدیو\'\'</font></string>
+    <string name="select_quality">انتخاب کیفیت</string>
+    <string name="download_started">دانلود شروع شد</string>
+    <string name="not_available">در دسترس نیست</string>
+    <string name="loading">در حال بارگذاری...</string>
+    <string name="download_complete">دانلود کامل شد</string>
+    <string name="no_downloads">دانلودی وجود ندارد</string>
+    <string name="open_folder">باز کردن پوشه</string>
+    <string name="share">اشتراک‌گذاری</string>
+    <string name="view">مشاهده</string>
+    <string name="empty_clipboard">کلیپ‌بورد خالی</string>
+    <string name="invalid_url">URL نامعتبر</string>
+
+    <!-- Platforms -->
+    <string name="facebook">فیس‌بوک</string>
+    <string name="whatsapp">واتس‌اپ</string>
+    <string name="instagram">برای اینستاگرام</string>
+    <string name="tiktok">برای تیک‌تاک</string>
+    <string name="dailymotion">برای دیلی‌موشن</string>
+    <string name="twitter">برای X</string>
+    <string name="pinnest">برای پین‌نست</string>
+    <string name="thread">برای تردز</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[۱. دیلی‌موشن را باز کنید و روی «اشتراک‌گذاری» ضربه بزنید]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[۱. X را باز کنید و روی «اشتراک‌گذاری» ضربه بزنید]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[۱. تردز را باز کنید و روی «اشتراک‌گذاری» ضربه بزنید]]></string>
+    <string name="_1_open_facebook"><![CDATA[۱. فیس‌بوک را باز کنید و\nپیوند هر ویدیو، ریلز یا پستی را کپی کنید ]]></string>
+    <string name="_1_open_instagram"><![CDATA[۱. اینستاگرام را باز کنید و\nپیوند هر ویدیو، ریلز یا پستی را کپی کنید ]]></string>
+    <string name="history">تاریخچه</string>
+    <string name="bookmark">نشان‌گذاری</string>
+    <string name="select_search_engine">انتخاب موتور جستجو</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · بدون واترمارک</string>
+    <string name="sd_no_watermark">SD · بدون واترمارک</string>
+    <string name="with_watermark">با واترمارک</string>
+    <string name="audio_only">فقط صدا</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">عملکرد روان و قابل‌اعتماد</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">ارتقا یافته به پریمیوم بدون تبلیغات و سرعت بالا</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">ارزش خوب در برابر هزینه بدون تبلیغات. دوستش دارم</string>
+</resources>

@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.models.ReelItem
 import com.codecx.videodownloader.data.states.ResultState
@@ -103,7 +104,7 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
                             )
                         }
                         if (items.isEmpty()) {
-                            showError("No videos found")
+                            showError(getString(R.string.no_videos_found))
                         } else {
                             setupViewPager(items)
                         }
@@ -111,7 +112,7 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
 
                     is ResultState.Error -> {
                         showLoading(false)
-                        showError("Network error: ${it.message}")
+                        showError(getString(R.string.network_error, it.message ?: ""))
                     }
                 }
 
@@ -124,14 +125,14 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
     private fun setupViewPager(items: List<ReelItem>) {
         reelsAdapter = ReelsPagerAdapter(requireContext(), items) { reel ->
             val downloadItem = DownloadModel(
-                title = reel.name.ifEmpty { "Reel Video" },
+                title = reel.name.ifEmpty { getString(R.string.reel_video) },
                 url = reel.url,
                 thumbnailUrl = reel.thumbnail,
                 fileSize = "",
                 isAudio = false
             )
             downloadViewModel.startDownload(downloadItem)
-            Toast.makeText(requireContext(), "Download Started...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.download_started), Toast.LENGTH_SHORT).show()
         }
 
         binding.viewPager.apply {

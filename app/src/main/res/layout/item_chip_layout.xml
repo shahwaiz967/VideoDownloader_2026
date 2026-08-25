@@ -13,13 +13,14 @@
     app:cardBackgroundColor="@android:color/transparent">
 
     <TextView
+        xmlns:tools="http://schemas.android.com/tools"
         android:textColor="@color/onBackground"
         android:id="@+id/chipText"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginVertical="@dimen/_8sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Folder"/>
+        tools:text="Folder"/>
 
 
 </com.google.android.material.card.MaterialCardView>

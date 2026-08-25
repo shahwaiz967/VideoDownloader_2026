@@ -25,12 +25,13 @@ class DownloadOptionAdapter(
             )
 
 
+            val context = binding.root.context
             binding.mediaTitle.text = when (item.quality) {
-                "hd_no_watermark" -> "HD · No Watermark"
-                "no_watermark"    -> "SD · No Watermark"
-                "watermark"       -> "With Watermark"
-                "audio"           -> "Audio Only"
-                else              -> item.quality ?: "Download"
+                "hd_no_watermark" -> context.getString(R.string.hd_no_watermark)
+                "no_watermark"    -> context.getString(R.string.sd_no_watermark)
+                "watermark"       -> context.getString(R.string.with_watermark)
+                "audio"           -> context.getString(R.string.audio_only)
+                else              -> item.quality ?: context.getString(R.string.download)
             }
 
 

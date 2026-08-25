@@ -15,6 +15,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.SearchEngineManager
 import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.databinding.FragmentInAppBrowserBinding
@@ -181,7 +182,7 @@ class InAppBrowserFragment :
                 ) {
 
                     binding.tvTitle.text =
-                        title ?: "Loading..."
+                        title ?: getString(R.string.loading)
 
                     updateCurrentTab(
                         title = title
@@ -207,10 +208,10 @@ class InAppBrowserFragment :
 
         binding.btnBookmark.setOnClickListener {
             val url = binding.webView.url
-            val title = binding.webView.title ?: url ?: "No Title"
+            val title = binding.webView.title ?: url ?: getString(R.string.no_title)
             if (url != null) {
                 viewModel.addBookmark(title, url)
-                requireContext().showToast("Bookmarked")
+                requireContext().showToast(getString(R.string.bookmarked))
             }
         }
 

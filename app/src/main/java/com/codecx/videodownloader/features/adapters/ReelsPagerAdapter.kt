@@ -15,6 +15,7 @@ import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.recyclerview.widget.RecyclerView
+import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.models.ReelItem
 import com.codecx.videodownloader.data.utils.AppConstants
 import com.codecx.videodownloader.databinding.ItemReelVideoBinding
@@ -166,13 +167,13 @@ class ReelsPagerAdapter(
                     }
 
                     onDone()
-                    context.startActivity(Intent.createChooser(intent, "Share Video").apply {
+                    context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_video)).apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     })
                 } catch (e: Exception) {
                     onDone()
                     Log.d("shareVideo", "Error sharing video: ${e.message}")
-                    Toast.makeText(context, "Failed to share: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "${context.getString(R.string.failed_to_share)}: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

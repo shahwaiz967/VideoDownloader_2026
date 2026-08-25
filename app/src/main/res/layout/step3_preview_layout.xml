@@ -129,10 +129,11 @@
                         android:textColor="@color/dark_gray" />
 
                     <TextView
+                        xmlns:tools="http://schemas.android.com/tools"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/segoe_semibold"
-                        android:text="1.0/5.0 MB - 15 %"
+                        tools:text="1.0/5.0 MB - 15 %"
                         android:textColor="@color/light_gray"
                         android:textSize="@dimen/_6ssp" />
 

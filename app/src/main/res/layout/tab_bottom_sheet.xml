@@ -27,7 +27,8 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_arrow"/>
+            android:src="@drawable/back_arrow"
+            android:contentDescription="@string/back"/>
 
         <TextView
             android:id="@+id/tvTabCount"
@@ -37,14 +38,13 @@
             android:textSize="@dimen/_16ssp"
             android:fontFamily="@font/segoe_bold"
             android:textColor="@color/onBackground"
-            android:text="Tab"
             android:layout_marginStart="@dimen/_8sdp"/>
 
         <TextView
             android:id="@+id/btnClearAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clear All"
+            android:text="@string/clear_all"
             android:textColor="@color/primaryColor"
             android:textSize="@dimen/_14ssp"
             android:padding="8dp"
