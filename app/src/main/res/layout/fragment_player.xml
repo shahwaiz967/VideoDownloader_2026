@@ -77,7 +77,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/all_music"/>
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
 
