@@ -75,11 +75,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         initStartupPage()
         observeDownloadCompletion()
 
-        bindNative(
+      /*  bindNative(
             RemoteConfigHelper.adIds.mainBanner,
             false,
             binding.adLayout
-        )
+        )*/
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
@@ -128,32 +128,27 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         currentTab = tab
 
         setTabActive(
-            binding.ivNavHome,
             binding.tvNavHome,
             tab == TAB_HOME
         )
 
         setTabActive(
-            binding.ivNavDownloads,
             binding.tvNavDownloads,
             tab == TAB_DOWNLOADS
         )
 
         setTabActive(
-            binding.ivNavReels,
             binding.tvNavReels,
             tab == TAB_REELS
         )
 
         setTabActive(
-            binding.ivNavPlayer,
             binding.tvNavPlayer,
             tab == TAB_PLAYER
         )
     }
 
     private fun setTabActive(
-        icon: ImageView,
         label: TextView,
         isActive: Boolean
     ) {
@@ -162,7 +157,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             R.color.white
         )
 
-        icon.setColorFilter(color)
         label.setTextColor(color)
 
         label.setTypeface(

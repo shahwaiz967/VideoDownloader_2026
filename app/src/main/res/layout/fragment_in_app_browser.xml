@@ -23,7 +23,6 @@
             android:layout_height="40dp"
             android:src="@drawable/back_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="@android:color/black"
             android:contentDescription="@string/back"/>
 
 

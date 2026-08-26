@@ -159,7 +159,6 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                 currentLangCode.replace("-Hans", "").equals(it.code, ignoreCase = true)
             }
             if (initialSelectedIndex == -1) {
-                // Fallback to matching base language if exact match fails
                 initialSelectedIndex = languages.indexOfFirst { 
                     currentLangCode.startsWith(it.code.split("-")[0], ignoreCase = true) 
                 }

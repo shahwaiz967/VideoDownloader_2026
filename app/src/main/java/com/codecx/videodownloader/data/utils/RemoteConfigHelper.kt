@@ -22,6 +22,10 @@ object RemoteConfigHelper {
     const val BANNER_AD_TYPE = "banner"
     const val COLLAPSIBLE_AD_TYPE = "collapsible"
 
+    const val INTER_AD_ID = "ca-app-pub-3940256099942544/1033173712"
+    const val COLLAPS_BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111"
+
+
     val mFirebaseRemoteConfig: FirebaseRemoteConfig by lazy {
         FirebaseRemoteConfig.getInstance()
     }
@@ -69,15 +73,25 @@ object RemoteConfigHelper {
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
             mainBanner = AdItem(
-                "ca-app-pub-3940256099942544/6300978111",
+                COLLAPS_BANNER_AD_ID,
                 true,
                 BANNER_AD_TYPE
             ),
-                    splashBanner = AdItem(
-                    "ca-app-pub-3940256099942544/6300978111",
+            settingBanner = AdItem(
+                    COLLAPS_BANNER_AD_ID,
             true,
             BANNER_AD_TYPE
-        )
+            ),
+            splashInter = AdItem(
+                adId = INTER_AD_ID,
+                adFormat = INTER_AD_TYPE,
+                isAdEnable = true
+            ),
+            premiumInter = AdItem(
+                adId = INTER_AD_ID,
+                adFormat = INTER_AD_TYPE,
+                isAdEnable = true
+            ),
         )
     }
 }

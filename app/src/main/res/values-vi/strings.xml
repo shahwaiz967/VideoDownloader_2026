@@ -1,0 +1,227 @@
+<resources>
+    <string name="app_name">Trình Tải Video</string>
+    <string name="hello_blank_fragment">Xin chào phân đoạn Lịch sử</string>
+    <string name="download_without_limits">Tải Xuống Không Giới Hạn</string>
+    <string name="select_language">Chọn Ngôn ngữ</string>
+    <string name="next">Tiếp theo</string>
+    <string name="system_default">Mặc định Hệ thống</string>
+    <string name="all_languages">Tất cả Ngôn ngữ</string>
+    <string name="what_s_included">Bao gồm những gì</string>
+    <string name="go">Đi</string>
+    <string name="premium_subtitle">Tận Hưởng Tải Xuống Nhanh Và Truy Cập Video Không Giới Hạn Với Bản Dùng Thử Miễn Phí 3 Ngày, Sau Đó 1,400 Rs/Tuần. Hủy Bất Cứ Lúc Nào.</string>
+    <string name="features">Tính năng</string>
+    <string name="basic">Cơ bản</string>
+    <string name="trial_disabled">Dùng Thử Đã Tắt</string>
+    <string name="most_popular">⭐ Phổ biến nhất</string>
+    <string name="best_value">Giá trị tốt nhất</string>
+    <string name="weekly_plan">Gói hàng tuần</string>
+    <string name="weekly_price">1,400 Rs</string>
+    <string name="monthly_price">5,000 Rs</string>
+    <string name="free_trial_3days">Dùng Thử Miễn Phí 3 Ngày</string>
+    <string name="no_charge_today">Không Tính Phí Hôm Nay</string>
+    <string name="user_reviews">Đánh giá của Người dùng</string>
+    <string name="start_free_trial">Bắt Đầu Dùng Thử Miễn Phí</string>
+    <string name="buy_now">Mua ngay</string>
+    <string name="trial_started">Đã bắt đầu dùng thử miễn phí 3 ngày!</string>
+    <string name="the_first_3_days_are_free">3 ngày đầu tiên là miễn phí. Sau thời gian dùng thử, %s mỗi tuần sẽ được tự động tính phí trừ khi bị hủy ít nhất 24 giờ trước khi kết thúc thời gian dùng thử.</string>
+    <string name="the_first_3_days_are">%s mỗi tuần sẽ được tự động tính phí trừ khi bị hủy ít nhất 24 giờ trước khi kết thúc thời gian dùng thử.</string>
+    <string name="enable_free_trial">Kích hoạt Dùng Thử Miễn Phí</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Cao cấp</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Tải Xuống Không Giới Hạn, Không Rào Cản\nDùng Thử Miễn Phí 3 Ngày • Sau Đó 1,400 Rs/Tuần • Hủy Bất Cứ Lúc Nào</string>
+    <string name="monthly_plan">Gói Hàng Tháng</string>
+    <string name="no_payment_now">Không Thanh Toán Bây Giờ</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Trình phát</string>
+    <string name="clear_all">Xóa tất cả</string>
+    <string name="back">Quay lại</string>
+    <string name="tab">Thẻ</string>
+    <string name="tabs">Các thẻ</string>
+    <string name="just_now">Vừa xong</string>
+    <string name="downloading">Đang tải xuống...</string>
+    <string name="downloaded">Đã tải xuống</string>
+    <string name="cancel">Hủy</string>
+    <string name="likes">lượt thích</string>
+    <string name="like">Thích</string>
+    <string name="title">Tiêu đề</string>
+
+    <!-- Languages -->
+    <string name="english_us">Tiếng Anh (Mỹ)</string>
+    <string name="english">Tiếng Anh</string>
+    <string name="arabic">Tiếng Ả Rập</string>
+    <string name="bangla">Tiếng Bangla</string>
+    <string name="chinese_simplified">Tiếng Trung (Giản thể)</string>
+    <string name="chinese_hong_kong">Tiếng Trung (Hồng Kông)</string>
+    <string name="chinese">Tiếng Trung</string>
+    <string name="dutch">Tiếng Hà Lan</string>
+    <string name="french_canada">Tiếng Pháp (Canada)</string>
+    <string name="french_france">Tiếng Pháp (Pháp)</string>
+    <string name="french">Tiếng Pháp</string>
+    <string name="german">Tiếng Đức</string>
+    <string name="greek">Tiếng Hy Lạp</string>
+    <string name="hindi">Tiếng Hindi</string>
+    <string name="indonesian">Tiếng Indonesia</string>
+    <string name="italian">Tiếng Ý</string>
+    <string name="japanese">Tiếng Nhật</string>
+    <string name="korean">Tiếng Hàn</string>
+    <string name="malay">Tiếng Mã Lai</string>
+    <string name="persian">Tiếng Ba Tư</string>
+    <string name="polish">Tiếng Ba Lan</string>
+    <string name="portuguese_brazil">Tiếng Bồ Đào Nha (Brazil)</string>
+    <string name="portuguese_portugal">Tiếng Bồ Đào Nha (Bồ Đào Nha)</string>
+    <string name="portuguese">Tiếng Bồ Đào Nha</string>
+    <string name="russian">Tiếng Nga</string>
+    <string name="spanish_latin_america">Tiếng Tây Ban Nha (Mỹ Latinh)</string>
+    <string name="spanish_spain">Tiếng Tây Ban Nha (Tây Ban Nha)</string>
+    <string name="spanish_us">Tiếng Tây Ban Nha (Mỹ)</string>
+    <string name="spanish">Tiếng Tây Ban Nha</string>
+    <string name="swedish">Tiếng Thụy Điển</string>
+    <string name="tamil">Tiếng Tamil</string>
+    <string name="thai">Tiếng Thái</string>
+    <string name="turkish">Tiếng Thổ Nhĩ Kỳ</string>
+    <string name="ukrainian">Tiếng Ukraina</string>
+    <string name="urdu">Tiếng Urdu</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="azerbaijan">Tiếng Azerbaijan</string>
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Tìm kiếm & Tải Video]]></string>
+    <string name="paste_link">Dán Liên kết</string>
+    <string name="download">Tải xuống</string>
+    <string name="quick_access">Truy Cập Nhanh</string>
+    <string name="search_or_paste_link_to_download">Tìm kiếm hoặc Dán Liên kết để Tải xuống</string>
+    <string name="enter_url">Nhập URL</string>
+    <string name="fb_saver">Lưu FB</string>
+    <string name="status_saver">Lưu Trạng thái</string>
+    <string name="ig_saver">Lưu IG</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Tìm kiếm hoặc nhập URL</string>
+    <string name="no_title">Không có Tiêu đề</string>
+    <string name="bookmarked">Đã đánh dấu</string>
+
+    <!-- Settings -->
+    <string name="setting">Cài đặt</string>
+    <string name="general">Chung</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="browser">Trình duyệt</string>
+    <string name="set_default_browser">Đặt Trình duyệt Mặc định</string>
+    <string name="search_engine">Công cụ Tìm kiếm</string>
+    <string name="clear_cache">Xóa Bộ nhớ đệm</string>
+    <string name="rate_us">Đánh giá Chúng tôi</string>
+    <string name="feedback">Phản hồi</string>
+    <string name="privacy_policy">Chính sách Bảo mật</string>
+    <string name="others">Khác</string>
+    <string name="no_ads">Không Quảng cáo</string>
+    <string name="just_smooth">Chỉ Mượt mà</string>
+    <string name="fast_downloading">Đang tải xuống...</string>
+    <string name="special_gift">🎁 Quà tặng Đặc biệt</string>
+    <string name="upgrade_now">Nâng cấp Ngay</string>
+    <string name="ads_free_experience">Trải nghiệm Không có Quảng cáo</string>
+    <string name="cache_cleared_successfully">Xóa bộ nhớ đệm thành công</string>
+    <string name="failed_to_clear_cache">Không thể xóa bộ nhớ đệm</string>
+
+    <!-- Player -->
+    <string name="all_music">Tất cả Âm nhạc</string>
+    <string name="all_videos">Tất cả Video</string>
+    <string name="deleted_successfully">Đã xóa thành công</string>
+    <string name="copy_path">Sao chép Đường dẫn</string>
+    <string name="path_copied_to_clipboard">Đường dẫn đã được sao chép vào khay nhớ tạm</string>
+    <string name="delete">Xóa</string>
+
+    <string name="clear">Xóa</string>
+    <string name="add_tab">+ Thêm Thẻ</string>
+    <string name="home">Trang chủ</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Kiểm tra ứng dụng tuyệt vời này: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Chia sẻ qua</string>
+    <string name="feedback_subject">Phản hồi Ứng dụng - Trình Tải Video</string>
+    <string name="send_feedback">Gửi Phản hồi</string>
+    <string name="advertisement">Quảng cáo...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Reels thịnh hành</string>
+    <string name="share_video">Chia sẻ Video</string>
+    <string name="failed_to_share">Không thể chia sẻ video</string>
+    <string name="no_videos_found">Không tìm thấy video nào</string>
+    <string name="network_error">Lỗi mạng: %s</string>
+    <string name="reel_video">Video Reel</string>
+    <string name="view_stories_private">Xem câu chuyện và bản tải xuống từ các tài khoản riêng tư</string>
+    <string name="why_login_required">Tại sao cần Đăng nhập?</string>
+    <string name="open_instagram">Mở Instagram</string>
+    <string name="how_to_download">Cách Tải xuống</string>
+    <string name="copy_link">Sao chép Liên kết</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Mở Pinterest & Chạm vào 3 Dấu chấm (•••)]]></string>
+    <string name="_2_click_copy_link">2. Nhấp vào “Sao chép Liên kết”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Mở Ứng dụng</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Liên kết đã sao chép sẽ\nđược tự động dán.\nChỉ cần chạm vào Tải xuống.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Kiểm tra Tiến độ</string>
+    <string name="track_progress_and_open">Theo dõi tiến độ và mở</string>
+    <string name="your_download_file">tệp tải xuống của bạn</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Đang tiến hành</string>
+    <string name="completed">Đã hoàn thành</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Mở Tiktok và NHẤP VÀO <font color="#FF0000">\'\'Chia sẻ\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Sao chép Liên kết &amp; Mở <font color="#FF0000">\'\'Trình Tải Video\'\'</font></string>
+    <string name="select_quality">Chọn Chất lượng</string>
+    <string name="download_started">Đã bắt đầu tải xuống</string>
+    <string name="not_available">Không có sẵn</string>
+    <string name="loading">Đang tải...</string>
+    <string name="download_complete">Tải xuống Hoàn tất</string>
+    <string name="no_downloads">Không có Bản tải xuống nào</string>
+    <string name="open_folder">Mở Thư mục</string>
+    <string name="share">Chia sẻ</string>
+    <string name="view">Xem</string>
+    <string name="empty_clipboard">Khay nhớ tạm trống</string>
+    <string name="invalid_url">URL không hợp lệ</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Dành cho Instagram</string>
+    <string name="tiktok">Dành cho TikTok</string>
+    <string name="dailymotion">Dành cho Dailymotion</string>
+    <string name="twitter">Dành cho X</string>
+    <string name="pinnest">Dành cho PinNest</string>
+    <string name="thread">Dành cho Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Mở Dailymotion & chạm vào “Chia sẻ”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Mở X & chạm vào “Chia sẻ”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Mở Threads & chạm vào “Chia sẻ”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Mở Facebook và sao chép\nliên kết của bất kỳ video, reel hoặc bài đăng nào ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Mở Instagram và sao chép\nliên kết của bất kỳ video, reel hoặc bài đăng nào ]]></string>
+    <string name="history">Lịch sử</string>
+    <string name="bookmark">Đánh dấu</string>
+    <string name="select_search_engine">Chọn Công cụ Tìm kiếm</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Không Hình mờ</string>
+    <string name="sd_no_watermark">SD · Không Hình mờ</string>
+    <string name="with_watermark">Có Hình mờ</string>
+    <string name="audio_only">Chỉ Âm thanh</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Hiệu suất Mượt mà &amp; Đáng tin cậy</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Đã nâng cấp lên cao cấp không quảng cáo &amp; tốc độ nhanh chóng</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Đáng đồng tiền bát gạo không quảng cáo. Thích điều này</string>
+    <string name="download_manager">Trình quản lý tải xuống</string>
+    <string name="unlimited_access">Tải xuống không giới hạn</string>
+    <string name="fast_downloads">Tốc độ tải xuống nhanh</string>
+    <string name="_100_ad_free">100% không quảng cáo</string>
+    <string name="priority_support">Hỗ trợ VIP</string>
+    <string name="language">Ngôn ngữ</string>
+</resources>

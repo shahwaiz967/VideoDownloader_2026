@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentPremiumBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 
 class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
+
+    //private val interstitialHelper: InterstitialAdHelper.InterstitialHelper
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -20,20 +25,19 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
         savedInstanceState: Bundle?
     ): FragmentPremiumBinding {
         return FragmentPremiumBinding.inflate(inflater, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnStartTrial.setOnClickListener {
+        val fromSettings = arguments?.getBoolean("fromSettings", false) ?: false
 
-        }
-
-        binding.btnBack.setOnClickListener {
-            safeNavigate(R.id.mainFragment, null, navOptions {
-                popUpTo(R.id.nav_graph) {
-                    inclusive = true
-                }
-            })
+        binding.btnBack.setOnClickListener{
+            if (fromSettings){
+                findNavController().popBackStack()
+            }else{
+                navigate()
+            }
         }
         binding.ebayReview.tvReviewText.text = getString(R.string.review_ebay_text)
         binding.ebayReview.tvReviewerName.text = getString(R.string.review_ebay_name)
@@ -59,5 +63,27 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
         binding.rowAdFree.ivBasicCheck.setImageResource(R.drawable.cross)
         binding.rowPrioritySupport.tvFeatureName.text = getString(R.string.priority_support)
         binding.rowPrioritySupport.ivBasicCheck.setImageResource(R.drawable.cross)
+    }
+
+ /*   private fun showInterstitial(){
+        showInter(
+            interstitialHelper = interstitialHelper,
+            stringId = RemoteConfigHelper.adIds.splashInter.adId,
+            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
+            onDismiss = {
+               navigate()
+            },
+            onFail = {
+               navigate()
+            }
+        )
+    }*/
+
+    private fun navigate(){
+        safeNavigate(R.id.mainFragment, null, navOptions {
+            popUpTo(R.id.nav_graph) {
+                inclusive = true
+            }
+        })
     }
 }

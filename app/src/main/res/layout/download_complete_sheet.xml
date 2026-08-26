@@ -56,10 +56,9 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:id="@+id/lottieAnimation"
-
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_80sdp"
-        app:lottie_rawRes="@raw/celebration_confetti"
+        app:lottie_rawRes="@raw/confetti"
         app:layout_constraintEnd_toStartOf="@id/close_btn"
         app:layout_constraintTop_toTopOf="parent"
         />

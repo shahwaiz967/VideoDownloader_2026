@@ -16,7 +16,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.codecx.statussaver.features.activities.MainActivity
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.states.ResultState
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isValidUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
@@ -32,6 +35,8 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var tabId: Long = -1L
     private val downloadViewModel: DownloadViewModel by activityViewModel()
+   // private var interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+
 
     override fun bindLayout(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -43,6 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+       // interstitialHelper = InterstitialAdHelper.InterstitialHelper()
         quickAccessButtons()
         observeDownload()
         binding.btnPasteLink.setOnClickListener {
@@ -159,7 +165,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun navigate(@StringRes title: Int) {
-
+        /*showInter(
+            interstitialHelper = interstitialHelper,
+            stringId = RemoteConfigHelper.adIds.splashInter.adId,
+            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
+            onDismiss = {
+                safeNavigate(R.id.socityFragment, bundle)
+            },
+            onFail = {
+                safeNavigate(R.id.socityFragment, bundle)
+            }
+        )*/
         val bundle = Bundle().apply {
             putInt("name", title)
             putLong("tabId", tabId)
@@ -176,18 +192,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     companion object {
-
         private const val ARG_TAB_ID = "tab_id"
-
         fun newInstance(tabId: Long): HomeFragment {
-
             return HomeFragment().apply {
-
                 arguments = Bundle().apply {
                     putLong(ARG_TAB_ID, tabId)
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //checkClipboardAndPaste()
     }
 
 

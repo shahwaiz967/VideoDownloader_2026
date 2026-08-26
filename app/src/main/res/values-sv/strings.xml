@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">Hej Historikfragment</string>
+    <string name="download_without_limits">Ladda ner utan gränser</string>
+    <string name="select_language">Välj språk</string>
+    <string name="next">Nästa</string>
+    <string name="system_default">Systemstandard</string>
+    <string name="all_languages">Alla språk</string>
+    <string name="what_s_included">Vad som ingår</string>
+    <string name="go">Kör</string>
+    <string name="premium_subtitle">Njut av snabba nedladdningar och obegränsad videotillgång med en 3-dagars gratis provperiod, därefter 1 400 Rs/vecka. Avbryt när som helst.</string>
+    <string name="features">Funktioner</string>
+    <string name="basic">Grundläggande</string>
+    <string name="trial_disabled">Provperiod inaktiverad</string>
+    <string name="most_popular">⭐ Mest populär</string>
+    <string name="best_value">Bästa värdet</string>
+    <string name="weekly_plan">Veckoplan</string>
+    <string name="weekly_price">1 400 Rs</string>
+    <string name="monthly_price">5 000 Rs</string>
+    <string name="free_trial_3days">3-dagars gratis provperiod</string>
+    <string name="no_charge_today">Ingen avgift idag</string>
+    <string name="user_reviews">Användarrecensioner</string>
+    <string name="start_free_trial">Starta gratis provperiod</string>
+    <string name="buy_now">Köp nu</string>
+    <string name="trial_started">3-dagars gratis provperiod startade!</string>
+    <string name="the_first_3_days_are_free">De första 3 dagarna är gratis. Efter provperioden debiteras %s per vecka automatiskt såvida det inte avbryts minst 24 timmar innan provperioden löper ut.</string>
+    <string name="the_first_3_days_are">%s per vecka kommer att debiteras automatiskt såvida det inte avbryts minst 24 timmar innan provperioden löper ut.</string>
+    <string name="enable_free_trial">Aktivera gratis provperiod</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Obegränsade nedladdningar, inga gränser\nProva gratis i 3 dagar • Därefter 1 400 Rs/vecka • Avbryt när som helst</string>
+    <string name="monthly_plan">Månadsplan</string>
+    <string name="no_payment_now">Ingen betalning nu</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Spelare</string>
+    <string name="clear_all">Rensa alla</string>
+    <string name="back">Tillbaka</string>
+    <string name="tab">Flik</string>
+    <string name="tabs">Flikar</string>
+    <string name="just_now">Just nu</string>
+    <string name="downloading">Laddar ner...</string>
+    <string name="downloaded">Nedladdad</string>
+    <string name="cancel">Avbryt</string>
+    <string name="likes">gillar</string>
+    <string name="like">Gilla</string>
+    <string name="title">Titel</string>
+
+    <!-- Languages -->
+    <string name="english_us">Engelska (USA)</string>
+    <string name="english">Engelska</string>
+    <string name="arabic">Arabiska</string>
+    <string name="bangla">Bengali</string>
+    <string name="chinese_simplified">Kinesiska (Förenklad)</string>
+    <string name="chinese_hong_kong">Kinesiska (Hongkong)</string>
+    <string name="chinese">Kinesiska</string>
+    <string name="dutch">Nederländska</string>
+    <string name="french_canada">Franska (Kanada)</string>
+    <string name="french_france">Franska (Frankrike)</string>
+    <string name="french">Franska</string>
+    <string name="german">Tyska</string>
+    <string name="greek">Grekiska</string>
+    <string name="hindi">Hindi</string>
+    <string name="indonesian">Indonesiska</string>
+    <string name="italian">Italienska</string>
+    <string name="japanese">Japanska</string>
+    <string name="korean">Koreanska</string>
+    <string name="malay">Malajiska</string>
+    <string name="persian">Persiska</string>
+    <string name="polish">Polska</string>
+    <string name="portuguese_brazil">Portugisiska (Brasilien)</string>
+    <string name="portuguese_portugal">Portugisiska (Portugal)</string>
+    <string name="portuguese">Portugisiska</string>
+    <string name="russian">Ryska</string>
+    <string name="spanish_latin_america">Spanska (Latinamerika)</string>
+    <string name="spanish_spain">Spanska (Spanien)</string>
+    <string name="spanish_us">Spanska (USA)</string>
+    <string name="spanish">Spanska</string>
+    <string name="swedish">Svenska</string>
+    <string name="tamil">Tamil</string>
+    <string name="thai">Thailändska</string>
+    <string name="turkish">Turkiska</string>
+    <string name="ukrainian">Ukrainska</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnamesiska</string>
+    <string name="azerbaijan">Azerbajdzjanska</string>
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Sök & ladda ner videor]]></string>
+    <string name="paste_link">Klistra in länk</string>
+    <string name="download">Ladda ner</string>
+    <string name="quick_access">Snabbåtkomst</string>
+    <string name="search_or_paste_link_to_download">Sök eller klistra in länk för nedladdning</string>
+    <string name="enter_url">Ange URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Sök eller ange URL</string>
+    <string name="no_title">Ingen titel</string>
+    <string name="bookmarked">Bokmärkt</string>
+
+    <!-- Settings -->
+    <string name="setting">Inställning</string>
+    <string name="general">Allmänt</string>
+    <string name="dark_mode">Mörkt läge</string>
+    <string name="browser">Webbläsare</string>
+    <string name="set_default_browser">Ställ in standardwebbläsare</string>
+    <string name="search_engine">Sökmotor</string>
+    <string name="clear_cache">Rensa cache</string>
+    <string name="rate_us">Betygsätt oss</string>
+    <string name="feedback">Feedback</string>
+    <string name="privacy_policy">Integritetspolicy</string>
+    <string name="others">Andra</string>
+    <string name="no_ads">Inga annonser</string>
+    <string name="just_smooth">Bara smidigt</string>
+    <string name="fast_downloading">Snabb nedladdning...</string>
+    <string name="special_gift">🎁 Särskild gåva</string>
+    <string name="upgrade_now">Uppgradera nu</string>
+    <string name="ads_free_experience">Annonsfri upplevelse</string>
+    <string name="cache_cleared_successfully">Cache rensades</string>
+    <string name="failed_to_clear_cache">Misslyckades med att rensa cache</string>
+
+    <!-- Player -->
+    <string name="all_music">All musik</string>
+    <string name="all_videos">Alla videor</string>
+    <string name="deleted_successfully">Borttagen</string>
+    <string name="copy_path">Kopiera sökväg</string>
+    <string name="path_copied_to_clipboard">Sökvägen kopierades till urklipp</string>
+    <string name="delete">Ta bort</string>
+
+    <string name="clear">Rensa</string>
+    <string name="add_tab">+ Lägg till flik</string>
+    <string name="home">Hem</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Kolla in denna fantastiska app: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Dela via</string>
+    <string name="feedback_subject">Appfeedback - Video Downloader</string>
+    <string name="send_feedback">Skicka feedback</string>
+    <string name="advertisement">Annons...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Populära reels</string>
+    <string name="share_video">Dela video</string>
+    <string name="failed_to_share">Misslyckades med att dela video</string>
+    <string name="no_videos_found">Inga videor hittades</string>
+    <string name="network_error">Nätverksfel: %s</string>
+    <string name="reel_video">Reel-video</string>
+    <string name="view_stories_private">Visa händelser och nedladdningar från privata konton</string>
+    <string name="why_login_required">Varför krävs inloggning?</string>
+    <string name="open_instagram">Öppna Instagram</string>
+    <string name="how_to_download">Hur man laddar ner</string>
+    <string name="copy_link">Kopiera länk</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Öppna Pinterest & tryck på de 3 prickarna (•••)]]></string>
+    <string name="_2_click_copy_link">2. Klicka på ”Kopiera länk”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Öppna appen</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Den kopierade länken\nkommer automatiskt att klistras in.\nTryck bara på Ladda ner.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Kontrollera förlopp</string>
+    <string name="track_progress_and_open">Spåra förlopp och öppna</string>
+    <string name="your_download_file">din nedladdningsfil</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Pågår</string>
+    <string name="completed">Slutfört</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Öppna Tiktok och KLICKA PÅ &lt;font color="#FF0000"&gt;\'\'Dela\'\'&lt;/font&gt;</string>
+    <string name="copy_link_amp_open_video_downloader">Kopiera länk &amp; Öppna &lt;font color="#FF0000"&gt;\'\'Video Downloader\'\'&lt;/font&gt;</string>
+    <string name="select_quality">Välj kvalitet</string>
+    <string name="download_started">Nedladdning startade</string>
+    <string name="not_available">Inte tillgänglig</string>
+    <string name="loading">Laddar...</string>
+    <string name="download_complete">Nedladdning slutförd</string>
+    <string name="no_downloads">Inga nedladdningar</string>
+    <string name="open_folder">Öppna mapp</string>
+    <string name="share">Dela</string>
+    <string name="view">Visa</string>
+    <string name="empty_clipboard">Töm urklipp</string>
+    <string name="invalid_url">Ogiltig URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">För Instagram</string>
+    <string name="tiktok">För TikTok</string>
+    <string name="dailymotion">För Dailymotion</string>
+    <string name="twitter">För X</string>
+    <string name="pinnest">För PinNest</string>
+    <string name="thread">För Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Öppna Dailymotion & tryck på ”Dela”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Öppna X & tryck på ”Dela”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Öppna Threads & tryck på ”Dela”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Öppna Facebook och kopiera\nlänken till valfri video, reel eller inlägg ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Öppna Instagram och kopiera\nlänken till valfri video, reel eller inlägg ]]></string>
+    <string name="history">Historik</string>
+    <string name="bookmark">Bokmärke</string>
+    <string name="select_search_engine">Välj sökmotor</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Ingen vattenstämpel</string>
+    <string name="sd_no_watermark">SD · Ingen vattenstämpel</string>
+    <string name="with_watermark">Med vattenstämpel</string>
+    <string name="audio_only">Endast ljud</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Smidig &amp; pålitlig prestanda</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Uppgraderade till premium, inga annonser &amp; blixtsnabb</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Bra värde för pengarna utan annonser. Älskar den</string>
+    <string name="download_manager">Nedladdningshanterare</string>
+    <string name="unlimited_access">Obegränsade nedladdningar</string>
+    <string name="fast_downloads">Snabb nedladdningshastighet</string>
+    <string name="_100_ad_free">100 % reklamfri</string>
+    <string name="priority_support">VIP-support</string>
+    <string name="language">Språk</string>
+</resources>

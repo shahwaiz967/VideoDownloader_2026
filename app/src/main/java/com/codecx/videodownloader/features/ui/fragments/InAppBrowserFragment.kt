@@ -301,17 +301,8 @@ class InAppBrowserFragment :
     }
 
     private fun updateNavButtons() {
-
-        val canGoBack =
-            binding.webView.canGoBack()
-
-
-        binding.btnBack.isEnabled =
-            canGoBack
-
-        binding.btnBack.alpha =
-            if (canGoBack) 1f else 0.4f
-
+        binding.btnBack.isEnabled = true
+        binding.btnBack.alpha = 1f
     }
 
     private fun navigateBack() {

@@ -35,20 +35,18 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }
-        binding.languageRow.root.setOnClickListener {
-            val bundle = Bundle().apply { putBoolean("fromSettings", true) }
-            safeNavigate(R.id.languageFragment, bundle)
-        }
+
         rows()
         setupListeners()
-        bindNative(
+       /* bindNative(
             RemoteConfigHelper.adIds.splashBanner,
             false,
             binding.adLayout
-        )
+        )*/
 
     }
 
@@ -90,12 +88,16 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
     private fun setupListeners(){
 
-
+        val bundle = Bundle().apply { putBoolean("fromSettings", true) }
         val packageName = requireContext().packageName
         with(binding){
 
+
+            languageRow.root.setOnClickListener {
+                safeNavigate(R.id.languageFragment, bundle)
+            }
             btnUpgradeNow.setOnClickListener {
-                safeNavigate(R.id.premiumFragment)
+                safeNavigate(R.id.premiumFragment,bundle)
             }
 
             historyRow.root.setOnClickListener {

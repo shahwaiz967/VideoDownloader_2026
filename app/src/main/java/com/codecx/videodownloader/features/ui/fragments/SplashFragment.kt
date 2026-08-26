@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -25,6 +28,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     private var progress = 0
     private var progressComplete = false
+    //private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,7 +63,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
                 } else {
                     progressComplete = true
-                    moveNext()
+                    safeNavigate(R.id.languageFragment)
                 }
             }
 
@@ -68,8 +72,19 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         handler.post(progressRunnable)
     }
 
-    private fun moveNext() {
-        safeNavigate(R.id.languageFragment)
-    }
+   /* private fun moveNext(){
+        showInter(
+            interstitialHelper = interstitialHelper,
+            stringId = RemoteConfigHelper.adIds.splashInter.adId,
+            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
+            onDismiss = {
+                safeNavigate(R.id.languageFragment)
+            },
+            onFail = {
+                safeNavigate(R.id.languageFragment)
+            }
+        )
+    }*/
+    
 
 }
