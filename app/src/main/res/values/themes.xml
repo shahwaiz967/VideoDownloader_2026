@@ -20,5 +20,11 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10%</item>
     </style>
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:minHeight">@dimen/_7sdp</item>
+        <item name="android:maxHeight">@dimen/_7sdp</item>
+        <item name="colorControlNormal">#BCBCBC</item>
+        <item name="colorControlActivated">#FFD600</item>
+    </style>
     <style name="Theme.VideoDownloader" parent="Base.Theme.VideoDownloader" />
 </resources>

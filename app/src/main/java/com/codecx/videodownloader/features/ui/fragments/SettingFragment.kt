@@ -11,6 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.enums.EnumAdType
+import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.SearchEngine
 import com.codecx.videodownloader.data.utils.SearchEngineManager
 import com.codecx.videodownloader.data.utils.ThemeManager
@@ -36,15 +39,22 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             findNavController().popBackStack()
         }
         binding.languageRow.root.setOnClickListener {
-            safeNavigate(R.id.languageFragment)
+            val bundle = Bundle().apply { putBoolean("fromSettings", true) }
+            safeNavigate(R.id.languageFragment, bundle)
         }
         rows()
         setupListeners()
+        bindNative(
+            RemoteConfigHelper.adIds.splashBanner,
+            false,
+            binding.adLayout
+        )
 
     }
 
     private fun rows(){
         with(binding){
+            languageRow.tvLanguage.text = getString(R.string.language)
 
             historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
             historyRow.tvLanguage.text = getString(R.string.history)

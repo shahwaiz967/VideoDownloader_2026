@@ -2,10 +2,12 @@ package com.codecx.videodownloader.data.utils
 
 import android.content.Context
 import android.util.Log
+import com.codecx.videodownloader.data.dataClasses.AdItem
 import com.google.firebase.FirebaseApp
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.codecx.videodownloader.data.dataClasses.RemoteAdsConfig
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +20,7 @@ object RemoteConfigHelper {
     const val INTER_AD_TYPE = "inter"
     const val OPEN_AD_TYPE = "open"
     const val BANNER_AD_TYPE = "banner"
-    const val COLLAPSABLE_AD_TYPE = "collaps"
+    const val COLLAPSIBLE_AD_TYPE = "collapsible"
 
     val mFirebaseRemoteConfig: FirebaseRemoteConfig by lazy {
         FirebaseRemoteConfig.getInstance()
@@ -33,6 +35,8 @@ object RemoteConfigHelper {
         this@RemoteConfigHelper.application = application
         CoroutineScope(Dispatchers.IO).launch {
             FirebaseApp.initializeApp(application)
+            adIds = getDefaultAdIds()
+            checkRemoteConfig()
         }
     }
 
@@ -48,7 +52,10 @@ object RemoteConfigHelper {
                 mFirebaseRemoteConfig.fetchAndActivate().await()
             }
         }.onSuccess {
-
+            val json = mFirebaseRemoteConfig.getString("ads_config")
+            if (json.isNotEmpty()) {
+                adIds = Gson().fromJson(json, RemoteAdsConfig::class.java)
+            }
         }.onFailure {
             Log.e("RemoteConfigHelper", "checkRemoteConfig: ${it.message}")
         }
@@ -59,4 +66,18 @@ object RemoteConfigHelper {
         return application.getString(id)
     }
 
+    fun getDefaultAdIds(): RemoteAdsConfig {
+        return RemoteAdsConfig(
+            mainBanner = AdItem(
+                "ca-app-pub-3940256099942544/6300978111",
+                true,
+                BANNER_AD_TYPE
+            ),
+                    splashBanner = AdItem(
+                    "ca-app-pub-3940256099942544/6300978111",
+            true,
+            BANNER_AD_TYPE
+        )
+        )
+    }
 }

@@ -20,5 +20,5 @@
 
 
     <color name="adBackgroundColor">#F4F4F4</color>
-
+    <color name="shimmer_holder_color">#DBDBDB</color>
 </resources>

@@ -24,7 +24,7 @@ object CodecxAd {
                 try {
                     com.google.android.libraries.ads.mobile.sdk.MobileAds.initialize(
                         context,
-                        InitializationConfig.Builder("app_id").build()
+                        InitializationConfig.Builder("ca-app-pub-1234567890123456~1234567890").build()
                     ) {
                         if (continuation.isActive)
                             continuation.resume(Unit)

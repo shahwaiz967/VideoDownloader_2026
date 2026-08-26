@@ -116,7 +116,7 @@
 
         android:layout_height="72dp"
         android:background="@drawable/background_corner_round"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ad_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -144,6 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home"
+                android:maxLines="1"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
@@ -174,6 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/download"
+                android:maxLines="1"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
@@ -215,6 +217,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/reels"
                 android:textSize="11sp"
+                android:maxLines="1"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
 
@@ -246,6 +249,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/player"
                 android:textSize="11sp"
+                android:maxLines="1"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/white"/>
 
@@ -273,6 +277,15 @@
             android:contentDescription="@null" />
 
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

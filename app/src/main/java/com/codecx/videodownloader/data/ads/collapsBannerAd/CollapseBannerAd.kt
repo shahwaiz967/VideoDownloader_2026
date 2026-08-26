@@ -59,9 +59,6 @@ object CollapseBannerAd {
                                 adCallBack.onAdLoaded()
                                 adContainer?.addView(adView)
 
-                                adContainer?.removeAllViews()
-                                adCallBack.onAdLoaded()
-
                                 ad.adEventCallback = object : BannerAdEventCallback {
                                     override fun onAdImpression() {
                                         adCallBack.onAdShown()

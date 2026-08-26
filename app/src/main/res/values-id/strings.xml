@@ -219,4 +219,10 @@
     <string name="review_emily_text">Ditingkatkan ke premium tanpa iklan &amp; kecepatan sangat tinggi</string>
     <string name="review_noah_name">Noah Mitchell</string>
     <string name="review_noah_text">Nilai yang bagus untuk uang tanpa iklan. Suka sekali</string>
+    <string name="download_manager">Manajer Unduhan</string>
+    <string name="unlimited_access">Unduhan Tanpa Batas</string>
+    <string name="fast_downloads">Kecepatan Unduh Cepat</string>
+    <string name="_100_ad_free">100% Bebas Iklan</string>
+    <string name="priority_support">Dukungan VIP</string>
+    <string name="language">Bahasa</string>
 </resources>

@@ -38,6 +38,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.codecx.videodownloader.BuildConfig
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.features.ui.activities.MainActivity

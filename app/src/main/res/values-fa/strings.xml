@@ -219,4 +219,10 @@
     <string name="review_emily_text">ارتقا یافته به پریمیوم بدون تبلیغات و سرعت بالا</string>
     <string name="review_noah_name">Noah Mitchell</string>
     <string name="review_noah_text">ارزش خوب در برابر هزینه بدون تبلیغات. دوستش دارم</string>
+    <string name="download_manager">مدیریت دانلود</string>
+    <string name="unlimited_access">دانلود نامحدود</string>
+    <string name="fast_downloads">سرعت دانلود بالا</string>
+    <string name="_100_ad_free">۱۰۰٪ بدون تبلیغات</string>
+    <string name="priority_support">پشتیبانی VIP</string>
+    <string name="language">زبان</string>
 </resources>

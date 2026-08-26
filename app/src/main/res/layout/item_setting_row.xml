@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            tools:text="Language"
+            tools:text="@string/language"
             android:fontFamily="@font/segoe_semibold"
             android:textColor="@color/onBackground"
             android:textSize="@dimen/_13ssp"

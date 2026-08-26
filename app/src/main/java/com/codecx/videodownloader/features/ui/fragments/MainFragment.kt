@@ -20,7 +20,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.models.DownloadModel
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentMainBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -72,6 +74,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         refreshTabBadge()
         initStartupPage()
         observeDownloadCompletion()
+
+        bindNative(
+            RemoteConfigHelper.adIds.mainBanner,
+            false,
+            binding.adLayout
+        )
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)

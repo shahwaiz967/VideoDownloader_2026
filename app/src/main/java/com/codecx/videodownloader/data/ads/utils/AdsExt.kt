@@ -21,7 +21,7 @@ import com.codecx.videodownloader.data.ads.nativeAds.NativeAdsUtil
 import com.codecx.videodownloader.data.dataClasses.AdItem
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.BANNER_AD_TYPE
-import com.codecx.videodownloader.data.utils.RemoteConfigHelper.COLLAPSABLE_AD_TYPE
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper.COLLAPSIBLE_AD_TYPE
 import com.codecx.videodownloader.data.utils.currentActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -134,55 +134,54 @@ fun Fragment.bindNative(
         CoroutineScope(Dispatchers.Main).launch {
             delay(100)
             if (currentActivity != null) {
-//                val shimmerLayout = when (adType) {
-//                    EnumAdType.BannerNative -> {
-//                        R.layout.native_banner_shimmer
-//                    }
-//
-//                    EnumAdType.MediumNative -> {
-//                        R.layout.medium_shimmer
-//
-//                    }
-//
-//                    EnumAdType.MediumMediaNative -> {
-//                        R.layout.medium_media_shimmer
-//
-//                    }
-//
-//                    else -> {
-//                        R.layout.large_native_shimmer
-//                    }
-//                }
-//                val contentLayout = when (adType) {
-//                    EnumAdType.BannerNative -> {
-//                        R.layout.native_banner
-//                    }
-//
-//                    EnumAdType.MediumNative -> {
-//                        R.layout.medium_native
-//
-//                    }
-//
-//                    EnumAdType.MediumMediaNative -> {
-//                        R.layout.medium_media_native
-//
-//                    }
-//
-//                    else -> {
-//                        R.layout.large_native
-//                    }
-//                }
-//                activity?.let {
-//                    NativeAdsUtil.populateNativeAd(
-//                        isAdAllowed = adAllowed,
-//                        loadingAdView = if (requireContext().isRussia()) shimmerLayout.second else shimmerLayout.first,
-//                        nativeAdView = if (requireContext().isRussia()) contentLayout.second else contentLayout.first,
-//                        adContainerView = container,
-//                        nativeId = stringResId,
-//                        context = it,
-//                        adListener = null
-//                    )
-//                }
+                val shimmerLayout = when (adType) {
+                    EnumAdType.BannerNative -> {
+                        R.layout.native_banner_shimmer
+                    }
+
+                    EnumAdType.MediumNative -> {
+                        R.layout.medium_shimmer
+
+                    }
+
+                    EnumAdType.MediumMediaNative -> {
+                        R.layout.medium_media_shimmer
+
+                    }
+
+                    else -> {
+                        R.layout.large_native_shimmer
+                    }
+                }
+                val contentLayout = when (adType) {
+                    EnumAdType.BannerNative -> {
+                        R.layout.native_banner
+                    }
+
+                    EnumAdType.MediumNative -> {
+                        R.layout.medium_native
+
+                    }
+                    EnumAdType.MediumMediaNative -> {
+                        R.layout.medium_media_native
+
+                   }
+
+                    else -> {
+                        R.layout.large_native
+                    }
+                }
+                activity?.let {
+                    NativeAdsUtil.populateNativeAd(
+                        isAdAllowed = adAllowed,
+                        loadingAdView = shimmerLayout,
+                        nativeAdView = contentLayout,
+                        adContainerView = container,
+                        nativeId = stringResId,
+                        context = it,
+                        adListener = null
+                    )
+                }
             }
         }
     }
@@ -196,7 +195,7 @@ fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
                 BannerAd.showBanner(adItem, isPro, container, requireActivity(), null)
             }
 
-            COLLAPSABLE_AD_TYPE -> {
+            COLLAPSIBLE_AD_TYPE -> {
                 CollapseBannerAd.loadCollapseBanner(
                     requireActivity(),
                     adItem.isAdEnable && !isPro,

@@ -41,10 +41,10 @@ object NativeAdsUtil {
         adView.apply {
             headlineView = findViewById(R.id.ad_headline)
             bodyView = findViewById(R.id.ad_body)
-           // starRatingView = findViewById(R.id.ad_stars)
+            starRatingView = findViewById(R.id.rating_bar)
             callToActionView = findViewById(R.id.ad_call_to_action_new)
             iconView = findViewById(R.id.ad_app_icon)
-         //   advertiserView = findViewById(R.id.ad_advertiser)
+            advertiserView = findViewById(R.id.ad_advertiser)
 
             (headlineView as? TextView)?.text = nativeAd.headline
             (headlineView as? TextView)?.isSelected = true

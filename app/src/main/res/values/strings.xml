@@ -218,4 +218,11 @@
     <string name="review_emily_text">Upgraded to premium no ads &amp; blazing speed</string>
     <string name="review_noah_name">Noah Mitchell</string>
     <string name="review_noah_text">Good value for money no ads. Love it</string>
+
+    <string name="download_manager">Download Manager</string>
+    <string name="unlimited_access">Unlimited Downloads</string>
+    <string name="fast_downloads">Fast Download Speed</string>
+    <string name="_100_ad_free">100% ad-Free</string>
+    <string name="priority_support">VIP Support</string>
+    <string name="language">Language</string>
 </resources>

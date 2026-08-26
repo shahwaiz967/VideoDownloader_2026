@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-
+            android:text="@string/review_ebay_name"
             android:textColor="@color/onBackground"
             android:id="@+id/tvReviewerName"
             android:layout_width="0dp"
@@ -39,10 +39,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginTop="@dimen/_5sdp"
             android:textColor="@color/onBackground"
             android:id="@+id/tvReviewText"
             android:layout_width="0dp"
-
+            android:text="@string/review_ebay_text"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_10ssp"
             android:layout_marginEnd="@dimen/_8sdp"

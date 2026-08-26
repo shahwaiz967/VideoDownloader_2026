@@ -44,5 +44,20 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
         binding.noahReview.tvReviewText.text = getString(R.string.review_noah_text)
         binding.noahReview.tvReviewerName.text = getString(R.string.review_noah_name)
 
+        itemCardRow()
+
+    }
+
+    private fun itemCardRow(){
+        binding.rowDownloadManager.tvFeatureName.text = getString(R.string.download_manager)
+        binding.rowDownloadManager.ivBasicCheck.setImageResource(R.drawable.ic_check_orange)
+        binding.rowUnlimitedAccess.tvFeatureName.text = getString(R.string.unlimited_access)
+        binding.rowUnlimitedAccess.ivBasicCheck.setImageResource(R.drawable.cross)
+        binding.rowFastDownloads.tvFeatureName.text = getString(R.string.fast_downloads)
+        binding.rowFastDownloads.ivBasicCheck.setImageResource(R.drawable.cross)
+        binding.rowAdFree.tvFeatureName.text = getString(R.string._100_ad_free)
+        binding.rowAdFree.ivBasicCheck.setImageResource(R.drawable.cross)
+        binding.rowPrioritySupport.tvFeatureName.text = getString(R.string.priority_support)
+        binding.rowPrioritySupport.ivBasicCheck.setImageResource(R.drawable.cross)
     }
 }

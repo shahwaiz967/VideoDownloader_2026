@@ -219,4 +219,10 @@
     <string name="review_emily_text">Mise à niveau premium sans publicité et vitesse fulgurante</string>
     <string name="review_noah_name">Noah Mitchell</string>
     <string name="review_noah_text">Bon rapport qualité-prix sans publicité. J\'adore</string>
+    <string name="download_manager">Gestionnaire de téléchargement</string>
+    <string name="unlimited_access">Téléchargements illimités</string>
+    <string name="fast_downloads">Vitesse de téléchargement rapide</string>
+    <string name="_100_ad_free">100% sans publicité</string>
+    <string name="priority_support">Support VIP</string>
+    <string name="language">Langue</string>
 </resources>

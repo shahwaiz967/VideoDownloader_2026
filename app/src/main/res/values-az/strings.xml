@@ -218,4 +218,11 @@
     <string name="review_emily_text">Reklamsız və inanılmaz sürətli premium versiyasına təkmilləşdirildi</string>
     <string name="review_noah_name">Noah Mitchell</string>
     <string name="review_noah_text">Reklamsız pula yaxşı dəyər. Onu sevirəm</string>
+
+    <string name="download_manager">Yükləmə Meneceri</string>
+    <string name="unlimited_access">Limitsiz Yükləmələr</string>
+    <string name="fast_downloads">Sürətli Yükləmə Sürəti</string>
+    <string name="_100_ad_free">100% Reklamsız</string>
+    <string name="priority_support">VIP Dəstək</string>
+    <string name="language">Dil</string>
 </resources>

@@ -139,9 +139,11 @@
 
                     <com.google.android.material.progressindicator.LinearProgressIndicator
                         android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_height="wrap_content"
-                        android:progress="50"
-                        app:trackCornerRadius="@dimen/_10sdp" />
+                        android:progress="60"
+                        app:trackColor="@color/white"
+                        />
 
                 </LinearLayout>
             </LinearLayout>

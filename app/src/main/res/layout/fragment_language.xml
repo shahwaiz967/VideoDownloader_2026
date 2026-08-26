@@ -28,7 +28,7 @@
             android:visibility="gone"
             android:src="@drawable/back_arrow"
             android:contentDescription="@string/back"
-            app:tint="#212121" />
+            app:tint="@color/onBackground" />
 
 
         <TextView

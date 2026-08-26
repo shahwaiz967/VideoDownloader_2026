@@ -40,6 +40,14 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val fromSettings = arguments?.getBoolean("fromSettings", false) ?: false
+        binding.btnBack.visibility = if (fromSettings) View.VISIBLE else View.GONE
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         binding.btnApply.setOnClickListener {
             val selectedLanguage = (binding.rvLanguages.adapter as LanguageAdapter).getSelectedLanguage()
             val currentLocales = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()

@@ -110,6 +110,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/features"
+                            android:layout_marginStart="@dimen/_5sdp"
                             android:textColor="@color/onBackground"
                             android:textSize="@dimen/_15ssp"
                             app:layout_constraintHorizontal_weight="1.5"
