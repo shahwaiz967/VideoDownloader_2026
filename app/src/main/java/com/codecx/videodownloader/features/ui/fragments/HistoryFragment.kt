@@ -8,14 +8,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.databinding.FragmentHistoryBinding
 import com.codecx.videodownloader.features.adapters.HistoryBookMarkAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.codecx.videodownloader.features.ui.viewmodel.HistoryBookViewM
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     private val viewModel: HistoryBookViewM by viewModel()
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -35,12 +40,21 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
 
-        binding.ivBack.setOnClickListener {
+        onBackPressWithAd(interstitialHelper) {
             findNavController().popBackStack()
+        }
+
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         binding.btnClearAll.setOnClickListener {
             viewModel.clearHistory()
         }
+        bindNative(
+            RemoteConfigHelper.adIds.historyBanner,
+            false,
+            binding.adLayout
+        )
     }
 
 

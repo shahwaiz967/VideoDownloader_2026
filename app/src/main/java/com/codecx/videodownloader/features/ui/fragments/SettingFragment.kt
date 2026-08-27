@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.enums.EnumAdType
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.SearchEngine
@@ -22,9 +23,11 @@ import com.codecx.videodownloader.data.utils.isDefaultBrowser
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSettingBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>() {
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,17 +39,22 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.ivBack.setOnClickListener {
+
+        onBackPressWithAd(interstitialHelper) {
             findNavController().popBackStack()
+        }
+
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
         rows()
         setupListeners()
-       /* bindNative(
-            RemoteConfigHelper.adIds.splashBanner,
+        bindNative(
+            RemoteConfigHelper.adIds.settingBanner,
             false,
             binding.adLayout
-        )*/
+        )
 
     }
 

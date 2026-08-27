@@ -23,6 +23,7 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.BANNER_AD_TYPE
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.COLLAPSIBLE_AD_TYPE
 import com.codecx.videodownloader.data.utils.currentActivity
+import com.codecx.videodownloader.features.ui.activities.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -53,14 +54,15 @@ fun Fragment.showInter(
     enableTimer: Boolean = true,
     onDismiss: (ErrorType) -> Unit
 ) {
-    if (currentActivity != null) {
+    val mainActivity = activity as? MainActivity
+    if (mainActivity != null) {
         interstitialHelper.loadShowInterstitial(
             adId = getString(stringResId),
             adAllowed = adAllowed,
             timerAllowed = enableTimer,
             showLoadingLayout = true,
-            timerMilliSec =10000L,
-            activity = currentActivity!!,
+            timerMilliSec = 10000L,
+            activity = mainActivity,
             adCallBack = object : AdCallBack() {
                 override fun onAdDismiss() {
                     super.onAdDismiss()
@@ -93,12 +95,13 @@ fun Fragment.showInter(
     onDismiss: () -> Unit,
     onFail: () -> Unit
 ) {
-    if (currentActivity != null && CodecxAd.isSDKInit) {
+    val mainActivity = activity as? MainActivity
+    if (mainActivity != null && CodecxAd.isSDKInit) {
         interstitialHelper.loadShowInterstitial(
             adId = stringId,
             adAllowed = adAllowed,
             showLoadingLayout = true,
-            activity = currentActivity!!,
+            activity = mainActivity,
             adCallBack = object : AdCallBack() {
                 override fun onAdDismiss() {
                     super.onAdDismiss()
@@ -192,7 +195,8 @@ fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
     if (currentActivity != null) {
         when (adItem.adFormat) {
             BANNER_AD_TYPE -> {
-                BannerAd.showBanner(adItem, isPro, container, requireActivity(), null)
+                val bannerType = if (adItem.adSize.equals("large", ignoreCase = true)) 2 else 0
+                BannerAd.showBanner(adItem, isPro, container, requireActivity(), null, bannerType)
             }
 
             COLLAPSIBLE_AD_TYPE -> {

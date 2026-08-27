@@ -2,10 +2,12 @@ package com.codecx.videodownloader.data.utils
 
 import android.content.Context
 import android.util.Log
+import com.codecx.videodownloader.BuildConfig
 import com.codecx.videodownloader.data.dataClasses.AdItem
 import com.google.firebase.FirebaseApp
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import com.codecx.videodownloader.data.dataClasses.AdSize
 import com.codecx.videodownloader.data.dataClasses.RemoteAdsConfig
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -22,8 +24,6 @@ object RemoteConfigHelper {
     const val BANNER_AD_TYPE = "banner"
     const val COLLAPSIBLE_AD_TYPE = "collapsible"
 
-    const val INTER_AD_ID = "ca-app-pub-3940256099942544/1033173712"
-    const val COLLAPS_BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111"
 
 
     val mFirebaseRemoteConfig: FirebaseRemoteConfig by lazy {
@@ -72,26 +72,59 @@ object RemoteConfigHelper {
 
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
+            appOpen = AdItem(BuildConfig.open_ad_id),
             mainBanner = AdItem(
-                COLLAPS_BANNER_AD_ID,
+                BuildConfig.collapsible_id,
                 true,
-                BANNER_AD_TYPE
+                COLLAPSIBLE_AD_TYPE
             ),
             settingBanner = AdItem(
-                    COLLAPS_BANNER_AD_ID,
-            true,
-            BANNER_AD_TYPE
+                BuildConfig.collapsible_id,
+                true,
+                COLLAPSIBLE_AD_TYPE
             ),
             splashInter = AdItem(
-                adId = INTER_AD_ID,
+                adId = BuildConfig.interstitial_id,
                 adFormat = INTER_AD_TYPE,
                 isAdEnable = true
             ),
             premiumInter = AdItem(
-                adId = INTER_AD_ID,
+                adId = BuildConfig.interstitial_id,
                 adFormat = INTER_AD_TYPE,
                 isAdEnable = true
             ),
+            societyBanner = AdItem(
+                BuildConfig.collapsible_id,
+                true,
+                COLLAPSIBLE_AD_TYPE
+            ),
+            historyBanner = AdItem(
+                BuildConfig.collapsible_id,
+                true,
+                COLLAPSIBLE_AD_TYPE
+            ),
+            bookmarkBanner = AdItem(
+                BuildConfig.collapsible_id,
+                true,
+                COLLAPSIBLE_AD_TYPE
+            ),
+            languageBanner = AdItem(
+                BuildConfig.banner_id,
+                true,
+                BANNER_AD_TYPE,
+                AdSize.LARGE
+            ),
+            languageOnBoardingBanner = AdItem(
+                BuildConfig.banner_id,
+                true,
+                BANNER_AD_TYPE,
+                AdSize.LARGE
+            ),
+            backPressInter = AdItem(
+                adId = BuildConfig.interstitial_id,
+                adFormat = INTER_AD_TYPE,
+                isAdEnable = true
+            )
         )
     }
 }

@@ -11,31 +11,24 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.annotation.StringRes
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.codecx.statussaver.features.activities.MainActivity
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.showInter
-import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isValidUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safeNavigate
-import com.codecx.videodownloader.data.utils.showToast
-import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
 import com.codecx.videodownloader.features.base.BaseFragment
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
+import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var tabId: Long = -1L
     private val downloadViewModel: DownloadViewModel by activityViewModel()
-   // private var interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
 
     override fun bindLayout(
@@ -48,9 +41,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // interstitialHelper = InterstitialAdHelper.InterstitialHelper()
         quickAccessButtons()
         observeDownload()
+
         binding.btnPasteLink.setOnClickListener {
             val text = requireContext().getClipboardText()
             if (!text.isNullOrEmpty()) {
@@ -165,7 +158,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun navigate(@StringRes title: Int) {
-        /*showInter(
+        val bundle = Bundle().apply {
+            putInt("name", title)
+            putLong("tabId", tabId)
+        }
+
+        showInter(
             interstitialHelper = interstitialHelper,
             stringId = RemoteConfigHelper.adIds.splashInter.adId,
             adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
@@ -175,12 +173,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             onFail = {
                 safeNavigate(R.id.socityFragment, bundle)
             }
-        )*/
-        val bundle = Bundle().apply {
-            putInt("name", title)
-            putLong("tabId", tabId)
-        }
-        safeNavigate(R.id.socityFragment, bundle)
+        )
+
+        //safeNavigate(R.id.socityFragment, bundle)
     }
 
     private fun isValidUrl(text: String): Boolean {

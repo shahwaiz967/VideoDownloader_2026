@@ -9,6 +9,8 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.ThemeManager
 import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.CodecxAdsConfig
+import com.codecx.videodownloader.data.ads.openAd.OpenAdConfig
+import com.codecx.videodownloader.data.ads.openAd.OpenApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,6 +22,8 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         RemoteConfigHelper.init(this)
+        OpenApp(this, true)
+        OpenAdConfig.enableResumeAd()
         CoroutineScope(Dispatchers.Main).launch {
             CodecxAd.initAds(CodecxAdsConfig.Builder().build(), this@MyApplication)
         }

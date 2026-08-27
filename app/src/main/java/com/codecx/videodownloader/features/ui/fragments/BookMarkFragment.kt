@@ -10,16 +10,21 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 
 import com.codecx.videodownloader.databinding.FragmentBookmarkBinding
 import com.codecx.videodownloader.features.adapters.BookMarkAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.codecx.videodownloader.features.ui.viewmodel.BookMarkViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.getValue
 
 class BookMarkFragment : BaseFragment<FragmentBookmarkBinding>() {
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,12 +46,22 @@ class BookMarkFragment : BaseFragment<FragmentBookmarkBinding>() {
         }
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
-        binding.ivBack.setOnClickListener {
+        onBackPressWithAd(interstitialHelper) {
             findNavController().popBackStack()
+        }
+
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         binding.btnClearAll.setOnClickListener {
             viewModel.clearBookmarks()
         }
+
+        bindNative(
+            RemoteConfigHelper.adIds.bookmarkBanner,
+            false,
+            binding.adLayout
+        )
     }
 
 

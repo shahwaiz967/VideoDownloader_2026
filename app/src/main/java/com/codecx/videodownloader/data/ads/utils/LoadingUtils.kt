@@ -18,8 +18,8 @@ object LoadingUtils {
                     dialog?.setContentView(it)
                     val layoutParams = WindowManager.LayoutParams()
                     layoutParams.copyFrom(dialog?.window?.attributes)
-                    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
-                    layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+                    layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
+                    layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
                     dialog?.window?.attributes = layoutParams
                     dialog?.setCancelable(false)
                     dialog?.show()

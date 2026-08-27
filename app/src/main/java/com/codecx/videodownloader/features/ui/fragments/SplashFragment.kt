@@ -6,15 +6,18 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.utils.AppUpdateChecker
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
@@ -26,12 +29,15 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         return FragmentSplashBinding.inflate(inflater)
     }
 
+    private lateinit var appUpdate : AppUpdateChecker
     private var progress = 0
     private var progressComplete = false
-    //private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        appUpdate = AppUpdateChecker(requireActivity() as AppCompatActivity)
+
         if (activity?.intent?.action == Intent.ACTION_VIEW) {
             val uri = activity?.intent?.data
             if (uri != null) {
@@ -44,7 +50,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                 })
             }
         } else {
-            startProgressAnimation()
+            appUpdate.checkAppUpdate {
+                startProgressAnimation()
+            }
         }
     }
 
@@ -63,7 +71,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
                 } else {
                     progressComplete = true
-                    safeNavigate(R.id.languageFragment)
+                    moveNext()
                 }
             }
 
@@ -72,7 +80,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         handler.post(progressRunnable)
     }
 
-   /* private fun moveNext(){
+    private fun moveNext(){
         showInter(
             interstitialHelper = interstitialHelper,
             stringId = RemoteConfigHelper.adIds.splashInter.adId,
@@ -84,7 +92,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                 safeNavigate(R.id.languageFragment)
             }
         )
-    }*/
+    }
     
 
 }

@@ -75,11 +75,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         initStartupPage()
         observeDownloadCompletion()
 
-      /*  bindNative(
+        bindNative(
             RemoteConfigHelper.adIds.mainBanner,
             false,
             binding.adLayout
-        )*/
+        )
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)

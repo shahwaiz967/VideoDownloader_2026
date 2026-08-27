@@ -25,6 +25,17 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
         }
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
+
+            buildConfigField("String", "open_ad_id", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "banner_id", "\"ca-app-pub-3940256099942544/6300978111\"")
+            buildConfigField("String", "collapsible_id", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "interstitial_id", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "native_id", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "rewarded_id", "\"ca-app-pub-3940256099942544/5224354917\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -68,6 +79,9 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.2.3")
     implementation("io.ktor:ktor-client-logging:3.2.3")
     implementation("io.ktor:ktor-serialization-gson:3.2.3")
+
+    //InAppUpdate
+    implementation("com.google.android.play:app-update-ktx:2.1.0")
 
 
     //Glide

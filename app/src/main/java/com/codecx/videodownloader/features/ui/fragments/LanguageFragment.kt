@@ -14,14 +14,20 @@ import androidx.core.graphics.toColorInt
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.models.LanguageModel
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentLanguageBinding
 import com.codecx.videodownloader.features.adapters.LanguageAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 
 
 class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
+
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     private lateinit var languages: List<LanguageModel>
 
     private lateinit var defaultTitle: TextView
@@ -44,9 +50,22 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         val fromSettings = arguments?.getBoolean("fromSettings", false) ?: false
         binding.btnBack.visibility = if (fromSettings) View.VISIBLE else View.GONE
 
-        binding.btnBack.setOnClickListener {
+        onBackPressWithAd(interstitialHelper) {
             findNavController().popBackStack()
         }
+
+        binding.btnBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+        val adItem = if (fromSettings) RemoteConfigHelper.adIds.languageBanner
+        else RemoteConfigHelper.adIds.languageOnBoardingBanner
+
+        bindNative(
+            adItem,
+            false,
+            binding.adLayout
+        )
 
         binding.btnApply.setOnClickListener {
             val selectedLanguage = (binding.rvLanguages.adapter as LanguageAdapter).getSelectedLanguage()

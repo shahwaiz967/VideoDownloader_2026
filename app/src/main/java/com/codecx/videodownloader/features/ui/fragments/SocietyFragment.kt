@@ -12,11 +12,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.navigation.fragment.findNavController
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isValidUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.databinding.FragmentSocityBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
@@ -24,7 +28,7 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
 
     private val downloadViewModel : DownloadViewModel by activityViewModel()
-
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -38,6 +42,12 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         observeDownload()
+
+        bindNative(
+            RemoteConfigHelper.adIds.societyBanner,
+            false,
+            binding.adLayout
+        )
 
         binding.btnPasteLink.setOnClickListener {
             val text = requireContext().getClipboardText()
@@ -92,10 +102,14 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
             binding.tvTitle.text = getString(headerText)
         }
 
-        binding.ivBack.setOnClickListener {
+        onBackPressWithAd(interstitialHelper) {
             findNavController().popBackStack()
         }
 
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+        
         when (headerText) {
             R.string.dailymotion -> {
                 binding.ivStepImage1.setImageResource(R.drawable.dailymotion_preview_image)

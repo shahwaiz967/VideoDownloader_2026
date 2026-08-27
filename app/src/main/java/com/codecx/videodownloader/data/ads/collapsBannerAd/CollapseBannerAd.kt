@@ -105,7 +105,7 @@ object CollapseBannerAd {
         val widthPixels = outMetrics.widthPixels.toFloat()
         val density = outMetrics.density
         val adWidth = (widthPixels / density).toInt()
-        return AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
             context,
             adWidth
         )

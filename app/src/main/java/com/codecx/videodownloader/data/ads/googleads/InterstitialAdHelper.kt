@@ -159,7 +159,7 @@ object InterstitialAdHelper {
             timerAllowed: Boolean = false,
             timerMilliSec: Long = 0L,
             @LayoutRes
-            loadingLayout: Int = R.layout.inter_ad_loading_layout,
+            loadingLayout: Int = R.layout.dialog_ad_loading,
             adCallBack: AdCallBack, activity: Activity
         ) = CoroutineScope(Dispatchers.Main).launch {
             isTimerComplete = if (!timerAllowed) {
@@ -193,7 +193,7 @@ object InterstitialAdHelper {
                                             }
                                             runOnUiThread {
                                                 adCallBack.onAdDismiss()
-                                                LoadingUtils.dismissScreen()
+                                               // LoadingUtils.dismissScreen()
                                             }
 
 
@@ -233,6 +233,7 @@ object InterstitialAdHelper {
                                             super.onAdShowedFullScreenContent()
                                             isInterstitialShowing = true
                                             runOnUiThread {
+                                                LoadingUtils.dismissScreen()
                                                 adCallBack.onAdShown()
                                             }
 

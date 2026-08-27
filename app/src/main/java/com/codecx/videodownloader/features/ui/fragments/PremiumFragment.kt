@@ -17,8 +17,6 @@ import com.codecx.videodownloader.features.base.BaseFragment
 
 class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
-    //private val interstitialHelper: InterstitialAdHelper.InterstitialHelper
-
     override fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,6 +26,8 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
     }
 
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fromSettings = arguments?.getBoolean("fromSettings", false) ?: false
@@ -36,7 +36,7 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
             if (fromSettings){
                 findNavController().popBackStack()
             }else{
-                navigate()
+                showInterstitial()
             }
         }
         binding.ebayReview.tvReviewText.text = getString(R.string.review_ebay_text)
@@ -65,25 +65,26 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
         binding.rowPrioritySupport.ivBasicCheck.setImageResource(R.drawable.cross)
     }
 
- /*   private fun showInterstitial(){
+    private fun showInterstitial(){
         showInter(
             interstitialHelper = interstitialHelper,
             stringId = RemoteConfigHelper.adIds.splashInter.adId,
             adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
             onDismiss = {
-               navigate()
+                safeNavigate(R.id.mainFragment, null, navOptions {
+                    popUpTo(R.id.nav_graph) {
+                        inclusive = true
+                    }
+                })
             },
             onFail = {
-               navigate()
+                safeNavigate(R.id.mainFragment, null, navOptions {
+                    popUpTo(R.id.nav_graph) {
+                        inclusive = true
+                    }
+                })
             }
         )
-    }*/
-
-    private fun navigate(){
-        safeNavigate(R.id.mainFragment, null, navOptions {
-            popUpTo(R.id.nav_graph) {
-                inclusive = true
-            }
-        })
     }
+
 }

@@ -290,7 +290,7 @@ inline fun <reified T> String.fromJson(): T? {
 }
 
 
-val Fragment.currentActivity get() = if (isVisible || isAdded) activity as? MainActivity else null
+val Fragment.currentActivity get() = if (isAdded) activity as? MainActivity else null
 
 fun Fragment.handleBackPress(enable: Boolean = true, onPress: () -> Unit) {
     currentActivity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object :
