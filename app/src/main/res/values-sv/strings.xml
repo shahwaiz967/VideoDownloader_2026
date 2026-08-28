@@ -48,44 +48,7 @@
     <string name="like">Gilla</string>
     <string name="title">Titel</string>
 
-    <!-- Languages -->
-    <string name="english_us">Engelska (USA)</string>
-    <string name="english">Engelska</string>
-    <string name="arabic">Arabiska</string>
-    <string name="bangla">Bengali</string>
-    <string name="chinese_simplified">Kinesiska (Förenklad)</string>
-    <string name="chinese_hong_kong">Kinesiska (Hongkong)</string>
-    <string name="chinese">Kinesiska</string>
-    <string name="dutch">Nederländska</string>
-    <string name="french_canada">Franska (Kanada)</string>
-    <string name="french_france">Franska (Frankrike)</string>
-    <string name="french">Franska</string>
-    <string name="german">Tyska</string>
-    <string name="greek">Grekiska</string>
-    <string name="hindi">Hindi</string>
-    <string name="indonesian">Indonesiska</string>
-    <string name="italian">Italienska</string>
-    <string name="japanese">Japanska</string>
-    <string name="korean">Koreanska</string>
-    <string name="malay">Malajiska</string>
-    <string name="persian">Persiska</string>
-    <string name="polish">Polska</string>
-    <string name="portuguese_brazil">Portugisiska (Brasilien)</string>
-    <string name="portuguese_portugal">Portugisiska (Portugal)</string>
-    <string name="portuguese">Portugisiska</string>
-    <string name="russian">Ryska</string>
-    <string name="spanish_latin_america">Spanska (Latinamerika)</string>
-    <string name="spanish_spain">Spanska (Spanien)</string>
-    <string name="spanish_us">Spanska (USA)</string>
-    <string name="spanish">Spanska</string>
-    <string name="swedish">Svenska</string>
-    <string name="tamil">Tamil</string>
-    <string name="thai">Thailändska</string>
-    <string name="turkish">Turkiska</string>
-    <string name="ukrainian">Ukrainska</string>
-    <string name="urdu">Urdu</string>
-    <string name="vietnamese">Vietnamesiska</string>
-    <string name="azerbaijan">Azerbajdzjanska</string>
+
 
     <!-- Home & Quick Access -->
     <string name="search_amp_download_videos"><![CDATA[Sök & ladda ner videor]]></string>

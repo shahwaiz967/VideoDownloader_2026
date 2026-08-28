@@ -47,44 +47,6 @@
     <string name="like">Bəyən</string>
     <string name="title">Başlıq</string>
 
-    <!-- Languages -->
-    <string name="english_us">İngilis (ABŞ)</string>
-    <string name="english">İngilis</string>
-    <string name="arabic">Ərəb</string>
-    <string name="bangla">Benqal</string>
-    <string name="chinese_simplified">Çin (Sadələşdirilmiş)</string>
-    <string name="chinese_hong_kong">Çin (Honq Konq)</string>
-    <string name="chinese">Çin</string>
-    <string name="dutch">Niderland</string>
-    <string name="french_canada">Fransız (Kanada)</string>
-    <string name="french_france">Fransız (Fransa)</string>
-    <string name="french">Fransız</string>
-    <string name="german">Alman</string>
-    <string name="greek">Yunan</string>
-    <string name="hindi">Hind</string>
-    <string name="indonesian">İndoneziya</string>
-    <string name="italian">İtalyan</string>
-    <string name="japanese">Yapon</string>
-    <string name="korean">Koreya</string>
-    <string name="malay">Malay</string>
-    <string name="persian">Fars</string>
-    <string name="polish">Polyak</string>
-    <string name="portuguese_brazil">Portuqal (Braziliya)</string>
-    <string name="portuguese_portugal">Portuqal (Portuqaliya)</string>
-    <string name="portuguese">Portuqal</string>
-    <string name="russian">Rus</string>
-    <string name="spanish_latin_america">İspan (Latın Amerikası)</string>
-    <string name="spanish_spain">İspan (İspaniya)</string>
-    <string name="spanish_us">İspan (ABŞ)</string>
-    <string name="spanish">İspan</string>
-    <string name="swedish">İsveç</string>
-    <string name="tamil">Tamil</string>
-    <string name="thai">Tay</string>
-    <string name="turkish">Türk</string>
-    <string name="ukrainian">Ukrayna</string>
-    <string name="urdu">Urdu</string>
-    <string name="vietnamese">Vyetnam</string>
-    <string name="azerbaijan">Azərbaycan</string>
 
     <!-- Home & Quick Access -->
     <string name="search_amp_download_videos"><![CDATA[Videoları Axtarın və Yükləyin]]></string>

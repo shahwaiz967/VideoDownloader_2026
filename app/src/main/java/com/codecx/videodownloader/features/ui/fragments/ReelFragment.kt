@@ -10,7 +10,9 @@ import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.codecx.videodownloader.R
@@ -50,6 +52,7 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
         reelId = arguments?.getInt(EXTRA_CATEGORY_ID) ?: 0
         goFullscreen()
         fetchReels()
+        observeDownloadCompletion()
     }
 
     override fun onDetach() {
@@ -149,6 +152,16 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
             post {
                 reelsAdapter.currentPlayingPosition = reelId
                 if (reelId != 0) setCurrentItem(reelId, false)
+            }
+        }
+    }
+
+    private fun observeDownloadCompletion() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                downloadViewModel.downloadCompleteEvent.collectLatest {
+                    Toast.makeText(requireContext(), getString(R.string.download_complete), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

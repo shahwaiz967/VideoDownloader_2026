@@ -7,17 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.utils.AppUpdateChecker
+import com.codecx.videodownloader.data.utils.PrefManager
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
@@ -81,15 +80,21 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     }
 
     private fun moveNext(){
+        val destination = if (PrefManager.isFirstRun(requireContext())) {
+            PrefManager.setFirstRun(requireContext(), false)
+            R.id.languageFragment
+        } else {
+            R.id.premiumFragment
+        }
         showInter(
             interstitialHelper = interstitialHelper,
             stringId = RemoteConfigHelper.adIds.splashInter.adId,
             adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
             onDismiss = {
-                safeNavigate(R.id.languageFragment)
+                safeNavigate(destination)
             },
             onFail = {
-                safeNavigate(R.id.languageFragment)
+                safeNavigate(destination)
             }
         )
     }

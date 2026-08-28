@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
@@ -42,6 +43,7 @@ class DownloadFragment : BaseFragment<FragmentDownloadBinding>() {
         setupAdapters()
         setupTabListeners()
         observeViewModel()
+        observeDownloadCompletion()
         checkPermissionsAndLoad()
 
     }
@@ -89,6 +91,16 @@ class DownloadFragment : BaseFragment<FragmentDownloadBinding>() {
             }
         }
 
+    }
+
+    private fun observeDownloadCompletion() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.downloadCompleteEvent.collectLatest {
+                    Toast.makeText(requireContext(), getString(com.codecx.videodownloader.R.string.download_complete), Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun updateEmptyState() {

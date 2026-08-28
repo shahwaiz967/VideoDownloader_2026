@@ -114,6 +114,7 @@ class DownloadOptionBottomSheet : BottomSheetDialogFragment() {
             isAudio = item.isAudio()
         )
         downloadViewModel.startDownload(downloadItem)
+
         requireContext().showToast(
             getString(R.string.download_started)
         )

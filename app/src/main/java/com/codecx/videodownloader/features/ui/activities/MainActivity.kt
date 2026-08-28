@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navHost: NavHostFragment
     private lateinit var navController: NavController
+    var isComingFromBackground = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +26,10 @@ class MainActivity : AppCompatActivity() {
         navController = navHost.navController
     }
 
+
+    override fun onStop() {
+        super.onStop()
+        isComingFromBackground = true
+    }
 
 }

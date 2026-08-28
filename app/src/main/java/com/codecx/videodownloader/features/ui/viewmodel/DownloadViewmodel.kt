@@ -43,6 +43,9 @@ class DownloadViewModel(
 
     val downloadCompleteEvent: SharedFlow<DownloadModel> = repository.downloadCompleteEvent
 
+    private val _downloadStartedEvent = MutableSharedFlow<Unit>()
+    val downloadStartedEvent = _downloadStartedEvent.asSharedFlow()
+
 
     private var downloadJob: Job? = null
 
@@ -69,6 +72,9 @@ class DownloadViewModel(
 
     fun startDownload(downloadItem: DownloadModel) {
         repository.startDownload(downloadItem)
+        viewModelScope.launch {
+            _downloadStartedEvent.emit(Unit)
+        }
     }
 
     fun refreshDownloads() {
