@@ -75,55 +75,55 @@ object RemoteConfigHelper {
             appOpen = AdItem(BuildConfig.open_ad_id),
             mainBanner = AdItem(
                 BuildConfig.collapsible_id,
-                true,
+                false,
                 COLLAPSIBLE_AD_TYPE
             ),
             settingBanner = AdItem(
                 BuildConfig.collapsible_id,
-                true,
+                false,
                 COLLAPSIBLE_AD_TYPE
             ),
             splashInter = AdItem(
                 adId = BuildConfig.interstitial_id,
                 adFormat = INTER_AD_TYPE,
-                isAdEnable = true
+                isAdEnable = false
             ),
             premiumInter = AdItem(
                 adId = BuildConfig.interstitial_id,
                 adFormat = INTER_AD_TYPE,
-                isAdEnable = true
+                isAdEnable = false
             ),
             societyBanner = AdItem(
                 BuildConfig.collapsible_id,
-                true,
+                false,
                 COLLAPSIBLE_AD_TYPE
             ),
             historyBanner = AdItem(
                 BuildConfig.collapsible_id,
-                true,
+                false,
                 COLLAPSIBLE_AD_TYPE
             ),
             bookmarkBanner = AdItem(
                 BuildConfig.collapsible_id,
-                true,
+                false,
                 COLLAPSIBLE_AD_TYPE
             ),
             languageBanner = AdItem(
                 BuildConfig.banner_id,
-                true,
+                false,
                 BANNER_AD_TYPE,
                 AdSize.LARGE
             ),
             languageOnBoardingBanner = AdItem(
                 BuildConfig.banner_id,
-                true,
+                false,
                 BANNER_AD_TYPE,
                 AdSize.LARGE
             ),
             backPressInter = AdItem(
                 adId = BuildConfig.interstitial_id,
                 adFormat = INTER_AD_TYPE,
-                isAdEnable = true
+                isAdEnable = false
             )
         )
     }

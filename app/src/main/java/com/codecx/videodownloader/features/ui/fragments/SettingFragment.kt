@@ -154,7 +154,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-video-downloader.html")
+                        Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-for-video-downloader.html")
                     )
                 )
             }

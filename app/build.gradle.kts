@@ -11,7 +11,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.codecx.videodownloader"
+        applicationId = "com.video.downloader.hd.fourk.videoplayer"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
