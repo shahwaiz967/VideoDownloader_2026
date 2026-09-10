@@ -145,7 +145,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
             feedBaCKRow.root.setOnClickListener {
                 val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:support@videodownloader.app")
+                    data = Uri.parse("mailto:appycreators12@gmail.com")
                     putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject))
                 }
                 startActivity(Intent.createChooser(emailIntent, getString(R.string.send_feedback)))

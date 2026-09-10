@@ -1,4 +1,4 @@
-package com.codecx.statussaver.data.models
+package com.codecx.videodownloader.data.models
 
 data class PricesMenu(
     val price: String,

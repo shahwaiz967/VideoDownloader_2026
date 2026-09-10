@@ -4,6 +4,8 @@ plugins {
     id("kotlin-parcelize")
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
+    id("com.google.firebase.crashlytics")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -18,17 +20,21 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
+        buildConfigField("String", "weeklyPlanId", "\"weekly_price\"")
+        buildConfigField("String", "weeklyBasePlanId", "\"weekly-subs\"")
+        buildConfigField("String", "weeklyFreeTrailId", "\"weekly-trail\"")
+
     }
 
     base.archivesName.set("VideoDownloader_${defaultConfig.versionName}")
     buildTypes {
         release {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
         }
         debug {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
 
             buildConfigField("String", "open_ad_id", "\"ca-app-pub-3940256099942544/9257395921\"")
             buildConfigField("String", "banner_id", "\"ca-app-pub-3940256099942544/6300978111\"")
@@ -56,6 +62,7 @@ android {
 }
 
 dependencies {
+
     implementation(project(":ESSStatusSaver"))
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
@@ -113,6 +120,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.11.0")
 
     implementation("androidx.work:work-runtime-ktx:2.10.1")
+
+    implementation("com.android.billingclient:billing-ktx:8.3.0")
 
     implementation ("com.airbnb.android:lottie:+")
 }

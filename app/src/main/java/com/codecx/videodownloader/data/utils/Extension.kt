@@ -429,6 +429,10 @@ object SearchEngineManager {
     }
 }
 
+fun String.printLog(message: String) {
+    Log.d(this, message)
+}
+
 
 object PrefManager {
     private const val PREFS = "app_prefs"

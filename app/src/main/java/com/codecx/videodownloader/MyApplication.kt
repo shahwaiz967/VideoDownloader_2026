@@ -11,8 +11,12 @@ import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.CodecxAdsConfig
 import com.codecx.videodownloader.data.ads.openAd.OpenAdConfig
 import com.codecx.videodownloader.data.ads.openAd.OpenApp
+import com.codecx.videodownloader.data.models.PurchaseEvents
+import com.codecx.videodownloader.data.utils.AndroidBillingHelper
+import com.codecx.videodownloader.data.utils.BillingHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
@@ -35,5 +39,32 @@ class MyApplication : Application() {
             if (ThemeManager.isDarkMode(this)) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO
         )
+
+        val billing = AndroidBillingHelper.getInstance(this)
+
+        registerActivityLifecycleCallbacks(billing)
+
+        billing.initBilling(
+            subs = listOf(BuildConfig.weeklyPlanId),
+            products = emptyList()
+        )
+
+        CoroutineScope(Dispatchers.Default).launch {
+            billing.purchaseUpdateEventListener.collectLatest { event ->
+
+                when (event) {
+                    PurchaseEvents.PurchaseInit -> {}
+
+                    is PurchaseEvents.OldPurchaseUpdate -> {
+
+
+                    }
+
+                    PurchaseEvents.PurchaseDone -> {
+
+                    }
+                }
+            }
+        }
     }
 }
