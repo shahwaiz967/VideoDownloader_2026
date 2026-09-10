@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">Hallo Geschiedenis-fragment</string>
+    <string name="download_without_limits">Downloaden zonder limieten</string>
+    <string name="select_language">Selecteer taal</string>
+    <string name="next">Volgende</string>
+    <string name="system_default">Systeemstandaard</string>
+    <string name="all_languages">Alle talen</string>
+    <string name="what_s_included">Wat is inbegrepen</string>
+    <string name="go">Gaan</string>
+    <string name="premium_subtitle">Geniet van snelle downloads en onbeperkte videotoegang met een gratis proefperiode van 3 dagen, daarna Rs 1.400/week. Altijd opzegbaar.</string>
+    <string name="features">Functies</string>
+    <string name="basic">Basis</string>
+    <string name="trial_disabled">Proefperiode uitgeschakeld</string>
+    <string name="most_popular">⭐ Meest populair</string>
+    <string name="best_value">Beste waarde</string>
+    <string name="weekly_plan">Wekelijks abonnement</string>
+    <string name="weekly_price">Rs 1.400</string>
+    <string name="monthly_price">Rs 5.000</string>
+    <string name="free_trial_3days">3 dagen gratis proefperiode</string>
+    <string name="no_charge_today">Vandaag geen kosten</string>
+    <string name="user_reviews">Gebruikersrecensies</string>
+    <string name="start_free_trial">Start gratis proefperiode</string>
+    <string name="buy_now">Nu kopen</string>
+    <string name="trial_started">Gratis proefperiode van 3 dagen is gestart!</string>
+    <string name="the_first_3_days_are_free">De eerste 3 dagen zijn gratis. Na de proefperiode wordt automatisch %s per week in rekening gebracht, tenzij ten minste 24 uur voor het einde van de proefperiode wordt geannuleerd.</string>
+    <string name="the_first_3_days_are">%s per week wordt automatisch in rekening gebracht, tenzij ten minste 24 uur voor het einde van de proefperiode wordt geannuleerd.</string>
+    <string name="enable_free_trial">Schakel gratis proefperiode in</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Onbeperkte downloads, nul limieten\nProbeer 3 dagen gratis • Daarna Rs 1.400/week • Altijd opzegbaar</string>
+    <string name="monthly_plan">Maandelijks abonnement</string>
+    <string name="no_payment_now">Nu geen betaling</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Speler</string>
+    <string name="clear_all">Alles wissen</string>
+    <string name="back">Terug</string>
+    <string name="tab">Tabblad</string>
+    <string name="tabs">Tabbladen</string>
+    <string name="just_now">Zojuist</string>
+    <string name="downloading">Downloaden...</string>
+    <string name="downloaded">Gedownload</string>
+    <string name="cancel">Annuleren</string>
+    <string name="likes">vind-ik-leuks</string>
+    <string name="like">Vind ik leuk</string>
+    <string name="title">Titel</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Video\'s zoeken en downloaden]]></string>
+    <string name="paste_link">Link plakken</string>
+    <string name="download">Downloaden</string>
+    <string name="quick_access">Snelle toegang</string>
+    <string name="search_or_paste_link_to_download">Zoek of plak link om te downloaden</string>
+    <string name="enter_url">Voer URL in</string>
+    <string name="fb_saver">FB-saver</string>
+    <string name="status_saver">Status-saver</string>
+    <string name="ig_saver">IG-saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Zoeken of URL invoeren</string>
+    <string name="no_title">Geen titel</string>
+    <string name="bookmarked">Bladwijzer gemaakt</string>
+
+    <!-- Settings -->
+    <string name="setting">Instelling</string>
+    <string name="general">Algemeen</string>
+    <string name="dark_mode">Donkere modus</string>
+    <string name="browser">Browser</string>
+    <string name="set_default_browser">Stel standaardbrowser in</string>
+    <string name="search_engine">Zoekmachine</string>
+    <string name="clear_cache">Cache wissen</string>
+    <string name="rate_us">Beoordeel ons</string>
+    <string name="feedback">Feedback</string>
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="others">Anderen</string>
+    <string name="no_ads">Geen advertenties</string>
+    <string name="just_smooth">Gewoon soepel</string>
+    <string name="fast_downloading">Downloaden...</string>
+    <string name="special_gift">🎁 Speciaal cadeau</string>
+    <string name="upgrade_now">Nu upgraden</string>
+    <string name="ads_free_experience">Advertentievrije ervaring</string>
+    <string name="cache_cleared_successfully">Cache succesvol gewist</string>
+    <string name="failed_to_clear_cache">Cache wissen mislukt</string>
+
+    <!-- Player -->
+    <string name="all_music">Alle muziek</string>
+    <string name="all_videos">Alle video\'s</string>
+    <string name="deleted_successfully">Succesvol verwijderd</string>
+    <string name="copy_path">Pad kopiëren</string>
+    <string name="path_copied_to_clipboard">Pad gekopieerd naar klembord</string>
+    <string name="delete">Verwijderen</string>
+
+    <string name="clear">Wissen</string>
+    <string name="add_tab">+ Tabblad toevoegen</string>
+    <string name="home">Thuis</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Bekijk deze geweldige app: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Delen via</string>
+    <string name="feedback_subject">App Feedback - Video Downloader</string>
+    <string name="send_feedback">Feedback sturen</string>
+    <string name="advertisement">Advertentie...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Populaire reels</string>
+    <string name="share_video">Video delen</string>
+    <string name="failed_to_share">Video delen mislukt</string>
+    <string name="no_videos_found">Geen video\'s gevonden</string>
+    <string name="network_error">Netwerkfout: %s</string>
+    <string name="reel_video">Reel-video</string>
+    <string name="view_stories_private">Bekijk verhalen en downloads van privé-accounts</string>
+    <string name="why_login_required">Waarom is inloggen vereist?</string>
+    <string name="open_instagram">Open Instagram</string>
+    <string name="how_to_download">Hoe te downloaden</string>
+    <string name="copy_link">Kopieer link</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Open Pinterest & tik op de 3 stippen (•••)]]></string>
+    <string name="_2_click_copy_link">2. Klik op "Link kopiëren"</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Open de app</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">De gekopieerde link wordt\nautomatisch geplakt.\nTik simpelweg op Downloaden.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Controleer voortgang</string>
+    <string name="track_progress_and_open">Volg de voortgang en open</string>
+    <string name="your_download_file">uw downloadbestand</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Bezig</string>
+    <string name="completed">Voltooid</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Open Tiktok en KLIK <font color="#FF0000">\'\'Delen\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Link kopiëren &amp; open <font color="#FF0000">\'\'Video Downloader\'\'</font></string>
+    <string name="select_quality">Selecteer kwaliteit</string>
+    <string name="download_started">Download gestart</string>
+    <string name="not_available">Niet beschikbaar</string>
+    <string name="loading">Laden...</string>
+    <string name="download_complete">Download voltooid</string>
+    <string name="no_downloads">Geen downloads</string>
+    <string name="open_folder">Map openen</string>
+    <string name="share">Delen</string>
+    <string name="view">Bekijken</string>
+    <string name="empty_clipboard">Klembord leegmaken</string>
+    <string name="invalid_url">Ongeldige URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Voor Instagram</string>
+    <string name="tiktok">Voor TikTok</string>
+    <string name="dailymotion">Voor Dailymotion</string>
+    <string name="twitter">Voor X</string>
+    <string name="pinnest">Voor PinNest</string>
+    <string name="thread">Voor Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Open Dailymotion & tik op “Delen”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Open X & tik op “Delen”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Open Threads & tik op “Delen”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Open Facebook en kopieer de\nlink van een video, reel of bericht ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Open Instagram en kopieer de\nlink van een video, reel of bericht ]]></string>
+    <string name="history">Geschiedenis</string>
+    <string name="bookmark">Bladwijzer</string>
+    <string name="select_search_engine">Selecteer zoekmachine</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Geen watermerk</string>
+    <string name="sd_no_watermark">SD · Geen watermerk</string>
+    <string name="with_watermark">Met watermerk</string>
+    <string name="audio_only">Alleen audio</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Soepele &amp; betrouwbare prestaties</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Geüpgraded naar premium, geen advertenties &amp; razendsnel</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Goede prijs-kwaliteitverhouding, geen advertenties. Ik vind het geweldig</string>
+    <string name="download_manager">Downloadmanager</string>
+    <string name="unlimited_access">Onbeperkte Downloads</string>
+    <string name="fast_downloads">Snelle Download-snelheid</string>
+    <string name="_100_ad_free">100% Reclamevrij</string>
+    <string name="priority_support">VIP-ondersteuning</string>
+    <string name="language">Taal</string>
+</resources>

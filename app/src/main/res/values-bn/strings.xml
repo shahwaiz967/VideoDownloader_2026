@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">ভিডিও ডাউনলোডার</string>
+    <string name="hello_blank_fragment">হ্যালো হিস্ট্রি ফ্র্যাগমেন্ট</string>
+    <string name="download_without_limits">কোনো সীমা ছাড়া ডাউনলোড করুন</string>
+    <string name="select_language">ভাষা নির্বাচন করুন</string>
+    <string name="next">পরবর্তী</string>
+    <string name="system_default">সিস্টেম ডিফল্ট</string>
+    <string name="all_languages">সব ভাষা</string>
+    <string name="what_s_included">কী কী অন্তর্ভুক্ত আছে</string>
+    <string name="go">যান</string>
+    <string name="premium_subtitle">৩ দিনের ফ্রি ট্রায়াল সহ দ্রুত ডাউনলোড এবং সীমাহীন ভিডিও অ্যাক্সেস উপভোগ করুন, তারপরে ১৪০০ টাকা/সপ্তাহ। যে কোনো সময় বাতিল করুন।</string>
+    <string name="features">বৈশিষ্ট্য</string>
+    <string name="basic">বেসিক</string>
+    <string name="trial_disabled">ট্রায়াল নিষ্ক্রিয় করা হয়েছে</string>
+    <string name="most_popular">⭐ সবচেয়ে জনপ্রিয়</string>
+    <string name="best_value">সেরা মূল্য</string>
+    <string name="weekly_plan">সাপ্তাহিক প্ল্যান</string>
+    <string name="weekly_price">১৪০০ টাকা</string>
+    <string name="monthly_price">৫০০০ টাকা</string>
+    <string name="free_trial_3days">৩ দিনের ফ্রি ট্রায়াল</string>
+    <string name="no_charge_today">আজ কোনো চার্জ নেই</string>
+    <string name="user_reviews">ব্যবহারকারীদের রিভিউ</string>
+    <string name="start_free_trial">ফ্রি ট্রায়াল শুরু করুন</string>
+    <string name="buy_now">এখন কিনুন</string>
+    <string name="trial_started">৩ দিনের ফ্রি ট্রায়াল শুরু হয়েছে!</string>
+    <string name="the_first_3_days_are_free">প্রথম ৩ দিন বিনামূল্যে। ট্রায়াল শেষ হওয়ার অন্তত ২৪ ঘন্টা আগে বাতিল না করলে ট্রায়ালের পর প্রতি সপ্তাহে %s স্বয়ংক্রিয়ভাবে চার্জ করা হবে।</string>
+    <string name="the_first_3_days_are">ট্রায়াল শেষ হওয়ার অন্তত ২৪ ঘন্টা আগে বাতিল না করলে প্রতি সপ্তাহে %s স্বয়ংক্রিয়ভাবে চার্জ করা হবে।</string>
+    <string name="enable_free_trial">ফ্রি ট্রায়াল চালু করুন</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">প্রিমিয়াম</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">সীমাহীন ডাউনলোড, শূন্য সীমা\n৩ দিনের জন্য বিনামূল্যে চেষ্টা করুন • তারপর ১৪০০ টাকা/সপ্তাহ • যে কোনো সময় বাতিল করুন</string>
+    <string name="monthly_plan">মাসিক প্ল্যান</string>
+    <string name="no_payment_now">এখন কোনো পেমেন্ট নেই</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">রিলস</string>
+    <string name="player">প্লেয়ার</string>
+    <string name="clear_all">সব মুছুন</string>
+    <string name="back">ফিরে যান</string>
+    <string name="tab">ট্যাব</string>
+    <string name="tabs">ট্যাব</string>
+    <string name="just_now">এইমাত্র</string>
+    <string name="downloading">ডাউনলোড হচ্ছে...</string>
+    <string name="downloaded">ডাউনলোড হয়েছে</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="likes">লাইক</string>
+    <string name="like">লাইক করুন</string>
+    <string name="title">শিরোনাম</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[ভিডিও খুঁজুন এবং ডাউনলোড করুন]]></string>
+    <string name="paste_link">লিঙ্ক পেস্ট করুন</string>
+    <string name="download">ডাউনলোড</string>
+    <string name="quick_access">কুইক অ্যাক্সেস</string>
+    <string name="search_or_paste_link_to_download">ডাউনলোড করতে খুঁজুন বা লিঙ্ক পেস্ট করুন</string>
+    <string name="enter_url">ইউআরএল (URL) লিখুন</string>
+    <string name="fb_saver">এফবি সেভার</string>
+    <string name="status_saver">স্ট্যাটাস সেভার</string>
+    <string name="ig_saver">আইজি সেভার</string>
+    <string name="tiktok_title">টিকটক</string>
+    <string name="dailymotion_title">ডেইলিমোশন</string>
+    <string name="twitter_title">এক্স (X)</string>
+    <string name="pinnest_title">পিননেস্ট</string>
+    <string name="thread_title">থ্রেডি</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">খুঁজুন বা ইউআরএল (URL) লিখুন</string>
+    <string name="no_title">কোনো শিরোনাম নেই</string>
+    <string name="bookmarked">বুকমার্ক করা হয়েছে</string>
+
+    <!-- Settings -->
+    <string name="setting">সেটিংস</string>
+    <string name="general">সাধারণ</string>
+    <string name="dark_mode">ডার্ক মোড</string>
+    <string name="browser">ব্রাউজার</string>
+    <string name="set_default_browser">ডিফল্ট ব্রাউজার সেট করুন</string>
+    <string name="search_engine">সার্চ ইঞ্জিন</string>
+    <string name="clear_cache">ক্যাশ মুছুন</string>
+    <string name="rate_us">আমাদের রেট দিন</string>
+    <string name="feedback">মতামত</string>
+    <string name="privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="others">অন্যান্য</string>
+    <string name="no_ads">বিজ্ঞাপন নেই</string>
+    <string name="just_smooth">শুধুই মসৃণ</string>
+    <string name="fast_downloading">দ্রুত ডাউনলোড হচ্ছে...</string>
+    <string name="special_gift">🎁 বিশেষ উপহার</string>
+    <string name="upgrade_now">এখন আপগ্রেড করুন</string>
+    <string name="ads_free_experience">বিজ্ঞাপন মুক্ত অভিজ্ঞতা</string>
+    <string name="cache_cleared_successfully">ক্যাশ সফলভাবে মুছে ফেলা হয়েছে</string>
+    <string name="failed_to_clear_cache">ক্যাশ মুছতে ব্যর্থ হয়েছে</string>
+
+    <!-- Player -->
+    <string name="all_music">সব মিউজিক</string>
+    <string name="all_videos">সব ভিডিও</string>
+    <string name="deleted_successfully">সফলভাবে মুছে ফেলা হয়েছে</string>
+    <string name="copy_path">পাথ কপি করুন</string>
+    <string name="path_copied_to_clipboard">পাথ ক্লিপবোর্ডে কপি করা হয়েছে</string>
+    <string name="delete">মুছুন</string>
+
+    <string name="clear">পরিষ্কার করুন</string>
+    <string name="add_tab">+ ট্যাব যোগ করুন</string>
+    <string name="home">হোম</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">এই চমৎকার অ্যাপটি দেখুন: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">এর মাধ্যমে শেয়ার করুন</string>
+    <string name="feedback_subject">অ্যাপ ফিডব্যাক - ভিডিও ডাউনলোডার</string>
+    <string name="send_feedback">মতামত পাঠান</string>
+    <string name="advertisement">বিজ্ঞাপন...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">ট্রেন্ডিং রিলস</string>
+    <string name="share_video">ভিডিও শেয়ার করুন</string>
+    <string name="failed_to_share">ভিডিও শেয়ার করতে ব্যর্থ হয়েছে</string>
+    <string name="no_videos_found">কোনো ভিডিও পাওয়া যায়নি</string>
+    <string name="network_error">নেটওয়ার্ক ত্রুটি: %s</string>
+    <string name="reel_video">রিল ভিডিও</string>
+    <string name="view_stories_private">ব্যক্তিগত অ্যাকাউন্ট থেকে স্টোরিজ এবং ডাউনলোড দেখুন</string>
+    <string name="why_login_required">কেন লগইন প্রয়োজন?</string>
+    <string name="open_instagram">ইনস্টাগ্রাম খুলুন</string>
+    <string name="how_to_download">কীভাবে ডাউনলোড করবেন</string>
+    <string name="copy_link">লিঙ্ক কপি করুন</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[১. Pinterest খুলুন এবং ৩টি ডটে (•••) ট্যাপ করুন]]></string>
+    <string name="_2_click_copy_link">২. “লিঙ্ক কপি করুন”-এ ক্লিক করুন</string>
+    <string name="_2">২</string>
+    <string name="open_the_app">অ্যাপটি খুলুন</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">কপি করা লিঙ্কটি\nস্বয়ংক্রিয়ভাবে পেস্ট হবে।\nশুধু ডাউনলোডে ট্যাপ করুন।</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">৩</string>
+    <string name="check_progress">অগ্রগতি দেখুন</string>
+    <string name="track_progress_and_open">অগ্রগতি ট্র্যাক করুন এবং খুলুন</string>
+    <string name="your_download_file">আপনার ডাউনলোড ফাইল</string>
+    <string name="video">ভিডিও</string>
+    <string name="in_progress">চলমান</string>
+    <string name="completed">সম্পন্ন</string>
+    <string name="_1">১</string>
+    <string name="open_tiktok_and_click_share">টিকটক খুলুন এবং <font color="#FF0000">\'\'শেয়ার\'\'</font>-এ ক্লিক করুন</string>
+    <string name="copy_link_amp_open_video_downloader">লিঙ্ক কপি করুন এবং <font color="#FF0000">\'\'ভিডিও ডাউনলোডার\'\'</font> খুলুন</string>
+    <string name="select_quality">কোয়ালিটি নির্বাচন করুন</string>
+    <string name="download_started">ডাউনলোড শুরু হয়েছে</string>
+    <string name="not_available">উপলব্ধ নেই</string>
+    <string name="loading">লোড হচ্ছে...</string>
+    <string name="download_complete">ডাউনলোড সম্পন্ন হয়েছে</string>
+    <string name="no_downloads">কোনো ডাউনলোড নেই</string>
+    <string name="open_folder">ফোল্ডার খুলুন</string>
+    <string name="share">শেয়ার করুন</string>
+    <string name="view">দেখুন</string>
+    <string name="empty_clipboard">ক্লিপবোর্ড খালি করুন</string>
+    <string name="invalid_url">অবৈধ ইউআরএল</string>
+
+    <!-- Platforms -->
+    <string name="facebook">ফেসবুক</string>
+    <string name="whatsapp">হোয়াটসঅ্যাপ</string>
+    <string name="instagram">ইনস্টাগ্রামের জন্য</string>
+    <string name="tiktok">টিকটকের জন্য</string>
+    <string name="dailymotion">ডেইলিমোশনের জন্য</string>
+    <string name="twitter">এক্স (X) এর জন্য</string>
+    <string name="pinnest">PinNest এর জন্য</string>
+    <string name="thread">Thread এর জন্য</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[১. Dailymotion খুলুন এবং “শেয়ার”-এ ট্যাপ করুন]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[১. X খুলুন এবং “শেয়ার”-এ ট্যাপ করুন]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[১. Threads খুলুন এবং “শেয়ার”-এ ট্যাপ করুন]]></string>
+    <string name="_1_open_facebook"><![CDATA[১. ফেসবুক খুলুন এবং কোনো ভিডিও, রিলস বা পোস্টের\nলিঙ্ক কপি করুন]]></string>
+    <string name="_1_open_instagram"><![CDATA[১. ইনস্টাগ্রাম খুলুন এবং কোনো ভিডিও, রিলস বা পোস্টের\nলিঙ্ক কপি করুন]]></string>
+    <string name="history">হিস্ট্রি</string>
+    <string name="bookmark">বুকমার্ক</string>
+    <string name="select_search_engine">সার্চ ইঞ্জিন নির্বাচন করুন</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">এইচডি (HD) · কোনো ওয়াটারমার্ক নেই</string>
+    <string name="sd_no_watermark">এসডি (SD) · কোনো ওয়াটারমার্ক নেই</string>
+    <string name="with_watermark">ওয়াটারমার্ক সহ</string>
+    <string name="audio_only">শুধুমাত্র অডিও</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">মসৃণ এবং নির্ভরযোগ্য পারফরম্যান্স</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">বিজ্ঞাপন ছাড়া প্রিমিয়ামে আপগ্রেড করেছি এবং গতি অত্যন্ত দ্রুত</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">পয়সার সঠিক মূল্য, কোনো বিজ্ঞাপন নেই। দারুণ লেগেছে</string>
+
+    <string name="download_manager">ডাউনলোড ম্যানেজার</string>
+    <string name="unlimited_access">আনলিমিটেড ডাউনলোড</string>
+    <string name="fast_downloads">দ্রুত ডাউনলোডের গতি</string>
+    <string name="_100_ad_free">১০০% বিজ্ঞাপন-মুক্ত</string>
+    <string name="priority_support">ভিআইপি সাপোর্ট</string>
+    <string name="language">ভাষা</string>
+</resources>

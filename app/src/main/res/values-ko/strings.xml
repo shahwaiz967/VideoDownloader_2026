@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">비디오 다운로더</string>
+    <string name="hello_blank_fragment">안녕하세요 기록 프래그먼트</string>
+    <string name="download_without_limits">제한 없이 다운로드</string>
+    <string name="select_language">언어 선택</string>
+    <string name="next">다음</string>
+    <string name="system_default">시스템 기본값</string>
+    <string name="all_languages">모든 언어</string>
+    <string name="what_s_included">포함된 내용</string>
+    <string name="go">이동</string>
+    <string name="premium_subtitle">3일 무료 체험으로 빠른 다운로드와 무제한 비디오 액세스를 즐기세요. 이후 주당 1,400루피. 언제든지 취소 가능.</string>
+    <string name="features">기능</string>
+    <string name="basic">기본</string>
+    <string name="trial_disabled">체험판 비활성화됨</string>
+    <string name="most_popular">⭐ 가장 인기 있는</string>
+    <string name="best_value">최고의 가치</string>
+    <string name="weekly_plan">주간 요금제</string>
+    <string name="weekly_price">1,400루피</string>
+    <string name="monthly_price">5,000루피</string>
+    <string name="free_trial_3days">3일 무료 체험</string>
+    <string name="no_charge_today">오늘 청구 안 됨</string>
+    <string name="user_reviews">사용자 리뷰</string>
+    <string name="start_free_trial">무료 체험 시작</string>
+    <string name="buy_now">지금 구매</string>
+    <string name="trial_started">3일 무료 체험이 시작되었습니다!</string>
+    <string name="the_first_3_days_are_free">처음 3일은 무료입니다. 체험 기간이 끝나기 최소 24시간 전에 취소하지 않으면 체험 기간 이후 매주 %s이(가) 자동으로 청구됩니다.</string>
+    <string name="the_first_3_days_are">체험 기간이 끝나기 최소 24시간 전에 취소하지 않으면 매주 %s이(가) 자동으로 청구됩니다.</string>
+    <string name="enable_free_trial">무료 체험 활성화</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">프리미엄</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">무제한 다운로드, 제약 없음\n3일 무료 체험 • 이후 주당 1,400루피 • 언제든지 취소 가능</string>
+    <string name="monthly_plan">월간 요금제</string>
+    <string name="no_payment_now">지금 결제 없음</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">릴스</string>
+    <string name="player">플레이어</string>
+    <string name="clear_all">모두 지우기</string>
+    <string name="back">뒤로</string>
+    <string name="tab">탭</string>
+    <string name="tabs">탭</string>
+    <string name="just_now">방금 전</string>
+    <string name="downloading">다운로드 중...</string>
+    <string name="downloaded">다운로드됨</string>
+    <string name="cancel">취소</string>
+    <string name="likes">좋아요</string>
+    <string name="like">좋아요</string>
+    <string name="title">제목</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[비디오 검색 및 다운로드]]></string>
+    <string name="paste_link">링크 붙여넣기</string>
+    <string name="download">다운로드</string>
+    <string name="quick_access">빠른 실행</string>
+    <string name="search_or_paste_link_to_download">다운로드하려면 검색하거나 링크를 붙여넣으세요</string>
+    <string name="enter_url">URL 입력</string>
+    <string name="fb_saver">FB 세이버</string>
+    <string name="status_saver">상태 세이버</string>
+    <string name="ig_saver">IG 세이버</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">검색 또는 URL 입력</string>
+    <string name="no_title">제목 없음</string>
+    <string name="bookmarked">북마크됨</string>
+
+    <!-- Settings -->
+    <string name="setting">설정</string>
+    <string name="general">일반</string>
+    <string name="dark_mode">다크 모드</string>
+    <string name="browser">브라우저</string>
+    <string name="set_default_browser">기본 브라우저 설정</string>
+    <string name="search_engine">검색 엔진</string>
+    <string name="clear_cache">캐시 지우기</string>
+    <string name="rate_us">평가하기</string>
+    <string name="feedback">피드백</string>
+    <string name="privacy_policy">개인정보 처리방침</string>
+    <string name="others">기타</string>
+    <string name="no_ads">광고 없음</string>
+    <string name="just_smooth">부드러움</string>
+    <string name="fast_downloading">다운로드 중...</string>
+    <string name="special_gift">🎁 특별한 선물</string>
+    <string name="upgrade_now">지금 업그레이드</string>
+    <string name="ads_free_experience">광고 없는 경험</string>
+    <string name="cache_cleared_successfully">캐시가 성공적으로 지워졌습니다</string>
+    <string name="failed_to_clear_cache">캐시 지우기 실패</string>
+
+    <!-- Player -->
+    <string name="all_music">모든 음악</string>
+    <string name="all_videos">모든 비디오</string>
+    <string name="deleted_successfully">성공적으로 삭제되었습니다</string>
+    <string name="copy_path">경로 복사</string>
+    <string name="path_copied_to_clipboard">경로가 클립보드에 복사되었습니다</string>
+    <string name="delete">삭제</string>
+
+    <string name="clear">지우기</string>
+    <string name="add_tab">+ 탭 추가</string>
+    <string name="home">홈</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">이 놀라운 앱을 확인해 보세요: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">공유하기</string>
+    <string name="feedback_subject">앱 피드백 - 비디오 다운로더</string>
+    <string name="send_feedback">피드백 보내기</string>
+    <string name="advertisement">광고...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">트렌딩 릴스</string>
+    <string name="share_video">비디오 공유</string>
+    <string name="failed_to_share">비디오 공유 실패</string>
+    <string name="no_videos_found">비디오를 찾을 수 없습니다</string>
+    <string name="network_error">네트워크 오류: %s</string>
+    <string name="reel_video">릴스 비디오</string>
+    <string name="view_stories_private">비공개 계정의 스토리 및 다운로드 보기</string>
+    <string name="why_login_required">로그인이 필요한 이유?</string>
+    <string name="open_instagram">Instagram 열기</string>
+    <string name="how_to_download">다운로드 방법</string>
+    <string name="copy_link">링크 복사</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Pinterest를 열고 점 3개(•••)를 탭합니다.]]></string>
+    <string name="_2_click_copy_link">2. \"링크 복사\"를 클릭합니다.</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">앱 열기</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">복사된 링크가\n자동으로 붙여넣어집니다.\n다운로드를 탭하세요.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">진행 상태 확인</string>
+    <string name="track_progress_and_open">진행 상태 추적 및 열기</string>
+    <string name="your_download_file">다운로드한 파일</string>
+    <string name="video">비디오</string>
+    <string name="in_progress">진행 중</string>
+    <string name="completed">완료됨</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">TikTok을 열고 <font color="#FF0000">\'\'공유\'\'</font>를 클릭합니다</string>
+    <string name="copy_link_amp_open_video_downloader">링크 복사 및 <font color="#FF0000">\'\'비디오 다운로더\'\'</font> 열기</string>
+    <string name="select_quality">품질 선택</string>
+    <string name="download_started">다운로드 시작됨</string>
+    <string name="not_available">사용 불가</string>
+    <string name="loading">로딩 중...</string>
+    <string name="download_complete">다운로드 완료</string>
+    <string name="no_downloads">다운로드 없음</string>
+    <string name="open_folder">폴더 열기</string>
+    <string name="share">공유</string>
+    <string name="view">보기</string>
+    <string name="empty_clipboard">클립보드 비우기</string>
+    <string name="invalid_url">잘못된 URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram용</string>
+    <string name="tiktok">TikTok용</string>
+    <string name="dailymotion">Dailymotion용</string>
+    <string name="twitter">X용</string>
+    <string name="pinnest">PinNest용</string>
+    <string name="thread">Thread용</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Dailymotion을 열고 “공유”를 탭합니다.]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. X를 열고 “공유”를 탭합니다.]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Threads를 열고 “공유”를 탭합니다.]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Facebook을 열고 비디오, 릴스 또는 게시물의\n링크를 복사합니다.]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Instagram을 열고 비디오, 릴스 또는 게시물의\n링크를 복사합니다.]]></string>
+    <string name="history">기록</string>
+    <string name="bookmark">북마크</string>
+    <string name="select_search_engine">검색 엔진 선택</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · 워터마크 없음</string>
+    <string name="sd_no_watermark">SD · 워터마크 없음</string>
+    <string name="with_watermark">워터마크 있음</string>
+    <string name="audio_only">오디오만</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">부드럽고 안정적인 성능</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">광고 없는 프리미엄과 엄청난 속도로 업그레이드됨</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">가성비 최고, 광고 없음. 정말 마음에 들어요</string>
+    <string name="download_manager">다운로드 관리자</string>
+    <string name="unlimited_access">무제한 다운로드</string>
+    <string name="fast_downloads">빠른 다운로드 속도</string>
+    <string name="_100_ad_free">100% 광고 없음</string>
+    <string name="priority_support">VIP 지원</string>
+    <string name="language">언어</string>
+</resources>

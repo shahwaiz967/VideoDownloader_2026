@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ビデオダウンローダー</string>
+    <string name="hello_blank_fragment">こんにちは 履歴フラグメント</string>
+    <string name="download_without_limits">制限なしでダウンロード</string>
+    <string name="select_language">言語を選択</string>
+    <string name="next">次へ</string>
+    <string name="system_default">システムのデフォルト</string>
+    <string name="all_languages">すべての言語</string>
+    <string name="what_s_included">含まれるもの</string>
+    <string name="go">移動</string>
+    <string name="premium_subtitle">3日間の無料トライアルで、高速ダウンロードと無制限のビデオアクセスをお楽しみください。その後は週額 Rs 1,400。いつでもキャンセル可能。</string>
+    <string name="features">特徴</string>
+    <string name="basic">ベーシック</string>
+    <string name="trial_disabled">トライアル無効</string>
+    <string name="most_popular">⭐ 最も人気</string>
+    <string name="best_value">ベストバリュー</string>
+    <string name="weekly_plan">ウィークリープラン</string>
+    <string name="weekly_price">Rs 1,400</string>
+    <string name="monthly_price">Rs 5,000</string>
+    <string name="free_trial_3days">3日間の無料トライアル</string>
+    <string name="no_charge_today">本日の請求はありません</string>
+    <string name="user_reviews">ユーザーレビュー</string>
+    <string name="start_free_trial">無料トライアルを開始</string>
+    <string name="buy_now">今すぐ購入</string>
+    <string name="trial_started">3日間の無料トライアルが開始されました！</string>
+    <string name="the_first_3_days_are_free">最初の3日間は無料です。トライアル終了の24時間前までにキャンセルされない限り、その後は自動的に週額%sが請求されます。</string>
+    <string name="the_first_3_days_are">トライアル終了の24時間前までにキャンセルされない限り、週額%sが自動的に請求されます。</string>
+    <string name="enable_free_trial">無料トライアルを有効にする</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">プレミアム</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">無制限のダウンロード、制限ゼロ\n3日間無料トライアル • その後週額 Rs 1,400 • いつでもキャンセル可能</string>
+    <string name="monthly_plan">マンスリープラン</string>
+    <string name="no_payment_now">今すぐの支払いはありません</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">リール</string>
+    <string name="player">プレーヤー</string>
+    <string name="clear_all">すべてクリア</string>
+    <string name="back">戻る</string>
+    <string name="tab">タブ</string>
+    <string name="tabs">タブ</string>
+    <string name="just_now">たった今</string>
+    <string name="downloading">ダウンロード中...</string>
+    <string name="downloaded">ダウンロード済み</string>
+    <string name="cancel">キャンセル</string>
+    <string name="likes">いいね</string>
+    <string name="like">いいね</string>
+    <string name="title">タイトル</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[ビデオの検索とダウンロード]]></string>
+    <string name="paste_link">リンクを貼り付け</string>
+    <string name="download">ダウンロード</string>
+    <string name="quick_access">クイックアクセス</string>
+    <string name="search_or_paste_link_to_download">リンクを検索または貼り付けてダウンロード</string>
+    <string name="enter_url">URLを入力</string>
+    <string name="fb_saver">FBセーバー</string>
+    <string name="status_saver">ステータスセーバー</string>
+    <string name="ig_saver">IGセーバー</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">検索またはURLを入力</string>
+    <string name="no_title">タイトルなし</string>
+    <string name="bookmarked">ブックマーク済み</string>
+
+    <!-- Settings -->
+    <string name="setting">設定</string>
+    <string name="general">一般</string>
+    <string name="dark_mode">ダークモード</string>
+    <string name="browser">ブラウザ</string>
+    <string name="set_default_browser">デフォルトブラウザに設定</string>
+    <string name="search_engine">検索エンジン</string>
+    <string name="clear_cache">キャッシュをクリア</string>
+    <string name="rate_us">評価する</string>
+    <string name="feedback">フィードバック</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="others">その他</string>
+    <string name="no_ads">広告なし</string>
+    <string name="just_smooth">とてもスムーズ</string>
+    <string name="fast_downloading">ダウンロード中...</string>
+    <string name="special_gift">🎁 スペシャルギフト</string>
+    <string name="upgrade_now">今すぐアップグレード</string>
+    <string name="ads_free_experience">広告なしの体験</string>
+    <string name="cache_cleared_successfully">キャッシュを正常にクリアしました</string>
+    <string name="failed_to_clear_cache">キャッシュのクリアに失敗しました</string>
+
+    <!-- Player -->
+    <string name="all_music">すべての音楽</string>
+    <string name="all_videos">すべてのビデオ</string>
+    <string name="deleted_successfully">正常に削除されました</string>
+    <string name="copy_path">パスをコピー</string>
+    <string name="path_copied_to_clipboard">パスをクリップボードにコピーしました</string>
+    <string name="delete">削除</string>
+
+    <string name="clear">クリア</string>
+    <string name="add_tab">+ タブを追加</string>
+    <string name="home">ホーム</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">この素晴らしいアプリをチェックしてください: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">共有方法</string>
+    <string name="feedback_subject">アプリのフィードバック - ビデオダウンローダー</string>
+    <string name="send_feedback">フィードバックを送信</string>
+    <string name="advertisement">広告...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">トレンドリール</string>
+    <string name="share_video">ビデオを共有</string>
+    <string name="failed_to_share">ビデオの共有に失敗しました</string>
+    <string name="no_videos_found">ビデオが見つかりません</string>
+    <string name="network_error">ネットワークエラー: %s</string>
+    <string name="reel_video">リールビデオ</string>
+    <string name="view_stories_private">プライベートアカウントからのストーリーとダウンロードを表示</string>
+    <string name="why_login_required">なぜログインが必要ですか？</string>
+    <string name="open_instagram">Instagramを開く</string>
+    <string name="how_to_download">ダウンロード方法</string>
+    <string name="copy_link">リンクをコピー</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Pinterestを開き、3つの点(•••)をタップ]]></string>
+    <string name="_2_click_copy_link">2. 「リンクをコピー」をクリック</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">アプリを開く</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">コピーしたリンクは\n自動的に貼り付けられます。\nダウンロードをタップするだけです。</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">進捗を確認</string>
+    <string name="track_progress_and_open">進捗を追跡して開く</string>
+    <string name="your_download_file">ダウンロードファイル</string>
+    <string name="video">ビデオ</string>
+    <string name="in_progress">進行中</string>
+    <string name="completed">完了</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Tiktokを開き、&lt;font color="#FF0000"&gt;\'\'共有\'\'&lt;/font&gt;をクリックします</string>
+    <string name="copy_link_amp_open_video_downloader">リンクをコピーして&lt;font color="#FF0000"&gt;\'\'ビデオダウンローダー\'\'&lt;/font&gt;を開く</string>
+    <string name="select_quality">画質を選択</string>
+    <string name="download_started">ダウンロードが開始されました</string>
+    <string name="not_available">利用不可</string>
+    <string name="loading">読み込み中...</string>
+    <string name="download_complete">ダウンロード完了</string>
+    <string name="no_downloads">ダウンロードなし</string>
+    <string name="open_folder">フォルダを開く</string>
+    <string name="share">共有</string>
+    <string name="view">表示</string>
+    <string name="empty_clipboard">クリップボードを空にする</string>
+    <string name="invalid_url">無効なURL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram用</string>
+    <string name="tiktok">TikTok用</string>
+    <string name="dailymotion">Dailymotion用</string>
+    <string name="twitter">X用</string>
+    <string name="pinnest">PinNest用</string>
+    <string name="thread">Thread用</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Dailymotionを開き、「共有」をタップ]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Xを開き、「共有」をタップ]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Threadsを開き、「共有」をタップ]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Facebookを開き、ビデオ、\nリール、または投稿のリンクをコピーします]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Instagramを開き、ビデオ、\nリール、または投稿のリンクをコピーします]]></string>
+    <string name="history">履歴</string>
+    <string name="bookmark">ブックマーク</string>
+    <string name="select_search_engine">検索エンジンを選択</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · 透かしなし</string>
+    <string name="sd_no_watermark">SD · 透かしなし</string>
+    <string name="with_watermark">透かしあり</string>
+    <string name="audio_only">音声のみ</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">スムーズで信頼性の高いパフォーマンス</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">広告なしで超高速のプレミアムにアップグレードしました</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">広告なしでコスパ最高。大好きです</string>
+    <string name="download_manager">ダウンロードマネージャー</string>
+    <string name="unlimited_access">無制限ダウンロード</string>
+    <string name="fast_downloads">高速ダウンロード速度</string>
+    <string name="_100_ad_free">100% 広告なし</string>
+    <string name="priority_support">VIPサポート</string>
+    <string name="language">言語</string>
+</resources>

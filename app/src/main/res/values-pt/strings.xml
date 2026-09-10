@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">Olá fragmento de histórico</string>
+    <string name="download_without_limits">Baixar Sem Limites</string>
+    <string name="select_language">Selecionar Idioma</string>
+    <string name="next">Avançar</string>
+    <string name="system_default">Padrão do Sistema</string>
+    <string name="all_languages">Todos os Idiomas</string>
+    <string name="what_s_included">O Que Está Incluído</string>
+    <string name="go">Ir</string>
+    <string name="premium_subtitle">Desfrute De Downloads Rápidos E Acesso Ilimitado A Vídeos Com Um Teste Gratuito De 3 Dias, Depois Rs 1.400/Semana. Cancele A Qualquer Momento.</string>
+    <string name="features">Recursos</string>
+    <string name="basic">Básico</string>
+    <string name="trial_disabled">Teste Desativado</string>
+    <string name="most_popular">⭐ Mais Popular</string>
+    <string name="best_value">Melhor Valor</string>
+    <string name="weekly_plan">Plano Semanal</string>
+    <string name="weekly_price">Rs 1.400</string>
+    <string name="monthly_price">Rs 5.000</string>
+    <string name="free_trial_3days">Teste Gratuito de 3 Dias</string>
+    <string name="no_charge_today">Sem Cobrança Hoje</string>
+    <string name="user_reviews">Avaliações de Usuários</string>
+    <string name="start_free_trial">Iniciar Teste Gratuito</string>
+    <string name="buy_now">Comprar agora</string>
+    <string name="trial_started">Teste gratuito de 3 dias iniciado!</string>
+    <string name="the_first_3_days_are_free">Os primeiros 3 dias são gratuitos. Após o teste, %s por semana serão cobrados automaticamente, a menos que seja cancelado pelo menos 24 horas antes do fim do período de teste.</string>
+    <string name="the_first_3_days_are">%s por semana serão cobrados automaticamente, a menos que seja cancelado pelo menos 24 horas antes do fim do período de teste.</string>
+    <string name="enable_free_trial">Ativar Teste Gratuito</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Downloads Ilimitados, Limites Zero\nTeste Grátis Por 3 Dias • Depois Rs 1.400/Semana • Cancele A Qualquer Momento</string>
+    <string name="monthly_plan">Plano Mensal</string>
+    <string name="no_payment_now">Nenhum Pagamento Agora</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Reprodutor</string>
+    <string name="clear_all">Limpar Tudo</string>
+    <string name="back">Voltar</string>
+    <string name="tab">Guia</string>
+    <string name="tabs">Guias</string>
+    <string name="just_now">Agora mesmo</string>
+    <string name="downloading">Baixando...</string>
+    <string name="downloaded">Baixado</string>
+    <string name="cancel">Cancelar</string>
+    <string name="likes">curtidas</string>
+    <string name="like">Curtir</string>
+    <string name="title">Título</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Pesquisar & Baixar Vídeos]]></string>
+    <string name="paste_link">Colar Link</string>
+    <string name="download">Baixar</string>
+    <string name="quick_access">Acesso Rápido</string>
+    <string name="search_or_paste_link_to_download">Pesquise ou Cole o Link para Baixar</string>
+    <string name="enter_url">Digite a URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Pesquise ou digite a URL</string>
+    <string name="no_title">Sem Título</string>
+    <string name="bookmarked">Marcado</string>
+
+    <!-- Settings -->
+    <string name="setting">Configuração</string>
+    <string name="general">Geral</string>
+    <string name="dark_mode">Modo Escuro</string>
+    <string name="browser">Navegador</string>
+    <string name="set_default_browser">Definir Navegador Padrão</string>
+    <string name="search_engine">Mecanismo de Busca</string>
+    <string name="clear_cache">Limpar Cache</string>
+    <string name="rate_us">Avalie-nos</string>
+    <string name="feedback">Feedback</string>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="others">Outros</string>
+    <string name="no_ads">Sem Anúncios</string>
+    <string name="just_smooth">Apenas Suave</string>
+    <string name="fast_downloading">Baixando...</string>
+    <string name="special_gift">🎁 Presente Especial</string>
+    <string name="upgrade_now">Atualizar Agora</string>
+    <string name="ads_free_experience">Experiência Sem Anúncios</string>
+    <string name="cache_cleared_successfully">Cache limpo com sucesso</string>
+    <string name="failed_to_clear_cache">Falha ao limpar cache</string>
+
+    <!-- Player -->
+    <string name="all_music">Todas as Músicas</string>
+    <string name="all_videos">Todos os Vídeos</string>
+    <string name="deleted_successfully">Excluído com sucesso</string>
+    <string name="copy_path">Copiar Caminho</string>
+    <string name="path_copied_to_clipboard">Caminho copiado para a área de transferência</string>
+    <string name="delete">Excluir</string>
+
+    <string name="clear">Limpar</string>
+    <string name="add_tab">+ Adicionar Guia</string>
+    <string name="home">Início</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Confira este aplicativo incrível: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Compartilhar via</string>
+    <string name="feedback_subject">Feedback do Aplicativo - Video Downloader</string>
+    <string name="send_feedback">Enviar Feedback</string>
+    <string name="advertisement">Propaganda...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Reels em alta</string>
+    <string name="share_video">Compartilhar Vídeo</string>
+    <string name="failed_to_share">Falha ao compartilhar vídeo</string>
+    <string name="no_videos_found">Nenhum vídeo encontrado</string>
+    <string name="network_error">Erro de rede: %s</string>
+    <string name="reel_video">Vídeo do Reel</string>
+    <string name="view_stories_private">Ver stories e downloads de contas privadas</string>
+    <string name="why_login_required">Por Que o Login É Necessário?</string>
+    <string name="open_instagram">Abrir Instagram</string>
+    <string name="how_to_download">Como Baixar</string>
+    <string name="copy_link">Copiar Link</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Abra o Pinterest & Toque nos 3 Pontos (•••)]]></string>
+    <string name="_2_click_copy_link">2. Clique em “Copiar Link”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Abra O Aplicativo</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">O link copiado será\nautomaticamente colado.\nBasta tocar em Baixar.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Verificar Progresso</string>
+    <string name="track_progress_and_open">Acompanhe o progresso e abra</string>
+    <string name="your_download_file">seu arquivo baixado</string>
+    <string name="video">Vídeo</string>
+    <string name="in_progress">Em Andamento</string>
+    <string name="completed">Concluído</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Abra o Tiktok e CLIQUE em <font color="#FF0000">\'\'Compartilhar\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Copie o Link &amp; Abra o <font color="#FF0000">\'\'Video Downloader\'\'</font></string>
+    <string name="select_quality">Selecionar Qualidade</string>
+    <string name="download_started">Download Iniciado</string>
+    <string name="not_available">Não Disponível</string>
+    <string name="loading">Carregando...</string>
+    <string name="download_complete">Download Concluído</string>
+    <string name="no_downloads">Nenhum Download</string>
+    <string name="open_folder">Abrir Pasta</string>
+    <string name="share">Compartilhar</string>
+    <string name="view">Visualizar</string>
+    <string name="empty_clipboard">Área de Transferência Vazia</string>
+    <string name="invalid_url">URL Inválida</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Para Instagram</string>
+    <string name="tiktok">Para TikTok</string>
+    <string name="dailymotion">Para Dailymotion</string>
+    <string name="twitter">Para X</string>
+    <string name="pinnest">Para PinNest</string>
+    <string name="thread">Para Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Abra o Dailymotion & toque em “Compartilhar”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Abra o X & toque em “Compartilhar”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Abra o Threads & toque em “Compartilhar”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Abra o Facebook e copie o\nlink de qualquer vídeo, reel ou post]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Abra o Instagram e copie o\nlink de qualquer vídeo, reel ou post]]></string>
+    <string name="history">Histórico</string>
+    <string name="bookmark">Favoritos</string>
+    <string name="select_search_engine">Selecionar Mecanismo de Busca</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Sem Marca d\'Água</string>
+    <string name="sd_no_watermark">SD · Sem Marca d\'Água</string>
+    <string name="with_watermark">Com Marca d\'Água</string>
+    <string name="audio_only">Apenas Áudio</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Desempenho Suave &amp; Confiável</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Atualizado para premium sem anúncios &amp; velocidade incrível</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Bom custo-benefício, sem anúncios. Adorei</string>
+    <string name="download_manager">Gerenciador de downloads</string>
+    <string name="unlimited_access">Downloads ilimitados</string>
+    <string name="fast_downloads">Velocidade de download rápida</string>
+    <string name="_100_ad_free">100% livre de anúncios</string>
+    <string name="priority_support">Suporte VIP</string>
+    <string name="language">Idioma</string>
+</resources>

@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">Γεια σου Τμήμα Ιστορικού</string>
+    <string name="download_without_limits">Λήψη χωρίς όρια</string>
+    <string name="select_language">Επιλογή γλώσσας</string>
+    <string name="next">Επόμενο</string>
+    <string name="system_default">Προεπιλογή συστήματος</string>
+    <string name="all_languages">Όλες οι γλώσσες</string>
+    <string name="what_s_included">Τι περιλαμβάνεται</string>
+    <string name="go">Πάμε</string>
+    <string name="premium_subtitle">Απολαύστε γρήγορες λήψεις και απεριόριστη πρόσβαση σε βίντεο με δωρεάν δοκιμή 3 ημερών, μετά 1.400 Rs/εβδομάδα. Ακύρωση ανά πάσα στιγμή.</string>
+    <string name="features">Χαρακτηριστικά</string>
+    <string name="basic">Βασικό</string>
+    <string name="trial_disabled">Δοκιμή απενεργοποιημένη</string>
+    <string name="most_popular">⭐ Πιο δημοφιλές</string>
+    <string name="best_value">Καλύτερη αξία</string>
+    <string name="weekly_plan">Εβδομαδιαίο πρόγραμμα</string>
+    <string name="weekly_price">1.400 Rs</string>
+    <string name="monthly_price">5.000 Rs</string>
+    <string name="free_trial_3days">Δωρεάν δοκιμή 3 ημερών</string>
+    <string name="no_charge_today">Χωρίς χρέωση σήμερα</string>
+    <string name="user_reviews">Κριτικές χρηστών</string>
+    <string name="start_free_trial">Έναρξη δωρεάν δοκιμής</string>
+    <string name="buy_now">Αγορά τώρα</string>
+    <string name="trial_started">Η δωρεάν δοκιμή 3 ημερών ξεκίνησε!</string>
+    <string name="the_first_3_days_are_free">Οι πρώτες 3 ημέρες είναι δωρεάν. Μετά τη δοκιμή, θα χρεώνονται αυτόματα %s την εβδομάδα, εκτός εάν ακυρωθεί τουλάχιστον 24 ώρες πριν από το τέλος της δοκιμαστικής περιόδου.</string>
+    <string name="the_first_3_days_are">Θα χρεώνονται αυτόματα %s την εβδομάδα, εκτός εάν ακυρωθεί τουλάχιστον 24 ώρες πριν από το τέλος της δοκιμαστικής περιόδου.</string>
+    <string name="enable_free_trial">Ενεργοποίηση δωρεάν δοκιμής</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Απεριόριστες λήψεις, μηδενικά όρια\nΔοκιμάστε δωρεάν για 3 ημέρες • Μετά 1.400 Rs/εβδομάδα • Ακύρωση ανά πάσα στιγμή</string>
+    <string name="monthly_plan">Μηνιαίο πρόγραμμα</string>
+    <string name="no_payment_now">Καμία πληρωμή τώρα</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Πρόγραμμα αναπαραγωγής</string>
+    <string name="clear_all">Εκκαθάριση όλων</string>
+    <string name="back">Πίσω</string>
+    <string name="tab">Καρτέλα</string>
+    <string name="tabs">Καρτέλες</string>
+    <string name="just_now">Μόλις τώρα</string>
+    <string name="downloading">Γίνεται λήψη...</string>
+    <string name="downloaded">Λήφθηκε</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="likes">μου αρέσει</string>
+    <string name="like">Μου αρέσει</string>
+    <string name="title">Τίτλος</string>
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Αναζήτηση & Λήψη βίντεο]]></string>
+    <string name="paste_link">Επικόλληση συνδέσμου</string>
+    <string name="download">Λήψη</string>
+    <string name="quick_access">Γρήγορη πρόσβαση</string>
+    <string name="search_or_paste_link_to_download">Αναζητήστε ή επικολλήστε σύνδεσμο για λήψη</string>
+    <string name="enter_url">Εισαγωγή URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Αναζήτηση ή εισαγωγή URL</string>
+    <string name="no_title">Χωρίς τίτλο</string>
+    <string name="bookmarked">Προστέθηκε σελιδοδείκτης</string>
+
+    <!-- Settings -->
+    <string name="setting">Ρύθμιση</string>
+    <string name="general">Γενικά</string>
+    <string name="dark_mode">Σκοτεινή λειτουργία</string>
+    <string name="browser">Πρόγραμμα περιήγησης</string>
+    <string name="set_default_browser">Ορισμός προεπιλεγμένου προγράμματος περιήγησης</string>
+    <string name="search_engine">Μηχανή αναζήτησης</string>
+    <string name="clear_cache">Εκκαθάριση προσωρινής μνήμης</string>
+    <string name="rate_us">Βαθμολογήστε μας</string>
+    <string name="feedback">Σχόλια</string>
+    <string name="privacy_policy">Πολιτική απορρήτου</string>
+    <string name="others">Άλλα</string>
+    <string name="no_ads">Χωρίς διαφημίσεις</string>
+    <string name="just_smooth">Απλά ομαλό</string>
+    <string name="fast_downloading">Γίνεται λήψη...</string>
+    <string name="special_gift">🎁 Ειδικό δώρο</string>
+    <string name="upgrade_now">Αναβάθμιση τώρα</string>
+    <string name="ads_free_experience">Εμπειρία χωρίς διαφημίσεις</string>
+    <string name="cache_cleared_successfully">Η προσωρινή μνήμη εκκαθαρίστηκε επιτυχώς</string>
+    <string name="failed_to_clear_cache">Αποτυχία εκκαθάρισης προσωρινής μνήμης</string>
+
+    <!-- Player -->
+    <string name="all_music">Όλη η μουσική</string>
+    <string name="all_videos">Όλα τα βίντεο</string>
+    <string name="deleted_successfully">Διαγράφηκε επιτυχώς</string>
+    <string name="copy_path">Αντιγραφή διαδρομής</string>
+    <string name="path_copied_to_clipboard">Η διαδρομή αντιγράφηκε στο πρόχειρο</string>
+    <string name="delete">Διαγραφή</string>
+
+    <string name="clear">Εκκαθάριση</string>
+    <string name="add_tab">+ Προσθήκη καρτέλας</string>
+    <string name="home">Αρχική σελίδα</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Δείτε αυτή την καταπληκτική εφαρμογή: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Κοινοποίηση μέσω</string>
+    <string name="feedback_subject">Σχόλια εφαρμογής - Video Downloader</string>
+    <string name="send_feedback">Αποστολή σχολίων</string>
+    <string name="advertisement">Διαφήμιση...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Δημοφιλή reels</string>
+    <string name="share_video">Κοινοποίηση βίντεο</string>
+    <string name="failed_to_share">Αποτυχία κοινοποίησης βίντεο</string>
+    <string name="no_videos_found">Δεν βρέθηκαν βίντεο</string>
+    <string name="network_error">Σφάλμα δικτύου: %s</string>
+    <string name="reel_video">Βίντεο Reel</string>
+    <string name="view_stories_private">Προβολή ιστοριών και λήψεων από ιδιωτικούς λογαριασμούς</string>
+    <string name="why_login_required">Γιατί απαιτείται σύνδεση;</string>
+    <string name="open_instagram">Άνοιγμα Instagram</string>
+    <string name="how_to_download">Πώς να κατεβάσετε</string>
+    <string name="copy_link">Αντιγραφή συνδέσμου</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Ανοίξτε το Pinterest & πατήστε τις 3 τελείες (•••)]]></string>
+    <string name="_2_click_copy_link">2. Κάντε κλικ στην \"Αντιγραφή συνδέσμου\"</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Ανοίξτε την εφαρμογή</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Ο αντιγραμμένος σύνδεσμος θα\nεπικολληθεί αυτόματα.\nΑπλά πατήστε Λήψη.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Έλεγχος προόδου</string>
+    <string name="track_progress_and_open">Παρακολούθηση προόδου και άνοιγμα</string>
+    <string name="your_download_file">το ληφθέν αρχείο σας</string>
+    <string name="video">Βίντεο</string>
+    <string name="in_progress">Σε εξέλιξη</string>
+    <string name="completed">Ολοκληρώθηκε</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Ανοίξτε το Tiktok και ΚΑΝΤΕ ΚΛΙΚ στην <font color="#FF0000">\'\'Κοινοποίηση\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Αντιγράψτε τον σύνδεσμο &amp; ανοίξτε το <font color="#FF0000">\'\'Video Downloader\'\'</font></string>
+    <string name="select_quality">Επιλογή ποιότητας</string>
+    <string name="download_started">Η λήψη ξεκίνησε</string>
+    <string name="not_available">Μη διαθέσιμο</string>
+    <string name="loading">Γίνεται φόρτωση...</string>
+    <string name="download_complete">Η λήψη ολοκληρώθηκε</string>
+    <string name="no_downloads">Καμία λήψη</string>
+    <string name="open_folder">Άνοιγμα φακέλου</string>
+    <string name="share">Κοινοποίηση</string>
+    <string name="view">Προβολή</string>
+    <string name="empty_clipboard">Άδειο πρόχειρο</string>
+    <string name="invalid_url">Μη έγκυρο URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Για το Instagram</string>
+    <string name="tiktok">Για το TikTok</string>
+    <string name="dailymotion">Για το Dailymotion</string>
+    <string name="twitter">Για το X</string>
+    <string name="pinnest">Για το PinNest</string>
+    <string name="thread">Για το Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Ανοίξτε το Dailymotion & πατήστε \"Κοινοποίηση\"]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Ανοίξτε το X & πατήστε \"Κοινοποίηση\"]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Ανοίξτε τα Threads & πατήστε \"Κοινοποίηση\"]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Ανοίξτε το Facebook και αντιγράψτε τον\nσύνδεσμο οποιουδήποτε βίντεο, reel ή ανάρτησης]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Ανοίξτε το Instagram και αντιγράψτε τον\nσύνδεσμο οποιουδήποτε βίντεο, reel ή ανάρτησης]]></string>
+    <string name="history">Ιστορικό</string>
+    <string name="bookmark">Σελιδοδείκτης</string>
+    <string name="select_search_engine">Επιλογή μηχανής αναζήτησης</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Χωρίς υδατογράφημα</string>
+    <string name="sd_no_watermark">SD · Χωρίς υδατογράφημα</string>
+    <string name="with_watermark">Με υδατογράφημα</string>
+    <string name="audio_only">Μόνο ήχος</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Ομαλή &amp; Αξιόπιστη Απόδοση</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Αναβαθμίστηκε σε premium χωρίς διαφημίσεις &amp; αστραπιαία ταχύτητα</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Καλή σχέση ποιότητας-τιμής χωρίς διαφημίσεις. Το λατρεύω</string>
+
+    <string name="download_manager">Διαχειριστής Λήψεων</string>
+    <string name="unlimited_access">Απεριόριστες Λήψεις</string>
+    <string name="fast_downloads">Γρήγορη Ταχύτητα Λήψης</string>
+    <string name="_100_ad_free">100% Χωρίς Διαφημίσεις</string>
+    <string name="priority_support">Υποστήριξη VIP</string>
+    <string name="language">Γλώσσα</string>
+</resources>

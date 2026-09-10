@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">影片下載器</string>
+    <string name="hello_blank_fragment">你好，歷史紀錄片段</string>
+    <string name="download_without_limits">無限下載</string>
+    <string name="select_language">選擇語言</string>
+    <string name="next">下一步</string>
+    <string name="system_default">系統預設</string>
+    <string name="all_languages">所有語言</string>
+    <string name="what_s_included">包含內容</string>
+    <string name="go">前往</string>
+    <string name="premium_subtitle">享受快速下載與無限影片存取，提供 3 天免費試用，之後每週 1,400 盧比。可隨時取消。</string>
+    <string name="features">功能</string>
+    <string name="basic">基本</string>
+    <string name="trial_disabled">試用已停用</string>
+    <string name="most_popular">⭐ 最受歡迎</string>
+    <string name="best_value">最超值</string>
+    <string name="weekly_plan">每週方案</string>
+    <string name="weekly_price">1,400 盧比</string>
+    <string name="monthly_price">5,000 盧比</string>
+    <string name="free_trial_3days">3 天免費試用</string>
+    <string name="no_charge_today">今日不收費</string>
+    <string name="user_reviews">用戶評價</string>
+    <string name="start_free_trial">開始免費試用</string>
+    <string name="buy_now">立即購買</string>
+    <string name="trial_started">3 天免費試用已開始！</string>
+    <string name="the_first_3_days_are_free">前 3 天免費。試用結束後，每週將自動收取 %s，除非在試用期結束前至少 24 小時取消。</string>
+    <string name="the_first_3_days_are">每週將自動收取 %s，除非在試用期結束前至少 24 小時取消。</string>
+    <string name="enable_free_trial">啟用免費試用</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">進階版</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">無限下載，零限制\n免費試用 3 天 • 之後每週 1,400 盧比 • 隨時取消</string>
+    <string name="monthly_plan">每月方案</string>
+    <string name="no_payment_now">現在無需付款</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">連續短片</string>
+    <string name="player">播放器</string>
+    <string name="clear_all">全部清除</string>
+    <string name="back">返回</string>
+    <string name="tab">分頁</string>
+    <string name="tabs">分頁</string>
+    <string name="just_now">剛剛</string>
+    <string name="downloading">下載中...</string>
+    <string name="downloaded">已下載</string>
+    <string name="cancel">取消</string>
+    <string name="likes">個讚好</string>
+    <string name="like">讚好</string>
+    <string name="title">標題</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[搜尋與下載影片]]></string>
+    <string name="paste_link">貼上連結</string>
+    <string name="download">下載</string>
+    <string name="quick_access">快速存取</string>
+    <string name="search_or_paste_link_to_download">搜尋或貼上連結以下載</string>
+    <string name="enter_url">輸入網址</string>
+    <string name="fb_saver">FB 儲存器</string>
+    <string name="status_saver">狀態儲存器</string>
+    <string name="ig_saver">IG 儲存器</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">搜尋或輸入網址</string>
+    <string name="no_title">無標題</string>
+    <string name="bookmarked">已加入書籤</string>
+
+    <!-- Settings -->
+    <string name="setting">設定</string>
+    <string name="general">一般</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="browser">瀏覽器</string>
+    <string name="set_default_browser">設為預設瀏覽器</string>
+    <string name="search_engine">搜尋引擎</string>
+    <string name="clear_cache">清除快取</string>
+    <string name="rate_us">給我們評分</string>
+    <string name="feedback">意見回饋</string>
+    <string name="privacy_policy">私隱政策</string>
+    <string name="others">其他</string>
+    <string name="no_ads">無廣告</string>
+    <string name="just_smooth">順暢體驗</string>
+    <string name="fast_downloading">下載中...</string>
+    <string name="special_gift">🎁 特別禮物</string>
+    <string name="upgrade_now">立即升級</string>
+    <string name="ads_free_experience">無廣告體驗</string>
+    <string name="cache_cleared_successfully">快取清除成功</string>
+    <string name="failed_to_clear_cache">快取清除失敗</string>
+
+    <!-- Player -->
+    <string name="all_music">所有音樂</string>
+    <string name="all_videos">所有影片</string>
+    <string name="deleted_successfully">刪除成功</string>
+    <string name="copy_path">複製路徑</string>
+    <string name="path_copied_to_clipboard">路徑已複製到剪貼簿</string>
+    <string name="delete">刪除</string>
+
+    <string name="clear">清除</string>
+    <string name="add_tab">+ 新增分頁</string>
+    <string name="home">主頁</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">來看看這個超棒的應用程式：https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">分享透過</string>
+    <string name="feedback_subject">應用程式意見回饋 - 影片下載器</string>
+    <string name="send_feedback">傳送意見回饋</string>
+    <string name="advertisement">廣告...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">熱門連續短片</string>
+    <string name="share_video">分享影片</string>
+    <string name="failed_to_share">影片分享失敗</string>
+    <string name="no_videos_found">找不到影片</string>
+    <string name="network_error">網絡錯誤：%s</string>
+    <string name="reel_video">短片影片</string>
+    <string name="view_stories_private">檢視私人帳號的限時動態和下載</string>
+    <string name="why_login_required">為何需要登入？</string>
+    <string name="open_instagram">開啟 Instagram</string>
+    <string name="how_to_download">如何下載</string>
+    <string name="copy_link">複製連結</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. 開啟 Pinterest 並點擊 3 個點 (•••)]]></string>
+    <string name="_2_click_copy_link">2. 點擊「複製連結」</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">開啟應用程式</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">複製的連結將\n自動貼上。\n只需點擊下載。</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">檢查進度</string>
+    <string name="track_progress_and_open">追蹤進度並開啟</string>
+    <string name="your_download_file">您的下載檔案</string>
+    <string name="video">影片</string>
+    <string name="in_progress">進行中</string>
+    <string name="completed">已完成</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">開啟 Tiktok 並點擊 <font color="#FF0000">\'\'分享\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">複製連結並開啟 <font color="#FF0000">\'\'影片下載器\'\'</font></string>
+    <string name="select_quality">選擇畫質</string>
+    <string name="download_started">下載已開始</string>
+    <string name="not_available">無法使用</string>
+    <string name="loading">載入中...</string>
+    <string name="download_complete">下載完成</string>
+    <string name="no_downloads">沒有下載內容</string>
+    <string name="open_folder">開啟資料夾</string>
+    <string name="share">分享</string>
+    <string name="view">檢視</string>
+    <string name="empty_clipboard">清空剪貼簿</string>
+    <string name="invalid_url">無效的網址</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="dailymotion">Dailymotion</string>
+    <string name="twitter">X</string>
+    <string name="pinnest">PinNest</string>
+    <string name="thread">Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. 開啟 Dailymotion 並點擊「分享」]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. 開啟 X 並點擊「分享」]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. 開啟 Threads 並點擊「分享」]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. 開啟 Facebook 並複製任何\n影片、連續短片或帖文的連結 ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. 開啟 Instagram 並複製任何\n影片、連續短片或帖文的連結 ]]></string>
+    <string name="history">歷史紀錄</string>
+    <string name="bookmark">書籤</string>
+    <string name="select_search_engine">選擇搜尋引擎</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · 無浮水印</string>
+    <string name="sd_no_watermark">SD · 無浮水印</string>
+    <string name="with_watermark">有浮水印</string>
+    <string name="audio_only">僅音訊</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">效能流暢且可靠</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">升級為進階版，無廣告且速度超快</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">物超所值，沒有廣告。我很喜歡</string>
+    <string name="download_manager">下載管理器</string>
+    <string name="unlimited_access">無限下載</string>
+    <string name="fast_downloads">快速下載速度</string>
+    <string name="_100_ad_free">100%無廣告</string>
+    <string name="priority_support">VIP支持</string>
+    <string name="language">語言</string>
+</resources>

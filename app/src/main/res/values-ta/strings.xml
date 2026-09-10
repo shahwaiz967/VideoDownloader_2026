@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">வணக்கம் History பகுதி</string>
+    <string name="download_without_limits">வரம்பின்றி பதிவிறக்கவும்</string>
+    <string name="select_language">மொழியைத் தேர்ந்தெடு</string>
+    <string name="next">அடுத்து</string>
+    <string name="system_default">கணினி இயல்புநிலை</string>
+    <string name="all_languages">அனைத்து மொழிகளும்</string>
+    <string name="what_s_included">உள்ளடங்கியவை</string>
+    <string name="go">செல்</string>
+    <string name="premium_subtitle">3-நாள் இலவச ட்ரையல் மூலம் விரைவான பதிவிறக்கங்கள் மற்றும் வரம்பற்ற வீடியோ அணுகலை அனுபவிக்கவும், பிறகு வாரத்திற்கு ரூ 1,400. எப்போது வேண்டுமானாலும் ரத்துசெய்யலாம்.</string>
+    <string name="features">அம்சங்கள்</string>
+    <string name="basic">அடிப்படை</string>
+    <string name="trial_disabled">சோதனை முடக்கப்பட்டுள்ளது</string>
+    <string name="most_popular">⭐ மிகவும் பிரபலமானவை</string>
+    <string name="best_value">சிறந்த மதிப்பு</string>
+    <string name="weekly_plan">வாராந்திர திட்டம்</string>
+    <string name="weekly_price">ரூ 1,400</string>
+    <string name="monthly_price">ரூ 5,000</string>
+    <string name="free_trial_3days">3 நாள் இலவச சோதனை</string>
+    <string name="no_charge_today">இன்று கட்டணம் இல்லை</string>
+    <string name="user_reviews">பயனர் மதிப்புரைகள்</string>
+    <string name="start_free_trial">இலவச சோதனையைத் தொடங்கு</string>
+    <string name="buy_now">இப்போதே வாங்கு</string>
+    <string name="trial_started">3-நாள் இலவச சோதனை தொடங்கியது!</string>
+    <string name="the_first_3_days_are_free">முதல் 3 நாட்கள் இலவசம். சோதனைக் காலம் முடிவதற்கு 24 மணி நேரத்திற்கு முன் ரத்துசெய்யப்படாவிட்டால், சோதனையின் பின்னர் வாரத்திற்கு %s தானாகவே வசூலிக்கப்படும்.</string>
+    <string name="the_first_3_days_are">சோதனைக் காலம் முடிவதற்கு 24 மணி நேரத்திற்கு முன் ரத்துசெய்யப்படாவிட்டால், வாரத்திற்கு %s தானாகவே வசூலிக்கப்படும்.</string>
+    <string name="enable_free_trial">இலவச சோதனையை இயக்கு</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">பிரீமியம்</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">வரம்பற்ற பதிவிறக்கங்கள், வரம்புகள் இல்லை\n3 நாட்களுக்கு இலவசமாக முயற்சிக்கவும் • பிறகு வாரத்திற்கு ரூ 1,400 • எப்போது வேண்டுமானாலும் ரத்துசெய்யலாம்</string>
+    <string name="monthly_plan">மாதாந்திர திட்டம்</string>
+    <string name="no_payment_now">இப்போது கட்டணம் இல்லை</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">பிளேயர்</string>
+    <string name="clear_all">அனைத்தையும் அழி</string>
+    <string name="back">பின்னே</string>
+    <string name="tab">தாவல்</string>
+    <string name="tabs">தாவல்கள்</string>
+    <string name="just_now">இப்போது</string>
+    <string name="downloading">பதிவிறக்குகிறது...</string>
+    <string name="downloaded">பதிவிறக்கப்பட்டது</string>
+    <string name="cancel">ரத்துசெய்</string>
+    <string name="likes">விருப்பங்கள்</string>
+    <string name="like">விரும்பு</string>
+    <string name="title">தலைப்பு</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[வீடியோக்களைத் தேடு & பதிவிறக்கு]]></string>
+    <string name="paste_link">இணைப்பை ஒட்டு</string>
+    <string name="download">பதிவிறக்கு</string>
+    <string name="quick_access">விரைவு அணுகல்</string>
+    <string name="search_or_paste_link_to_download">பதிவிறக்க தேடவும் அல்லது இணைப்பை ஒட்டவும்</string>
+    <string name="enter_url">URL ஐ உள்ளிடு</string>
+    <string name="fb_saver">FB சேவர்</string>
+    <string name="status_saver">ஸ்டேட்டஸ் சேவர்</string>
+    <string name="ig_saver">IG சேவர்</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">தேடவும் அல்லது URL ஐ உள்ளிடவும்</string>
+    <string name="no_title">தலைப்பு இல்லை</string>
+    <string name="bookmarked">புக்மார்க் செய்யப்பட்டது</string>
+
+    <!-- Settings -->
+    <string name="setting">அமைப்பு</string>
+    <string name="general">பொது</string>
+    <string name="dark_mode">டார்க் மோடு</string>
+    <string name="browser">உலாவி</string>
+    <string name="set_default_browser">இயல்புநிலை உலாவியை அமை</string>
+    <string name="search_engine">தேடுபொறி</string>
+    <string name="clear_cache">தற்காலிக சேமிப்பை அழி</string>
+    <string name="rate_us">எங்களை மதிப்பிடு</string>
+    <string name="feedback">பின்னூட்டம்</string>
+    <string name="privacy_policy">தனியுரிமைக் கொள்கை</string>
+    <string name="others">மற்றவை</string>
+    <string name="no_ads">விளம்பரங்கள் இல்லை</string>
+    <string name="just_smooth">மென்மையானது</string>
+    <string name="fast_downloading">விரைவாக பதிவிறக்குகிறது...</string>
+    <string name="special_gift">🎁 சிறப்பு பரிசு</string>
+    <string name="upgrade_now">இப்போதே மேம்படுத்து</string>
+    <string name="ads_free_experience">விளம்பரமில்லா அனுபவம்</string>
+    <string name="cache_cleared_successfully">தற்காலிக சேமிப்பு வெற்றிகரமாக அழிக்கப்பட்டது</string>
+    <string name="failed_to_clear_cache">தற்காலிக சேமிப்பை அழிக்க முடியவில்லை</string>
+
+    <!-- Player -->
+    <string name="all_music">அனைத்து இசையும்</string>
+    <string name="all_videos">அனைத்து வீடியோக்களும்</string>
+    <string name="deleted_successfully">வெற்றிகரமாக நீக்கப்பட்டது</string>
+    <string name="copy_path">பாதை நகலெடு</string>
+    <string name="path_copied_to_clipboard">பாதை கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது</string>
+    <string name="delete">நீக்கு</string>
+
+    <string name="clear">அழி</string>
+    <string name="add_tab">+ தாவலைச் சேர்</string>
+    <string name="home">முகப்பு</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">இந்த அற்புதமான பயன்பாட்டைப் பாருங்கள்: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">இதன் மூலம் பகிரவும்</string>
+    <string name="feedback_subject">பயன்பாட்டு பின்னூட்டம் - Video Downloader</string>
+    <string name="send_feedback">பின்னூட்டம் அனுப்பு</string>
+    <string name="advertisement">விளம்பரம்...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">டிரெண்டிங் reels</string>
+    <string name="share_video">வீடியோவைப் பகிர்</string>
+    <string name="failed_to_share">வீடியோவைப் பகிர முடியவில்லை</string>
+    <string name="no_videos_found">வீடியோக்கள் எதுவும் கிடைக்கவில்லை</string>
+    <string name="network_error">நெட்வொர்க் பிழை: %s</string>
+    <string name="reel_video">Reel வீடியோ</string>
+    <string name="view_stories_private">தனிப்பட்ட கணக்குகளிலிருந்து ஸ்டோரி மற்றும் பதிவிறக்கங்களைப் பார்க்கவும்</string>
+    <string name="why_login_required">உள்நுழைவு ஏன் தேவை?</string>
+    <string name="open_instagram">Instagram ஐத் திற</string>
+    <string name="how_to_download">பதிவிறக்குவது எப்படி</string>
+    <string name="copy_link">இணைப்பை நகலெடு</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Pinterest ஐத் திறந்து 3 புள்ளிகளைத் தட்டவும் (•••)]]></string>
+    <string name="_2_click_copy_link">2. “இணைப்பை நகலெடு” என்பதைக் கிளிக் செய்யவும்</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">பயன்பாட்டைத் திற</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">நகலெடுக்கப்பட்ட இணைப்பு\nதானாகவே ஒட்டப்படும்.\nபதிவிறக்கு என்பதைத் தட்டவும்.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">முன்னேற்றத்தைச் சரிபார்</string>
+    <string name="track_progress_and_open">முன்னேற்றத்தைக் கண்காணித்து திறக்கவும்</string>
+    <string name="your_download_file">உங்கள் பதிவிறக்க கோப்பு</string>
+    <string name="video">வீடியோ</string>
+    <string name="in_progress">செயலில் உள்ளது</string>
+    <string name="completed">முடிந்தது</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Tiktok ஐத் திறந்து &lt;font color="#FF0000"&gt;\'\'பகிர்\'\'&lt;/font&gt; என்பதைக் கிளிக் செய்யவும்</string>
+    <string name="copy_link_amp_open_video_downloader">இணைப்பை நகலெடுத்து &lt;font color="#FF0000"&gt;\'\'Video Downloader\'\'&lt;/font&gt; ஐத் திறக்கவும்</string>
+    <string name="select_quality">தரத்தைத் தேர்ந்தெடு</string>
+    <string name="download_started">பதிவிறக்கம் தொடங்கியது</string>
+    <string name="not_available">கிடைக்கவில்லை</string>
+    <string name="loading">ஏற்றுகிறது...</string>
+    <string name="download_complete">பதிவிறக்கம் முடிந்தது</string>
+    <string name="no_downloads">பதிவிறக்கங்கள் இல்லை</string>
+    <string name="open_folder">கோப்புறையைத் திற</string>
+    <string name="share">பகிர்</string>
+    <string name="view">காண்</string>
+    <string name="empty_clipboard">கிளிப்போர்டை காலி செய்</string>
+    <string name="invalid_url">தவறான URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram க்கு</string>
+    <string name="tiktok">TikTok க்கு</string>
+    <string name="dailymotion">Dailymotion க்கு</string>
+    <string name="twitter">X க்கு</string>
+    <string name="pinnest">PinNest க்கு</string>
+    <string name="thread">Thread க்கு</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Dailymotion ஐத் திறந்து “பகிர்” என்பதைத் தட்டவும்]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. X ஐத் திறந்து “பகிர்” என்பதைத் தட்டவும்]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Threads ஐத் திறந்து “பகிர்” என்பதைத் தட்டவும்]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Facebook ஐத் திறந்து ஏதேனும் வீடியோ, ரீல் அல்லது இடுகையின்\nஇணைப்பை நகலெடுக்கவும் ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Instagram ஐத் திறந்து ஏதேனும் வீடியோ, ரீல் அல்லது இடுகையின்\nஇணைப்பை நகலெடுக்கவும் ]]></string>
+    <string name="history">வரலாறு</string>
+    <string name="bookmark">புக்மார்க்</string>
+    <string name="select_search_engine">தேடுபொறியைத் தேர்ந்தெடுக்கவும்</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · வாட்டர்மார்க் இல்லை</string>
+    <string name="sd_no_watermark">SD · வாட்டர்மார்க் இல்லை</string>
+    <string name="with_watermark">வாட்டர்மார்க்குடன்</string>
+    <string name="audio_only">ஆடியோ மட்டும்</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">மென்மையான மற்றும் நம்பகமான செயல்திறன்</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">பிரீமியம் மேம்படுத்தப்பட்டது, விளம்பரங்கள் இல்லை &amp; மிக வேகமாக உள்ளது</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">விளம்பரங்கள் இல்லாமல் பணத்திற்கு சிறந்த மதிப்பு. மிகவும் பிடித்திருக்கிறது</string>
+    <string name="download_manager">பதிவிறக்க மேலாளர்</string>
+    <string name="unlimited_access">வரம்பற்ற பதிவிறக்கங்கள்</string>
+    <string name="fast_downloads">வேகமான பதிவிறக்க வேகம்</string>
+    <string name="_100_ad_free">100% விளம்பரமற்றது</string>
+    <string name="priority_support">விஐபி ஆதரவு</string>
+    <string name="language">மொழி</string>
+</resources>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Загрузчик Видео</string>
+    <string name="hello_blank_fragment">Привет, фрагмент истории</string>
+    <string name="download_without_limits">Скачивайте Без Ограничений</string>
+    <string name="select_language">Выберите Язык</string>
+    <string name="next">Далее</string>
+    <string name="system_default">По умолчанию</string>
+    <string name="all_languages">Все Языки</string>
+    <string name="what_s_included">Что Включено</string>
+    <string name="go">Вперед</string>
+    <string name="premium_subtitle">Наслаждайтесь Быстрыми Загрузками И Неограниченным Доступом К Видео С 3-Дневной Бесплатной Пробной Версией, Затем 1400 Rs/Неделя. Отмените В Любое Время.</string>
+    <string name="features">Функции</string>
+    <string name="basic">Базовый</string>
+    <string name="trial_disabled">Пробная Версия Отключена</string>
+    <string name="most_popular">⭐ Самый Популярный</string>
+    <string name="best_value">Лучшая Цена</string>
+    <string name="weekly_plan">Еженедельный План</string>
+    <string name="weekly_price">1400 Rs</string>
+    <string name="monthly_price">5000 Rs</string>
+    <string name="free_trial_3days">3-Дневная Бесплатная Пробная Версия</string>
+    <string name="no_charge_today">Сегодня Бесплатно</string>
+    <string name="user_reviews">Отзывы Пользователей</string>
+    <string name="start_free_trial">Начать Бесплатную Пробную Версию</string>
+    <string name="buy_now">Купить сейчас</string>
+    <string name="trial_started">3-дневная бесплатная пробная версия началась!</string>
+    <string name="the_first_3_days_are_free">Первые 3 дня бесплатно. После пробного периода с вас будет автоматически списываться %s в неделю, если вы не отмените подписку как минимум за 24 часа до окончания пробного периода.</string>
+    <string name="the_first_3_days_are">%s в неделю будут списываться автоматически, если вы не отмените подписку как минимум за 24 часа до окончания пробного периода.</string>
+    <string name="enable_free_trial">Включить Бесплатную Пробную Версию</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Премиум</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Неограниченные Загрузки, Никаких Ограничений\nПопробуйте Бесплатно На 3 Дня • Затем 1400 Rs/Неделя • Отмените В Любое Время</string>
+    <string name="monthly_plan">Ежемесячный План</string>
+    <string name="no_payment_now">Без Оплаты Сейчас</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Плеер</string>
+    <string name="clear_all">Очистить Все</string>
+    <string name="back">Назад</string>
+    <string name="tab">Вкладка</string>
+    <string name="tabs">Вкладки</string>
+    <string name="just_now">Только что</string>
+    <string name="downloading">Скачивание...</string>
+    <string name="downloaded">Скачано</string>
+    <string name="cancel">Отмена</string>
+    <string name="likes">лайки</string>
+    <string name="like">Нравится</string>
+    <string name="title">Заголовок</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Поиск & Скачивание Видео]]></string>
+    <string name="paste_link">Вставить Ссылку</string>
+    <string name="download">Скачать</string>
+    <string name="quick_access">Быстрый Доступ</string>
+    <string name="search_or_paste_link_to_download">Ищите или Вставьте Ссылку для Скачивания</string>
+    <string name="enter_url">Введите URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Поиск или ввод URL</string>
+    <string name="no_title">Без Заголовка</string>
+    <string name="bookmarked">В закладках</string>
+
+    <!-- Settings -->
+    <string name="setting">Настройки</string>
+    <string name="general">Общие</string>
+    <string name="dark_mode">Темный Режим</string>
+    <string name="browser">Браузер</string>
+    <string name="set_default_browser">Установить Браузер по Умолчанию</string>
+    <string name="search_engine">Поисковая Система</string>
+    <string name="clear_cache">Очистить Кэш</string>
+    <string name="rate_us">Оцените Нас</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="privacy_policy">Политика Конфиденциальности</string>
+    <string name="others">Другое</string>
+    <string name="no_ads">Без Рекламы</string>
+    <string name="just_smooth">Просто Плавно</string>
+    <string name="fast_downloading">Скачивание...</string>
+    <string name="special_gift">🎁 Специальный Подарок</string>
+    <string name="upgrade_now">Обновить Сейчас</string>
+    <string name="ads_free_experience">Опыт Без Рекламы</string>
+    <string name="cache_cleared_successfully">Кэш успешно очищен</string>
+    <string name="failed_to_clear_cache">Не удалось очистить кэш</string>
+
+    <!-- Player -->
+    <string name="all_music">Вся Музыка</string>
+    <string name="all_videos">Все Видео</string>
+    <string name="deleted_successfully">Успешно удалено</string>
+    <string name="copy_path">Копировать Путь</string>
+    <string name="path_copied_to_clipboard">Путь скопирован в буфер обмена</string>
+    <string name="delete">Удалить</string>
+
+    <string name="clear">Очистить</string>
+    <string name="add_tab">+ Добавить Вкладку</string>
+    <string name="home">Главная</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Посмотрите это удивительное приложение: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Поделиться через</string>
+    <string name="feedback_subject">Отзыв о Приложении - Video Downloader</string>
+    <string name="send_feedback">Отправить Отзыв</string>
+    <string name="advertisement">Реклама...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Популярные reels</string>
+    <string name="share_video">Поделиться Видео</string>
+    <string name="failed_to_share">Не удалось поделиться видео</string>
+    <string name="no_videos_found">Видео не найдены</string>
+    <string name="network_error">Ошибка сети: %s</string>
+    <string name="reel_video">Видео Reel</string>
+    <string name="view_stories_private">Смотрите истории и скачивайте из приватных аккаунтов</string>
+    <string name="why_login_required">Почему Требуется Вход?</string>
+    <string name="open_instagram">Открыть Instagram</string>
+    <string name="how_to_download">Как Скачать</string>
+    <string name="copy_link">Копировать Ссылку</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Откройте Pinterest & Нажмите на 3 Точки (•••)]]></string>
+    <string name="_2_click_copy_link">2. Нажмите “Копировать Ссылку”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Откройте Приложение</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Скопированная ссылка будет\nавтоматически вставлена.\nПросто нажмите Скачать.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Проверить Прогресс</string>
+    <string name="track_progress_and_open">Отслеживайте прогресс и открывайте</string>
+    <string name="your_download_file">ваш скачанный файл</string>
+    <string name="video">Видео</string>
+    <string name="in_progress">В Процессе</string>
+    <string name="completed">Завершено</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Откройте Tiktok и НАЖМИТЕ <font color="#FF0000">\'\'Поделиться\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Скопируйте Ссылку &amp; Откройте <font color="#FF0000">\'\'Video Downloader\'\'</font></string>
+    <string name="select_quality">Выберите Качество</string>
+    <string name="download_started">Скачивание Началось</string>
+    <string name="not_available">Не Доступно</string>
+    <string name="loading">Загрузка...</string>
+    <string name="download_complete">Скачивание Завершено</string>
+    <string name="no_downloads">Нет Загрузок</string>
+    <string name="open_folder">Открыть Папку</string>
+    <string name="share">Поделиться</string>
+    <string name="view">Просмотр</string>
+    <string name="empty_clipboard">Буфер Обмена Пуст</string>
+    <string name="invalid_url">Неверный URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Для Instagram</string>
+    <string name="tiktok">Для TikTok</string>
+    <string name="dailymotion">Для Dailymotion</string>
+    <string name="twitter">Для X</string>
+    <string name="pinnest">Для PinNest</string>
+    <string name="thread">Для Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Откройте Dailymotion & нажмите “Поделиться”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Откройте X & нажмите “Поделиться”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Откройте Threads & нажмите “Поделиться”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Откройте Facebook и скопируйте\nссылку на любое видео, reel или пост]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Откройте Instagram и скопируйте\nссылку на любое видео, reel или пост]]></string>
+    <string name="history">История</string>
+    <string name="bookmark">Закладка</string>
+    <string name="select_search_engine">Выберите Поисковую Систему</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Без Водяного Знака</string>
+    <string name="sd_no_watermark">SD · Без Водяного Знака</string>
+    <string name="with_watermark">С Водяным Знаком</string>
+    <string name="audio_only">Только Аудио</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Плавная &amp; Надежная Работа</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Обновилась до премиум без рекламы &amp; супер скорость</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Хорошее соотношение цены и качества, нет рекламы. Обожаю</string>
+    <string name="download_manager">Менеджер загрузок</string>
+    <string name="unlimited_access">Неограниченное количество скачиваний</string>
+    <string name="fast_downloads">Высокая скорость загрузки</string>
+    <string name="_100_ad_free">100% без рекламы</string>
+    <string name="priority_support">VIP-поддержка</string>
+    <string name="language">Язык</string>
+</resources>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pemuat Turun Video</string>
+    <string name="hello_blank_fragment">Hello serpihan Sejarah</string>
+    <string name="download_without_limits">Muat Turun Tanpa Had</string>
+    <string name="select_language">Pilih Bahasa</string>
+    <string name="next">Seterusnya</string>
+    <string name="system_default">Lalai Sistem</string>
+    <string name="all_languages">Semua Bahasa</string>
+    <string name="what_s_included">Apa yang Termasuk</string>
+    <string name="go">Pergi</string>
+    <string name="premium_subtitle">Nikmati Muat Turun Pantas dan Akses Video Tanpa Had Dengan Percubaan Percuma 3 Hari, Kemudian Rs 1,400/Minggu. Batal Bila-bila Masa.</string>
+    <string name="features">Ciri-ciri</string>
+    <string name="basic">Asas</string>
+    <string name="trial_disabled">Percubaan Dilumpuhkan</string>
+    <string name="most_popular">⭐ Paling Popular</string>
+    <string name="best_value">Nilai Terbaik</string>
+    <string name="weekly_plan">Pelan Mingguan</string>
+    <string name="weekly_price">Rs 1,400</string>
+    <string name="monthly_price">Rs 5,000</string>
+    <string name="free_trial_3days">Percubaan Percuma 3 Hari</string>
+    <string name="no_charge_today">Tiada Caj Hari Ini</string>
+    <string name="user_reviews">Ulasan Pengguna</string>
+    <string name="start_free_trial">Mulakan Percubaan Percuma</string>
+    <string name="buy_now">Beli sekarang</string>
+    <string name="trial_started">Percubaan percuma 3 hari bermula!</string>
+    <string name="the_first_3_days_are_free">3 hari pertama adalah percuma. Selepas percubaan, %s seminggu akan dicaj secara automatik melainkan dibatalkan sekurang-kurangnya 24 jam sebelum tamat tempoh percubaan.</string>
+    <string name="the_first_3_days_are">%s seminggu akan dicaj secara automatik melainkan dibatalkan sekurang-kurangnya 24 jam sebelum tamat tempoh percubaan.</string>
+    <string name="enable_free_trial">Dayakan Percubaan Percuma</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Muat Turun Tanpa Had, Sifar Had\nCuba Percuma 3 Hari • Kemudian Rs 1,400/Minggu • Batal Bila-bila Masa</string>
+    <string name="monthly_plan">Pelan Bulanan</string>
+    <string name="no_payment_now">Tiada Bayaran Sekarang</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Pemain</string>
+    <string name="clear_all">Kosongkan Semua</string>
+    <string name="back">Kembali</string>
+    <string name="tab">Tab</string>
+    <string name="tabs">Tab</string>
+    <string name="just_now">Baru sahaja</string>
+    <string name="downloading">Memuat turun...</string>
+    <string name="downloaded">Dimuat turun</string>
+    <string name="cancel">Batal</string>
+    <string name="likes">suka</string>
+    <string name="like">Suka</string>
+    <string name="title">Tajuk</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Cari & Muat Turun Video]]></string>
+    <string name="paste_link">Tampal Pautan</string>
+    <string name="download">Muat Turun</string>
+    <string name="quick_access">Akses Pantas</string>
+    <string name="search_or_paste_link_to_download">Cari atau Tampal Pautan untuk Muat Turun</string>
+    <string name="enter_url">Masukkan URL</string>
+    <string name="fb_saver">Penjimat FB</string>
+    <string name="status_saver">Penjimat Status</string>
+    <string name="ig_saver">Penjimat IG</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Cari atau masukkan URL</string>
+    <string name="no_title">Tiada Tajuk</string>
+    <string name="bookmarked">Ditanda Buku</string>
+
+    <!-- Settings -->
+    <string name="setting">Tetapan</string>
+    <string name="general">Umum</string>
+    <string name="dark_mode">Mod Gelap</string>
+    <string name="browser">Penyemak Imbas</string>
+    <string name="set_default_browser">Tetapkan Penyemak Imbas Lalai</string>
+    <string name="search_engine">Enjin Carian</string>
+    <string name="clear_cache">Kosongkan Cache</string>
+    <string name="rate_us">Nilaikan Kami</string>
+    <string name="feedback">Maklum Balas</string>
+    <string name="privacy_policy">Dasar Privasi</string>
+    <string name="others">Lain-lain</string>
+    <string name="no_ads">Tiada Iklan</string>
+    <string name="just_smooth">Hanya Lancar</string>
+    <string name="fast_downloading">Memuat turun...</string>
+    <string name="special_gift">🎁 Hadiah Istimewa</string>
+    <string name="upgrade_now">Naik Taraf Sekarang</string>
+    <string name="ads_free_experience">Pengalaman Bebas Iklan</string>
+    <string name="cache_cleared_successfully">Cache berjaya dikosongkan</string>
+    <string name="failed_to_clear_cache">Gagal mengosongkan cache</string>
+
+    <!-- Player -->
+    <string name="all_music">Semua Muzik</string>
+    <string name="all_videos">Semua Video</string>
+    <string name="deleted_successfully">Berjaya dipadamkan</string>
+    <string name="copy_path">Salin Laluan</string>
+    <string name="path_copied_to_clipboard">Laluan disalin ke papan keratan</string>
+    <string name="delete">Padam</string>
+
+    <string name="clear">Kosongkan</string>
+    <string name="add_tab">+ Tambah Tab</string>
+    <string name="home">Laman Utama</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Lihat aplikasi hebat ini: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Kongsi melalui</string>
+    <string name="feedback_subject">Maklum Balas Aplikasi - Pemuat Turun Video</string>
+    <string name="send_feedback">Hantar Maklum Balas</string>
+    <string name="advertisement">Iklan...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Reels sohor kini</string>
+    <string name="share_video">Kongsi Video</string>
+    <string name="failed_to_share">Gagal berkongsi video</string>
+    <string name="no_videos_found">Tiada video ditemui</string>
+    <string name="network_error">Ralat rangkaian: %s</string>
+    <string name="reel_video">Video Reel</string>
+    <string name="view_stories_private">Lihat cerita dan muat turun daripada akaun peribadi</string>
+    <string name="why_login_required">Mengapa Log Masuk Diperlukan?</string>
+    <string name="open_instagram">Buka Instagram</string>
+    <string name="how_to_download">Cara Memuat Turun</string>
+    <string name="copy_link">Salin Pautan</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Buka Pinterest & Ketik 3 Titik (•••)]]></string>
+    <string name="_2_click_copy_link">2. Klik “Salin Pautan”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Buka Aplikasi</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Pautan yang disalin akan\nditampal secara automatik.\nHanya ketik Muat Turun.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Semak Kemajuan</string>
+    <string name="track_progress_and_open">Jejaki kemajuan dan buka</string>
+    <string name="your_download_file">fail muat turun anda</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Sedang Dijalankan</string>
+    <string name="completed">Selesai</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Buka Tiktok dan KLIK <font color="#FF0000">\'\'Kongsi\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Salin Pautan &amp; Buka <font color="#FF0000">\'\'Pemuat Turun Video\'\'</font></string>
+    <string name="select_quality">Pilih Kualiti</string>
+    <string name="download_started">Muat Turun Bermula</string>
+    <string name="not_available">Tidak Tersedia</string>
+    <string name="loading">Memuatkan...</string>
+    <string name="download_complete">Muat Turun Selesai</string>
+    <string name="no_downloads">Tiada Muat Turun</string>
+    <string name="open_folder">Buka Folder</string>
+    <string name="share">Kongsi</string>
+    <string name="view">Lihat</string>
+    <string name="empty_clipboard">Kosongkan Papan Keratan</string>
+    <string name="invalid_url">URL tidak sah</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Untuk Instagram</string>
+    <string name="tiktok">Untuk TikTok</string>
+    <string name="dailymotion">Untuk Dailymotion</string>
+    <string name="twitter">Untuk X</string>
+    <string name="pinnest">Untuk PinNest</string>
+    <string name="thread">Untuk Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Buka Dailymotion & ketik “Kongsi”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Buka X & ketik “Kongsi”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Buka Threads & ketik “Kongsi”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Buka Facebook dan salin\npautan mana-mana video, reel atau siaran ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Buka Instagram dan salin\npautan mana-mana video, reel atau siaran ]]></string>
+    <string name="history">Sejarah</string>
+    <string name="bookmark">Tanda Buku</string>
+    <string name="select_search_engine">Pilih Enjin Carian</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Tiada Tera Air</string>
+    <string name="sd_no_watermark">SD · Tiada Tera Air</string>
+    <string name="with_watermark">Dengan Tera Air</string>
+    <string name="audio_only">Audio Sahaja</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Prestasi Lancar &amp; Boleh Dipercayai</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Dinaik taraf kepada premium tanpa iklan &amp; kelajuan pantas</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Berbaloi dengan wang tanpa iklan. Saya sukakannya</string>
+    <string name="download_manager">Pengurus Muat Turun</string>
+    <string name="unlimited_access">Muat Turun Tanpa Had</string>
+    <string name="fast_downloads">Kelajuan Muat Turun Pantas</string>
+    <string name="_100_ad_free">100% Bebas Iklan</string>
+    <string name="priority_support">Sokongan VIP</string>
+    <string name="language">Bahasa</string>
+</resources>
