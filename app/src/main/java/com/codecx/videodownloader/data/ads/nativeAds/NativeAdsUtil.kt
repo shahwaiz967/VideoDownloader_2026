@@ -151,7 +151,7 @@ object NativeAdsUtil {
     }
 
 
-    private fun populateNativeAd(
+    fun populateNativeAd(
         context: Activity,
         adContainerView: ViewGroup,
         nativeAd: NativeAd, @LayoutRes nativeAdView: Int, adListener: AdCallBack?

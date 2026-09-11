@@ -123,8 +123,8 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
         showInter(
             interstitialHelper = interstitialHelper,
-            stringId = RemoteConfigHelper.adIds.splashInter.adId,
-            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
+            stringId = RemoteConfigHelper.adIds.onboardingFinishInter.adId,
+            adAllowed = RemoteConfigHelper.adIds.onboardingFinishInter.isAdEnable,
             onDismiss = {
                 safeNavigate(R.id.mainFragment, null, navOptions {
                     popUpTo(R.id.nav_graph) {

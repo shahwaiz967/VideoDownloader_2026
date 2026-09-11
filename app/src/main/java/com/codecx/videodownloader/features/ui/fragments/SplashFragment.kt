@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.utils.AppUpdateChecker
 import com.codecx.videodownloader.data.utils.PrefManager
@@ -36,6 +37,17 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         appUpdate = AppUpdateChecker(requireActivity() as AppCompatActivity)
+
+        bindNative(
+            RemoteConfigHelper.adIds.splashTopNative,
+            false,
+            binding.topAdLayout
+        )
+        bindNative(
+            RemoteConfigHelper.adIds.splashBottomNative,
+            false,
+            binding.bottomAdLayout
+        )
 
         if (activity?.intent?.action == Intent.ACTION_VIEW) {
             val uri = activity?.intent?.data

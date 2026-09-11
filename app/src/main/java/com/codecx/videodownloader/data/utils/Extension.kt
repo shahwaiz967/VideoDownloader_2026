@@ -9,7 +9,6 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -24,8 +23,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.FileProvider
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -39,10 +36,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.codecx.videodownloader.BuildConfig
-import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.states.ResultState
-import com.codecx.videodownloader.features.ui.activities.MainActivity
+import com.codecx.videodownloader.MainActivity
 import com.codecx.videodownloader.features.ui.fragments.DownloadOptionBottomSheet
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.google.gson.Gson

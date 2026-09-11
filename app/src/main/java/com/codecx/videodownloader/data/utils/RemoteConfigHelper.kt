@@ -3,11 +3,11 @@ package com.codecx.videodownloader.data.utils
 import android.content.Context
 import android.util.Log
 import com.codecx.videodownloader.BuildConfig
-import com.codecx.videodownloader.data.dataClasses.AdItem
+import com.codecx.videodownloader.data.models.AdItem
 import com.google.firebase.FirebaseApp
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.codecx.videodownloader.data.dataClasses.AdSize
+import com.codecx.videodownloader.data.models.AdSize
 import com.codecx.videodownloader.data.dataClasses.RemoteAdsConfig
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -33,13 +33,17 @@ object RemoteConfigHelper {
     val TAG = "RemoteConfigHelper"
 
     private lateinit var application: Context
-    lateinit var adIds: RemoteAdsConfig
+    var adIds: RemoteAdsConfig = RemoteAdsConfig()
 
     fun init(application: Context) {
         this@RemoteConfigHelper.application = application
+        adIds = getDefaultAdIds()
         CoroutineScope(Dispatchers.IO).launch {
-            FirebaseApp.initializeApp(application)
-            adIds = getDefaultAdIds()
+            try {
+                FirebaseApp.initializeApp(application)
+            } catch (e: Exception) {
+                Log.e(TAG, "Firebase initialization failed: ${e.message}")
+            }
             checkRemoteConfig()
         }
     }
@@ -48,7 +52,7 @@ object RemoteConfigHelper {
         runCatching {
             val configSettings: FirebaseRemoteConfigSettings =
                 FirebaseRemoteConfigSettings.Builder()
-                    .setMinimumFetchIntervalInSeconds(3600)
+                    .setMinimumFetchIntervalInSeconds(if (BuildConfig.DEBUG) 0 else 3600)
                     .build()
 
             mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings)
@@ -57,13 +61,20 @@ object RemoteConfigHelper {
             }
         }.onSuccess {
             val json = mFirebaseRemoteConfig.getString("ads_config")
+            Log.d(TAG, "checkRemoteConfig: Fetched JSON: $json")
             if (json.isNotEmpty()) {
-                adIds = Gson().fromJson(json, RemoteAdsConfig::class.java)
+                try {
+                    adIds = Gson().fromJson(json, RemoteAdsConfig::class.java)
+                    Log.d(TAG, "checkRemoteConfig: Ad IDs updated successfully")
+                } catch (e: Exception) {
+                    Log.e(TAG, "checkRemoteConfig: JSON Parsing Error: ${e.message}")
+                }
+            } else {
+                Log.w(TAG, "checkRemoteConfig: 'ads_config' is empty in Remote Config")
             }
         }.onFailure {
-            Log.e("RemoteConfigHelper", "checkRemoteConfig: ${it.message}")
+            Log.e(TAG, "checkRemoteConfig: Fetch Failure: ${it.message}")
         }
-
     }
 
     private fun getId(id: Int): String {
@@ -72,59 +83,38 @@ object RemoteConfigHelper {
 
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
-            appOpen = AdItem(BuildConfig.open_ad_id),
-            mainBanner = AdItem(
-                BuildConfig.collapsible_id,
-                false,
-                COLLAPSIBLE_AD_TYPE
-            ),
-            settingBanner = AdItem(
-                BuildConfig.collapsible_id,
-                false,
-                COLLAPSIBLE_AD_TYPE
-            ),
-            splashInter = AdItem(
-                adId = BuildConfig.interstitial_id,
-                adFormat = INTER_AD_TYPE,
-                isAdEnable = false
-            ),
-            premiumInter = AdItem(
-                adId = BuildConfig.interstitial_id,
-                adFormat = INTER_AD_TYPE,
-                isAdEnable = false
-            ),
-            societyBanner = AdItem(
-                BuildConfig.collapsible_id,
-                false,
-                COLLAPSIBLE_AD_TYPE
-            ),
-            historyBanner = AdItem(
-                BuildConfig.collapsible_id,
-                false,
-                COLLAPSIBLE_AD_TYPE
-            ),
-            bookmarkBanner = AdItem(
-                BuildConfig.collapsible_id,
-                false,
-                COLLAPSIBLE_AD_TYPE
-            ),
-            languageBanner = AdItem(
-                BuildConfig.banner_id,
-                false,
-                BANNER_AD_TYPE,
-                AdSize.LARGE
-            ),
-            languageOnBoardingBanner = AdItem(
-                BuildConfig.banner_id,
-                false,
-                BANNER_AD_TYPE,
-                AdSize.LARGE
-            ),
-            backPressInter = AdItem(
-                adId = BuildConfig.interstitial_id,
-                adFormat = INTER_AD_TYPE,
-                isAdEnable = false
-            )
+            splashAppOpen = AdItem(BuildConfig.open_ad_id, true, OPEN_AD_TYPE),
+            resumeAppOpen = AdItem(BuildConfig.open_ad_id, true, OPEN_AD_TYPE),
+            splashTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            splashBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            splashInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            
+            languageTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            languageBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            languageBanner = AdItem(BuildConfig.banner_id, true, BANNER_AD_TYPE, AdSize.LARGE),
+            
+            onboardingTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            onboardingBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            onboardingFinishInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            
+            homeFirstClickInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            homeTopBanner = AdItem(BuildConfig.banner_id, true, BANNER_AD_TYPE),
+            homeTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            homeMidNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            homeBottomBanner = AdItem(BuildConfig.banner_id, true, BANNER_AD_TYPE),
+            homeBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            
+            cleanFinishInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            activityFinishInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            backPressInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            
+            premiumInter = AdItem(BuildConfig.interstitial_id, false, INTER_AD_TYPE),
+            societyBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
+            historyBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
+            bookmarkBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
+            mainBanner = AdItem(BuildConfig.collapsible_id, true, COLLAPSIBLE_AD_TYPE),
+            settingBanner = AdItem(BuildConfig.collapsible_id, true, COLLAPSIBLE_AD_TYPE),
+            adFrequency = 4
         )
     }
 }

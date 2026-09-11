@@ -21,7 +21,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.ads.utils.showInterWithCounter
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
@@ -73,16 +75,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             showTabsSheet()
         }
         navigation()
+        bindAds()
         refreshTabBadge()
         initStartupPage()
         observeDownloadCompletion()
         observeDownloadStart()
-
-        bindNative(
-            RemoteConfigHelper.adIds.mainBanner,
-            false,
-            binding.adLayout
-        )
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
@@ -207,19 +204,19 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private fun navigation() {
         binding.navHome.setOnClickListener {
-            loadFragment(HomeFragment())
+            handleNavigationAd { loadFragment(HomeFragment()) }
         }
         binding.navDownloads.setOnClickListener {
-            loadFragment(DownloadFragment())
+            handleNavigationAd { loadFragment(DownloadFragment()) }
         }
         binding.navPlayer.setOnClickListener {
-            loadFragment(PlayerFragment())
+            handleNavigationAd { loadFragment(PlayerFragment()) }
         }
         binding.navReels.setOnClickListener {
-            safeNavigate(R.id.reelFragment)
+            handleNavigationAd { safeNavigate(R.id.reelFragment) }
         }
         binding.btnReels.setOnClickListener {
-            safeNavigate(R.id.reelFragment)
+            handleNavigationAd { safeNavigate(R.id.reelFragment) }
         }
         binding.ivPremium.setOnClickListener {
             safeNavigate(R.id.premiumFragment)
@@ -227,6 +224,22 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         binding.ivSettings.setOnClickListener {
             safeNavigate(R.id.settingFragment)
         }
+    }
+
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+
+    private fun handleNavigationAd(onComplete: () -> Unit) {
+        showInterWithCounter(
+            interstitialHelper = interstitialHelper,
+            adItem = RemoteConfigHelper.adIds.activityFinishInter,
+            onComplete = onComplete
+        )
+    }
+
+    private fun bindAds() {
+        bindNative(RemoteConfigHelper.adIds.mainBanner, false, binding.adLayout)
+
+        bindNative(RemoteConfigHelper.adIds.homeTopNative, false, binding.adLayoutTop)
     }
 
 
