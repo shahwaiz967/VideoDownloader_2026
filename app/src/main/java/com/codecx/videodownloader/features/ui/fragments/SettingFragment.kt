@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
-import com.codecx.videodownloader.data.ads.enums.EnumAdType
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
