@@ -1,7 +1,7 @@
 package com.codecx.videodownloader.features.adapters
 
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.models.DownloadModel
+import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.ItemDownloadCompleteBinding
 import com.codecx.videodownloader.databinding.ItemDownloadProgressBinding
 
@@ -92,15 +93,14 @@ class DownloadFragmentAdapter(private val isCompleted: Boolean, private val mCon
             } else {
                 binding.ivThumbnail.setImageResource(R.drawable.ic_video_placeholder)
             }
+            binding.root.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("videoPath", item.localPath)
+                bundle.putString("videoTitle", item.title)
+                bundle.putBoolean("isAudio", item.isAudio)
+                binding.root.safeNavigate(R.id.mediaPlayFragment, bundle)
+            }
 
-            /*binding.root.setOnClickListener {
-                val intent = Intent(mContext, ::class.java).apply {
-                    putExtra(AppConstants.INTENT_VIDEO_URI, item.localPath)
-                    putExtra(AppConstants.INTENT_VIDEO_TITLE, item.title)
-                    putExtra(AppConstants.INTENT_IS_AUDIO, item.isAudio)
-                }
-                mContext.startActivity(intent)
-            }*/
         }
     }
 

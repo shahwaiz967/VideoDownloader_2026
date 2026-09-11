@@ -48,44 +48,6 @@
     <string name="like">لایک</string>
     <string name="title">عنوان</string>
 
-    <!-- Languages -->
-    <string name="english_us">انگلیسی (آمریکا)</string>
-    <string name="english">انگلیسی</string>
-    <string name="arabic">عربی</string>
-    <string name="bangla">بنگالی</string>
-    <string name="chinese_simplified">چینی (ساده‌شده)</string>
-    <string name="chinese_hong_kong">چینی (هنگ‌کنگ)</string>
-    <string name="chinese">چینی</string>
-    <string name="dutch">هلندی</string>
-    <string name="french_canada">فرانسوی (کانادا)</string>
-    <string name="french_france">فرانسوی (فرانسه)</string>
-    <string name="french">فرانسوی</string>
-    <string name="german">آلمانی</string>
-    <string name="greek">یونانی</string>
-    <string name="hindi">هندی</string>
-    <string name="indonesian">اندونزیایی</string>
-    <string name="italian">ایتالیایی</string>
-    <string name="japanese">ژاپنی</string>
-    <string name="korean">کره‌ای</string>
-    <string name="malay">مالایی</string>
-    <string name="persian">فارسی</string>
-    <string name="polish">لهستانی</string>
-    <string name="portuguese_brazil">پرتغالی (برزیل)</string>
-    <string name="portuguese_portugal">پرتغالی (پرتغال)</string>
-    <string name="portuguese">پرتغالی</string>
-    <string name="russian">روسی</string>
-    <string name="spanish_latin_america">اسپانیایی (آمریکای لاتین)</string>
-    <string name="spanish_spain">اسپانیایی (اسپانیا)</string>
-    <string name="spanish_us">اسپانیایی (آمریکا)</string>
-    <string name="spanish">اسپانیایی</string>
-    <string name="swedish">سوئدی</string>
-    <string name="tamil">تامیلی</string>
-    <string name="thai">تایلندی</string>
-    <string name="turkish">ترکی</string>
-    <string name="ukrainian">اوکراینی</string>
-    <string name="urdu">اردو</string>
-    <string name="vietnamese">ویتنامی</string>
-    <string name="azerbaijan">آذربایجانی</string>
 
     <!-- Home & Quick Access -->
     <string name="search_amp_download_videos"><![CDATA[جستجو و دانلود ویدیوها]]></string>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video İndirici</string>
+    <string name="hello_blank_fragment">Merhaba Geçmiş parçası</string>
+    <string name="download_without_limits">Sınırsız İndirin</string>
+    <string name="select_language">Dil Seçin</string>
+    <string name="next">İleri</string>
+    <string name="system_default">Sistem Varsayılanı</string>
+    <string name="all_languages">Tüm Diller</string>
+    <string name="what_s_included">Neler Dahil</string>
+    <string name="go">Git</string>
+    <string name="premium_subtitle">3 Günlük Ücretsiz Deneme ile Hızlı İndirmelerin ve Sınırsız Video Erişiminin Keyfini Çıkarın, Ardından Haftalık 1.400 Rs. İstediğiniz Zaman İptal Edin.</string>
+    <string name="features">Özellikler</string>
+    <string name="basic">Temel</string>
+    <string name="trial_disabled">Deneme Sürümü Devre Dışı</string>
+    <string name="most_popular">⭐ En Popüler</string>
+    <string name="best_value">En İyi Değer</string>
+    <string name="weekly_plan">Haftalık Plan</string>
+    <string name="weekly_price">1.400 Rs</string>
+    <string name="monthly_price">5.000 Rs</string>
+    <string name="free_trial_3days">3 Günlük Ücretsiz Deneme</string>
+    <string name="no_charge_today">Bugün Ücret Yok</string>
+    <string name="user_reviews">Kullanıcı Yorumları</string>
+    <string name="start_free_trial">Ücretsiz Denemeyi Başlat</string>
+    <string name="buy_now">Şimdi satın al</string>
+    <string name="trial_started">3 günlük ücretsiz deneme başladı!</string>
+    <string name="the_first_3_days_are_free">İlk 3 gün ücretsizdir. Deneme süresinin bitiminden en az 24 saat önce iptal edilmediği takdirde, deneme süresinden sonra haftada %s otomatik olarak tahsil edilecektir.</string>
+    <string name="the_first_3_days_are">Deneme süresinin bitiminden en az 24 saat önce iptal edilmediği takdirde haftada %s otomatik olarak tahsil edilecektir.</string>
+    <string name="enable_free_trial">Ücretsiz Denemeyi Etkinleştir</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Premium</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Sınırsız İndirme, Sıfır Sınır\n3 Gün Ücretsiz Deneyin • Sonra Haftalık 1.400 Rs • İstediğiniz Zaman İptal Edin</string>
+    <string name="monthly_plan">Aylık Plan</string>
+    <string name="no_payment_now">Şimdi Ödeme Yok</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Oynatıcı</string>
+    <string name="clear_all">Tümünü Temizle</string>
+    <string name="back">Geri</string>
+    <string name="tab">Sekme</string>
+    <string name="tabs">Sekmeler</string>
+    <string name="just_now">Şimdi</string>
+    <string name="downloading">İndiriliyor...</string>
+    <string name="downloaded">İndirildi</string>
+    <string name="cancel">İptal</string>
+    <string name="likes">beğeni</string>
+    <string name="like">Beğen</string>
+    <string name="title">Başlık</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Video Ara ve İndir]]></string>
+    <string name="paste_link">Bağlantıyı Yapıştır</string>
+    <string name="download">İndir</string>
+    <string name="quick_access">Hızlı Erişim</string>
+    <string name="search_or_paste_link_to_download">İndirmek için Arayın veya Bağlantıyı Yapıştırın</string>
+    <string name="enter_url">URL Girin</string>
+    <string name="fb_saver">FB Kaydedici</string>
+    <string name="status_saver">Durum Kaydedici</string>
+    <string name="ig_saver">IG Kaydedici</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Arayın veya URL girin</string>
+    <string name="no_title">Başlıksız</string>
+    <string name="bookmarked">Yer İşaretlerine Eklendi</string>
+
+    <!-- Settings -->
+    <string name="setting">Ayar</string>
+    <string name="general">Genel</string>
+    <string name="dark_mode">Karanlık Mod</string>
+    <string name="browser">Tarayıcı</string>
+    <string name="set_default_browser">Varsayılan Tarayıcı Yap</string>
+    <string name="search_engine">Arama Motoru</string>
+    <string name="clear_cache">Önbelleği Temizle</string>
+    <string name="rate_us">Bizi Değerlendirin</string>
+    <string name="feedback">Geri Bildirim</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="others">Diğerleri</string>
+    <string name="no_ads">Reklamsız</string>
+    <string name="just_smooth">Sadece Akıcı</string>
+    <string name="fast_downloading">İndiriliyor...</string>
+    <string name="special_gift">🎁 Özel Hediye</string>
+    <string name="upgrade_now">Şimdi Yükselt</string>
+    <string name="ads_free_experience">Reklamsız Deneyim</string>
+    <string name="cache_cleared_successfully">Önbellek başarıyla temizlendi</string>
+    <string name="failed_to_clear_cache">Önbellek temizlenemedi</string>
+
+    <!-- Player -->
+    <string name="all_music">Tüm Müzikler</string>
+    <string name="all_videos">Tüm Videolar</string>
+    <string name="deleted_successfully">Başarıyla silindi</string>
+    <string name="copy_path">Yolu Kopyala</string>
+    <string name="path_copied_to_clipboard">Yol panoya kopyalandı</string>
+    <string name="delete">Sil</string>
+
+    <string name="clear">Temizle</string>
+    <string name="add_tab">+ Sekme Ekle</string>
+    <string name="home">Ana Sayfa</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Bu harika uygulamaya göz atın: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Şununla paylaş:</string>
+    <string name="feedback_subject">Uygulama Geri Bildirimi - Video İndirici</string>
+    <string name="send_feedback">Geri Bildirim Gönder</string>
+    <string name="advertisement">Reklam...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Trend Reels</string>
+    <string name="share_video">Video Paylaş</string>
+    <string name="failed_to_share">Video paylaşılamadı</string>
+    <string name="no_videos_found">Video bulunamadı</string>
+    <string name="network_error">Ağ hatası: %s</string>
+    <string name="reel_video">Reel Videosu</string>
+    <string name="view_stories_private">Özel hesaplardan hikayeleri ve indirilenleri görüntüle</string>
+    <string name="why_login_required">Neden Giriş Gerekli?</string>
+    <string name="open_instagram">Instagram\'ı Aç</string>
+    <string name="how_to_download">Nasıl İndirilir</string>
+    <string name="copy_link">Bağlantıyı Kopyala</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Pinterest\'i Açın ve 3 Noktaya (•••) Dokunun]]></string>
+    <string name="_2_click_copy_link">2. “Bağlantıyı Kopyala”ya tıklayın</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Uygulamayı Açın</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Kopyalanan bağlantı\notomatik olarak yapıştırılacaktır.\nSadece İndir\'e dokunun.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">İlerlemeyi Kontrol Et</string>
+    <string name="track_progress_and_open">İlerlemeyi takip et ve aç</string>
+    <string name="your_download_file">indirme dosyanız</string>
+    <string name="video">Video</string>
+    <string name="in_progress">Devam Ediyor</string>
+    <string name="completed">Tamamlandı</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Tiktok\'u açın ve <font color="#FF0000">\'\'Paylaş\'\'</font>\'a TIKLAYIN</string>
+    <string name="copy_link_amp_open_video_downloader">Bağlantıyı Kopyala &amp; <font color="#FF0000">\'\'Video İndirici\'\'</font> Uygulamasını Aç</string>
+    <string name="select_quality">Kalite Seçin</string>
+    <string name="download_started">İndirme Başladı</string>
+    <string name="not_available">Mevcut Değil</string>
+    <string name="loading">Yükleniyor...</string>
+    <string name="download_complete">İndirme Tamamlandı</string>
+    <string name="no_downloads">İndirme Yok</string>
+    <string name="open_folder">Klasörü Aç</string>
+    <string name="share">Paylaş</string>
+    <string name="view">Görüntüle</string>
+    <string name="empty_clipboard">Panoyu Boşalt</string>
+    <string name="invalid_url">Geçersiz URL</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Instagram İçin</string>
+    <string name="tiktok">TikTok İçin</string>
+    <string name="dailymotion">Dailymotion İçin</string>
+    <string name="twitter">X İçin</string>
+    <string name="pinnest">PinNest İçin</string>
+    <string name="thread">Thread İçin</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Dailymotion\'ı Açın ve “Paylaş”a dokunun]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. X\'i Açın ve “Paylaş”a dokunun]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Threads\'i Açın ve “Paylaş”a dokunun]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Facebook\'u açın ve herhangi bir\nvideonun, reel\'in veya gönderinin bağlantısını kopyalayın]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Instagram\'ı açın ve herhangi bir\nvideonun, reel\'in veya gönderinin bağlantısını kopyalayın]]></string>
+    <string name="history">Geçmiş</string>
+    <string name="bookmark">Yer İşareti</string>
+    <string name="select_search_engine">Arama Motoru Seçin</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Filigransız</string>
+    <string name="sd_no_watermark">SD · Filigransız</string>
+    <string name="with_watermark">Filigranlı</string>
+    <string name="audio_only">Yalnızca Ses</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Akıcı ve Güvenilir Performans</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Reklamsız premium\'a yükselttim ve inanılmaz hızlı</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Paranızın tam karşılığı, reklamsız. Bayıldım</string>
+    <string name="download_manager">İndirme Yöneticisi</string>
+    <string name="unlimited_access">Sınırsız İndirme</string>
+    <string name="fast_downloads">Hızlı İndirme Hızı</string>
+    <string name="_100_ad_free">%100 Reklamsız</string>
+    <string name="priority_support">VIP Destek</string>
+    <string name="language">Dil</string>
+</resources>

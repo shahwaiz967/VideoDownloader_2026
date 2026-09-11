@@ -25,17 +25,23 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/media_title"
             app:layout_constraintStart_toEndOf="@id/media_icon"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@id/tvFileSize"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:layout_height="wrap_content"
             android:textColor="@color/onBackground"
             android:textSize="@dimen/_12ssp"
             android:fontFamily="@font/segoe_semibold"/>
 
         <TextView
+
             android:id="@+id/tvFileSize"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="@dimen/_10sdp"

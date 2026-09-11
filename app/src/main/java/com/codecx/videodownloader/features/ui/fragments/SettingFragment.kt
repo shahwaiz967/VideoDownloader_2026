@@ -144,7 +144,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
             feedBaCKRow.root.setOnClickListener {
                 val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:support@videodownloader.app")
+                    data = Uri.parse("mailto:appycreators12@gmail.com")
                     putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject))
                 }
                 startActivity(Intent.createChooser(emailIntent, getString(R.string.send_feedback)))
@@ -153,7 +153,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-video-downloader.html")
+                        Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-for-video-downloader.html")
                     )
                 )
             }

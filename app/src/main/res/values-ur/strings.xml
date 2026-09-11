@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ویڈیو ڈاؤنلوڈر</string>
+    <string name="hello_blank_fragment">ہیلو ہسٹری فریگمنٹ</string>
+    <string name="download_without_limits">بغیر کسی حد کے ڈاؤنلوڈ کریں</string>
+    <string name="select_language">زبان منتخب کریں</string>
+    <string name="next">اگلا</string>
+    <string name="system_default">سسٹم ڈیفالٹ</string>
+    <string name="all_languages">تمام زبانیں</string>
+    <string name="what_s_included">کیا شامل ہے</string>
+    <string name="go">جائیں</string>
+    <string name="premium_subtitle">3 دن کے مفت ٹرائل کے ساتھ تیز ڈاؤنلوڈز اور لامحدود ویڈیو رسائی کا لطف اٹھائیں، پھر 1,400 روپے/ہفتہ۔ کسی بھی وقت منسوخ کریں۔</string>
+    <string name="features">خصوصیات</string>
+    <string name="basic">بنیادی</string>
+    <string name="trial_disabled">ٹرائل غیر فعال</string>
+    <string name="most_popular">⭐ سب سے زیادہ مقبول</string>
+    <string name="best_value">بہترین قیمت</string>
+    <string name="weekly_plan">ہفتہ وار پلان</string>
+    <string name="weekly_price">1,400 روپے</string>
+    <string name="monthly_price">5,000 روپے</string>
+    <string name="free_trial_3days">3 دن کا مفت ٹرائل</string>
+    <string name="no_charge_today">آج کوئی فیس نہیں</string>
+    <string name="user_reviews">صارفین کے جائزے</string>
+    <string name="start_free_trial">مفت ٹرائل شروع کریں</string>
+    <string name="buy_now">ابھی خریدیں</string>
+    <string name="trial_started">3 دن کا مفت ٹرائل شروع ہو گیا!</string>
+    <string name="the_first_3_days_are_free">پہلے 3 دن مفت ہیں۔ ٹرائل کے بعد، %s فی ہفتہ خود بخود چارج کیا جائے گا الا یہ کہ ٹرائل کی مدت ختم ہونے سے کم از کم 24 گھنٹے پہلے منسوخ کر دیا جائے۔</string>
+    <string name="the_first_3_days_are">%s فی ہفتہ خود بخود چارج کیا جائے گا الا یہ کہ ٹرائل کی مدت ختم ہونے سے کم از کم 24 گھنٹے پہلے منسوخ کر دیا جائے۔</string>
+    <string name="enable_free_trial">مفت ٹرائل فعال کریں</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">پریمیم</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">لامحدود ڈاؤنلوڈز، صفر حدود\n3 دن کے لیے مفت آزمائیں • پھر 1,400 روپے/ہفتہ • کسی بھی وقت منسوخ کریں</string>
+    <string name="monthly_plan">ماہانہ پلان</string>
+    <string name="no_payment_now">ابھی کوئی ادائیگی نہیں</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">ریلز</string>
+    <string name="player">پلیئر</string>
+    <string name="clear_all">سب صاف کریں</string>
+    <string name="back">پیچھے</string>
+    <string name="tab">ٹیب</string>
+    <string name="tabs">ٹیبز</string>
+    <string name="just_now">ابھی</string>
+    <string name="downloading">ڈاؤنلوڈ ہو رہا ہے...</string>
+    <string name="downloaded">ڈاؤنلوڈ ہو گیا</string>
+    <string name="cancel">منسوخ کریں</string>
+    <string name="likes">لائیکس</string>
+    <string name="like">لائیک</string>
+    <string name="title">عنوان</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[ویڈیوز تلاش اور ڈاؤنلوڈ کریں]]></string>
+    <string name="paste_link">لنک پیسٹ کریں</string>
+    <string name="download">ڈاؤنلوڈ</string>
+    <string name="quick_access">فوری رسائی</string>
+    <string name="search_or_paste_link_to_download">ڈاؤنلوڈ کرنے کے لیے تلاش کریں یا لنک پیسٹ کریں</string>
+    <string name="enter_url">یو آر ایل درج کریں</string>
+    <string name="fb_saver">ایف بی سیور</string>
+    <string name="status_saver">اسٹیٹس سیور</string>
+    <string name="ig_saver">آئی جی سیور</string>
+    <string name="tiktok_title">ٹک ٹاک</string>
+    <string name="dailymotion_title">ڈیلی موشن</string>
+    <string name="twitter_title">ایکس</string>
+    <string name="pinnest_title">پن نیسٹ</string>
+    <string name="thread_title">تھریڈی</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">تلاش کریں یا یو آر ایل درج کریں</string>
+    <string name="no_title">کوئی عنوان نہیں</string>
+    <string name="bookmarked">بک مارک کر دیا گیا</string>
+
+    <!-- Settings -->
+    <string name="setting">ترتیبات</string>
+    <string name="general">عام</string>
+    <string name="dark_mode">ڈارک موڈ</string>
+    <string name="browser">براؤزر</string>
+    <string name="set_default_browser">ڈیفالٹ براؤزر سیٹ کریں</string>
+    <string name="search_engine">سرچ انجن</string>
+    <string name="clear_cache">کیشے صاف کریں</string>
+    <string name="rate_us">ہمیں ریٹ کریں</string>
+    <string name="feedback">رائے</string>
+    <string name="privacy_policy">پرائیویسی پالیسی</string>
+    <string name="others">دیگر</string>
+    <string name="no_ads">کوئی اشتہارات نہیں</string>
+    <string name="just_smooth">بس ہموار</string>
+    <string name="fast_downloading">ڈاؤنلوڈ ہو رہا ہے...</string>
+    <string name="special_gift">🎁 خصوصی تحفہ</string>
+    <string name="upgrade_now">ابھی اپ گریڈ کریں</string>
+    <string name="ads_free_experience">اشتہارات سے پاک تجربہ</string>
+    <string name="cache_cleared_successfully">کیشے کامیابی سے صاف ہو گیا</string>
+    <string name="failed_to_clear_cache">کیشے صاف کرنے میں ناکام</string>
+
+    <!-- Player -->
+    <string name="all_music">تمام موسیقی</string>
+    <string name="all_videos">تمام ویڈیوز</string>
+    <string name="deleted_successfully">کامیابی سے حذف ہو گیا</string>
+    <string name="copy_path">پاتھ کاپی کریں</string>
+    <string name="path_copied_to_clipboard">پاتھ کلپ بورڈ پر کاپی ہو گیا</string>
+    <string name="delete">حذف کریں</string>
+
+    <string name="clear">صاف کریں</string>
+    <string name="add_tab">+ ٹیب شامل کریں</string>
+    <string name="home">ہوم</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">اس حیرت انگیز ایپ کو دیکھیں: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">کے ذریعے شیئر کریں</string>
+    <string name="feedback_subject">ایپ کی رائے - ویڈیو ڈاؤنلوڈر</string>
+    <string name="send_feedback">رائے بھیجیں</string>
+    <string name="advertisement">اشتہار...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">ٹرینڈنگ ریلز</string>
+    <string name="share_video">ویڈیو شیئر کریں</string>
+    <string name="failed_to_share">ویڈیو شیئر کرنے میں ناکام</string>
+    <string name="no_videos_found">کوئی ویڈیوز نہیں ملیں</string>
+    <string name="network_error">نیٹ ورک کی خرابی: %s</string>
+    <string name="reel_video">ریل ویڈیو</string>
+    <string name="view_stories_private">نجی اکاؤنٹس سے کہانیاں اور ڈاؤنلوڈز دیکھیں</string>
+    <string name="why_login_required">لاگ ان کیوں ضروری ہے؟</string>
+    <string name="open_instagram">انسٹاگرام کھولیں</string>
+    <string name="how_to_download">ڈاؤنلوڈ کیسے کریں</string>
+    <string name="copy_link">لنک کاپی کریں</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. پنٹرسٹ کھولیں اور 3 نقطوں (•••) پر ٹیپ کریں]]></string>
+    <string name="_2_click_copy_link">2. "لنک کاپی کریں" پر کلک کریں</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">ایپ کھولیں</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">کاپی کیا گیا لنک\nخود بخود پیسٹ ہو جائے گا۔\nبس ڈاؤنلوڈ پر ٹیپ کریں۔</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">پیشرفت چیک کریں</string>
+    <string name="track_progress_and_open">پیشرفت کو ٹریک کریں اور کھولیں</string>
+    <string name="your_download_file">آپ کی ڈاؤنلوڈ فائل</string>
+    <string name="video">ویڈیو</string>
+    <string name="in_progress">جاری ہے</string>
+    <string name="completed">مکمل ہو گیا</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">ٹک ٹاک کھولیں اور <font color="#FF0000">\'\'شیئر\'\'</font> پر کلک کریں</string>
+    <string name="copy_link_amp_open_video_downloader">لنک کاپی کریں اور <font color="#FF0000">\'\'ویڈیو ڈاؤنلوڈر\'\'</font> کھولیں</string>
+    <string name="select_quality">کوالٹی منتخب کریں</string>
+    <string name="download_started">ڈاؤنلوڈ شروع ہو گیا</string>
+    <string name="not_available">دستیاب نہیں</string>
+    <string name="loading">لوڈ ہو رہا ہے...</string>
+    <string name="download_complete">ڈاؤنلوڈ مکمل</string>
+    <string name="no_downloads">کوئی ڈاؤنلوڈز نہیں</string>
+    <string name="open_folder">فولڈر کھولیں</string>
+    <string name="share">شیئر کریں</string>
+    <string name="view">دیکھیں</string>
+    <string name="empty_clipboard">کلپ بورڈ خالی کریں</string>
+    <string name="invalid_url">غلط یو آر ایل</string>
+
+    <!-- Platforms -->
+    <string name="facebook">فیس بک</string>
+    <string name="whatsapp">واٹس ایپ</string>
+    <string name="instagram">انسٹاگرام کے لیے</string>
+    <string name="tiktok">ٹک ٹاک کے لیے</string>
+    <string name="dailymotion">ڈیلی موشن کے لیے</string>
+    <string name="twitter">ایکس کے لیے</string>
+    <string name="pinnest">پن نیسٹ کے لیے</string>
+    <string name="thread">تھریڈ کے لیے</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. ڈیلی موشن کھولیں اور "شیئر" پر ٹیپ کریں]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. ایکس کھولیں اور "شیئر" پر ٹیپ کریں]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. تھریڈز کھولیں اور "شیئر" پر ٹیپ کریں]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. فیس بک کھولیں اور کسی بھی\nویڈیو، ریل یا پوسٹ کا لنک کاپی کریں ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. انسٹاگرام کھولیں اور کسی بھی\nویڈیو، ریل یا پوسٹ کا لنک کاپی کریں ]]></string>
+    <string name="history">ہسٹری</string>
+    <string name="bookmark">بک مارک</string>
+    <string name="select_search_engine">سرچ انجن منتخب کریں</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">ایچ ڈی · کوئی واٹر مارک نہیں</string>
+    <string name="sd_no_watermark">ایس ڈی · کوئی واٹر مارک نہیں</string>
+    <string name="with_watermark">واٹر مارک کے ساتھ</string>
+    <string name="audio_only">صرف آڈیو</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">ایبے موئیر</string>
+    <string name="review_ebay_text">ہموار اور قابل اعتماد کارکردگی</string>
+    <string name="review_emily_name">ایملی کارٹر</string>
+    <string name="review_emily_text">پریمیم میں اپ گریڈ کیا، کوئی اشتہارات نہیں اور تیز رفتار</string>
+    <string name="review_noah_name">نوح مچل</string>
+    <string name="review_noah_text">پیسوں کی بہترین وصولی، کوئی اشتہار نہیں۔ مجھے یہ پسند ہے</string>
+    <string name="download_manager">ڈاؤن لوڈ منیجر</string>
+    <string name="unlimited_access">لامحدود ڈاؤن لوڈز</string>
+    <string name="fast_downloads">ڈاؤن لوڈ کی تیز رفتار</string>
+    <string name="_100_ad_free">٪100 اشتہارات سے پاک</string>
+    <string name="priority_support">وی آئی پی سپورٹ</string>
+    <string name="language">زبان</string>
+</resources>

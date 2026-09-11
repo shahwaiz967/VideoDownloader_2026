@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_permission">Berikan Izin</string>
+    <string name="app_name">StatusSaver</string>
+    <string name="done">Selesai</string>
+    <string name="fail_to_save">Gagal menyimpan</string>
+    <string name="images">Gambar</string>
+    <string name="intro_d1"><![CDATA[Foto & video, disimpan secara instan.]]></string>
+    <string name="intro_d2">Unduh media status dalam satu ketukan.</string>
+    <string name="intro_d3">Semua status WhatsApp di satu tempat</string>
+    <string name="language">Bahasa</string>
+    <string name="language_selection">Pilihan Bahasa</string>
+    <string name="loading">Memuat....</string>
+    <string name="no_data_found">Data Tidak Ditemukan</string>
+    <string name="notification">Notifikasi</string>
+    <string name="please_select_the_statuses_folder_specifically">Silakan pilih folder \'.Statuses\' secara spesifik.</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="quick_access">Akses Cepat</string>
+    <string name="rate_us">Beri Kami Nilai</string>
+    <string name="repost">Posting Ulang</string>
+    <string name="save">Simpan</string>
+    <string name="save_status">Simpan Status</string>
+    <string name="saved">Tersimpan!</string>
+    <string name="select_path">Pilih Jalur</string>
+    <string name="share">Bagikan</string>
+    <string name="this_action_may_contain_ads">Tindakan ini mungkin mengandung iklan</string>
+    <string name="unlock_the_best_video_downloader_with_add_free_experience">Buka Video Downloader terbaik dengan pengalaman bebas iklan</string>
+    <string name="upgrade_premium">Tingkatkan ke Premium</string>
+    <string name="videos">Video</string>
+    <string name="view_save_share"><![CDATA[Lihat, Simpan & Bagikan]]></string>
+</resources>

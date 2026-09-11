@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">محمل الفيديو</string>
+    <string name="hello_blank_fragment">مرحبا جزء التاريخ</string>
+    <string name="download_without_limits">تنزيل بلا حدود</string>
+    <string name="select_language">اختر اللغة</string>
+    <string name="next">التالي</string>
+    <string name="system_default">النظام الافتراضي</string>
+    <string name="all_languages">كل اللغات</string>
+    <string name="what_s_included">ماذا يتضمن</string>
+    <string name="go">اذهب</string>
+    <string name="premium_subtitle">استمتع بتنزيلات سريعة ووصول غير محدود للفيديوهات مع تجربة مجانية لمدة 3 أيام، ثم 1400 روبية/أسبوع. يمكنك الإلغاء في أي وقت.</string>
+    <string name="features">الميزات</string>
+    <string name="basic">أساسي</string>
+    <string name="trial_disabled">تم تعطيل التجربة</string>
+    <string name="most_popular">⭐ الأكثر شيوعاً</string>
+    <string name="best_value">أفضل قيمة</string>
+    <string name="weekly_plan">الخطة الأسبوعية</string>
+    <string name="weekly_price">1400 روبية</string>
+    <string name="monthly_price">5000 روبية</string>
+    <string name="free_trial_3days">تجربة مجانية لمدة 3 أيام</string>
+    <string name="no_charge_today">لا توجد رسوم اليوم</string>
+    <string name="user_reviews">تقييمات المستخدمين</string>
+    <string name="start_free_trial">ابدأ التجربة المجانية</string>
+    <string name="buy_now">اشتر الآن</string>
+    <string name="trial_started">بدأت التجربة المجانية لمدة 3 أيام!</string>
+    <string name="the_first_3_days_are_free">أول 3 أيام مجانية. بعد التجربة، سيتم خصم %s أسبوعياً تلقائياً ما لم يتم الإلغاء قبل 24 ساعة على الأقل من نهاية فترة التجربة.</string>
+    <string name="the_first_3_days_are">سيتم خصم %s أسبوعياً تلقائياً ما لم يتم الإلغاء قبل 24 ساعة على الأقل من نهاية فترة التجربة.</string>
+    <string name="enable_free_trial">تفعيل التجربة المجانية</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">ممتاز</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">تنزيلات غير محدودة، بلا حدود\nجرب مجاناً لمدة 3 أيام • ثم 1400 روبية/أسبوع • يمكنك الإلغاء في أي وقت</string>
+    <string name="monthly_plan">الخطة الشهرية</string>
+    <string name="no_payment_now">لا يوجد دفع الآن</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">مقاطع ريلز</string>
+    <string name="player">المشغل</string>
+    <string name="clear_all">مسح الكل</string>
+    <string name="back">رجوع</string>
+    <string name="tab">علامة تبويب</string>
+    <string name="tabs">علامات تبويب</string>
+    <string name="just_now">الآن فقط</string>
+    <string name="downloading">جارٍ التنزيل...</string>
+    <string name="downloaded">تم التنزيل</string>
+    <string name="cancel">إلغاء</string>
+    <string name="likes">إعجابات</string>
+    <string name="like">إعجاب</string>
+    <string name="title">العنوان</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[بحث وتنزيل الفيديوهات]]></string>
+    <string name="paste_link">لصق الرابط</string>
+    <string name="download">تنزيل</string>
+    <string name="quick_access">وصول سريع</string>
+    <string name="search_or_paste_link_to_download">ابحث أو الصق الرابط للتنزيل</string>
+    <string name="enter_url">أدخل الرابط (URL)</string>
+    <string name="fb_saver">حفظ من FB</string>
+    <string name="status_saver">حفظ الحالة</string>
+    <string name="ig_saver">حفظ من IG</string>
+    <string name="tiktok_title">تيك توك</string>
+    <string name="dailymotion_title">ديلي موشن</string>
+    <string name="twitter_title">إكس</string>
+    <string name="pinnest_title">بين نيست</string>
+    <string name="thread_title">ثريدي</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">ابحث أو أدخل الرابط (URL)</string>
+    <string name="no_title">بدون عنوان</string>
+    <string name="bookmarked">تمت الإضافة للعلامات</string>
+
+    <!-- Settings -->
+    <string name="setting">الإعدادات</string>
+    <string name="general">عام</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="browser">المتصفح</string>
+    <string name="set_default_browser">تعيين المتصفح الافتراضي</string>
+    <string name="search_engine">محرك البحث</string>
+    <string name="clear_cache">مسح التخزين المؤقت</string>
+    <string name="rate_us">قيمنا</string>
+    <string name="feedback">الملاحظات</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="others">أخرى</string>
+    <string name="no_ads">بدون إعلانات</string>
+    <string name="just_smooth">سلس فقط</string>
+    <string name="fast_downloading">جارٍ التنزيل السريع...</string>
+    <string name="special_gift">🎁 هدية خاصة</string>
+    <string name="upgrade_now">قم بالترقية الآن</string>
+    <string name="ads_free_experience">تجربة خالية من الإعلانات</string>
+    <string name="cache_cleared_successfully">تم مسح التخزين المؤقت بنجاح</string>
+    <string name="failed_to_clear_cache">فشل مسح التخزين المؤقت</string>
+
+    <!-- Player -->
+    <string name="all_music">كل الموسيقى</string>
+    <string name="all_videos">كل الفيديوهات</string>
+    <string name="deleted_successfully">تم الحذف بنجاح</string>
+    <string name="copy_path">نسخ المسار</string>
+    <string name="path_copied_to_clipboard">تم نسخ المسار إلى الحافظة</string>
+    <string name="delete">حذف</string>
+
+    <string name="clear">مسح</string>
+    <string name="add_tab">+ إضافة علامة تبويب</string>
+    <string name="home">الرئيسية</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">اطلع على هذا التطبيق الرائع: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">مشاركة عبر</string>
+    <string name="feedback_subject">ملاحظات التطبيق - محمل الفيديو</string>
+    <string name="send_feedback">إرسال الملاحظات</string>
+    <string name="advertisement">إعلان...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">مقاطع ريلز الرائجة</string>
+    <string name="share_video">مشاركة الفيديو</string>
+    <string name="failed_to_share">فشلت مشاركة الفيديو</string>
+    <string name="no_videos_found">لم يتم العثور على فيديوهات</string>
+    <string name="network_error">خطأ في الشبكة: %s</string>
+    <string name="reel_video">فيديو ريلز</string>
+    <string name="view_stories_private">عرض القصص والتنزيلات من الحسابات الخاصة</string>
+    <string name="why_login_required">لماذا تسجيل الدخول مطلوب؟</string>
+    <string name="open_instagram">فتح إنستغرام</string>
+    <string name="how_to_download">كيفية التنزيل</string>
+    <string name="copy_link">نسخ الرابط</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. افتح Pinterest واضغط على النقاط الثلاث (•••)]]></string>
+    <string name="_2_click_copy_link">2. انقر على "نسخ الرابط"</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">افتح التطبيق</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">سيتم لصق الرابط المنسوخ\nتلقائياً.\nفقط اضغط على تنزيل.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">تحقق من التقدم</string>
+    <string name="track_progress_and_open">تتبع التقدم وافتح</string>
+    <string name="your_download_file">ملف التنزيل الخاص بك</string>
+    <string name="video">فيديو</string>
+    <string name="in_progress">قيد التقدم</string>
+    <string name="completed">مكتمل</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">افتح تيك توك وانقر على <font color="#FF0000">\'\'مشاركة\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">انسخ الرابط وافتح <font color="#FF0000">\'\'محمل الفيديو\'\'</font></string>
+    <string name="select_quality">اختر الجودة</string>
+    <string name="download_started">بدأ التنزيل</string>
+    <string name="not_available">غير متوفر</string>
+    <string name="loading">جارٍ التحميل...</string>
+    <string name="download_complete">اكتمل التنزيل</string>
+    <string name="no_downloads">لا توجد تنزيلات</string>
+    <string name="open_folder">فتح المجلد</string>
+    <string name="share">مشاركة</string>
+    <string name="view">عرض</string>
+    <string name="empty_clipboard">إفراغ الحافظة</string>
+    <string name="invalid_url">رابط غير صالح</string>
+
+    <!-- Platforms -->
+    <string name="facebook">فيسبوك</string>
+    <string name="whatsapp">واتساب</string>
+    <string name="instagram">لإنستغرام</string>
+    <string name="tiktok">لتيك توك</string>
+    <string name="dailymotion">لديلي موشن</string>
+    <string name="twitter">لإكس</string>
+    <string name="pinnest">لـ PinNest</string>
+    <string name="thread">لـ Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. افتح Dailymotion واضغط على "مشاركة"]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. افتح X واضغط على "مشاركة"]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. افتح Threads واضغط على "مشاركة"]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. افتح فيسبوك وانسخ\nرابط أي فيديو أو ريلز أو منشور]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. افتح إنستغرام وانسخ\nرابط أي فيديو أو ريلز أو منشور]]></string>
+    <string name="history">السجل</string>
+    <string name="bookmark">العلامات</string>
+    <string name="select_search_engine">اختر محرك البحث</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">دقة عالية · بدون علامة مائية</string>
+    <string name="sd_no_watermark">دقة عادية · بدون علامة مائية</string>
+    <string name="with_watermark">مع علامة مائية</string>
+    <string name="audio_only">صوت فقط</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">إيباي مويار</string>
+    <string name="review_ebay_text">أداء سلس وموثوق</string>
+    <string name="review_emily_name">إيميلي كارتر</string>
+    <string name="review_emily_text">تمت الترقية إلى النسخة المدفوعة بدون إعلانات وبسرعة فائقة</string>
+    <string name="review_noah_name">نوح ميتشل</string>
+    <string name="review_noah_text">قيمة جيدة مقابل المال، بدون إعلانات. أحبه</string>
+
+    <string name="download_manager">مدير التنزيل</string>
+    <string name="unlimited_access">تنزيلات غير محدودة</string>
+    <string name="fast_downloads">سرعة تنزيل عالية</string>
+    <string name="_100_ad_free">100% خالي من الإعلانات</string>
+    <string name="priority_support">دعم VIP</string>
+    <string name="language">اللغة</string>
+</resources>

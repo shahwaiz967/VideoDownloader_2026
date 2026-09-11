@@ -35,6 +35,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.withResumed
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -275,6 +276,14 @@ fun Fragment.safeNavigate(id: Int, args: Bundle? = null, navOptions: NavOptions?
     }
 }
 
+fun View.safeNavigate(id: Int, args: Bundle? = null, navOptions: NavOptions? = null) {
+    try {
+        findNavController().navigate(id, args, navOptions)
+    } catch (e: Exception) {
+        Log.e("safeNavigate", "Navigation failed: ${e.message}")
+    }
+}
+
 
 inline fun <reified T> T.toJson(): String {
     return Gson().toJson(this)
@@ -416,6 +425,28 @@ object SearchEngineManager {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .edit()
             .putString(KEY_SEARCH_ENGINE, searchEngine.name)
+            .apply()
+    }
+}
+
+fun String.printLog(message: String) {
+    Log.d(this, message)
+}
+
+
+object PrefManager {
+    private const val PREFS = "app_prefs"
+    private const val KEY_FIRST_RUN = "is_first_run"
+
+    fun isFirstRun(context: Context): Boolean {
+        return context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getBoolean(KEY_FIRST_RUN, true)
+    }
+
+    fun setFirstRun(context: Context, isFirstRun: Boolean) {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_FIRST_RUN, isFirstRun)
             .apply()
     }
 }

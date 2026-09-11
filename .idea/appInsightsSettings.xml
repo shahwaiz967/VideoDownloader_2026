@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.video.downloader.hd.fourk.videoplayer" />
+                  <option name="mobileSdkAppId" value="1:720838845597:android:b9181c88d130108d76e074" />
+                  <option name="projectId" value="video-downloader-e8598" />
+                  <option name="projectNumber" value="720838845597" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

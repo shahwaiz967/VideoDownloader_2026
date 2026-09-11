@@ -1,0 +1,8 @@
+com.codecx.statussaver.ESSStatusSaver-pngs-0 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\generated\res\pngs\debug
+com.codecx.statussaver.ESSStatusSaver-updated_navigation_xml-1 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\generated\updated_navigation_xml\debug
+com.codecx.statussaver.ESSStatusSaver-mergeDebugResources-2 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.codecx.statussaver.ESSStatusSaver-mergeDebugResources-3 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.codecx.statussaver.ESSStatusSaver-debug-4 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\intermediates\merged_res\debug\mergeDebugResources
+com.codecx.statussaver.ESSStatusSaver-debug-5 F:\S Apps\VideoDownloader2026\ESSStatusSaver\build\intermediates\packaged_res\debug\packageDebugResources
+com.codecx.statussaver.ESSStatusSaver-debug-6 F:\S Apps\VideoDownloader2026\ESSStatusSaver\src\debug\res
+com.codecx.statussaver.ESSStatusSaver-main-7 F:\S Apps\VideoDownloader2026\ESSStatusSaver\src\main\res

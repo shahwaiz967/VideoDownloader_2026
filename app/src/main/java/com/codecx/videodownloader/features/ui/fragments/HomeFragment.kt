@@ -142,7 +142,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.dailymotionButton.itemTitle.text = getString(R.string.dailymotion_title)
         binding.dailymotionButton.cardRoot.setOnClickListener { navigate(R.string.dailymotion) }
 
-        binding.twitterButton.itemIcon.setImageResource(R.drawable.twitter_icon)
+        binding.twitterButton.itemIcon.setImageResource(R.drawable.ic_x)
         binding.twitterButton.itemTitle.text = getString(R.string.twitter_title)
         binding.twitterButton.cardRoot.setOnClickListener { navigate(R.string.twitter) }
 
@@ -150,7 +150,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.pintresButton.itemTitle.text = getString(R.string.pinnest_title)
         binding.pintresButton.cardRoot.setOnClickListener { navigate(R.string.pinnest) }
 
-        binding.threadButton.itemIcon.setImageResource(R.drawable.thread_icon)
+        binding.threadButton.itemIcon.setImageResource(R.drawable.ic_thredo)
         binding.threadButton.itemTitle.text = getString(R.string.thread_title)
         binding.threadButton.cardRoot.setOnClickListener { navigate(R.string.thread) }
 
@@ -175,7 +175,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         )
 
-        //safeNavigate(R.id.socityFragment, bundle)
     }
 
     private fun isValidUrl(text: String): Boolean {
@@ -199,7 +198,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onResume() {
         super.onResume()
-        //checkClipboardAndPaste()
+        val activity = requireActivity() as com.codecx.videodownloader.features.ui.activities.MainActivity
+
+        if (activity.isComingFromBackground){
+            activity.isComingFromBackground = false
+            checkClipboardAndPaste()
+        }
     }
 
 

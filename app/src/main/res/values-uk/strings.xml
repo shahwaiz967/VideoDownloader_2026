@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Завантажувач відео</string>
+    <string name="hello_blank_fragment">Привіт, фрагмент історії</string>
+    <string name="download_without_limits">Завантажуйте без обмежень</string>
+    <string name="select_language">Оберіть мову</string>
+    <string name="next">Далі</string>
+    <string name="system_default">За замовчуванням</string>
+    <string name="all_languages">Усі мови</string>
+    <string name="what_s_included">Що включено</string>
+    <string name="go">Перейти</string>
+    <string name="premium_subtitle">Насолоджуйтесь швидким завантаженням і необмеженим доступом до відео з 3-денною безкоштовною пробною версією, а потім 1400 рупій/тиждень. Скасувати можна будь-коли.</string>
+    <string name="features">Функції</string>
+    <string name="basic">Базовий</string>
+    <string name="trial_disabled">Пробна версія вимкнена</string>
+    <string name="most_popular">⭐ Найпопулярніше</string>
+    <string name="best_value">Найкраща ціна</string>
+    <string name="weekly_plan">Тижневий план</string>
+    <string name="weekly_price">1400 рупій</string>
+    <string name="monthly_price">5000 рупій</string>
+    <string name="free_trial_3days">3-денна безкоштовна пробна версія</string>
+    <string name="no_charge_today">Сьогодні безкоштовно</string>
+    <string name="user_reviews">Відгуки користувачів</string>
+    <string name="start_free_trial">Почати безкоштовну пробну версію</string>
+    <string name="buy_now">Купити зараз</string>
+    <string name="trial_started">3-денна безкоштовна пробна версія розпочалася!</string>
+    <string name="the_first_3_days_are_free">Перші 3 дні безкоштовні. Після закінчення пробного періоду буде автоматично стягуватися %s на тиждень, якщо ви не скасуєте підписку принаймні за 24 години до закінчення пробного періоду.</string>
+    <string name="the_first_3_days_are">Буде автоматично стягуватися %s на тиждень, якщо ви не скасуєте підписку принаймні за 24 години до закінчення пробного періоду.</string>
+    <string name="enable_free_trial">Увімкнути безкоштовну пробну версію</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">Преміум</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">Необмежені завантаження, жодних обмежень\nСпробуйте безкоштовно 3 дні • Потім 1400 рупій/тиждень • Скасовуйте будь-коли</string>
+    <string name="monthly_plan">Місячний план</string>
+    <string name="no_payment_now">Без оплати зараз</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">Програвач</string>
+    <string name="clear_all">Очистити все</string>
+    <string name="back">Назад</string>
+    <string name="tab">Вкладка</string>
+    <string name="tabs">Вкладки</string>
+    <string name="just_now">Щойно</string>
+    <string name="downloading">Завантаження...</string>
+    <string name="downloaded">Завантажено</string>
+    <string name="cancel">Скасувати</string>
+    <string name="likes">лайки</string>
+    <string name="like">Подобається</string>
+    <string name="title">Назва</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[Пошук і завантаження відео]]></string>
+    <string name="paste_link">Вставити посилання</string>
+    <string name="download">Завантажити</string>
+    <string name="quick_access">Швидкий доступ</string>
+    <string name="search_or_paste_link_to_download">Знайдіть або вставте посилання для завантаження</string>
+    <string name="enter_url">Введіть URL-адресу</string>
+    <string name="fb_saver">Збереження FB</string>
+    <string name="status_saver">Збереження статусу</string>
+    <string name="ig_saver">Збереження IG</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">Знайдіть або введіть URL-адресу</string>
+    <string name="no_title">Без назви</string>
+    <string name="bookmarked">Додано в закладки</string>
+
+    <!-- Settings -->
+    <string name="setting">Налаштування</string>
+    <string name="general">Загальні</string>
+    <string name="dark_mode">Темний режим</string>
+    <string name="browser">Браузер</string>
+    <string name="set_default_browser">Встановити браузер за замовчуванням</string>
+    <string name="search_engine">Пошукова система</string>
+    <string name="clear_cache">Очистити кеш</string>
+    <string name="rate_us">Оцініть нас</string>
+    <string name="feedback">Зворотний зв\'язок</string>
+    <string name="privacy_policy">Політика конфіденційності</string>
+    <string name="others">Інші</string>
+    <string name="no_ads">Без реклами</string>
+    <string name="just_smooth">Просто плавно</string>
+    <string name="fast_downloading">Завантаження...</string>
+    <string name="special_gift">🎁 Спеціальний подарунок</string>
+    <string name="upgrade_now">Оновити зараз</string>
+    <string name="ads_free_experience">Досвід без реклами</string>
+    <string name="cache_cleared_successfully">Кеш успішно очищено</string>
+    <string name="failed_to_clear_cache">Не вдалося очистити кеш</string>
+
+    <!-- Player -->
+    <string name="all_music">Уся музика</string>
+    <string name="all_videos">Усі відео</string>
+    <string name="deleted_successfully">Успішно видалено</string>
+    <string name="copy_path">Копіювати шлях</string>
+    <string name="path_copied_to_clipboard">Шлях скопійовано в буфер обміну</string>
+    <string name="delete">Видалити</string>
+
+    <string name="clear">Очистити</string>
+    <string name="add_tab">+ Додати вкладку</string>
+    <string name="home">Головна</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">Подивіться на цей дивовижний додаток: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">Поділитися через</string>
+    <string name="feedback_subject">Відгук про додаток - Завантажувач відео</string>
+    <string name="send_feedback">Надіслати відгук</string>
+    <string name="advertisement">Реклама...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Популярні Reels</string>
+    <string name="share_video">Поділитися відео</string>
+    <string name="failed_to_share">Не вдалося поділитися відео</string>
+    <string name="no_videos_found">Відео не знайдено</string>
+    <string name="network_error">Помилка мережі: %s</string>
+    <string name="reel_video">Відео Reel</string>
+    <string name="view_stories_private">Перегляд історій і завантажень із приватних акаунтів</string>
+    <string name="why_login_required">Чому потрібен вхід?</string>
+    <string name="open_instagram">Відкрити Instagram</string>
+    <string name="how_to_download">Як завантажити</string>
+    <string name="copy_link">Копіювати посилання</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. Відкрийте Pinterest і натисніть 3 крапки (•••)]]></string>
+    <string name="_2_click_copy_link">2. Натисніть «Копіювати посилання»</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">Відкрийте додаток</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">Скопійоване посилання\nбуде вставлено автоматично.\nПросто натисніть Завантажити.</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">Перевірити прогрес</string>
+    <string name="track_progress_and_open">Відстежити прогрес і відкрити</string>
+    <string name="your_download_file">ваш завантажений файл</string>
+    <string name="video">Відео</string>
+    <string name="in_progress">В процесі</string>
+    <string name="completed">Завершено</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">Відкрийте Tiktok і НАТИСНІТЬ <font color="#FF0000">\'\'Поділитися\'\'</font></string>
+    <string name="copy_link_amp_open_video_downloader">Скопіюйте посилання та відкрийте <font color="#FF0000">\'\'Завантажувач відео\'\'</font></string>
+    <string name="select_quality">Оберіть якість</string>
+    <string name="download_started">Завантаження розпочато</string>
+    <string name="not_available">Недоступно</string>
+    <string name="loading">Завантаження...</string>
+    <string name="download_complete">Завантаження завершено</string>
+    <string name="no_downloads">Немає завантажень</string>
+    <string name="open_folder">Відкрити папку</string>
+    <string name="share">Поділитися</string>
+    <string name="view">Переглянути</string>
+    <string name="empty_clipboard">Очистити буфер обміну</string>
+    <string name="invalid_url">Недійсна URL-адреса</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">Для Instagram</string>
+    <string name="tiktok">Для TikTok</string>
+    <string name="dailymotion">Для Dailymotion</string>
+    <string name="twitter">Для X</string>
+    <string name="pinnest">Для PinNest</string>
+    <string name="thread">Для Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. Відкрийте Dailymotion і натисніть «Поділитися»]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. Відкрийте X і натисніть «Поділитися»]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. Відкрийте Threads і натисніть «Поділитися»]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. Відкрийте Facebook і скопіюйте\nпосилання на будь-яке відео, reel або публікацію ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. Відкрийте Instagram і скопіюйте\nпосилання на будь-яке відео, reel або публікацію ]]></string>
+    <string name="history">Історія</string>
+    <string name="bookmark">Закладка</string>
+    <string name="select_search_engine">Оберіть пошукову систему</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · Без водяного знака</string>
+    <string name="sd_no_watermark">SD · Без водяного знака</string>
+    <string name="with_watermark">З водяним знаком</string>
+    <string name="audio_only">Тільки аудіо</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">Плавна та надійна продуктивність</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">Оновила до преміум-класу без реклами та з неймовірною швидкістю</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">Хороше співвідношення ціни та якості, без реклами. Обожнюю</string>
+    <string name="download_manager">Менеджер завантажень</string>
+    <string name="unlimited_access">Необмежена кількість завантажень</string>
+    <string name="fast_downloads">Висока швидкість завантаження</string>
+    <string name="_100_ad_free">100% без реклами</string>
+    <string name="priority_support">VIP-підтримка</string>
+    <string name="language">Мова</string>
+</resources>

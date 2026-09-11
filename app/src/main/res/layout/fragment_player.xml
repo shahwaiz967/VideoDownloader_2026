@@ -7,6 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.ui.fragments.PlayerFragment">
 
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         app:strokeWidth="0dp"

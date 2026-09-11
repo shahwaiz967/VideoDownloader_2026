@@ -101,6 +101,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/ad_layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
@@ -108,7 +119,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/ad_layout_top" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavContainer"
@@ -257,26 +268,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/btnReels"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/_80sdp"
+        android:clickable="true"
+        android:layout_height="@dimen/_80sdp"
         android:background="@drawable/btn_real_outer"
-        android:elevation="0dp"
-        android:padding="7dp"
         android:translationY="36dp"
-
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/play_button_pulse"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer">
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer"/>
 
-        <ImageView
+       <!-- <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/player_icon"
-            android:contentDescription="@null" />
+            android:contentDescription="@null" />-->
 
-    </FrameLayout>
+   <!-- </com.airbnb.lottie.LottieAnimationView>-->
 
     <FrameLayout
         android:id="@+id/ad_layout"

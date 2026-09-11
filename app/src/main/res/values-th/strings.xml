@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Downloader</string>
+    <string name="hello_blank_fragment">สวัสดี History fragment</string>
+    <string name="download_without_limits">ดาวน์โหลดแบบไม่มีขีดจำกัด</string>
+    <string name="select_language">เลือกภาษา</string>
+    <string name="next">ถัดไป</string>
+    <string name="system_default">ค่าเริ่มต้นระบบ</string>
+    <string name="all_languages">ทุกภาษา</string>
+    <string name="what_s_included">สิ่งที่รวมอยู่</string>
+    <string name="go">ไป</string>
+    <string name="premium_subtitle">เพลิดเพลินกับการดาวน์โหลดที่รวดเร็วและเข้าถึงวิดีโอได้ไม่จำกัดด้วยการทดลองใช้ฟรี 3 วัน จากนั้น 1,400 รูปี/สัปดาห์ ยกเลิกได้ตลอดเวลา</string>
+    <string name="features">คุณสมบัติ</string>
+    <string name="basic">พื้นฐาน</string>
+    <string name="trial_disabled">ปิดใช้งานการทดลอง</string>
+    <string name="most_popular">⭐ ยอดนิยมที่สุด</string>
+    <string name="best_value">คุ้มค่าที่สุด</string>
+    <string name="weekly_plan">รายสัปดาห์</string>
+    <string name="weekly_price">1,400 รูปี</string>
+    <string name="monthly_price">5,000 รูปี</string>
+    <string name="free_trial_3days">ทดลองใช้ฟรี 3 วัน</string>
+    <string name="no_charge_today">วันนี้ไม่มีค่าใช้จ่าย</string>
+    <string name="user_reviews">รีวิวจากผู้ใช้</string>
+    <string name="start_free_trial">เริ่มการทดลองใช้ฟรี</string>
+    <string name="buy_now">ซื้อเลย</string>
+    <string name="trial_started">เริ่มทดลองใช้ฟรี 3 วันแล้ว!</string>
+    <string name="the_first_3_days_are_free">3 วันแรกฟรี หลังจากช่วงทดลอง จะถูกเรียกเก็บเงิน %s ต่อสัปดาห์โดยอัตโนมัติ เว้นแต่จะยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดช่วงทดลอง</string>
+    <string name="the_first_3_days_are">จะถูกเรียกเก็บเงิน %s ต่อสัปดาห์โดยอัตโนมัติ เว้นแต่จะยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดช่วงทดลอง</string>
+    <string name="enable_free_trial">เปิดใช้งานทดลองฟรี</string>
+    <string name="rating_value" translatable="false">4.8</string>
+    <string name="premium">พรีเมียม</string>
+    <string name="unlimited_downloads_zero_limits_ntry_free_for_3_days_then_rs_1_400_week_cancel_anytime">ดาวน์โหลดไม่จำกัด ไม่มีขีดจำกัด\nทดลองใช้ฟรี 3 วัน • จากนั้น 1,400 รูปี/สัปดาห์ • ยกเลิกได้ตลอดเวลา</string>
+    <string name="monthly_plan">รายเดือน</string>
+    <string name="no_payment_now">ยังไม่ต้องชำระเงิน</string>
+
+    <!-- Navigation & Common -->
+    <string name="reels">Reels</string>
+    <string name="player">เครื่องเล่น</string>
+    <string name="clear_all">ล้างทั้งหมด</string>
+    <string name="back">กลับ</string>
+    <string name="tab">แท็บ</string>
+    <string name="tabs">แท็บ</string>
+    <string name="just_now">เมื่อสักครู่</string>
+    <string name="downloading">กำลังดาวน์โหลด...</string>
+    <string name="downloaded">ดาวน์โหลดแล้ว</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="likes">ถูกใจ</string>
+    <string name="like">ถูกใจ</string>
+    <string name="title">ชื่อเรื่อง</string>
+
+
+
+    <!-- Home & Quick Access -->
+    <string name="search_amp_download_videos"><![CDATA[ค้นหา & ดาวน์โหลดวิดีโอ]]></string>
+    <string name="paste_link">วางลิงก์</string>
+    <string name="download">ดาวน์โหลด</string>
+    <string name="quick_access">เข้าถึงด่วน</string>
+    <string name="search_or_paste_link_to_download">ค้นหาหรือวางลิงก์เพื่อดาวน์โหลด</string>
+    <string name="enter_url">ป้อน URL</string>
+    <string name="fb_saver">FB Saver</string>
+    <string name="status_saver">Status Saver</string>
+    <string name="ig_saver">IG Saver</string>
+    <string name="tiktok_title">TikTok</string>
+    <string name="dailymotion_title">dly Motion</string>
+    <string name="twitter_title">eX</string>
+    <string name="pinnest_title">PinNest</string>
+    <string name="thread_title">Thredy</string>
+
+    <!-- In-App Browser -->
+    <string name="search_or_enter_url">ค้นหาหรือป้อน URL</string>
+    <string name="no_title">ไม่มีชื่อเรื่อง</string>
+    <string name="bookmarked">บุ๊กมาร์กแล้ว</string>
+
+    <!-- Settings -->
+    <string name="setting">การตั้งค่า</string>
+    <string name="general">ทั่วไป</string>
+    <string name="dark_mode">โหมดมืด</string>
+    <string name="browser">เบราว์เซอร์</string>
+    <string name="set_default_browser">ตั้งเป็นเบราว์เซอร์เริ่มต้น</string>
+    <string name="search_engine">เครื่องมือค้นหา</string>
+    <string name="clear_cache">ล้างแคช</string>
+    <string name="rate_us">ให้คะแนนเรา</string>
+    <string name="feedback">ข้อเสนอแนะ</string>
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="others">อื่นๆ</string>
+    <string name="no_ads">ไม่มีโฆษณา</string>
+    <string name="just_smooth">ลื่นไหล</string>
+    <string name="fast_downloading">กำลังดาวน์โหลดเร็ว...</string>
+    <string name="special_gift">🎁 ของขวัญพิเศษ</string>
+    <string name="upgrade_now">อัปเกรดตอนนี้</string>
+    <string name="ads_free_experience">ประสบการณ์ไร้โฆษณา</string>
+    <string name="cache_cleared_successfully">ล้างแคชสำเร็จแล้ว</string>
+    <string name="failed_to_clear_cache">ไม่สามารถล้างแคชได้</string>
+
+    <!-- Player -->
+    <string name="all_music">เพลงทั้งหมด</string>
+    <string name="all_videos">วิดีโอทั้งหมด</string>
+    <string name="deleted_successfully">ลบสำเร็จแล้ว</string>
+    <string name="copy_path">คัดลอกเส้นทาง</string>
+    <string name="path_copied_to_clipboard">คัดลอกเส้นทางไปยังคลิปบอร์ดแล้ว</string>
+    <string name="delete">ลบ</string>
+
+    <string name="clear">ล้าง</string>
+    <string name="add_tab">+ เพิ่มแท็บ</string>
+    <string name="home">หน้าแรก</string>
+    <string name="about_blank">About:blank</string>
+    <string name="share_message">ลองดูแอปที่ยอดเยี่ยมนี้สิ: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="share_via">แบ่งปันผ่าน</string>
+    <string name="feedback_subject">ข้อเสนอแนะแอป - Video Downloader</string>
+    <string name="send_feedback">ส่งข้อเสนอแนะ</string>
+    <string name="advertisement">โฆษณา...</string>
+
+    <!-- Reels & Social -->
+    <string name="trending_reels">Reels มาแรง</string>
+    <string name="share_video">แชร์วิดีโอ</string>
+    <string name="failed_to_share">ไม่สามารถแชร์วิดีโอได้</string>
+    <string name="no_videos_found">ไม่พบวิดีโอ</string>
+    <string name="network_error">ข้อผิดพลาดของเครือข่าย: %s</string>
+    <string name="reel_video">วิดีโอ Reel</string>
+    <string name="view_stories_private">ดูเรื่องราวและการดาวน์โหลดจากบัญชีส่วนตัว</string>
+    <string name="why_login_required">ทำไมต้องเข้าสู่ระบบ?</string>
+    <string name="open_instagram">เปิด Instagram</string>
+    <string name="how_to_download">วิธีดาวน์โหลด</string>
+    <string name="copy_link">คัดลอกลิงก์</string>
+    <string name="_1_open_pinterest_amp_tap_the_3_dots"><![CDATA[1. เปิด Pinterest & แตะที่จุด 3 จุด (•••)]]></string>
+    <string name="_2_click_copy_link">2. คลิก “คัดลอกลิงก์”</string>
+    <string name="_2">2</string>
+    <string name="open_the_app">เปิดแอป</string>
+    <string name="the_copied_link_will_nbe_automatically_pasted_nsimply_tap_download">ลิงก์ที่คัดลอก\nจะถูกวางโดยอัตโนมัติ\nเพียงแตะที่ดาวน์โหลด</string>
+    <string name="www_videodownloader_com_video">www.videodownloader.com/video</string>
+    <string name="_3">3</string>
+    <string name="check_progress">ตรวจสอบความคืบบหน้า</string>
+    <string name="track_progress_and_open">ติดตามความคืบหน้าและเปิด</string>
+    <string name="your_download_file">ไฟล์ดาวน์โหลดของคุณ</string>
+    <string name="video">วิดีโอ</string>
+    <string name="in_progress">กำลังดำเนินการ</string>
+    <string name="completed">เสร็จสมบูรณ์</string>
+    <string name="_1">1</string>
+    <string name="open_tiktok_and_click_share">เปิด Tiktok และคลิก &lt;font color="#FF0000"&gt;\'\'แชร์\'\'&lt;/font&gt;</string>
+    <string name="copy_link_amp_open_video_downloader">คัดลอกลิงก์ &amp; เปิด &lt;font color="#FF0000"&gt;\'\'Video Downloader\'\'&lt;/font&gt;</string>
+    <string name="select_quality">เลือกคุณภาพ</string>
+    <string name="download_started">เริ่มการดาวน์โหลดแล้ว</string>
+    <string name="not_available">ไม่พร้อมใช้งาน</string>
+    <string name="loading">กำลังโหลด...</string>
+    <string name="download_complete">ดาวน์โหลดเสร็จสมบูรณ์</string>
+    <string name="no_downloads">ไม่มีการดาวน์โหลด</string>
+    <string name="open_folder">เปิดโฟลเดอร์</string>
+    <string name="share">แชร์</string>
+    <string name="view">ดู</string>
+    <string name="empty_clipboard">ล้างคลิปบอร์ด</string>
+    <string name="invalid_url">URL ไม่ถูกต้อง</string>
+
+    <!-- Platforms -->
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="instagram">สำหรับ Instagram</string>
+    <string name="tiktok">สำหรับ TikTok</string>
+    <string name="dailymotion">สำหรับ Dailymotion</string>
+    <string name="twitter">สำหรับ X</string>
+    <string name="pinnest">สำหรับ PinNest</string>
+    <string name="thread">สำหรับ Thread</string>
+
+    <string name="_1_open_dailymotion_amp_tap"><![CDATA[1. เปิด Dailymotion & แตะ “แชร์”]]></string>
+    <string name="_1_open_twitter_amp_tap"><![CDATA[1. เปิด X & แตะ “แชร์”]]></string>
+    <string name="_1_open_thread_amp_tap"><![CDATA[1. เปิด Threads & แตะ “แชร์”]]></string>
+    <string name="_1_open_facebook"><![CDATA[1. เปิด Facebook แล้วคัดลอก\nลิงก์ของวิดีโอ, reel หรือโพสต์ใดๆ ]]></string>
+    <string name="_1_open_instagram"><![CDATA[1. เปิด Instagram แล้วคัดลอก\nลิงก์ของวิดีโอ, reel หรือโพสต์ใดๆ ]]></string>
+    <string name="history">ประวัติ</string>
+    <string name="bookmark">บุ๊กมาร์ก</string>
+    <string name="select_search_engine">เลือกเครื่องมือค้นหา</string>
+
+    <!-- Download Quality Options -->
+    <string name="hd_no_watermark">HD · ไม่มีลายน้ำ</string>
+    <string name="sd_no_watermark">SD · ไม่มีลายน้ำ</string>
+    <string name="with_watermark">มีลายน้ำ</string>
+    <string name="audio_only">เฉพาะเสียง</string>
+
+    <!-- Premium Reviews -->
+    <string name="review_ebay_name">Ebay Moyar</string>
+    <string name="review_ebay_text">ประสิทธิภาพที่ราบรื่นและเชื่อถือได้</string>
+    <string name="review_emily_name">Emily Carter</string>
+    <string name="review_emily_text">อัปเกรดเป็นพรีเมียมแล้ว ไม่มีโฆษณา &amp; เร็วมาก</string>
+    <string name="review_noah_name">Noah Mitchell</string>
+    <string name="review_noah_text">คุ้มค่าคุ้มราคาไม่มีโฆษณา ชอบมาก</string>
+    <string name="download_manager">ตัวจัดการการดาวน์โหลด</string>
+    <string name="unlimited_access">ดาวน์โหลดไม่จำกัด</string>
+    <string name="fast_downloads">ความเร็วในการดาวน์โหลดสูง</string>
+    <string name="_100_ad_free">ไม่มีโฆษณา 100%</string>
+    <string name="priority_support">การสนับสนุน VIP</string>
+    <string name="language">ภาษา</string>
+</resources>

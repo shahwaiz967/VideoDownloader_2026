@@ -7,6 +7,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.ui.fragments.DownloadFragment">
 
+
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         app:strokeWidth="0dp"
@@ -18,7 +20,7 @@
         app:cardBackgroundColor="@color/primaryColor"
         app:layout_constraintEnd_toStartOf="@+id/downloadCompleteButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+       app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:paddingVertical="@dimen/_10sdp"
             android:layout_gravity="center"
@@ -49,7 +51,7 @@
         app:cardBackgroundColor="@color/primaryColor"
         app:layout_constraintStart_toEndOf="@id/inProgressButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:paddingVertical="@dimen/_10sdp"
             android:layout_gravity="center"

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
@@ -44,6 +45,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private lateinit var ivThumbnail: ImageView
 
+
     private var currentTab = TAB_HOME
 
     companion object {
@@ -74,6 +76,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         refreshTabBadge()
         initStartupPage()
         observeDownloadCompletion()
+        observeDownloadStart()
 
         bindNative(
             RemoteConfigHelper.adIds.mainBanner,
@@ -118,7 +121,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 downloadViewModel.downloadCompleteEvent.collectLatest { downloadItem ->
+                    Toast.makeText(requireContext(), getString(R.string.download_complete), Toast.LENGTH_SHORT).show()
                     showDownloadCompleteSheet(downloadItem)
+                }
+            }
+        }
+    }
+
+    private fun observeDownloadStart() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                downloadViewModel.downloadStartedEvent.collectLatest {
+                    loadFragment(DownloadFragment())
                 }
             }
         }

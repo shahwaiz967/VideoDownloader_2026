@@ -47,44 +47,7 @@
     <string name="like">Thích</string>
     <string name="title">Tiêu đề</string>
 
-    <!-- Languages -->
-    <string name="english_us">Tiếng Anh (Mỹ)</string>
-    <string name="english">Tiếng Anh</string>
-    <string name="arabic">Tiếng Ả Rập</string>
-    <string name="bangla">Tiếng Bangla</string>
-    <string name="chinese_simplified">Tiếng Trung (Giản thể)</string>
-    <string name="chinese_hong_kong">Tiếng Trung (Hồng Kông)</string>
-    <string name="chinese">Tiếng Trung</string>
-    <string name="dutch">Tiếng Hà Lan</string>
-    <string name="french_canada">Tiếng Pháp (Canada)</string>
-    <string name="french_france">Tiếng Pháp (Pháp)</string>
-    <string name="french">Tiếng Pháp</string>
-    <string name="german">Tiếng Đức</string>
-    <string name="greek">Tiếng Hy Lạp</string>
-    <string name="hindi">Tiếng Hindi</string>
-    <string name="indonesian">Tiếng Indonesia</string>
-    <string name="italian">Tiếng Ý</string>
-    <string name="japanese">Tiếng Nhật</string>
-    <string name="korean">Tiếng Hàn</string>
-    <string name="malay">Tiếng Mã Lai</string>
-    <string name="persian">Tiếng Ba Tư</string>
-    <string name="polish">Tiếng Ba Lan</string>
-    <string name="portuguese_brazil">Tiếng Bồ Đào Nha (Brazil)</string>
-    <string name="portuguese_portugal">Tiếng Bồ Đào Nha (Bồ Đào Nha)</string>
-    <string name="portuguese">Tiếng Bồ Đào Nha</string>
-    <string name="russian">Tiếng Nga</string>
-    <string name="spanish_latin_america">Tiếng Tây Ban Nha (Mỹ Latinh)</string>
-    <string name="spanish_spain">Tiếng Tây Ban Nha (Tây Ban Nha)</string>
-    <string name="spanish_us">Tiếng Tây Ban Nha (Mỹ)</string>
-    <string name="spanish">Tiếng Tây Ban Nha</string>
-    <string name="swedish">Tiếng Thụy Điển</string>
-    <string name="tamil">Tiếng Tamil</string>
-    <string name="thai">Tiếng Thái</string>
-    <string name="turkish">Tiếng Thổ Nhĩ Kỳ</string>
-    <string name="ukrainian">Tiếng Ukraina</string>
-    <string name="urdu">Tiếng Urdu</string>
-    <string name="vietnamese">Tiếng Việt</string>
-    <string name="azerbaijan">Tiếng Azerbaijan</string>
+
 
     <!-- Home & Quick Access -->
     <string name="search_amp_download_videos"><![CDATA[Tìm kiếm & Tải Video]]></string>
