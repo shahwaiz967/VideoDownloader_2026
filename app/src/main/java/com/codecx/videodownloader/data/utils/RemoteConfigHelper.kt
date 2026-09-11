@@ -52,7 +52,7 @@ object RemoteConfigHelper {
         runCatching {
             val configSettings: FirebaseRemoteConfigSettings =
                 FirebaseRemoteConfigSettings.Builder()
-                    .setMinimumFetchIntervalInSeconds(if (BuildConfig.DEBUG) 0 else 3600)
+                    .setMinimumFetchIntervalInSeconds(if (BuildConfig.DEBUG) 0 else 2600)
                     .build()
 
             mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings)
