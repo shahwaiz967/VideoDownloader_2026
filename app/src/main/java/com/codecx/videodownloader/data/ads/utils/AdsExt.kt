@@ -279,6 +279,12 @@ fun Fragment.bindNative(
 
 fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
     if (currentActivity != null) {
+        if (!adItem.isAdEnable || isPro || adItem.adType == 0) {
+            container?.removeAllViews()
+            container?.visibility = View.GONE
+            return
+        }
+        container?.visibility = View.VISIBLE
         when (adItem.adFormat) {
             BANNER_AD_TYPE -> {
                 val bannerType = if (adItem.adSize.equals("large", ignoreCase = true)) 2 else 0

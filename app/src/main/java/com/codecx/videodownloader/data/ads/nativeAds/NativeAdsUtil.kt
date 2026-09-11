@@ -179,6 +179,10 @@ object NativeAdsUtil {
         adListener: AdCallBack? = null,
         containerColor: Int = "#D5D2D2".toColorInt(),
     ) {
+        if (!isAdAllowed) {
+            adContainerView?.removeAllViews()
+            return
+        }
         if (WebView.getCurrentWebViewPackage() != null && CodecxAd.isSDKInit) {
             if (CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true) {
                 val cacheAd = cacheAds[nativeId]
