@@ -75,7 +75,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             showTabsSheet()
         }
         navigation()
-        bindAds()
         refreshTabBadge()
         initStartupPage()
         observeDownloadCompletion()
@@ -231,17 +230,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun handleNavigationAd(onComplete: () -> Unit) {
         showInterWithCounter(
             interstitialHelper = interstitialHelper,
-            adItem = RemoteConfigHelper.adIds.activityFinishInter,
+            adItem = RemoteConfigHelper.adIds.homeInter,
             onComplete = onComplete
         )
     }
-
-    private fun bindAds() {
-        bindNative(RemoteConfigHelper.adIds.mainBanner, false, binding.adLayout)
-
-        bindNative(RemoteConfigHelper.adIds.homeTopNative, false, binding.adLayoutTop)
-    }
-
 
 
 

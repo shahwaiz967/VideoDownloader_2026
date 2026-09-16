@@ -13,18 +13,6 @@ enum class EnumAdType {
 @LayoutRes
 fun AdItem.getNativeLayout(): Int {
     return when (adType) {
-        // 1 = Normal Banner
-        1 -> R.layout.native_banner
-
-        // 2 = Top collapsible Banner
-        2 -> R.layout.native_collapsible
-
-        // 3 = Bottom collapsible Banner
-        3 -> R.layout.native_collapsible
-
-        // 4 = Rectangle Banner
-        4 -> R.layout.medium_native
-
         // 5 = Large Native Bottom Button
         5 -> R.layout.large_native_with_top_media
 
@@ -54,13 +42,7 @@ fun AdItem.getNativeLayout(): Int {
 
         // Default
         else -> {
-            when (adSize) {
-                "medium" -> R.layout.medium_native
-                "large" -> R.layout.large_native
-                "banner" -> R.layout.native_banner
-                "mediumMedia" -> R.layout.medium_media_native
-                else -> R.layout.native_banner
-            }
+            R.layout.native_banner
         }
     }
 }
@@ -68,21 +50,12 @@ fun AdItem.getNativeLayout(): Int {
 @LayoutRes
 fun AdItem.getShimmerLayout(): Int {
     return when (adType) {
-        1 -> R.layout.native_banner_shimmer
-        2, 3 -> R.layout.large_native_shimmer
-        4 -> R.layout.medium_shimmer
         5, 6 -> R.layout.large_native_shimmer
         7, 8, 9, 10 -> R.layout.medium_shimmer
         11, 12 -> R.layout.native_banner_shimmer
         13 -> R.layout.native_banner_shimmer
         else -> {
-            when (adSize) {
-                "medium" -> R.layout.medium_shimmer
-                "large" -> R.layout.large_native_shimmer
-                "banner" -> R.layout.native_banner_shimmer
-                "mediumMedia" -> R.layout.medium_media_shimmer
-                else -> R.layout.native_banner_shimmer
-            }
+            R.layout.native_banner
         }
     }
 }

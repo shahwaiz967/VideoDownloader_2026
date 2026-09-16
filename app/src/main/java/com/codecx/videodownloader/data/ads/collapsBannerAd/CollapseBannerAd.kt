@@ -19,7 +19,6 @@ import com.codecx.videodownloader.data.ads.utils.runOnUiThread
 import com.codecx.videodownloader.data.utils.beVisible
 
 
-
 object CollapseBannerAd {
     private val cacheAds = hashMapOf<String, AdView>()
     fun clearCollapseBannerCaches() {
@@ -30,7 +29,8 @@ object CollapseBannerAd {
         activity: Activity,
         isAdAllowed: Boolean,
         adContainer: ViewGroup?,
-        unitId: String, adCallBack: AdCallBack
+        unitId: String,
+        position: String, adCallBack: AdCallBack
     ) {
         if (isAdAllowed && UMPConsent.isUMPAllowed && CodecxAd.isSDKInit) {
             val cacheAd = cacheAds[unitId]
@@ -43,7 +43,7 @@ object CollapseBannerAd {
                 )
             } else {
                 val extras = Bundle()
-                extras.putString("collapsible", "bottom")
+                extras.putString("collapsible", position)
                 val adSize = getAdSize(activity)
                 val adRequest = BannerAdRequest.Builder(unitId, adSize)
                     .setGoogleExtrasBundle(extras)

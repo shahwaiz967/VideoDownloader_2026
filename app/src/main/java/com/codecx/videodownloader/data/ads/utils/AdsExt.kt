@@ -46,10 +46,7 @@ object AdCounter {
 
     fun incrementAndCheck(frequency: Int): Boolean {
         clickCount++
-        if (clickCount >= frequency) {
-            return true
-        }
-        return false
+        return clickCount >= frequency
     }
 
     fun reset() {
@@ -63,17 +60,17 @@ fun Fragment.showInterWithCounter(
     onComplete: () -> Unit
 ) {
     val frequency = RemoteConfigHelper.adIds.adFrequency
-    if (AdCounter.incrementAndCheck(frequency)) {
+    if (AdCounter.incrementAndCheck(frequency) && adItem.isAdEnable) {
         showInter(
             interstitialHelper = interstitialHelper,
             stringId = adItem.adId,
-            adAllowed = adItem.isAdEnable,
+            adAllowed = true,
             onDismiss = {
                 AdCounter.reset()
                 onComplete()
             },
             onFail = {
-                showFullScreenNativeFallback(adItem, onComplete)
+                onComplete()
             }
         )
     } else {
@@ -247,39 +244,10 @@ fun Fragment.bindNative(
     }
 }
 
-fun Fragment.bindNative(
-    stringResId: String,
-    adAllowed: Boolean,
-    adType: EnumAdType,
-    container: ViewGroup?,
-    ctrColor: String,
-    adTagColor: String
-) {
-    val shimmerLayout = when (adType) {
-        EnumAdType.BannerNative -> R.layout.native_banner_shimmer
-        EnumAdType.MediumNative -> R.layout.medium_shimmer
-        EnumAdType.MediumMediaNative -> R.layout.medium_media_shimmer
-        else -> R.layout.large_native_shimmer
-    }
-    val contentLayout = when (adType) {
-        EnumAdType.BannerNative -> R.layout.native_banner
-        EnumAdType.MediumNative -> R.layout.medium_native
-        EnumAdType.MediumMediaNative -> R.layout.medium_media_native
-        else -> R.layout.large_native
-    }
-
-    bindNative(
-        stringResId = stringResId,
-        adAllowed = adAllowed,
-        shimmerLayout = shimmerLayout,
-        contentLayout = contentLayout,
-        container = container
-    )
-}
 
 fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
     if (currentActivity != null) {
-        if (!adItem.isAdEnable || isPro || adItem.adType == 0) {
+        if (!adItem.isAdEnable || isPro) {
             container?.removeAllViews()
             container?.visibility = View.GONE
             return
@@ -287,24 +255,31 @@ fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
         container?.visibility = View.VISIBLE
         when (adItem.adFormat) {
             BANNER_AD_TYPE -> {
-                val bannerType = if (adItem.adSize.equals("large", ignoreCase = true)) 2 else 0
-                BannerAd.showBanner(adItem, isPro, container, requireActivity(), null, bannerType)
+                BannerAd.showBanner(
+                    adItem = adItem,
+                    isPro = false,
+                    adContainer = container,
+                    context = requireActivity(),
+                    adCallBack = null,
+                    type = adItem.adType
+                )
             }
 
             COLLAPSIBLE_AD_TYPE -> {
                 CollapseBannerAd.loadCollapseBanner(
-                    requireActivity(),
-                    adItem.isAdEnable && !isPro,
-                    container,
-                    adItem.adId,
-                    object : AdCallBack() {}
+                    activity = requireActivity(),
+                    isAdAllowed = true,
+                    adContainer = container,
+                    unitId = adItem.adId,
+                    position = if (adItem.adType == 2) "top" else "bottom",
+                    adCallBack = object : AdCallBack() {}
                 )
             }
 
             else -> {
                 bindNative(
                     stringResId = adItem.adId,
-                    adAllowed = adItem.isAdEnable && !isPro,
+                    adAllowed = true,
                     shimmerLayout = adItem.getShimmerLayout(),
                     contentLayout = adItem.getNativeLayout(),
                     container = container

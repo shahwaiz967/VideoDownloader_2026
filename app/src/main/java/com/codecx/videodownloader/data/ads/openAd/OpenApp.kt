@@ -32,7 +32,7 @@ import com.codecx.videodownloader.data.ads.utils.isNetworkConnected
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 
-class OpenAppUtil() {
+class OpenAppUtil {
     fun loadOpenAd(
         context: Context,
         adId: String,
@@ -107,7 +107,7 @@ class OpenApp(
     private val application: Application,
     private val isLoadingViewVisible: Boolean,
     //@LayoutRes
-   // private val loadingLayout: Int = R.layout.openad_loading_layout
+    // private val loadingLayout: Int = R.layout.openad_loading_layout
 ) :
     Application.ActivityLifecycleCallbacks {
     private var appOpenAd: AppOpenAd? = null
@@ -135,17 +135,17 @@ class OpenApp(
         currentActivity?.let {
             if (it.isNetworkConnected()) {
                 if (!InterstitialAdHelper.isInterstitialLoading && !InterstitialAdHelper.isInterstitialShowing && !isOpenAdLoading && !isOpenAdShowing) {
-                    
-                    val adConfig = if (isFirstLaunch) RemoteConfigHelper.adIds.splashAppOpen else RemoteConfigHelper.adIds.resumeAppOpen
-                    
+
+                    val adConfig = RemoteConfigHelper.adIds.resumeAppOpen
+
                     if (!adConfig.isAdEnable) return
 
                     isOpenAdLoading = true
-                   /* if (isLoadingViewVisible) {
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            LoadingUtils.showAdLoadingScreen(it, loadingLayout)
-                        }, 200L)
-                    }*/
+                    /* if (isLoadingViewVisible) {
+                         Handler(Looper.getMainLooper()).postDelayed({
+                             LoadingUtils.showAdLoadingScreen(it, loadingLayout)
+                         }, 200L)
+                     }*/
 
                     val loadCallback: AdLoadCallback<AppOpenAd> =
                         object : AdLoadCallback<AppOpenAd> {
@@ -212,16 +212,21 @@ class OpenApp(
         }
     }
 
+    private var isColdStart: Boolean = true
 
     private fun onAppForegrounded() {
+        if (isColdStart) {
+            isColdStart = false
+            return
+        }
         if (isOpenAdStop || !CodecxAd.isSDKInit) {
             isOpenAdStop = false
             return
         }
-        
+
         currentActivity?.let {
-            val adConfig = if (isFirstLaunch) RemoteConfigHelper.adIds.splashAppOpen else RemoteConfigHelper.adIds.resumeAppOpen
-            
+            val adConfig = RemoteConfigHelper.adIds.resumeAppOpen
+
             if (adConfig.isAdEnable && OpenAdConfig.isAdEnable() && CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true && UMPConsent.isUMPAllowed && !isOpenAdStop) {
                 fetchAd()
             }

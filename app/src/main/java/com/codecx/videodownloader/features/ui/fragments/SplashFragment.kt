@@ -7,17 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.openAd.OpenAppUtil
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.models.AdItem
 import com.codecx.videodownloader.data.utils.AppUpdateChecker
 import com.codecx.videodownloader.data.utils.PrefManager
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper.OPEN_AD_TYPE
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
@@ -29,7 +35,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         return FragmentSplashBinding.inflate(inflater)
     }
 
-    private lateinit var appUpdate : AppUpdateChecker
+    private lateinit var appUpdate: AppUpdateChecker
     private var progress = 0
     private var progressComplete = false
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
@@ -37,17 +43,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         appUpdate = AppUpdateChecker(requireActivity() as AppCompatActivity)
-
-        bindNative(
-            RemoteConfigHelper.adIds.splashTopNative,
-            false,
-            binding.topAdLayout
-        )
-        bindNative(
-            RemoteConfigHelper.adIds.splashBottomNative,
-            false,
-            binding.bottomAdLayout
-        )
 
         if (activity?.intent?.action == Intent.ACTION_VIEW) {
             val uri = activity?.intent?.data
@@ -61,14 +56,33 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                 })
             }
         } else {
+            binding.progressBar.isIndeterminate = true
             appUpdate.checkAppUpdate {
-                startProgressAnimation()
+                lifecycleScope.launch {
+                    RemoteConfigHelper.checkRemoteConfig {
+                        loadAds()
+                        startProgressAnimation()
+                    }
+                }
             }
         }
     }
+    private fun loadAds(){
+        bindNative(
+            adItem = RemoteConfigHelper.adIds.splashTopNative,
+            isPro = false,
+            container = binding.topAdLayout
+        )
+        bindNative(
+            adItem = RemoteConfigHelper.adIds.splashBottomNative,
+            isPro = false,
+            container = binding.bottomAdLayout
+        )
+
+    }
 
     private fun startProgressAnimation() {
-
+        binding.progressBar.isIndeterminate = false
         val handler = Handler()
         val intervalMs = 6000L / 100
 
@@ -91,25 +105,49 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         handler.post(progressRunnable)
     }
 
-    private fun moveNext(){
+    private fun moveNext() {
         val destination = if (PrefManager.isFirstRun(requireContext())) {
             PrefManager.setFirstRun(requireContext(), false)
             R.id.languageFragment
         } else {
             R.id.premiumFragment
         }
-        showInter(
-            interstitialHelper = interstitialHelper,
-            stringId = RemoteConfigHelper.adIds.splashInter.adId,
-            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
-            onDismiss = {
-                safeNavigate(destination)
-            },
-            onFail = {
-                safeNavigate(destination)
+
+        val adItem = RemoteConfigHelper.adIds.splashFullScreenAd
+        if (adItem.isAdEnable) {
+            if (adItem.adFormat == OPEN_AD_TYPE) {
+                val openAdUtil = OpenAppUtil()
+                openAdUtil.loadOpenAd(requireContext(), adId = adItem.adId, onAdLoaded = { ad ->
+                    openAdUtil.showAd(
+                        activity = requireActivity(),
+                        ad = ad,
+                        onAdShowed = {},
+                        onAdDismiss = {
+                            safeNavigate(destination)
+                        },
+                        onAdFail = {
+                            safeNavigate(destination)
+                        })
+                }, onFailToLoad = {
+                    safeNavigate(destination)
+                })
+            } else {
+                showInter(
+                    interstitialHelper = interstitialHelper,
+                    stringId = adItem.adId,
+                    adAllowed = true,
+                    onDismiss = {
+                        safeNavigate(destination)
+                    },
+                    onFail = {
+                        safeNavigate(destination)
+                    }
+                )
             }
-        )
+        } else {
+            safeNavigate(destination)
+        }
     }
-    
+
 
 }

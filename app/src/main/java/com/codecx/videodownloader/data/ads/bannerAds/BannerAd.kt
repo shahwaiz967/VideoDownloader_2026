@@ -42,9 +42,8 @@ object BannerAd {
                 adContainer?.addView(cacheAd)
             } else {
                 val adSize = when (type) {
-                    1 -> AdSize.MEDIUM_RECTANGLE
-                    2 -> AdSize.LARGE_BANNER
-                    else -> getAdSize(context)
+                    4 -> AdSize.MEDIUM_RECTANGLE
+                    else ->   AdSize.BANNER
                 }
                 val adView = AdView(context)
                 adContainer?.removeAllViews()

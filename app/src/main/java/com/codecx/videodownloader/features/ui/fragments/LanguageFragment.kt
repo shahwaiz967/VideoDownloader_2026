@@ -58,7 +58,6 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        val adItem = RemoteConfigHelper.adIds.languageBanner
 
         bindNative(
             RemoteConfigHelper.adIds.languageTopNative,

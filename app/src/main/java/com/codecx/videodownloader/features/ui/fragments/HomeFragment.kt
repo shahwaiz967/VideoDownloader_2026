@@ -85,23 +85,30 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun bindAds() {
-        bindNative(RemoteConfigHelper.adIds.homeTopBanner, false, binding.adLayoutTop)
-        bindNative(RemoteConfigHelper.adIds.homeMidNative, false, binding.adLayoutMid)
-        bindNative(RemoteConfigHelper.adIds.homeBottomNative, false, binding.adLayoutBottom)
+        bindNative(RemoteConfigHelper.adIds.homeTopAd, false, binding.adLayoutTop)
+        bindNative(RemoteConfigHelper.adIds.homeMidAd, false, binding.adLayoutMid)
+        bindNative(RemoteConfigHelper.adIds.homeBottomAd, false, binding.adLayoutBottom)
     }
 
     private fun handleFirstAction(onComplete: () -> Unit) {
-        if (!isFirstActionDone && RemoteConfigHelper.adIds.homeFirstClickInter.isAdEnable) {
+        if (!isFirstActionDone && RemoteConfigHelper.adIds.homeFirstClickInter) {
             isFirstActionDone = true
             showInter(
                 interstitialHelper = interstitialHelper,
-                stringId = RemoteConfigHelper.adIds.homeFirstClickInter.adId,
-                adAllowed = true,
+                stringId = RemoteConfigHelper.adIds.homeInter.adId,
+                adAllowed = RemoteConfigHelper.adIds.homeInter.isAdEnable,
                 onDismiss = onComplete,
                 onFail = onComplete
             )
         } else {
-            onComplete()
+            showInterWithCounter(
+                interstitialHelper = interstitialHelper,
+                adItem = RemoteConfigHelper.adIds.homeInter,
+                onComplete = {
+                    onComplete()
+                }
+            )
+
         }
     }
 
@@ -192,13 +199,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             putLong("tabId", tabId)
         }
 
-        showInterWithCounter(
-            interstitialHelper = interstitialHelper,
-            adItem = RemoteConfigHelper.adIds.activityFinishInter,
-            onComplete = {
-                safeNavigate(R.id.socityFragment, bundle)
-            }
-        )
+        handleFirstAction {
+            safeNavigate(R.id.socityFragment, bundle)
+        }
     }
 
     private fun isValidUrl(text: String): Boolean {
