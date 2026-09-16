@@ -39,7 +39,7 @@ object RemoteConfigHelper {
         this@RemoteConfigHelper.application = application
         CoroutineScope(Dispatchers.IO).launch {
             FirebaseApp.initializeApp(application)
-            adIds = getDefaultAdIds()
+           // adIds = getDefaultAdIds()
             checkRemoteConfig()
         }
     }
@@ -70,9 +70,9 @@ object RemoteConfigHelper {
         return application.getString(id)
     }
 
-    fun getDefaultAdIds(): RemoteAdsConfig {
+    /*fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
-            appOpen = AdItem(BuildConfig.open_ad_id),
+            *//*appOpen = AdItem(BuildConfig.open_ad_id),
             mainBanner = AdItem(
                 BuildConfig.collapsible_id,
                 false,
@@ -125,6 +125,6 @@ object RemoteConfigHelper {
                 adFormat = INTER_AD_TYPE,
                 isAdEnable = false
             )
-        )
-    }
+        )*//*
+    }*/
 }
