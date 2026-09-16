@@ -11,7 +11,7 @@ import com.codecx.videodownloader.data.ads.GDPR.UMPConsent
 import com.codecx.videodownloader.data.ads.interfaces.AdCallBack
 import com.codecx.videodownloader.data.ads.openAd.OpenAdConfig
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
-import com.codecx.videodownloader.data.dataClasses.AdItem
+import com.codecx.videodownloader.data.models.AdItem
 import com.codecx.videodownloader.data.utils.beVisible
 import com.codecx.videodownloader.data.utils.toDp
 import com.google.android.libraries.ads.mobile.sdk.banner.AdSize
@@ -29,7 +29,9 @@ object BannerAd {
         adItem: AdItem,
         isPro: Boolean,
         adContainer: ViewGroup?,
-        context: Context, adCallBack: AdCallBack?, type: Int = 0
+        context: Context,
+        adCallBack: AdCallBack?,
+        type: Int = 0
     ) {
         if (adItem.isAdEnable && !isPro && UMPConsent.isUMPAllowed && CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true) {
             val cacheAd = cacheAds[adItem.adId]

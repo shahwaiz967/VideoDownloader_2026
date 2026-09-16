@@ -1,9 +1,12 @@
 package com.codecx.videodownloader.data.ads.utils
 
+import android.app.Dialog
 import android.graphics.Color
 import android.os.SystemClock
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import androidx.core.graphics.ColorUtils
@@ -14,25 +17,117 @@ import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.bannerAds.BannerAd
 import com.codecx.videodownloader.data.ads.collapsBannerAd.CollapseBannerAd
 import com.codecx.videodownloader.data.ads.enums.EnumAdType
+import com.codecx.videodownloader.data.ads.enums.getNativeLayout
+import com.codecx.videodownloader.data.ads.enums.getShimmerLayout
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper.TimeDelayException
 import com.codecx.videodownloader.data.ads.interfaces.AdCallBack
 import com.codecx.videodownloader.data.ads.nativeAds.NativeAdsUtil
-import com.codecx.videodownloader.data.dataClasses.AdItem
+import com.codecx.videodownloader.data.models.AdItem
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.BANNER_AD_TYPE
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.COLLAPSIBLE_AD_TYPE
 import com.codecx.videodownloader.data.utils.currentActivity
-import com.codecx.videodownloader.features.ui.activities.MainActivity
+import com.codecx.videodownloader.MainActivity
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
 enum class ErrorType {
     InDelay,
     Other;
+}
+
+object AdCounter {
+    private var clickCount = 0
+
+    fun incrementAndCheck(frequency: Int): Boolean {
+        clickCount++
+        if (clickCount >= frequency) {
+            return true
+        }
+        return false
+    }
+
+    fun reset() {
+        clickCount = 0
+    }
+}
+
+fun Fragment.showInterWithCounter(
+    interstitialHelper: InterstitialAdHelper.InterstitialHelper,
+    adItem: AdItem,
+    onComplete: () -> Unit
+) {
+    val frequency = RemoteConfigHelper.adIds.adFrequency
+    if (AdCounter.incrementAndCheck(frequency)) {
+        showInter(
+            interstitialHelper = interstitialHelper,
+            stringId = adItem.adId,
+            adAllowed = adItem.isAdEnable,
+            onDismiss = {
+                AdCounter.reset()
+                onComplete()
+            },
+            onFail = {
+                showFullScreenNativeFallback(adItem, onComplete)
+            }
+        )
+    } else {
+        onComplete()
+    }
+}
+
+fun Fragment.showFullScreenNativeFallback(adItem: AdItem, onComplete: () -> Unit) {
+    val activity = activity ?: run {
+        onComplete()
+        return
+    }
+
+    val dialog = Dialog(activity, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    val view = LayoutInflater.from(activity).inflate(R.layout.large_native, null)
+    dialog.setContentView(view)
+    dialog.setOnDismissListener {
+        onComplete()
+    }
+
+    val adContainer = view as? NativeAdView
+
+    NativeAdsUtil.loadNativeAd(
+        isAdAllowed = adItem.isAdEnable,
+        loadingAdView = R.layout.large_native_shimmer,
+        adContainerView = null,
+        nativeId = adItem.adId,
+        context = activity,
+        adListener = object : AdCallBack() {
+            override fun onNativeAdLoad(nativeAd: NativeAd) {
+                if (adContainer != null) {
+                    NativeAdsUtil.populateNativeAd(
+                        context = activity,
+                        adContainerView = view as ViewGroup,
+                        nativeAd = nativeAd,
+                        nativeAdView = R.layout.large_native,
+                        adListener = object : AdCallBack() {
+                            override fun onAdShown() {
+                                dialog.show()
+                                AdCounter.reset()
+                            }
+                        }
+                    )
+                } else {
+                    onComplete()
+                }
+            }
+
+            override fun onAdFailToLoad(error: Exception) {
+                onComplete()
+            }
+        }
+    )
 }
 
 fun View.removeSelf() {
@@ -128,52 +223,14 @@ fun Fragment.showInter(
 fun Fragment.bindNative(
     stringResId: String,
     adAllowed: Boolean,
-    adType: EnumAdType,
-    container: ViewGroup?,
-    ctrColor: String,
-    adTagColor: String
+    shimmerLayout: Int,
+    contentLayout: Int,
+    container: ViewGroup?
 ) {
     view?.doOnPreDraw {
         CoroutineScope(Dispatchers.Main).launch {
             delay(100)
             if (currentActivity != null) {
-                val shimmerLayout = when (adType) {
-                    EnumAdType.BannerNative -> {
-                        R.layout.native_banner_shimmer
-                    }
-
-                    EnumAdType.MediumNative -> {
-                        R.layout.medium_shimmer
-
-                    }
-
-                    EnumAdType.MediumMediaNative -> {
-                        R.layout.medium_media_shimmer
-
-                    }
-
-                    else -> {
-                        R.layout.large_native_shimmer
-                    }
-                }
-                val contentLayout = when (adType) {
-                    EnumAdType.BannerNative -> {
-                        R.layout.native_banner
-                    }
-
-                    EnumAdType.MediumNative -> {
-                        R.layout.medium_native
-
-                    }
-                    EnumAdType.MediumMediaNative -> {
-                        R.layout.medium_media_native
-
-                   }
-
-                    else -> {
-                        R.layout.large_native
-                    }
-                }
                 activity?.let {
                     NativeAdsUtil.populateNativeAd(
                         isAdAllowed = adAllowed,
@@ -190,9 +247,44 @@ fun Fragment.bindNative(
     }
 }
 
+fun Fragment.bindNative(
+    stringResId: String,
+    adAllowed: Boolean,
+    adType: EnumAdType,
+    container: ViewGroup?,
+    ctrColor: String,
+    adTagColor: String
+) {
+    val shimmerLayout = when (adType) {
+        EnumAdType.BannerNative -> R.layout.native_banner_shimmer
+        EnumAdType.MediumNative -> R.layout.medium_shimmer
+        EnumAdType.MediumMediaNative -> R.layout.medium_media_shimmer
+        else -> R.layout.large_native_shimmer
+    }
+    val contentLayout = when (adType) {
+        EnumAdType.BannerNative -> R.layout.native_banner
+        EnumAdType.MediumNative -> R.layout.medium_native
+        EnumAdType.MediumMediaNative -> R.layout.medium_media_native
+        else -> R.layout.large_native
+    }
+
+    bindNative(
+        stringResId = stringResId,
+        adAllowed = adAllowed,
+        shimmerLayout = shimmerLayout,
+        contentLayout = contentLayout,
+        container = container
+    )
+}
 
 fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
     if (currentActivity != null) {
+        if (!adItem.isAdEnable || isPro || adItem.adType == 0) {
+            container?.removeAllViews()
+            container?.visibility = View.GONE
+            return
+        }
+        container?.visibility = View.VISIBLE
         when (adItem.adFormat) {
             BANNER_AD_TYPE -> {
                 val bannerType = if (adItem.adSize.equals("large", ignoreCase = true)) 2 else 0
@@ -205,9 +297,7 @@ fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
                     adItem.isAdEnable && !isPro,
                     container,
                     adItem.adId,
-                    object : AdCallBack() {
-
-                    }
+                    object : AdCallBack() {}
                 )
             }
 
@@ -215,10 +305,9 @@ fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
                 bindNative(
                     stringResId = adItem.adId,
                     adAllowed = adItem.isAdEnable && !isPro,
-                    adType = adItem.toAdSize(),
-                    container = container,
-                    ctrColor = adItem.ctrColor,
-                    adTagColor = adItem.adTagColor
+                    shimmerLayout = adItem.getShimmerLayout(),
+                    contentLayout = adItem.getNativeLayout(),
+                    container = container
                 )
             }
         }

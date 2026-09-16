@@ -14,7 +14,9 @@ import androidx.annotation.StringRes
 import com.codecx.statussaver.features.activities.MainActivity
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.ads.utils.showInterWithCounter
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isValidUrl
@@ -29,6 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var tabId: Long = -1L
     private val downloadViewModel: DownloadViewModel by activityViewModel()
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+    private var isFirstActionDone = false
 
 
     override fun bindLayout(
@@ -43,37 +46,63 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
         quickAccessButtons()
         observeDownload()
+        bindAds()
 
         binding.btnPasteLink.setOnClickListener {
-            val text = requireContext().getClipboardText()
-            if (!text.isNullOrEmpty()) {
-                binding.etUrl.setText(text)
-                if (!text.isValidUrl()) {
+            handleFirstAction {
+                val text = requireContext().getClipboardText()
+                if (!text.isNullOrEmpty()) {
+                    binding.etUrl.setText(text)
+                    if (!text.isValidUrl()) {
+                        makeText(
+                            requireContext(),
+                            getString(R.string.invalid_url),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@handleFirstAction
+                    }
+                    downloadViewModel.getDownloadInfo(text)
+                } else {
                     makeText(
                         requireContext(),
-                        getString(R.string.invalid_url),
-                        Toast.LENGTH_SHORT
+                        getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
                     ).show()
-                    return@setOnClickListener
                 }
-                downloadViewModel.getDownloadInfo(text)
-            } else {
-                makeText(
-                    requireContext(),
-                    getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
-                ).show()
             }
         }
 
         binding.btnDownload.setOnClickListener {
-            val url = binding.etUrl.text.toString().trim()
-            if (url.isEmpty()) {
-                binding.etUrl.error = getString(R.string.enter_url)
-                return@setOnClickListener
+            handleFirstAction {
+                val url = binding.etUrl.text.toString().trim()
+                if (url.isEmpty()) {
+                    binding.etUrl.error = getString(R.string.enter_url)
+                    return@handleFirstAction
+                }
+                downloadViewModel.getDownloadInfo(url)
             }
-            downloadViewModel.getDownloadInfo(url)
         }
 
+    }
+
+    private fun bindAds() {
+        bindNative(RemoteConfigHelper.adIds.homeTopBanner, false, binding.adLayoutTop)
+        bindNative(RemoteConfigHelper.adIds.homeMidNative, false, binding.adLayoutMid)
+        bindNative(RemoteConfigHelper.adIds.homeBottomNative, false, binding.adLayoutBottom)
+    }
+
+    private fun handleFirstAction(onComplete: () -> Unit) {
+        if (!isFirstActionDone && RemoteConfigHelper.adIds.homeFirstClickInter.isAdEnable) {
+            isFirstActionDone = true
+            showInter(
+                interstitialHelper = interstitialHelper,
+                stringId = RemoteConfigHelper.adIds.homeFirstClickInter.adId,
+                adAllowed = true,
+                onDismiss = onComplete,
+                onFail = onComplete
+            )
+        } else {
+            onComplete()
+        }
     }
 
     private fun observeDownload() {
@@ -163,18 +192,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             putLong("tabId", tabId)
         }
 
-        showInter(
+        showInterWithCounter(
             interstitialHelper = interstitialHelper,
-            stringId = RemoteConfigHelper.adIds.splashInter.adId,
-            adAllowed = RemoteConfigHelper.adIds.splashInter.isAdEnable,
-            onDismiss = {
-                safeNavigate(R.id.socityFragment, bundle)
-            },
-            onFail = {
+            adItem = RemoteConfigHelper.adIds.activityFinishInter,
+            onComplete = {
                 safeNavigate(R.id.socityFragment, bundle)
             }
         )
-
     }
 
     private fun isValidUrl(text: String): Boolean {
@@ -198,7 +222,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onResume() {
         super.onResume()
-        val activity = requireActivity() as com.codecx.videodownloader.features.ui.activities.MainActivity
+        val activity = requireActivity() as com.codecx.videodownloader.MainActivity
 
         if (activity.isComingFromBackground){
             activity.isComingFromBackground = false

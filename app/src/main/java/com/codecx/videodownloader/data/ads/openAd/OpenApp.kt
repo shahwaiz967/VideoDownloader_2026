@@ -106,14 +106,13 @@ class OpenAppUtil() {
 class OpenApp(
     private val application: Application,
     private val isLoadingViewVisible: Boolean,
-    @LayoutRes
-    private val loadingLayout: Int = R.layout.openad_loading_layout
+    //@LayoutRes
+   // private val loadingLayout: Int = R.layout.openad_loading_layout
 ) :
     Application.ActivityLifecycleCallbacks {
     private var appOpenAd: AppOpenAd? = null
     private var currentActivity: Activity? = null
     private var lastAdTimer: Long = 0L
-    private var adCount: Int = 0
 
     init {
         application.registerActivityLifecycleCallbacks(this)
@@ -130,16 +129,23 @@ class OpenApp(
     }
 
 
+    private var isFirstLaunch = true
+
     private fun fetchAd() {
         currentActivity?.let {
             if (it.isNetworkConnected()) {
                 if (!InterstitialAdHelper.isInterstitialLoading && !InterstitialAdHelper.isInterstitialShowing && !isOpenAdLoading && !isOpenAdShowing) {
+                    
+                    val adConfig = if (isFirstLaunch) RemoteConfigHelper.adIds.splashAppOpen else RemoteConfigHelper.adIds.resumeAppOpen
+                    
+                    if (!adConfig.isAdEnable) return
+
                     isOpenAdLoading = true
-                    if (isLoadingViewVisible) {
+                   /* if (isLoadingViewVisible) {
                         Handler(Looper.getMainLooper()).postDelayed({
                             LoadingUtils.showAdLoadingScreen(it, loadingLayout)
                         }, 200L)
-                    }
+                    }*/
 
                     val loadCallback: AdLoadCallback<AppOpenAd> =
                         object : AdLoadCallback<AppOpenAd> {
@@ -148,6 +154,7 @@ class OpenApp(
                                     isOpenAdLoading = false
                                     appOpenAd = ad
                                     showAdIfAvailable()
+                                    isFirstLaunch = false
                                 }
                             }
 
@@ -160,7 +167,7 @@ class OpenApp(
                             }
                         }
                     AppOpenAd.load(
-                        adRequest = AdRequest.Builder(RemoteConfigHelper.adIds.appOpen.adId)
+                        adRequest = AdRequest.Builder(adConfig.adId)
                             .build(), loadCallback
                     )
                 }
@@ -211,15 +218,13 @@ class OpenApp(
             isOpenAdStop = false
             return
         }
-        if (adCount > 0 && adCount % 2 == 0) {
-            adCount = 0
-            currentActivity?.let {
-                if (RemoteConfigHelper.adIds.appOpen.isAdEnable && OpenAdConfig.isAdEnable() && CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true && UMPConsent.isUMPAllowed && !isOpenAdStop) {
-                    fetchAd()
-                }
+        
+        currentActivity?.let {
+            val adConfig = if (isFirstLaunch) RemoteConfigHelper.adIds.splashAppOpen else RemoteConfigHelper.adIds.resumeAppOpen
+            
+            if (adConfig.isAdEnable && OpenAdConfig.isAdEnable() && CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true && UMPConsent.isUMPAllowed && !isOpenAdStop) {
+                fetchAd()
             }
-        } else {
-            adCount++
         }
 
     }

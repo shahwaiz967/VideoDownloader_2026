@@ -1,6 +1,5 @@
-package com.codecx.videodownloader.data.dataClasses
+package com.codecx.videodownloader.data.models
 
-import android.graphics.Color
 import com.google.gson.annotations.SerializedName
 import com.codecx.videodownloader.data.ads.enums.EnumAdType
 
@@ -23,7 +22,9 @@ data class AdItem(
     @SerializedName("ctrColor")
     val ctrColor: String = "#00704C",
     @SerializedName("adTagColor")
-    val adTagColor: String = "#FB923C"
+    val adTagColor: String = "#FB923C",
+    @SerializedName("adType")
+    val adType: Int = 0,
 ) {
 
 

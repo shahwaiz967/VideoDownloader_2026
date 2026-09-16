@@ -1,11 +1,10 @@
-package com.codecx.videodownloader.features.ui.activities
+package com.codecx.videodownloader
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.codecx.videodownloader.R
 import com.codecx.videodownloader.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

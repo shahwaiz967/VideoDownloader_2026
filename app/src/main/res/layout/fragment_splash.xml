@@ -7,6 +7,12 @@
     android:fitsSystemWindows="true"
     tools:context=".features.ui.fragments.SplashFragment">
 
+    <FrameLayout
+        android:id="@+id/topAdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivAppLogo"
         android:layout_width="@dimen/_100sdp"
@@ -75,6 +81,13 @@
         app:layout_constraintEnd_toEndOf="@id/progressBar"
         app:layout_constraintStart_toStartOf="@id/progressBar"
         app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+    <FrameLayout
+        android:id="@+id/bottomAdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/progressBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
