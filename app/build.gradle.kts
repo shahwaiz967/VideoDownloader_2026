@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -11,13 +14,26 @@ plugins {
 android {
     namespace = "com.codecx.videodownloader"
     compileSdk = 37
-
+    signingConfigs {
+        create("release") {
+            val keystorePropertiesFile =
+                rootProject.file("videodownloader.jks")
+            if (keystorePropertiesFile.exists()) {
+                storeFile = keystorePropertiesFile
+                storePassword = "videodownloader"
+                keyAlias = "key0"
+                keyPassword = "videodownloader"
+            } else {
+                println("Warning: keystore.properties not found. Release build may fail.")
+            }
+        }
+    }
     defaultConfig {
         applicationId = "com.video.downloader.hd.fourk.videoplayer"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "weeklyPlanId", "\"weekly_price\"")
@@ -29,19 +45,118 @@ android {
     base.archivesName.set("VideoDownloader_${defaultConfig.versionName}")
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
+            buildConfigField("String", "app_id", "\"ca-app-pub-8108236472986627~4477104468\"")
+            buildConfigField("String", "banner_id", "\"ca-app-pub-8108236472986627/6172882401\"")
+            buildConfigField(
+                "String",
+                "home_inter_id",
+                "\"ca-app-pub-8108236472986627/6147252662\""
+            )
+            buildConfigField(
+                "String",
+                "home_native_id",
+                "\"ca-app-pub-8108236472986627/9414570520\""
+            )
+            buildConfigField(
+                "String",
+                "lang_native_id",
+                "\"ca-app-pub-8108236472986627/9136378088\""
+            )
+            buildConfigField(
+                "String",
+                "onboarding_finish_inter_id",
+                "\"ca-app-pub-8108236472986627/1198178317\""
+            )
+            buildConfigField(
+                "String",
+                "onboarding_native_id",
+                "\"ca-app-pub-8108236472986627/8607474051\""
+            )
+            buildConfigField(
+                "String",
+                "premium_inter_id",
+                "\"ca-app-pub-8108236472986627/4722490356\""
+            )
+            buildConfigField(
+                "String",
+                "resume_open_id",
+                "\"ca-app-pub-8108236472986627/3946621428\""
+            )
+            buildConfigField(
+                "String",
+                "splash_open_id",
+                "\"ca-app-pub-8108236472986627/6364454093\""
+            )
+            buildConfigField(
+                "String",
+                "splash_inter_id",
+                "\"ca-app-pub-8108236472986627/4828011145\""
+            )
+            buildConfigField(
+                "String",
+                "splash_native_id",
+                "\"ca-app-pub-8108236472986627/2633539756\""
+            )
         }
         debug {
             isMinifyEnabled = false
             isShrinkResources = false
 
-            buildConfigField("String", "open_ad_id", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "app_id", "\"ca-app-pub-3940256099942544~3347511713\"")
             buildConfigField("String", "banner_id", "\"ca-app-pub-3940256099942544/6300978111\"")
-            buildConfigField("String", "collapsible_id", "\"ca-app-pub-3940256099942544/9214589741\"")
-            buildConfigField("String", "interstitial_id", "\"ca-app-pub-3940256099942544/1033173712\"")
-            buildConfigField("String", "native_id", "\"ca-app-pub-3940256099942544/2247696110\"")
-            buildConfigField("String", "rewarded_id", "\"ca-app-pub-3940256099942544/5224354917\"")
+            buildConfigField(
+                "String",
+                "home_inter_id",
+                "\"ca-app-pub-3940256099942544/1033173712\""
+            )
+            buildConfigField(
+                "String",
+                "home_native_id",
+                "\"ca-app-pub-3940256099942544/2247696110\""
+            )
+            buildConfigField(
+                "String",
+                "lang_native_id",
+                "\"ca-app-pub-3940256099942544/2247696110\""
+            )
+            buildConfigField(
+                "String",
+                "onboarding_finish_inter_id",
+                "\"ca-app-pub-3940256099942544/1033173712\""
+            )
+            buildConfigField(
+                "String",
+                "onboarding_native_id",
+                "\"ca-app-pub-3940256099942544/2247696110\""
+            )
+            buildConfigField(
+                "String",
+                "premium_inter_id",
+                "\"ca-app-pub-3940256099942544/1033173712\""
+            )
+            buildConfigField(
+                "String",
+                "resume_open_id",
+                "\"ca-app-pub-3940256099942544/9257395921\""
+            )
+            buildConfigField(
+                "String",
+                "splash_open_id",
+                "\"ca-app-pub-3940256099942544/9257395921\""
+            )
+            buildConfigField(
+                "String",
+                "splash_inter_id",
+                "\"ca-app-pub-3940256099942544/1033173712\""
+            )
+            buildConfigField(
+                "String",
+                "splash_native_id",
+                "\"ca-app-pub-3940256099942544/2247696110\""
+            )
         }
     }
     compileOptions {
@@ -123,5 +238,5 @@ dependencies {
 
     implementation("com.android.billingclient:billing-ktx:8.3.0")
 
-    implementation ("com.airbnb.android:lottie:+")
+    implementation("com.airbnb.android:lottie:+")
 }

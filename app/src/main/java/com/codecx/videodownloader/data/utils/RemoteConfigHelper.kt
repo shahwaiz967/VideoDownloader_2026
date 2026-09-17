@@ -83,30 +83,30 @@ object RemoteConfigHelper {
 
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
-            resumeAppOpen = AdItem(BuildConfig.open_ad_id, true, OPEN_AD_TYPE),
-            splashTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            splashBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            splashFullScreenAd = AdItem(BuildConfig.open_ad_id, true, OPEN_AD_TYPE),
+            resumeAppOpen = AdItem(BuildConfig.resume_open_id, true, OPEN_AD_TYPE),
+            splashTopNative = AdItem(BuildConfig.splash_native_id, true, NATIVE_AD_TYPE),
+            splashBottomNative = AdItem(BuildConfig.splash_native_id, true, NATIVE_AD_TYPE),
+            splashFullScreenAd = AdItem(BuildConfig.splash_open_id, true, OPEN_AD_TYPE),
 
-            languageTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            languageBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
+            languageTopNative = AdItem(BuildConfig.lang_native_id, true, NATIVE_AD_TYPE),
+            languageBottomNative = AdItem(BuildConfig.lang_native_id, true, NATIVE_AD_TYPE),
 
-            onboardingTopNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            onboardingBottomNative = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            onboardingFinishInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            onboardingTopNative = AdItem(BuildConfig.onboarding_native_id, true, NATIVE_AD_TYPE),
+            onboardingBottomNative = AdItem(BuildConfig.onboarding_native_id, true, NATIVE_AD_TYPE),
+            onboardingFinishInter = AdItem(BuildConfig.onboarding_finish_inter_id, true, INTER_AD_TYPE),
 
-            homeInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
-            homeTopAd = AdItem(BuildConfig.banner_id, true, BANNER_AD_TYPE),
-            homeMidAd = AdItem(BuildConfig.native_id, true, NATIVE_AD_TYPE),
-            homeBottomAd = AdItem(BuildConfig.banner_id, true, BANNER_AD_TYPE),
+            homeInter = AdItem(BuildConfig.home_inter_id, true, INTER_AD_TYPE),
+            homeTopAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            homeMidAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            homeBottomAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
 
-            backPressInter = AdItem(BuildConfig.interstitial_id, true, INTER_AD_TYPE),
+            backPressInter = AdItem(BuildConfig.home_inter_id, true, INTER_AD_TYPE),
 
-            premiumInter = AdItem(BuildConfig.interstitial_id, false, INTER_AD_TYPE),
-            societyBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
-            historyBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
-            bookmarkBanner = AdItem(BuildConfig.collapsible_id, false, COLLAPSIBLE_AD_TYPE),
-            settingBanner = AdItem(BuildConfig.collapsible_id, true, COLLAPSIBLE_AD_TYPE),
+            premiumInter = AdItem(BuildConfig.home_inter_id, false, INTER_AD_TYPE),
+            societyBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
+            historyBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
+            bookmarkBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
+            settingBanner = AdItem(BuildConfig.banner_id, true, COLLAPSIBLE_AD_TYPE),
             adFrequency = 4, homeFirstClickInter = true
         )
     }
