@@ -188,4 +188,24 @@
     <string name="_100_ad_free">100% Bebas Iklan</string>
     <string name="priority_support">Dukungan VIP</string>
     <string name="language">Bahasa</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[Unduhan Video Cepat & Mudah!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">Simpan video dalam kualitas HD dan nikmati tontonan offline yang lancar kapan saja, di mana saja</string>
+    <string name="quick_simple_and_reliable">Cepat, Sederhana, dan Andal</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">Tempel tautan video apa pun dan simpan video favorit Anda dalam hitungan detik</string>
+    <string name="what_videos_would_you_like_to_download">Video apa yang ingin Anda unduh?</string>
+    <string name="choose_your_interests">Pilih Minat Anda</string>
+    <string name="select_the_categories_you_enjoy">Pilih kategori yang Anda sukai</string>
+    <string name="movies">Film</string>
+    <string name="news">Berita</string>
+    <string name="fashion">Mode</string>
+    <string name="bollywood">Bollywood</string>
+    <string name="technology">Teknologi</string>
+    <string name="gaming">Game</string>
+    <string name="music">Musik</string>
+    <string name="sports">Olahraga</string>
+    <string name="entertainment">Hiburan</string>
+    <string name="tech_unboxing">Unboxing Teknologi</string>
+    <string name="education">Pendidikan</string>
+    <string name="health_fitness"><![CDATA[Kesehatan & Kebugaran]]></string>
+    <string name="please_select_at_least_one_interest">Silakan pilih setidaknya satu minat</string>
 </resources>

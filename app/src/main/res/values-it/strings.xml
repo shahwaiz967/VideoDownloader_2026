@@ -188,4 +188,24 @@
     <string name="_100_ad_free">100% Senza Pubblicità</string>
     <string name="priority_support">Supporto VIP</string>
     <string name="language">Lingua</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[Download video veloci e facili!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">Salva i video in qualità HD e goditi la visione offline senza interruzioni sempre e ovunque</string>
+    <string name="quick_simple_and_reliable">Veloce, semplice e affidabile</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">Incolla qualsiasi link video e salva i tuoi video preferiti in pochi secondi</string>
+    <string name="what_videos_would_you_like_to_download">Quali video vorresti scaricare?</string>
+    <string name="choose_your_interests">Scegli i tuoi interessi</string>
+    <string name="select_the_categories_you_enjoy">Seleziona le categorie che ti piacciono</string>
+    <string name="movies">Film</string>
+    <string name="news">Notizie</string>
+    <string name="fashion">Moda</string>
+    <string name="bollywood">Bollywood</string>
+    <string name="technology">Tecnologia</string>
+    <string name="gaming">Giochi</string>
+    <string name="music">Musica</string>
+    <string name="sports">Sport</string>
+    <string name="entertainment">Intrattenimento</string>
+    <string name="tech_unboxing">Unboxing tecnologico</string>
+    <string name="education">Istruzione</string>
+    <string name="health_fitness"><![CDATA[Salute e fitness]]></string>
+    <string name="please_select_at_least_one_interest">Seleziona almeno un interesse</string>
 </resources>

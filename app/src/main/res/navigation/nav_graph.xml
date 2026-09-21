@@ -98,4 +98,13 @@
         android:name="com.codecx.videodownloader.features.ui.fragments.InAppBrowserFragment"
         tools:layout="@layout/fragment_in_app_browser"/>
 
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.OnBoardingFragment"
+        tools:layout="@layout/fragment_on_boarding"/>
+    <fragment
+        android:id="@+id/interestFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.InterestFragment"
+        tools:layout="@layout/fragment_interest"/>
+
 </navigation>

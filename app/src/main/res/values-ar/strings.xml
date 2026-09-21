@@ -188,4 +188,24 @@
     <string name="_100_ad_free">100% خالي من الإعلانات</string>
     <string name="priority_support">دعم VIP</string>
     <string name="language">اللغة</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[تحميل فيديوهات سريع وسهل!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">احفظ الفيديوهات بجودة عالية واستمتع بمشاهدة سلسة بدون إنترنت في أي وقت وأي مكان</string>
+    <string name="quick_simple_and_reliable">سريع وبسيط وموثوق</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">الصق أي رابط فيديو واحفظ فيديوهاتك المفضلة في ثوانٍ</string>
+    <string name="what_videos_would_you_like_to_download">ما هي الفيديوهات التي تود تحميلها؟</string>
+    <string name="choose_your_interests">اختر اهتماماتك</string>
+    <string name="select_the_categories_you_enjoy">اختر الفئات التي تستمتع بها</string>
+    <string name="movies">أفلام</string>
+    <string name="news">أخبار</string>
+    <string name="fashion">موضة</string>
+    <string name="bollywood">بوليوود</string>
+    <string name="technology">تكنولوجيا</string>
+    <string name="gaming">ألعاب</string>
+    <string name="music">موسيقى</string>
+    <string name="sports">رياضة</string>
+    <string name="entertainment">ترفيه</string>
+    <string name="tech_unboxing">فتح صناديق التقنية</string>
+    <string name="education">تعليم</string>
+    <string name="health_fitness"><![CDATA[الصحة واللياقة]]></string>
+    <string name="please_select_at_least_one_interest">يرجى اختيار اهتمام واحد على الأقل</string>
 </resources>

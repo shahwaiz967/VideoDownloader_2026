@@ -188,4 +188,24 @@
     <string name="_100_ad_free">٪100 اشتہارات سے پاک</string>
     <string name="priority_support">وی آئی پی سپورٹ</string>
     <string name="language">زبان</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[تیز اور آسان ویڈیو ڈاؤن لوڈز!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">ویڈیوز کو ایچ ڈی کوالٹی میں محفوظ کریں اور کسی بھی وقت، کہیں بھی بغیر کسی رکاوٹ کے آف لائن دیکھنے کا لطف اٹھائیں</string>
+    <string name="quick_simple_and_reliable">تیز، سادہ اور قابل اعتماد</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">کوئی بھی ویڈیو لنک پیسٹ کریں اور اپنے پسندیدہ ویڈیوز سیکنڈوں میں محفوظ کریں</string>
+    <string name="what_videos_would_you_like_to_download">آپ کون سی ویڈیوز ڈاؤن لوڈ کرنا چاہیں گے؟</string>
+    <string name="choose_your_interests">اپنی دلچسپیاں منتخب کریں</string>
+    <string name="select_the_categories_you_enjoy">وہ زمرے منتخب کریں جن سے آپ لطف اندوز ہوتے ہیں</string>
+    <string name="movies">فلمیں</string>
+    <string name="news">خبریں</string>
+    <string name="fashion">فیشن</string>
+    <string name="bollywood">بالی ووڈ</string>
+    <string name="technology">ٹیکنالوجی</string>
+    <string name="gaming">گیمنگ</string>
+    <string name="music">موسیقی</string>
+    <string name="sports">کھیل</string>
+    <string name="entertainment">تفریح</string>
+    <string name="tech_unboxing">ٹیک ان باکسنگ</string>
+    <string name="education">تعلیم</string>
+    <string name="health_fitness"><![CDATA[صحت اور تندرستی]]></string>
+    <string name="please_select_at_least_one_interest">براہ کرم کم از کم ایک دلچسپی منتخب کریں</string>
 </resources>

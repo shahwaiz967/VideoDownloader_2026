@@ -188,4 +188,24 @@
     <string name="_100_ad_free">১০০% বিজ্ঞাপন-মুক্ত</string>
     <string name="priority_support">ভিআইপি সাপোর্ট</string>
     <string name="language">ভাষা</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[দ্রুত এবং সহজ ভিডিও ডাউনলোড!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">এইচডি কোয়ালিটিতে ভিডিও সেভ করুন এবং যেকোনো সময়, যেকোনো জায়গায় নিরবচ্ছিন্ন অফলাইন দেখার আনন্দ নিন</string>
+    <string name="quick_simple_and_reliable">দ্রুত, সহজ এবং নির্ভরযোগ্য</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">যেকোনো ভিডিও লিঙ্ক পেস্ট করুন এবং কয়েক সেকেন্ডের মধ্যে আপনার প্রিয় ভিডিওগুলি সেভ করুন</string>
+    <string name="what_videos_would_you_like_to_download">আপনি কোন ভিডিও ডাউনলোড করতে চান?</string>
+    <string name="choose_your_interests">আপনার আগ্রহগুলি চয়ন করুন</string>
+    <string name="select_the_categories_you_enjoy">আপনি যে বিভাগগুলি উপভোগ করেন সেগুলি নির্বাচন করুন</string>
+    <string name="movies">মুভি</string>
+    <string name="news">খবর</string>
+    <string name="fashion">ফ্যাশন</string>
+    <string name="bollywood">বলিউড</string>
+    <string name="technology">প্রযুক্তি</string>
+    <string name="gaming">গেমিং</string>
+    <string name="music">সঙ্গীত</string>
+    <string name="sports">খেলাধুলা</string>
+    <string name="entertainment">বিনোদন</string>
+    <string name="tech_unboxing">টেক আনবক্সিং</string>
+    <string name="education">শিক্ষা</string>
+    <string name="health_fitness"><![CDATA[স্বাস্থ্য এবং ফিটনেস]]></string>
+    <string name="please_select_at_least_one_interest">অনুগ্রহ করে অন্তত একটি আগ্রহ নির্বাচন করুন</string>
 </resources>

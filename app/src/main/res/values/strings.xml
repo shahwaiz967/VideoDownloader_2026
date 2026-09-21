@@ -228,4 +228,24 @@
     <string name="_100_ad_free">100% ad-Free</string>
     <string name="priority_support">VIP Support</string>
     <string name="language">Language</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[Fast & Easy Video Downloads!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">Save videos in HD quality and enjoy seamless offline viewing anytime,anywhere</string>
+    <string name="quick_simple_and_reliable">Quick, Simple, and Reliable</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">Paste any video link and save your favourite videos in seconds</string>
+    <string name="what_videos_would_you_like_to_download">What Videos Would You Like To Download?</string>
+    <string name="choose_your_interests">Choose Your Interests</string>
+    <string name="select_the_categories_you_enjoy">Select The Categories You Enjoy</string>
+    <string name="movies">Movies</string>
+    <string name="news">News</string>
+    <string name="fashion">Fashion</string>
+    <string name="bollywood">Bollywood</string>
+    <string name="technology">Technology</string>
+    <string name="gaming">Gaming</string>
+    <string name="music">Music</string>
+    <string name="sports">Sports</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="tech_unboxing">Tech Unboxing</string>
+    <string name="education">Education</string>
+    <string name="health_fitness"><![CDATA[Health & Fitness]]></string>
+    <string name="please_select_at_least_one_interest">Please select at least one interest</string>
 </resources>

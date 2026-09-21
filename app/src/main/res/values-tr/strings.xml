@@ -188,4 +188,24 @@
     <string name="_100_ad_free">%100 Reklamsız</string>
     <string name="priority_support">VIP Destek</string>
     <string name="language">Dil</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[Hızlı ve Kolay Video İndirme!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">Videoları HD kalitesinde kaydedin ve her zaman, her yerde sorunsuz çevrimdışı izlemenin keyfini çıkarın</string>
+    <string name="quick_simple_and_reliable">Hızlı, Basit ve Güvenilir</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">Herhangi bir video bağlantısını yapıştırın ve en sevdiğiniz videoları saniyeler içinde kaydedin</string>
+    <string name="what_videos_would_you_like_to_download">Hangi Videoları İndirmek İstersiniz?</string>
+    <string name="choose_your_interests">İlgi Alanlarınızı Seçin</string>
+    <string name="select_the_categories_you_enjoy">Hoşunuza giden kategorileri seçin</string>
+    <string name="movies">Filmler</string>
+    <string name="news">Haberler</string>
+    <string name="fashion">Moda</string>
+    <string name="bollywood">Bollywood</string>
+    <string name="technology">Teknoloji</string>
+    <string name="gaming">Oyun</string>
+    <string name="music">Müzik</string>
+    <string name="sports">Spor</string>
+    <string name="entertainment">Eğlence</string>
+    <string name="tech_unboxing">Teknoloji İnceleme</string>
+    <string name="education">Eğitim</string>
+    <string name="health_fitness"><![CDATA[Sağlık ve Fitness]]></string>
+    <string name="please_select_at_least_one_interest">Lütfen en az bir ilgi alanı seçin</string>
 </resources>

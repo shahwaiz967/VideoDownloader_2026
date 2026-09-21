@@ -188,4 +188,24 @@
     <string name="_100_ad_free">100% werbefrei</string>
     <string name="priority_support">VIP-Support</string>
     <string name="language">Sprache</string>
+    <string name="fast_amp_easy_video_downloads"><![CDATA[Schnelle & einfache Video-Downloads!]]></string>
+    <string name="save_videos_in_hd_quality_and_enjoy_seamless_offline_viewing_anytime_anywhere">Speichern Sie Videos in HD-Qualität und genießen Sie nahtloses Offline-Ansehen jederzeit und überall</string>
+    <string name="quick_simple_and_reliable">Schnell, einfach und zuverlässig</string>
+    <string name="paste_any_video_link_and_save_your_favourite_videos_in_seconds">Fügen Sie einen beliebigen Videolink ein und speichern Sie Ihre Lieblingsvideos in Sekundenschnelle</string>
+    <string name="what_videos_would_you_like_to_download">Welche Videos möchten Sie herunterladen?</string>
+    <string name="choose_your_interests">Wählen Sie Ihre Interessen</string>
+    <string name="select_the_categories_you_enjoy">Wählen Sie die Kategorien aus, die Ihnen gefallen</string>
+    <string name="movies">Filme</string>
+    <string name="news">Nachrichten</string>
+    <string name="fashion">Mode</string>
+    <string name="bollywood">Bollywood</string>
+    <string name="technology">Technologie</string>
+    <string name="gaming">Gaming</string>
+    <string name="music">Musik</string>
+    <string name="sports">Sport</string>
+    <string name="entertainment">Unterhaltung</string>
+    <string name="tech_unboxing">Tech-Unboxing</string>
+    <string name="education">Bildung</string>
+    <string name="health_fitness"><![CDATA[Gesundheit & Fitness]]></string>
+    <string name="please_select_at_least_one_interest">Bitte wählen Sie mindestens ein Interesse aus</string>
 </resources>

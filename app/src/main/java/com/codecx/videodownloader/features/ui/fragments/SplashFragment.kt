@@ -108,7 +108,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     private fun moveNext() {
         val destination = if (PrefManager.isFirstRun(requireContext())) {
             PrefManager.setFirstRun(requireContext(), false)
-            R.id.languageFragment
+            R.id.onBoardingFragment
         } else {
             R.id.premiumFragment
         }
