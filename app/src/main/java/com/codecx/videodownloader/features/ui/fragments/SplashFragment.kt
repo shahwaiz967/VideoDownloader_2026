@@ -83,26 +83,19 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     private fun startProgressAnimation() {
         binding.progressBar.isIndeterminate = false
-        val handler = Handler()
-        val intervalMs = 6000L / 100
 
-        val progressRunnable = object : Runnable {
-            override fun run() {
-                if (progress <= 100) {
-                    binding.progressBar.progress = progress
-                    binding.tvProgress.text = "$progress%"
-                    progress++
-                    handler.postDelayed(this, intervalMs)
+        if (progress <= 100) {
+            binding.progressBar.progress = progress
+            binding.tvProgress.text = "$progress%"
+            progress++
 
-                } else {
-                    progressComplete = true
-                    moveNext()
-                }
-            }
-
+        } else {
+            progressComplete = true
+            binding.nextButton.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
+            binding.tvProgress.visibility = View.GONE
+            moveNext()
         }
-
-        handler.post(progressRunnable)
     }
 
     private fun moveNext() {
