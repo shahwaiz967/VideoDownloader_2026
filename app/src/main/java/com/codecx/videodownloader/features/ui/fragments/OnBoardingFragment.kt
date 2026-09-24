@@ -69,6 +69,6 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>() {
     }
 
     private fun navigateToNext() {
-        safeNavigate(R.id.interestFragment)
+        safeNavigate(R.id.languageFragment)
     }
 }

@@ -1,7 +1,6 @@
 package com.codecx.videodownloader.data.models
 
 import com.google.gson.annotations.SerializedName
-import com.codecx.videodownloader.data.ads.enums.EnumAdType
 
 
 data class AdItem(
@@ -13,4 +12,6 @@ data class AdItem(
     val adFormat: String = "",
     @SerializedName("adType")
     val adType: Int = 0,
+    @SerializedName("adController")
+    val adController: Int = 0,
 )

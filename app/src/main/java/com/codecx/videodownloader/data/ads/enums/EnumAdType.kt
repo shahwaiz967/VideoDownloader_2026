@@ -40,6 +40,8 @@ fun AdItem.getNativeLayout(): Int {
         // 13 = Medium Native without media right side Button
         13 -> R.layout.native_banner
 
+        14 -> R.layout.full_screen_native_ad
+
         // Default
         else -> {
             R.layout.native_banner
@@ -53,7 +55,7 @@ fun AdItem.getShimmerLayout(): Int {
         5, 6 -> R.layout.large_native_shimmer
         7, 8, 9, 10 -> R.layout.medium_shimmer
         11, 12 -> R.layout.native_banner_shimmer
-        13 -> R.layout.native_banner_shimmer
+        13, 14 -> R.layout.native_banner_shimmer
         else -> {
             R.layout.native_banner
         }

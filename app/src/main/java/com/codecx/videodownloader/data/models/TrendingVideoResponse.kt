@@ -37,4 +37,8 @@ sealed class ReelItem {
         val createdAt:  String = "",
         val updatedAt:  String = ""
     ) : ReelItem()
+
+    data class NativeAdItem(
+        val adItem: AdItem = AdItem()
+    ) : ReelItem()
 }

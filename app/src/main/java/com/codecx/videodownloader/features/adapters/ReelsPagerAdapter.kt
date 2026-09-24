@@ -1,5 +1,6 @@
 package com.codecx.videodownloader.features.adapters
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.media3.common.MediaItem
@@ -16,8 +18,11 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.recyclerview.widget.RecyclerView
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.nativeAds.NativeAdsUtil
+import com.codecx.videodownloader.data.models.AdItem
 import com.codecx.videodownloader.data.models.ReelItem
 import com.codecx.videodownloader.data.utils.AppConstants
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.databinding.ItemReelVideoBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,11 +32,50 @@ import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
+@androidx.media3.common.util.UnstableApi
 class ReelsPagerAdapter(
     private val context: Context,
-    private val items: List<ReelItem>,
+    initialItems: List<ReelItem>,
     private val onDownloadClick: (ReelItem.VideoItem) -> Unit
-) : RecyclerView.Adapter<ReelsPagerAdapter.VideoViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    companion object {
+        private const val VIEW_TYPE_VIDEO = 0
+        private const val VIEW_TYPE_AD = 1
+
+        fun getAdControllerValue(adConfig: AdItem = RemoteConfigHelper.adIds.reelFullNative): Int {
+            return when {
+                adConfig.adController > 0 -> adConfig.adController
+                RemoteConfigHelper.adIds.reelAdFrequency > 0 -> RemoteConfigHelper.adIds.reelAdFrequency
+                else -> RemoteConfigHelper.adIds.adFrequency
+            }
+        }
+
+        fun buildReelListWithAds(
+            videoItems: List<ReelItem.VideoItem>,
+            adConfig: AdItem = RemoteConfigHelper.adIds.reelFullNative,
+            adController: Int = getAdControllerValue(adConfig)
+        ): List<ReelItem> {
+            val result = mutableListOf<ReelItem>()
+            if (adConfig.isAdEnable && adController > 0) {
+                var count = 0
+                for (video in videoItems) {
+                    result.add(video)
+                    count++
+                    if (count % adController == 0) {
+                        result.add(ReelItem.NativeAdItem(adConfig))
+                    }
+                }
+            } else {
+                result.addAll(videoItems)
+            }
+            return result
+        }
+    }
+
+    private var items: MutableList<ReelItem> = initialItems.toMutableList()
+    private var rawVideoItems: List<ReelItem.VideoItem> = initialItems.filterIsInstance<ReelItem.VideoItem>()
+    private var currentAdController: Int = getAdControllerValue()
 
     private val players = mutableMapOf<Int, ExoPlayer>()
     private val adapterScope = CoroutineScope(Dispatchers.Main)
@@ -46,6 +90,14 @@ class ReelsPagerAdapter(
             }
         }
 
+    override fun getItemViewType(position: Int): Int {
+        return when (items[position]) {
+            is ReelItem.VideoItem -> VIEW_TYPE_VIDEO
+            is ReelItem.NativeAdItem -> VIEW_TYPE_AD
+        }
+    }
+
+    @androidx.media3.common.util.UnstableApi
     inner class VideoViewHolder(val binding: ItemReelVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -90,6 +142,7 @@ class ReelsPagerAdapter(
             }
         }
 
+        @androidx.media3.common.util.UnstableApi
         private fun setupPlayer(url: String, position: Int) {
             val existing = players[position]
             if (existing != null) {
@@ -182,23 +235,96 @@ class ReelsPagerAdapter(
             context.getSharedPreferences("reel_likes", Context.MODE_PRIVATE)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        VideoViewHolder(ItemReelVideoBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    inner class AdViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val adContainer: FrameLayout? = view.findViewById(R.id.adContainer)
 
-    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) =
-        holder.bind(items[position] as ReelItem.VideoItem, position)
-
-    override fun onViewRecycled(holder: VideoViewHolder) {
-        super.onViewRecycled(holder)
-        val position = holder.bindingAdapterPosition
-        if (position != RecyclerView.NO_POSITION) {
-            players[position]?.release()
-            players.remove(position)
+        fun bind(item: ReelItem.NativeAdItem) {
+            val activity = context as? Activity ?: return
+            if (item.adItem.isAdEnable && adContainer != null) {
+                NativeAdsUtil.populateNativeAd(
+                    isAdAllowed = true,
+                    loadingAdView = R.layout.large_native_shimmer,
+                    nativeAdView = R.layout.full_screen_native_ad,
+                    adContainerView = adContainer,
+                    nativeId = item.adItem.adId,
+                    context = activity
+                )
+            } else {
+                adContainer?.removeAllViews()
+            }
         }
-        holder.binding.playerView.player = null
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == VIEW_TYPE_VIDEO) {
+            VideoViewHolder(ItemReelVideoBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        } else {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_reel_ad, parent, false)
+            AdViewHolder(view)
+        }
+    }
+
+    fun isAdPosition(position: Int): Boolean {
+        return items.getOrNull(position) is ReelItem.NativeAdItem
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (val item = items[position]) {
+            is ReelItem.VideoItem -> (holder as VideoViewHolder).bind(item, position)
+            is ReelItem.NativeAdItem -> (holder as AdViewHolder).bind(item)
+        }
+    }
+
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        super.onViewRecycled(holder)
+        if (holder is VideoViewHolder) {
+            val position = holder.bindingAdapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                players[position]?.release()
+                players.remove(position)
+            }
+            holder.binding.playerView.player = null
+        }
     }
 
     override fun getItemCount() = items.size
+
+   /* fun updateData(
+        newVideoItems: List<ReelItem.VideoItem>,
+        adConfig: AdItem = RemoteConfigHelper.adIds.reelFullNative,
+        adController: Int = getAdControllerValue(adConfig)
+    ) {
+        releaseAll()
+        this.rawVideoItems = newVideoItems
+        this.currentAdController = adController
+        val newItems = buildReelListWithAds(newVideoItems, adConfig, adController)
+        this.items.clear()
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
+    fun updateAdController(
+        adController: Int,
+        adConfig: AdItem = RemoteConfigHelper.adIds.reelFullNative
+    ) {
+        if (this.currentAdController == adController && this.rawVideoItems.isNotEmpty()) return
+        releaseAll()
+        this.currentAdController = adController
+        if (this.rawVideoItems.isNotEmpty()) {
+            val newItems = buildReelListWithAds(rawVideoItems, adConfig, adController)
+            this.items.clear()
+            this.items.addAll(newItems)
+            notifyDataSetChanged()
+        }
+    }
+
+    fun setItems(newItems: List<ReelItem>) {
+        releaseAll()
+        this.rawVideoItems = newItems.filterIsInstance<ReelItem.VideoItem>()
+        this.items.clear()
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
+    }*/
 
     fun resumeCurrent() { players[currentPlayingPosition]?.play() }
     fun pauseAll() { players.values.forEach { it.pause() } }

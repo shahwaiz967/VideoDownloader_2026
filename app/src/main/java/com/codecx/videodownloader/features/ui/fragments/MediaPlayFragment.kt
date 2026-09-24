@@ -9,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.media3.common.Player
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.utils.bindNative
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.features.ui.viewmodel.VideoPlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentMediaPlayBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -57,6 +59,11 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
                 bundle.getBoolean("isAudio", false)
             )
         }
+        bindNative(
+            RemoteConfigHelper.adIds.videoPlayerNative,
+            false,
+            binding.adLayoutBottom
+        )
 
         setupUi()
         setupListeners()

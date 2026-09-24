@@ -24,7 +24,10 @@ import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.data.utils.showToast
 import java.io.File
 import androidx.appcompat.app.AlertDialog
+import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
+import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.models.MediaModel
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.features.ui.viewmodel.PlayerViewModel
 import com.codecx.videodownloader.databinding.FragmentPlayerBinding
 import com.codecx.videodownloader.features.adapters.PlayerChipAdapter
@@ -39,6 +42,7 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     private var deleteLauncher: ActivityResultLauncher<IntentSenderRequest?>? = null
 
     private val viewModel: PlayerViewModel by viewModel()
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -72,9 +76,9 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 viewModel.showingVideos = true
                 viewModel.selectedFolder = "All"
                 chipAdapter.setSelectedFolder("All")
-                mediaAdapter.submitList(viewModel.videos.value.toList())
+                mediaAdapter.submitMediaList(viewModel.videos.value.toList())
                 chipAdapter.submitFolders(viewModel.videoFolders.value)
-                binding.mediaRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.mediaRecycler.layoutManager = createGridLayoutManager()
                 binding.mediaRecycler.adapter = mediaAdapter
                 loadFoldersAndMedia()
             }
@@ -85,7 +89,7 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 viewModel.showingVideos = false
                 viewModel.selectedFolder = "All"
                 chipAdapter.setSelectedFolder("All")
-                mediaAdapter.submitList(viewModel.audios.value.toList())
+                mediaAdapter.submitMediaList(viewModel.audios.value.toList())
                 chipAdapter.submitFolders(viewModel.audioFolders.value)
                 binding.mediaRecycler.layoutManager = LinearLayoutManager(requireContext())
                 binding.mediaRecycler.adapter = mediaAdapter
@@ -97,11 +101,24 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
     private fun setupMediaAdapter() {
         mediaAdapter = PlayerMediaAdapter(
             onItemClick = { media ->
+
                 val bundle = Bundle()
                 bundle.putString("videoPath", media.path)
                 bundle.putString("videoTitle", media.title)
                 bundle.putBoolean("isAudio", media.isAudio)
-                safeNavigate(R.id.mediaPlayFragment, bundle)
+
+                showInter(
+                    interstitialHelper = interstitialHelper,
+                    stringId = RemoteConfigHelper.adIds.playerInter.adId,
+                    adAllowed = RemoteConfigHelper.adIds.playerInter.isAdEnable,
+                    onDismiss = {
+                        safeNavigate(R.id.mediaPlayFragment, bundle)
+                    },
+                    onFail = {
+                        safeNavigate(R.id.mediaPlayFragment, bundle)
+                    }
+                )
+
             },
             onDeleteClick = { media ->
                 performDelete(media)
@@ -110,11 +127,25 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
 
         binding.mediaRecycler.apply {
             layoutManager = if (viewModel.showingVideos) {
-                GridLayoutManager(requireContext(), 2)
+                createGridLayoutManager()
             } else {
                 LinearLayoutManager(requireContext())
             }
             adapter = mediaAdapter
+        }
+    }
+
+    private fun createGridLayoutManager(): GridLayoutManager {
+        return GridLayoutManager(requireContext(), 2).apply {
+            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return if (mediaAdapter.getItemViewType(position) == PlayerMediaAdapter.TYPE_AD_VIEW) {
+                        2
+                    } else {
+                        1
+                    }
+                }
+            }
         }
     }
 
@@ -144,14 +175,14 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
                 launch {
                     viewModel.videos.collect { videos ->
                         if (viewModel.showingVideos) {
-                            mediaAdapter.submitList(videos.toList())
+                            mediaAdapter.submitMediaList(videos.toList())
                         }
                     }
                 }
                 launch {
                     viewModel.audios.collect { audios ->
                         if (!viewModel.showingVideos) {
-                            mediaAdapter.submitList(audios.toList())
+                            mediaAdapter.submitMediaList(audios.toList())
                         }
                     }
                 }

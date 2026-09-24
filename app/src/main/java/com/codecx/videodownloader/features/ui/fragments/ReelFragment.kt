@@ -16,9 +16,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.models.ReelItem
 import com.codecx.videodownloader.data.states.ResultState
+import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.databinding.FragmentReelBinding
 import com.codecx.videodownloader.features.adapters.ReelsPagerAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -27,12 +29,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
+@androidx.media3.common.util.UnstableApi
 class ReelFragment : BaseFragment<FragmentReelBinding>() {
 
     private lateinit var reelsAdapter: ReelsPagerAdapter
     private var reelId = 0
-
-
     private val downloadViewModel: DownloadViewModel by activityViewModel()
 
     override fun bindLayout(
@@ -53,6 +54,12 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
         goFullscreen()
         fetchReels()
         observeDownloadCompletion()
+
+        bindNative(
+            RemoteConfigHelper.adIds.reelBottomNative,
+            false,
+            binding.adContainer
+        )
     }
 
     override fun onDetach() {
@@ -91,7 +98,7 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
                     is ResultState.Success -> {
                         showLoading(false)
                         val videos = it.data.data ?: emptyList()
-                        val items = videos.mapNotNull { video ->
+                        val videoItems = videos.mapNotNull { video ->
                             val url = video.url ?: return@mapNotNull null
                             ReelItem.VideoItem(
                                 id = video.id ?: 0,
@@ -106,9 +113,10 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
                                 updatedAt = video.updatedAt ?: ""
                             )
                         }
-                        if (items.isEmpty()) {
+                        if (videoItems.isEmpty()) {
                             showError(getString(R.string.no_videos_found))
                         } else {
+                            val items = buildReelListWithAds(videoItems)
                             setupViewPager(items)
                         }
                     }
@@ -123,6 +131,12 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
 
 
         }
+    }
+
+    private fun buildReelListWithAds(videoItems: List<ReelItem.VideoItem>): List<ReelItem> {
+        val adConfig = RemoteConfigHelper.adIds.reelFullNative
+        val adController = ReelsPagerAdapter.getAdControllerValue(adConfig)
+        return ReelsPagerAdapter.buildReelListWithAds(videoItems, adConfig, adController)
     }
 
     private fun setupViewPager(items: List<ReelItem>) {
@@ -145,14 +159,28 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
 
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
                     reelsAdapter.currentPlayingPosition = position
+                    updateBottomNativeAdVisibility(position)
                 }
             })
 
             post {
                 reelsAdapter.currentPlayingPosition = reelId
                 if (reelId != 0) setCurrentItem(reelId, false)
+                updateBottomNativeAdVisibility(reelId)
             }
+        }
+    }
+
+    private fun updateBottomNativeAdVisibility(position: Int) {
+        if (!::reelsAdapter.isInitialized) return
+        val isAdItem = reelsAdapter.isAdPosition(position)
+        val isBottomAdEnabled = RemoteConfigHelper.adIds.reelBottomNative.isAdEnable
+        if (isAdItem || !isBottomAdEnabled) {
+            binding.adContainer.visibility = View.GONE
+        } else {
+            binding.adContainer.visibility = View.VISIBLE
         }
     }
 
