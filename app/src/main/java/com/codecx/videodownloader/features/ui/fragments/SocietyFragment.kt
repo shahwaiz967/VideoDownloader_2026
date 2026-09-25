@@ -48,6 +48,12 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
             false,
             binding.adLayout
         )
+        bindNative(
+            RemoteConfigHelper.adIds.societyNativeTop,
+            false,
+            binding.adTopLayout
+        )
+
 
         binding.btnPasteLink.setOnClickListener {
             val text = requireContext().getClipboardText()

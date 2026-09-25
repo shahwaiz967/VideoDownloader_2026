@@ -1,5 +1,6 @@
 package com.codecx.videodownloader.features.ui.fragments
 
+import android.app.Dialog
 import android.app.DownloadManager
 import android.content.Intent
 import android.graphics.Typeface
@@ -27,12 +28,15 @@ import com.codecx.videodownloader.data.ads.utils.showInterWithCounter
 import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
+import com.codecx.videodownloader.databinding.DialogExitBinding
 import com.codecx.videodownloader.databinding.FragmentMainBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.perf.config.RemoteConfigManager
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
@@ -49,6 +53,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
 
     private var currentTab = TAB_HOME
+    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
+
 
     companion object {
         const val TAB_HOME = 0
@@ -56,8 +62,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         const val TAB_REELS = 2
         const val TAB_PLAYER = 3
 
-        private const val PREFS_NAME = "vd_prefs"
-        private const val KEY_DEFAULT_PROMPT_SHOWN = "default_prompt_shown"
     }
 
     override fun bindLayout(
@@ -79,6 +83,45 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         initStartupPage()
         observeDownloadCompletion()
         observeDownloadStart()
+
+        onBackPressWithAd(interstitialHelper){
+            showExitDialog()
+        }
+    }
+
+    private fun showExitDialog(){
+        val dialog = Dialog(requireContext())
+        val binding = DialogExitBinding.inflate(layoutInflater)
+        dialog.setContentView(binding.root)
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        bindNative(
+            RemoteConfigHelper.adIds.exitDialogNative,
+            false,
+            binding.adLayoutTop
+        )
+        binding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        binding.btnExit.setOnClickListener {
+            dialog.dismiss()
+            requireActivity().finish()
+        }
+
+        dialog.show()
+
+        val width = resources.displayMetrics.widthPixels -
+                resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._40sdp)
+
+        dialog.window?.setLayout(
+            width,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+
+
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
@@ -225,7 +268,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
     }
 
-    private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     private fun handleNavigationAd(onComplete: () -> Unit) {
         showInterWithCounter(

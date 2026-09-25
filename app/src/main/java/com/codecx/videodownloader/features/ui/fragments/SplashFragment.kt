@@ -2,7 +2,6 @@ package com.codecx.videodownloader.features.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.openAd.OpenAppUtil
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.ads.utils.showInter
-import com.codecx.videodownloader.data.models.AdItem
 import com.codecx.videodownloader.data.utils.AppUpdateChecker
 import com.codecx.videodownloader.data.utils.PrefManager
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
@@ -22,9 +20,8 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper.OPEN_AD_TYPE
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun bindLayout(
@@ -67,7 +64,8 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             }
         }
     }
-    private fun loadAds(){
+
+    private fun loadAds() {
         bindNative(
             adItem = RemoteConfigHelper.adIds.splashTopNative,
             isPro = false,
@@ -78,23 +76,26 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             isPro = false,
             container = binding.bottomAdLayout
         )
-
     }
 
     private fun startProgressAnimation() {
         binding.progressBar.isIndeterminate = false
+        binding.progressBar.max = 100
 
-        if (progress <= 100) {
-            binding.progressBar.progress = progress
-            binding.tvProgress.text = "$progress%"
-            progress++
-
-        } else {
+        lifecycleScope.launch {
+            for (i in 0..100) {
+                progress = i
+                binding.progressBar.progress = i
+                binding.tvProgress.text = "$i%"
+                delay(30)
+            }
             progressComplete = true
-            binding.nextButton.visibility = View.VISIBLE
+            binding.btnNext.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
             binding.tvProgress.visibility = View.GONE
-            moveNext()
+            binding.btnNext.setOnClickListener {
+                moveNext()
+            }
         }
     }
 
@@ -141,6 +142,4 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             safeNavigate(destination)
         }
     }
-
-
 }

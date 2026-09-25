@@ -85,6 +85,7 @@ object RemoteConfigHelper {
 
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
+
             resumeAppOpen = AdItem(BuildConfig.resume_open_id, true, OPEN_AD_TYPE),
             splashTopNative = AdItem(BuildConfig.splash_native_id, true, NATIVE_AD_TYPE),
             splashBottomNative = AdItem(BuildConfig.splash_native_id, true, NATIVE_AD_TYPE),
@@ -101,15 +102,27 @@ object RemoteConfigHelper {
             homeTopAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
             homeMidAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
             homeBottomAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            exitDialogNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
 
             backPressInter = AdItem(BuildConfig.home_inter_id, true, INTER_AD_TYPE),
 
+            playerInter = AdItem(BuildConfig.home_inter_id, true, INTER_AD_TYPE),
+
+            societyBanner = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            societyNativeTop = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+
+            videoPlayerNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            playerNativeAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+
             premiumInter = AdItem(BuildConfig.home_inter_id, false, INTER_AD_TYPE),
-            societyBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
             historyBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
             bookmarkBanner = AdItem(BuildConfig.banner_id, false, COLLAPSIBLE_AD_TYPE),
             settingBanner = AdItem(BuildConfig.banner_id, true, COLLAPSIBLE_AD_TYPE),
-            adFrequency = 4, homeFirstClickInter = true
+            adFrequency = 4, homeFirstClickInter = true,
+
+            reelFullNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+            reelBottomNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
+
         )
     }
 }
