@@ -104,7 +104,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             PrefManager.setFirstRun(requireContext(), false)
             R.id.onBoardingFragment
         } else {
-            R.id.premiumFragment
+            R.id.mainFragment
         }
 
         val adItem = RemoteConfigHelper.adIds.splashFullScreenAd

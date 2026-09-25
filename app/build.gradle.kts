@@ -32,8 +32,8 @@ android {
         applicationId = "com.video.downloader.hd.fourk.videoplayer"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
-        versionName = "2.0"
+        versionCode = 3
+        versionName = "3.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "weeklyPlanId", "\"weekly_price\"")
@@ -102,8 +102,8 @@ android {
             )
         }
         debug {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
 
             buildConfigField("String", "app_id", "\"ca-app-pub-3940256099942544~3347511713\"")
             buildConfigField("String", "banner_id", "\"ca-app-pub-3940256099942544/6300978111\"")

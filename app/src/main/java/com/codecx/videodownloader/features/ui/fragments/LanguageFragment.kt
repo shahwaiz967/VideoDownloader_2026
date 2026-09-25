@@ -88,7 +88,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                 }
             }
             
-            safeNavigate(R.id.premiumFragment)
+            safeNavigate(R.id.mainFragment)
             
             if (targetLocaleList != null) {
                 androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(targetLocaleList)
