@@ -12,6 +12,4 @@ data class AdItem(
     val adFormat: String = "",
     @SerializedName("adType")
     val adType: Int = 0,
-    @SerializedName("adController")
-    val adController: Int = 0,
 )

@@ -45,7 +45,6 @@ class ReelsPagerAdapter(
 
         fun getAdControllerValue(adConfig: AdItem = RemoteConfigHelper.adIds.reelFullNative): Int {
             return when {
-                adConfig.adController > 0 -> adConfig.adController
                 RemoteConfigHelper.adIds.reelAdFrequency > 0 -> RemoteConfigHelper.adIds.reelAdFrequency
                 else -> RemoteConfigHelper.adIds.adFrequency
             }

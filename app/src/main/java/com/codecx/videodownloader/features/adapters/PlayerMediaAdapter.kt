@@ -44,9 +44,8 @@ class PlayerMediaAdapter(
         const val TYPE_AD_VIEW = 2
     }
 
-    fun getAdControllerValue(adConfig: AdItem = RemoteConfigHelper.adIds.playerNativeAd): Int {
+    fun getAdControllerValue(adConfig: AdItem = RemoteConfigHelper.adIds.videoPlayerNative): Int {
         return when {
-            adConfig.adController > 0 -> adConfig.adController
             RemoteConfigHelper.adIds.playerNativeFrequency > 0 -> RemoteConfigHelper.adIds.playerNativeFrequency
             else -> RemoteConfigHelper.adIds.adFrequency
         }
@@ -92,12 +91,13 @@ class PlayerMediaAdapter(
         adConfig: AdItem = RemoteConfigHelper.adIds.videoPlayerNative
     ) {
         val items = mutableListOf<PlayerAdapterItem>()
-        if (adConfig.isAdEnable) {
+        val adController = getAdControllerValue(adConfig)
+        if (adConfig.isAdEnable && adController > 0) {
             var count = 0
             for (media in list) {
                 items.add(PlayerAdapterItem.Media(media))
                 count++
-                if (count % 10 == 0) {
+                if (count % adController == 0) {
                     items.add(PlayerAdapterItem.Ad(adConfig))
                 }
             }
