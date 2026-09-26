@@ -1,12 +1,15 @@
 package com.codecx.videodownloader.features.ui.fragments
 
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.media3.common.Player
+import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.utils.bindNative
@@ -25,6 +28,8 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
     private var isAudio = false
 
     private var isFullscreen = false
+
+    private var playerViewOriginalParams: ConstraintLayout.LayoutParams? = null
 
 
     override fun bindLayout(
@@ -70,6 +75,33 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
         setupPlayer()
     }
 
+    /*private fun expandPlayerViewToFillRoot() {
+        val lp = binding.playerView.layoutParams as? ConstraintLayout.LayoutParams ?: return
+
+        if (playerViewOriginalParams == null) {
+            playerViewOriginalParams = ConstraintLayout.LayoutParams(lp)
+        }
+
+        lp.width = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+        lp.height = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+        lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+        lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+        lp.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+        lp.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+        lp.topToBottom = ConstraintLayout.LayoutParams.UNSET
+        lp.bottomToTop = ConstraintLayout.LayoutParams.UNSET
+        lp.setMargins(0, 0, 0, 0)
+
+        binding.playerView.layoutParams = lp
+        binding.playerView.requestLayout()
+    }
+
+    private fun restorePlayerViewLayout() {
+        val original = playerViewOriginalParams ?: return
+        binding.playerView.layoutParams = ConstraintLayout.LayoutParams(original)
+        binding.playerView.requestLayout()
+    }*/
+
     private fun setupUi() {
 
         binding.tvTitle.text = videoTitle
@@ -80,6 +112,7 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
     }
 
     private fun setupPlayer() {
+        binding.playerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
 
         binding.playerView.player = viewModel.player
 
@@ -113,17 +146,18 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
 
         binding.ivRotate.setOnClickListener {
 
-            val currentOrientation =
-                requireActivity().requestedOrientation
-
             requireActivity().requestedOrientation =
                 if (
-                    currentOrientation ==
-                    ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    resources.configuration.orientation ==
+                    Configuration.ORIENTATION_LANDSCAPE
                 ) {
+
                     ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
                 } else {
+
                     ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+
                 }
         }
 
@@ -195,28 +229,31 @@ class MediaPlayFragment : BaseFragment<FragmentMediaPlayBinding>() {
                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
             binding.toolbar.isVisible = false
+            //expandPlayerViewToFillRoot()
 
         } else {
-
             requireActivity().requestedOrientation =
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
             binding.toolbar.isVisible = true
+            //restorePlayerViewLayout()
         }
     }
 
     override fun onStart() {
         super.onStart()
-
         binding.playerView.player = viewModel.player
     }
 
     override fun onStop() {
         binding.playerView.player = null
-
         viewModel.player.removeListener(playerListener)
 
         super.onStop()
+    }
+
+    override fun onDestroyView() {
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        super.onDestroyView()
     }
 
 }

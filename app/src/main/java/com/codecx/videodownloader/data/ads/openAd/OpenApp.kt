@@ -44,6 +44,7 @@ class OpenAppUtil {
             val loadCallback = object : AdLoadCallback<AppOpenAd> {
                 override fun onAdLoaded(ad: AppOpenAd) {
                     runOnUiThread {
+
                         isOpenAdLoading = false
                         onAdLoaded(ad)
                     }
@@ -73,6 +74,7 @@ class OpenAppUtil {
         onAdDismiss: () -> Unit,
         onAdFail: () -> Unit
     ) {
+
         val fullScreenContentCallback = object : AppOpenAdEventCallback {
             override fun onAdDismissedFullScreenContent() {
                 isOpenAdShowing = false
@@ -118,8 +120,8 @@ class OpenAppUtil {
 class OpenApp(
     private val application: Application,
     private val isLoadingViewVisible: Boolean,
-    //@LayoutRes
-    // private val loadingLayout: Int = R.layout.openad_loading_layout
+    /*@LayoutRes
+     private val loadingLayout: Int = R.layout.dialog_ad_loading*/
 ) :
     Application.ActivityLifecycleCallbacks {
     private var appOpenAd: AppOpenAd? = null
@@ -153,7 +155,7 @@ class OpenApp(
                     if (!adConfig.isAdEnable) return
 
                     isOpenAdLoading = true
-                    /* if (isLoadingViewVisible) {
+                  /*   if (isLoadingViewVisible) {
                          Handler(Looper.getMainLooper()).postDelayed({
                              LoadingUtils.showAdLoadingScreen(it, loadingLayout)
                          }, 200L)

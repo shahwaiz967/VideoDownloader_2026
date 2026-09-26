@@ -11,6 +11,7 @@ import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.openAd.OpenAppUtil
+import com.codecx.videodownloader.data.ads.utils.LoadingUtils
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.utils.AppUpdateChecker
@@ -53,7 +54,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                 })
             }
         } else {
-            binding.progressBar.isIndeterminate = true
+            binding.progressBar.isIndeterminate = false
+            binding.progressBar.progress = 0
+            binding.tvProgress.text = "0%"
             appUpdate.checkAppUpdate {
                 lifecycleScope.launch {
                     RemoteConfigHelper.checkRemoteConfig {
@@ -109,19 +112,25 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         val adItem = RemoteConfigHelper.adIds.splashFullScreenAd
         if (adItem.isAdEnable) {
             if (adItem.adFormat == OPEN_AD_TYPE) {
+                LoadingUtils.showAdLoadingScreen(requireContext(), R.layout.dialog_ad_loading)
                 val openAdUtil = OpenAppUtil()
                 openAdUtil.loadOpenAd(requireContext(), adId = adItem.adId, onAdLoaded = { ad ->
                     openAdUtil.showAd(
                         activity = requireActivity(),
                         ad = ad,
-                        onAdShowed = {},
+                        onAdShowed = {
+                            LoadingUtils.dismissScreen()
+                        },
                         onAdDismiss = {
+                            LoadingUtils.dismissScreen()
                             safeNavigate(destination)
                         },
                         onAdFail = {
+                            LoadingUtils.dismissScreen()
                             safeNavigate(destination)
                         })
                 }, onFailToLoad = {
+                    LoadingUtils.dismissScreen()
                     safeNavigate(destination)
                 })
             } else {

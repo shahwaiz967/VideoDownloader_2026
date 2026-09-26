@@ -58,7 +58,7 @@ object RemoteConfigHelper {
                 mFirebaseRemoteConfig.fetchAndActivate().await()
             }
         }.onSuccess {
-            val json = if (BuildConfig.DEBUG) mFirebaseRemoteConfig.getString("ads_config_test")
+            val json = if (BuildConfig.DEBUG) mFirebaseRemoteConfig.getString("aps_config_test")
             else mFirebaseRemoteConfig.getString("ads_config")
 
             Log.d(TAG, "checkRemoteConfig: Fetched JSON: $json")

@@ -3,6 +3,8 @@ package com.codecx.videodownloader.features.ui.fragments
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -25,6 +27,7 @@ import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -32,6 +35,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val downloadViewModel: DownloadViewModel by activityViewModel()
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     private var isFirstActionDone = false
+    private var progressDialog: androidx.appcompat.app.AlertDialog? = null
 
 
     override fun bindLayout(
@@ -210,6 +214,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             "www."
         )
     }
+
+
 
 
     companion object {
