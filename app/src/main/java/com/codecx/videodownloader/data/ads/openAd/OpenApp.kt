@@ -31,6 +31,7 @@ import com.codecx.videodownloader.data.ads.utils.LoadingUtils
 import com.codecx.videodownloader.data.ads.utils.isNetworkConnected
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class OpenAppUtil {
     fun loadOpenAd(
@@ -94,6 +95,17 @@ class OpenAppUtil {
                 runOnUiThread {
                     onAdShowed()
                 }
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                FirebaseAnalytics.getInstance(activity).logEvent(
+                    FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                        putString(FirebaseAnalytics.Param.AD_FORMAT, "app_open")
+                        putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                        putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "app_open")
+                    }
+                )
             }
 
         }
@@ -197,6 +209,19 @@ class OpenApp(
 
                 override fun onAdShowedFullScreenContent() {
                     isOpenAdShowing = true
+                }
+
+                override fun onAdImpression() {
+                    super.onAdImpression()
+                    currentActivity?.let { activity ->
+                        FirebaseAnalytics.getInstance(activity).logEvent(
+                            FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                putString(FirebaseAnalytics.Param.AD_FORMAT, "app_open")
+                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, RemoteConfigHelper.adIds.resumeAppOpen.adId)
+                            }
+                        )
+                    }
                 }
             }
             appOpenAd?.adEventCallback = fullScreenContentCallback

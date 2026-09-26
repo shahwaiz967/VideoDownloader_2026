@@ -17,6 +17,7 @@ import com.codecx.videodownloader.data.ads.interfaces.AdCallBack
 import com.codecx.videodownloader.data.ads.openAd.OpenAdConfig
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
 import com.codecx.videodownloader.data.utils.beVisible
+import com.google.firebase.analytics.FirebaseAnalytics
 
 
 object CollapseBannerAd {
@@ -61,6 +62,14 @@ object CollapseBannerAd {
 
                                 ad.adEventCallback = object : BannerAdEventCallback {
                                     override fun onAdImpression() {
+                                        super.onAdImpression()
+                                        FirebaseAnalytics.getInstance(activity).logEvent(
+                                            FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                                putString(FirebaseAnalytics.Param.AD_FORMAT, "collapsible_banner")
+                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, unitId)
+                                            }
+                                        )
                                         adCallBack.onAdShown()
                                     }
 

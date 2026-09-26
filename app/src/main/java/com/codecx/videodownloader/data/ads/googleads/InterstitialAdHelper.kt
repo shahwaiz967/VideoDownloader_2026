@@ -2,6 +2,7 @@ package com.codecx.videodownloader.data.ads.googleads
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
 import android.webkit.WebView
@@ -24,6 +25,7 @@ import com.codecx.videodownloader.data.ads.utils.isNetworkConnected
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.showToast
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -146,6 +148,17 @@ object InterstitialAdHelper {
                                 onAdShowed()
                             }
                         }
+
+                        override fun onAdImpression() {
+                            super.onAdImpression()
+                            FirebaseAnalytics.getInstance(activity).logEvent(
+                                FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                    putString(FirebaseAnalytics.Param.AD_FORMAT, "interstitial")
+                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "interstitial")
+                                }
+                            )
+                        }
                     }
             }
 
@@ -238,6 +251,19 @@ object InterstitialAdHelper {
                                             }
 
                                         }
+
+                                        override fun onAdImpression() {
+                                            super.onAdImpression()
+                                            FirebaseAnalytics.getInstance(activity).logEvent(
+                                                FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                                    putString(FirebaseAnalytics.Param.AD_FORMAT,"interstitial")
+                                                    putString(FirebaseAnalytics.Param.AD_PLATFORM,"admob")
+                                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME,adId?:"interstitial")
+                                                }
+                                            )
+                                        }
+
+
                                     }
                             }
 

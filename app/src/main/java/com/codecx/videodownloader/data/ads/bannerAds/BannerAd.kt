@@ -1,6 +1,7 @@
 package com.codecx.videodownloader.data.ads.bannerAds
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
@@ -21,6 +22,7 @@ import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdEventCallback
 import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdRequest
 import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback
 import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
+import com.google.firebase.analytics.FirebaseAnalytics
 
 object BannerAd {
     private val cacheAds = hashMapOf<String, AdView>()
@@ -71,6 +73,13 @@ object BannerAd {
 
                                 override fun onAdImpression() {
                                     super.onAdImpression()
+                                    FirebaseAnalytics.getInstance(context).logEvent(
+                                        FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                            putString(FirebaseAnalytics.Param.AD_FORMAT, "banner")
+                                            putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                            putString(FirebaseAnalytics.Param.AD_UNIT_NAME, adItem.adId)
+                                        }
+                                    )
                                     adCallBack?.onAdShown()
                                 }
 

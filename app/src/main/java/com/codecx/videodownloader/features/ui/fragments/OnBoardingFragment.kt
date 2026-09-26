@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.utils.PrefManager
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentOnBoardingBinding
 import com.codecx.videodownloader.features.adapters.onBoardingAdapter
@@ -69,6 +70,7 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>() {
     }
 
     private fun navigateToNext() {
+        PrefManager.setFirstRun(requireContext(), false)
         safeNavigate(R.id.languageFragment)
     }
 }

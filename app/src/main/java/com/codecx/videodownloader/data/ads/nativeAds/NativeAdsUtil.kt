@@ -25,6 +25,8 @@ import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoader
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoaderCallback
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdRequest
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
+import android.os.Bundle
+import com.google.firebase.analytics.FirebaseAnalytics
 
 
 object NativeAdsUtil {
@@ -127,6 +129,16 @@ object NativeAdsUtil {
                                         adListener?.onAdClick()
                                     }
 
+                                    override fun onAdImpression() {
+                                        super.onAdImpression()
+                                        FirebaseAnalytics.getInstance(context).logEvent(
+                                            FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
+                                                putString(FirebaseAnalytics.Param.AD_FORMAT, "native")
+                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, nativeId)
+                                            }
+                                        )
+                                    }
                                 }
                                 adListener?.onNativeAdLoad(nativeAd)
                             }
