@@ -26,7 +26,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         RemoteConfigHelper.init(this)
-        OpenApp(this, true)
+        OpenApp(this)
         OpenAdConfig.enableResumeAd()
         CoroutineScope(Dispatchers.Main).launch {
             CodecxAd.initAds(CodecxAdsConfig.Builder().build(), this@MyApplication)
