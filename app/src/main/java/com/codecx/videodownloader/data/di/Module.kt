@@ -8,6 +8,7 @@ import com.codecx.videodownloader.data.repo.PlayerRepositry
 import com.codecx.videodownloader.data.repo.TabRepository
 import com.codecx.videodownloader.data.repo.VideoPlayerRepo
 import com.codecx.videodownloader.data.utils.AppConstants
+import com.codecx.videodownloader.data.utils.AppUpdateChecker
 import com.codecx.videodownloader.data.utils.ReelApiService
 import com.codecx.videodownloader.features.ui.viewmodel.BookMarkViewModel
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
@@ -34,6 +35,7 @@ import org.koin.dsl.module
 import java.util.concurrent.TimeUnit
 
 val appModule = module {
+    singleOf(::AppUpdateChecker)
     // API
     singleOf(::createWebClient)
     singleOf(::ReelApiService)

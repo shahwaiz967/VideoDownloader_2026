@@ -11,6 +11,7 @@ import com.google.android.libraries.ads.mobile.sdk.banner.BannerAd
 import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdEventCallback
 import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdRequest
 import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback
+import com.google.android.libraries.ads.mobile.sdk.common.AdValue
 import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.GDPR.UMPConsent
 import com.codecx.videodownloader.data.ads.interfaces.AdCallBack
@@ -71,6 +72,19 @@ object CollapseBannerAd {
                                             }
                                         )
                                         adCallBack.onAdShown()
+                                    }
+
+                                    override fun onAdPaid(value: AdValue) {
+                                        super.onAdPaid(value)
+                                        FirebaseAnalytics.getInstance(activity).logEvent(
+                                            FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                                            Bundle().apply {
+                                                putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                                                putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
+                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, unitId)
+                                            }
+                                        )
                                     }
 
                                     override fun onAdDismissedFullScreenContent() {

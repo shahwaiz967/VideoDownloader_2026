@@ -159,6 +159,19 @@ object InterstitialAdHelper {
                                 }
                             )
                         }
+
+                        override fun onAdPaid(value: AdValue) {
+                            super.onAdPaid(value)
+                            FirebaseAnalytics.getInstance(activity).logEvent(
+                                FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                                Bundle().apply {
+                                    putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                                    putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
+                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "interstitial")
+                                }
+                            )
+                        }
                     }
             }
 
@@ -259,6 +272,19 @@ object InterstitialAdHelper {
                                                     putString(FirebaseAnalytics.Param.AD_FORMAT,"interstitial")
                                                     putString(FirebaseAnalytics.Param.AD_PLATFORM,"admob")
                                                     putString(FirebaseAnalytics.Param.AD_UNIT_NAME,adId?:"interstitial")
+                                                }
+                                            )
+                                        }
+
+                                        override fun onAdPaid(value: AdValue) {
+                                            super.onAdPaid(value)
+                                            FirebaseAnalytics.getInstance(activity).logEvent(
+                                                FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                                                Bundle().apply {
+                                                    putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                                                    putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
+                                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, adId ?: "interstitial")
                                                 }
                                             )
                                         }

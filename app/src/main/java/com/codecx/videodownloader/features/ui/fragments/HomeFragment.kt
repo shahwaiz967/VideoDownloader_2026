@@ -53,36 +53,40 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         bindAds()
 
         binding.btnPasteLink.setOnClickListener {
-            handleFirstAction {
-                val text = requireContext().getClipboardText()
-                if (!text.isNullOrEmpty()) {
-                    binding.etUrl.setText(text)
-                    if (!text.isValidUrl()) {
+            if (isFragmentValid) {
+                handleFirstAction {
+                    val text = requireContext().getClipboardText()
+                    if (!text.isNullOrEmpty()) {
+                        binding.etUrl.setText(text)
+                        if (!text.isValidUrl()) {
+                            makeText(
+                                requireContext(),
+                                getString(R.string.invalid_url),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@handleFirstAction
+                        }
+                        downloadViewModel.getDownloadInfo(text)
+                    } else {
                         makeText(
                             requireContext(),
-                            getString(R.string.invalid_url),
-                            Toast.LENGTH_SHORT
+                            getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
                         ).show()
-                        return@handleFirstAction
                     }
-                    downloadViewModel.getDownloadInfo(text)
-                } else {
-                    makeText(
-                        requireContext(),
-                        getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
-                    ).show()
                 }
             }
         }
 
         binding.btnDownload.setOnClickListener {
-            handleFirstAction {
-                val url = binding.etUrl.text.toString().trim()
-                if (url.isEmpty()) {
-                    binding.etUrl.error = getString(R.string.enter_url)
-                    return@handleFirstAction
+            if (isFragmentValid) {
+                handleFirstAction {
+                    val url = binding.etUrl.text.toString().trim()
+                    if (url.isEmpty()) {
+                        binding.etUrl.error = getString(R.string.enter_url)
+                        return@handleFirstAction
+                    }
+                    downloadViewModel.getDownloadInfo(url)
                 }
-                downloadViewModel.getDownloadInfo(url)
             }
         }
 
@@ -216,8 +220,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
 
-
-
     companion object {
         private const val ARG_TAB_ID = "tab_id"
         fun newInstance(tabId: Long): HomeFragment {
@@ -233,7 +235,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onResume()
         val activity = requireActivity() as com.codecx.videodownloader.MainActivity
 
-        if (activity.isComingFromBackground){
+        if (activity.isComingFromBackground) {
             activity.isComingFromBackground = false
             checkClipboardAndPaste()
         }
