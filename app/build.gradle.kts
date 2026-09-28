@@ -102,8 +102,8 @@ android {
             )
         }
         debug {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
 
             buildConfigField("String", "app_id", "\"ca-app-pub-3940256099942544~3347511713\"")
             buildConfigField("String", "banner_id", "\"ca-app-pub-3940256099942544/6300978111\"")
