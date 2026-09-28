@@ -23,6 +23,8 @@ import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import kotlin.getValue
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun bindLayout(
@@ -32,15 +34,14 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     ): FragmentSplashBinding {
         return FragmentSplashBinding.inflate(inflater)
     }
+    private val appUpdate: AppUpdateChecker by inject()
 
-    private lateinit var appUpdate: AppUpdateChecker
     private var progress = 0
     private var progressComplete = false
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        appUpdate = AppUpdateChecker(requireActivity() as AppCompatActivity)
 
         if (activity?.intent?.action == Intent.ACTION_VIEW) {
             val uri = activity?.intent?.data

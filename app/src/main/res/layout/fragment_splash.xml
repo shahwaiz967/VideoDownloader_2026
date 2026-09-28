@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cornerRadius="@dimen/_5sdp"
-            android:text="Get Started"
+            android:text="@string/get_started"
             android:fontFamily="@font/segoe_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

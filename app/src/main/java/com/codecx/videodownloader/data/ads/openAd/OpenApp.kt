@@ -44,7 +44,6 @@ class OpenAppUtil {
             val loadCallback = object : AdLoadCallback<AppOpenAd> {
                 override fun onAdLoaded(ad: AppOpenAd) {
                     runOnUiThread {
-
                         isOpenAdLoading = false
                         onAdLoaded(ad)
                     }
@@ -60,7 +59,7 @@ class OpenAppUtil {
             }
             AppOpenAd.load(
                 adRequest = AdRequest.Builder(adUnitId = adId).build(),
-                loadCallback
+                adLoadCallback = loadCallback
             )
         } else {
             onFailToLoad()
@@ -110,6 +109,19 @@ class OpenAppUtil {
                 )
             }
 
+            override fun onAdPaid(value: AdValue) {
+                super.onAdPaid(value)
+                FirebaseAnalytics.getInstance(activity).logEvent(
+                    FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                    Bundle().apply {
+                        putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                        putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
+                        putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                        putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "app_open")
+                    }
+                )
+            }
+
         }
         ad.adEventCallback = fullScreenContentCallback
         ad.show(activity)
@@ -118,10 +130,7 @@ class OpenAppUtil {
 
 
 class OpenApp(
-    private val application: Application,
-    private val isLoadingViewVisible: Boolean,
-    /*@LayoutRes
-     private val loadingLayout: Int = R.layout.dialog_ad_loading*/
+    application: Application
 ) :
     Application.ActivityLifecycleCallbacks {
     private var appOpenAd: AppOpenAd? = null
@@ -219,6 +228,21 @@ class OpenApp(
                         FirebaseAnalytics.getInstance(activity).logEvent(
                             FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
                                 putString(FirebaseAnalytics.Param.AD_FORMAT, "app_open")
+                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, RemoteConfigHelper.adIds.resumeAppOpen.adId)
+                            }
+                        )
+                    }
+                }
+
+                override fun onAdPaid(value: AdValue) {
+                    super.onAdPaid(value)
+                    currentActivity?.let { activity ->
+                        FirebaseAnalytics.getInstance(activity).logEvent(
+                            FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                            Bundle().apply {
+                                putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                                putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
                                 putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
                                 putString(FirebaseAnalytics.Param.AD_UNIT_NAME, RemoteConfigHelper.adIds.resumeAppOpen.adId)
                             }

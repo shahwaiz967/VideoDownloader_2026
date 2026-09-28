@@ -26,6 +26,8 @@ import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoaderCallba
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdRequest
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import android.os.Bundle
+import androidx.webkit.WebViewCompat
+import com.google.android.libraries.ads.mobile.sdk.common.AdValue
 import com.google.firebase.analytics.FirebaseAnalytics
 
 
@@ -110,7 +112,7 @@ object NativeAdsUtil {
         adContainerView: ViewGroup?,
         nativeId: String, context: Activity, adListener: AdCallBack? = null
     ) {
-        if (isAdAllowed && UMPConsent.isUMPAllowed && WebView.getCurrentWebViewPackage() != null) {
+        if (isAdAllowed && UMPConsent.isUMPAllowed && WebViewCompat.getCurrentWebViewPackage(context) != null) {
             if (context.isNetworkConnected()) {
                 val loadingView = LayoutInflater.from(adContainerView?.context ?: context)
                     .inflate(loadingAdView, adContainerView, false)
@@ -129,13 +131,46 @@ object NativeAdsUtil {
                                         adListener?.onAdClick()
                                     }
 
+                                    override fun onAdPaid(value: AdValue) {
+                                        super.onAdPaid(value)
+                                        FirebaseAnalytics.getInstance(context).logEvent(
+                                            FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                                            Bundle().apply {
+                                                putString(
+                                                    FirebaseAnalytics.Param.CURRENCY,
+                                                    value.currencyCode
+                                                )
+                                                putLong(
+                                                    FirebaseAnalytics.Param.VALUE,
+                                                    value.valueMicros
+                                                )
+                                                putString(
+                                                    FirebaseAnalytics.Param.AD_PLATFORM,
+                                                    "admob"
+                                                )
+                                                putString(
+                                                    FirebaseAnalytics.Param.AD_UNIT_NAME,
+                                                    nativeId
+                                                )
+                                            })
+                                    }
+
                                     override fun onAdImpression() {
                                         super.onAdImpression()
                                         FirebaseAnalytics.getInstance(context).logEvent(
                                             FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
-                                                putString(FirebaseAnalytics.Param.AD_FORMAT, "native")
-                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, nativeId)
+                                                putString(
+                                                    FirebaseAnalytics.Param.AD_FORMAT,
+                                                    "native"
+                                                )
+                                                putString(
+                                                    FirebaseAnalytics.Param.AD_PLATFORM,
+                                                    "admob"
+                                                )
+                                                putString(
+                                                    FirebaseAnalytics.Param.AD_UNIT_NAME,
+                                                    nativeId
+                                                )
                                             }
                                         )
                                     }
@@ -195,7 +230,7 @@ object NativeAdsUtil {
             adContainerView?.removeAllViews()
             return
         }
-        if (WebView.getCurrentWebViewPackage() != null && CodecxAd.isSDKInit) {
+        if (WebViewCompat.getCurrentWebViewPackage(context) != null && CodecxAd.isSDKInit) {
             if (CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true) {
                 val cacheAd = cacheAds[nativeId]
                 if (cacheAd != null) {
@@ -259,8 +294,6 @@ object NativeAdsUtil {
 
 
     }
-
-
 
 
 }

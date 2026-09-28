@@ -24,7 +24,7 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         binding = bindLayout(inflater, container, savedInstanceState)
         return binding.root
     }
-
+   protected val isFragmentValid get() = isVisible && isResumed
     abstract fun bindLayout(
         inflater: LayoutInflater,
         container: ViewGroup?,

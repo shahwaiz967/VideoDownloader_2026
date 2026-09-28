@@ -58,8 +58,8 @@ object RemoteConfigHelper {
                 mFirebaseRemoteConfig.fetchAndActivate().await()
             }
         }.onSuccess {
-            val json = if (BuildConfig.DEBUG) mFirebaseRemoteConfig.getString("aps_config_test")
-            else mFirebaseRemoteConfig.getString("ads_config")
+            val key = if (isInTestMode) "aps_config_test" else "ads_config"
+            val json = mFirebaseRemoteConfig.getString(key)
 
             Log.d(TAG, "checkRemoteConfig: Fetched JSON: $json")
             if (json.isNotEmpty()) {
@@ -79,9 +79,7 @@ object RemoteConfigHelper {
         }
     }
 
-    private fun getId(id: Int): String {
-        return application.getString(id)
-    }
+    val isInTestMode get() = BuildConfig.DEBUG || BuildConfig.FLAVOR.startsWith("dev", true)
 
     fun getDefaultAdIds(): RemoteAdsConfig {
         return RemoteAdsConfig(
@@ -96,7 +94,11 @@ object RemoteConfigHelper {
 
             onboardingTopNative = AdItem(BuildConfig.onboarding_native_id, true, NATIVE_AD_TYPE),
             onboardingBottomNative = AdItem(BuildConfig.onboarding_native_id, true, NATIVE_AD_TYPE),
-            onboardingFinishInter = AdItem(BuildConfig.onboarding_finish_inter_id, true, INTER_AD_TYPE),
+            onboardingFinishInter = AdItem(
+                BuildConfig.onboarding_finish_inter_id,
+                true,
+                INTER_AD_TYPE
+            ),
 
             homeInter = AdItem(BuildConfig.home_inter_id, true, INTER_AD_TYPE),
             homeTopAd = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
@@ -123,6 +125,6 @@ object RemoteConfigHelper {
             reelFullNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
             reelBottomNative = AdItem(BuildConfig.home_native_id, true, NATIVE_AD_TYPE),
 
-        )
+            )
     }
 }

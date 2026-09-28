@@ -21,6 +21,7 @@ import com.google.android.libraries.ads.mobile.sdk.banner.BannerAd
 import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdEventCallback
 import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdRequest
 import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback
+import com.google.android.libraries.ads.mobile.sdk.common.AdValue
 import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
 import com.google.firebase.analytics.FirebaseAnalytics
 
@@ -81,6 +82,19 @@ object BannerAd {
                                         }
                                     )
                                     adCallBack?.onAdShown()
+                                }
+
+                                override fun onAdPaid(value: AdValue) {
+                                    super.onAdPaid(value)
+                                    FirebaseAnalytics.getInstance(context).logEvent(
+                                        FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
+                                        Bundle().apply {
+                                            putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
+                                            putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
+                                            putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
+                                            putString(FirebaseAnalytics.Param.AD_UNIT_NAME, adItem.adId)
+                                        }
+                                    )
                                 }
 
                             }
