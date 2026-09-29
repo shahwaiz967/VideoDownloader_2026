@@ -8,6 +8,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.ui.fragments.OnBoardingFragment">
 
+    <FrameLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/top_ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/skip_btn"
         app:strokeWidth="0dp"
@@ -15,7 +23,7 @@
         app:cardBackgroundColor="@color/skip_btn"
         android:layout_margin="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_ad_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
@@ -87,11 +95,18 @@
         app:iconGravity="end"
         app:iconSize="@dimen/_20ssp"
         android:id="@+id/next_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_ad_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+    <FrameLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/bottom_ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -141,47 +141,6 @@ fun Int.getContrastingTextColor(): Int {
 
 fun Fragment.showInter(
     interstitialHelper: InterstitialAdHelper.InterstitialHelper,
-    @StringRes stringResId: Int,
-    adAllowed: Boolean,
-    enableTimer: Boolean = true,
-    onDismiss: (ErrorType) -> Unit
-) {
-    val mainActivity = activity as? MainActivity
-    if (mainActivity != null) {
-        interstitialHelper.loadShowInterstitial(
-            adId = getString(stringResId),
-            adAllowed = adAllowed,
-            timerAllowed = enableTimer,
-            showLoadingLayout = true,
-            timerMilliSec = 10000L,
-            activity = mainActivity,
-            adCallBack = object : AdCallBack() {
-                override fun onAdDismiss() {
-                    super.onAdDismiss()
-                    onDismiss(ErrorType.Other)
-                }
-
-                override fun onAdFailToShow(error: Exception) {
-                    super.onAdFailToShow(error)
-                    onDismiss(ErrorType.Other)
-                }
-
-                override fun onAdFailToLoad(error: Exception) {
-                    super.onAdFailToLoad(error)
-                    if (error is TimeDelayException) {
-                        onDismiss(ErrorType.InDelay)
-                    } else {
-                        onDismiss(ErrorType.Other)
-                    }
-                }
-            })
-    } else {
-        onDismiss(ErrorType.Other)
-    }
-}
-
-fun Fragment.showInter(
-    interstitialHelper: InterstitialAdHelper.InterstitialHelper,
     stringId: String,
     adAllowed: Boolean,
     onDismiss: () -> Unit,
