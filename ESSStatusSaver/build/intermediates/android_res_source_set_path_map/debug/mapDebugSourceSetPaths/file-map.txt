@@ -1,8 +1,0 @@
-com.codecx.statussaver.ESSStatusSaver-pngs-0 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/generated/res/pngs/debug
-com.codecx.statussaver.ESSStatusSaver-updated_navigation_xml-1 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/generated/updated_navigation_xml/debug
-com.codecx.statussaver.ESSStatusSaver-mergeDebugResources-2 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
-com.codecx.statussaver.ESSStatusSaver-mergeDebugResources-3 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
-com.codecx.statussaver.ESSStatusSaver-debug-4 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/intermediates/merged_res/debug/mergeDebugResources
-com.codecx.statussaver.ESSStatusSaver-debug-5 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/build/intermediates/packaged_res/debug/packageDebugResources
-com.codecx.statussaver.ESSStatusSaver-debug-6 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/src/debug/res
-com.codecx.statussaver.ESSStatusSaver-main-7 /Users/hussnain/ShahwaizApps/VideoDownloader2/ESSStatusSaver/src/main/res

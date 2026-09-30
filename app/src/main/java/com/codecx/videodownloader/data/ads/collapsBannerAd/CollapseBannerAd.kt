@@ -62,30 +62,7 @@ object CollapseBannerAd {
                                 adContainer?.addView(adView)
 
                                 ad.adEventCallback = object : BannerAdEventCallback {
-                                    override fun onAdImpression() {
-                                        super.onAdImpression()
-                                        FirebaseAnalytics.getInstance(activity).logEvent(
-                                            FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
-                                                putString(FirebaseAnalytics.Param.AD_FORMAT, "collapsible_banner")
-                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, unitId)
-                                            }
-                                        )
-                                        adCallBack.onAdShown()
-                                    }
 
-                                    override fun onAdPaid(value: AdValue) {
-                                        super.onAdPaid(value)
-                                        FirebaseAnalytics.getInstance(activity).logEvent(
-                                            FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
-                                            Bundle().apply {
-                                                putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
-                                                putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
-                                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, unitId)
-                                            }
-                                        )
-                                    }
 
                                     override fun onAdDismissedFullScreenContent() {
                                         super.onAdDismissedFullScreenContent()

@@ -63,120 +63,7 @@ object InterstitialAdHelper {
         var lastAdTimer: Long = 0L
         private var interstitialAd: InterstitialAd? = null
 
-        fun adIsAvailable() = interstitialAd != null
 
-        fun getAd() = interstitialAd
-
-        fun destroyAd() {
-            interstitialAd = null
-        }
-
-        fun loadInterstitial(
-            context: Context,
-            adId: String,
-            onAdLoaded: (InterstitialAd) -> Unit,
-            onFailToLoad: () -> Unit
-        ) {
-            if (context.isNetworkConnected() && WebView.getCurrentWebViewPackage() != null && CodecxAd.isSDKInit) {
-                val interAdCallBack = object : AdLoadCallback<InterstitialAd> {
-                    override fun onAdLoaded(ad: InterstitialAd) {
-                        super.onAdLoaded(ad)
-                        runOnUiThread {
-                            interstitialAd = ad
-                            onAdLoaded(ad)
-                        }
-                    }
-
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
-                        super.onAdFailedToLoad(adError)
-                        runOnUiThread {
-                            onFailToLoad()
-                        }
-                    }
-                }
-                InterstitialAd.load(
-                    AdRequest.Builder(adId).build(), interAdCallBack
-                )
-            } else {
-                onFailToLoad()
-            }
-        }
-
-        fun showInterstitial(
-            activity: Activity,
-            ad: InterstitialAd?,
-            onAdDismissed: () -> Unit,
-            onAdShowed: () -> Unit = {},
-            onAdFail: () -> Unit = {},
-        ) {
-            if (ad == null) {
-                LoadingUtils.dismissScreen()
-                onAdFail()
-            } else {
-                ad.show(activity)
-                ad.adEventCallback =
-                    object : InterstitialAdEventCallback {
-                        override fun onAdDismissedFullScreenContent() {
-                            super.onAdDismissedFullScreenContent()
-                            interstitialAd = null
-                            isInterstitialShowing = false
-                            runOnUiThread {
-                                onAdDismissed()
-                            }
-                        }
-
-                        override fun onAdFailedToShowFullScreenContent(fullScreenContentError: FullScreenContentError) {
-                            super.onAdFailedToShowFullScreenContent(fullScreenContentError)
-                            interstitialAd = null
-                            isInterstitialShowing = false
-                            runOnUiThread {
-                                onAdFail()
-                            }
-                        }
-
-                        override fun onAdClicked() {
-                            super.onAdClicked()
-                            if (CodecxAd.getAdConfig()?.isDisableResumeAdOnClick == true) {
-                                OpenAdConfig.isOpenAdStop = true
-                            }
-                        }
-
-                        override fun onAdShowedFullScreenContent() {
-                            super.onAdShowedFullScreenContent()
-                            isInterstitialShowing = true
-                            runOnUiThread {
-                                onAdShowed()
-                            }
-                        }
-
-                        override fun onAdImpression() {
-                            super.onAdImpression()
-                            FirebaseAnalytics.getInstance(activity).logEvent(
-                                FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
-                                    putString(FirebaseAnalytics.Param.AD_FORMAT, "interstitial")
-                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "interstitial")
-                                }
-                            )
-                        }
-
-                        override fun onAdPaid(value: AdValue) {
-                            super.onAdPaid(value)
-                            FirebaseAnalytics.getInstance(activity).logEvent(
-                                FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
-                                Bundle().apply {
-                                    putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
-                                    putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
-                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, "interstitial")
-                                }
-                            )
-                        }
-                    }
-            }
-
-
-        }
 
         fun loadShowInterstitial(
             adId: String?,
@@ -265,29 +152,7 @@ object InterstitialAdHelper {
 
                                         }
 
-                                        override fun onAdImpression() {
-                                            super.onAdImpression()
-                                            FirebaseAnalytics.getInstance(activity).logEvent(
-                                                FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
-                                                    putString(FirebaseAnalytics.Param.AD_FORMAT,"interstitial")
-                                                    putString(FirebaseAnalytics.Param.AD_PLATFORM,"admob")
-                                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME,adId?:"interstitial")
-                                                }
-                                            )
-                                        }
 
-                                        override fun onAdPaid(value: AdValue) {
-                                            super.onAdPaid(value)
-                                            FirebaseAnalytics.getInstance(activity).logEvent(
-                                                FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
-                                                Bundle().apply {
-                                                    putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
-                                                    putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
-                                                    putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                                    putString(FirebaseAnalytics.Param.AD_UNIT_NAME, adId ?: "interstitial")
-                                                }
-                                            )
-                                        }
 
 
                                     }

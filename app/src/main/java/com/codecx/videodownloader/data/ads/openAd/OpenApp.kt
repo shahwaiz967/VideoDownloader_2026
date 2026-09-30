@@ -222,33 +222,6 @@ class OpenApp(
                     isOpenAdShowing = true
                 }
 
-                override fun onAdImpression() {
-                    super.onAdImpression()
-                    currentActivity?.let { activity ->
-                        FirebaseAnalytics.getInstance(activity).logEvent(
-                            FirebaseAnalytics.Event.AD_IMPRESSION, Bundle().apply {
-                                putString(FirebaseAnalytics.Param.AD_FORMAT, "app_open")
-                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, RemoteConfigHelper.adIds.resumeAppOpen.adId)
-                            }
-                        )
-                    }
-                }
-
-                override fun onAdPaid(value: AdValue) {
-                    super.onAdPaid(value)
-                    currentActivity?.let { activity ->
-                        FirebaseAnalytics.getInstance(activity).logEvent(
-                            FirebaseAnalytics.Event.ADD_PAYMENT_INFO,
-                            Bundle().apply {
-                                putString(FirebaseAnalytics.Param.CURRENCY, value.currencyCode)
-                                putLong(FirebaseAnalytics.Param.VALUE, value.valueMicros)
-                                putString(FirebaseAnalytics.Param.AD_PLATFORM, "admob")
-                                putString(FirebaseAnalytics.Param.AD_UNIT_NAME, RemoteConfigHelper.adIds.resumeAppOpen.adId)
-                            }
-                        )
-                    }
-                }
             }
             appOpenAd?.adEventCallback = fullScreenContentCallback
             currentActivity?.let {

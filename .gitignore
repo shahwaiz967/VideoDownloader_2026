@@ -16,3 +16,6 @@ local.properties
 /ESSStatusSaver/build/
 /.idea
 /app/release
+/app/build
+/ESSStatusSaver/build
+.gitignore
