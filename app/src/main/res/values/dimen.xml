@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="buttonSize">@dimen/_30sdp</dimen>
+
+    <declare-styleable name="FreeTrailTimeButton" >
+        <attr name="tile_backgroundStartColor" format="color" />
+        <attr name="tile_backgroundEndColor" format="color" />
+        <attr name="tile_strokeColor" format="color" />
+        <attr name="strokeColor" format="color" />
+        <attr name="tile_imageStartColor" format="color" />
+        <attr name="tile_imageEndColor" format="color" />
+        <attr name="view_color" format="color"/>
+        <attr name="title" format="string"/>
+        <attr name="des" format="string"/>
+        <attr name="icon" format="reference"/>
+    </declare-styleable>
 </resources>

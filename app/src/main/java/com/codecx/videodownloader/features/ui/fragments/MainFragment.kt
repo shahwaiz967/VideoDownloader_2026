@@ -87,6 +87,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         onBackPressWithAd(interstitialHelper){
             showExitDialog()
         }
+        binding.start3DaysTrailBtn.setOnClickListener {
+            safeNavigate(R.id.freeTrailFragment)
+        }
     }
 
     private fun showExitDialog(){
@@ -261,7 +264,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             handleNavigationAd { safeNavigate(R.id.reelFragment) }
         }
         binding.ivPremium.setOnClickListener {
-            safeNavigate(R.id.premiumFragment)
+            safeNavigate(R.id.newPremiumFragment)
         }
         binding.ivSettings.setOnClickListener {
             safeNavigate(R.id.settingFragment)

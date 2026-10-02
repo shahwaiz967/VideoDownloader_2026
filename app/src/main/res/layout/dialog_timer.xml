@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/timer_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1.15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+        <LinearLayout
+            android:id="@+id/layoutTimer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.70"
+            app:layout_constraintWidth_percent="0.68">
+            <LinearLayout
+                android:id="@+id/layoutHours"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="02"
+                    android:textColor="#D32F2F"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:textSize="@dimen/_8ssp"
+                    android:textColor="#D32F2F"
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="HOURS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutMinuts"
+
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvMinutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="45"
+                    android:textColor="#D32F2F"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:textSize="@dimen/_8ssp"
+                    android:textColor="#D32F2F"
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="MINUTS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:id="@+id/layoutSeconds"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvSeconds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:includeFontPadding="false"
+                    android:text="18"
+                    android:textColor="#D32F2F"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:textSize="@dimen/_8ssp"
+                    android:textColor="#D32F2F"
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="SECONDS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnClaimOffer"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/segoe_bold"
+            android:gravity="center"
+            android:text="GET OFFER NOW"
+            android:textColor="#D32F2F"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.93"
+            app:layout_constraintWidth_percent="0.72" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

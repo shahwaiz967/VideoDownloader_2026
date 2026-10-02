@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="22dp"
+    android:paddingBottom="18dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageCard"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        app:cardBackgroundColor="#F51F70"
+        app:cardCornerRadius="29dp"
+        >
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@drawable/new_download_icon"
+            app:tint="#FFFFFF"
+            tools:ignore="ContentDescription" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/segoe_bold"
+        android:gravity="center"
+        android:text="Unlimited"
+        android:textColor="#181A20"
+        />
+
+    <!-- Subtitle Text -->
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/segoe_regular"
+        android:gravity="center"
+        android:text="Downloads"
+        android:textColor="#586174"
+        />
+
+    <!-- Bottom Accent Indicator Pill -->
+    <View
+        android:id="@+id/viewColor"
+        android:layout_width="24dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_capsule_pink"
+        android:backgroundTint="#F51F70"
+        />
+
+</LinearLayout>

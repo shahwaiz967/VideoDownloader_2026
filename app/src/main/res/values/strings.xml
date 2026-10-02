@@ -248,4 +248,5 @@
     <string name="education">Education</string>
     <string name="health_fitness"><![CDATA[Health & Fitness]]></string>
     <string name="please_select_at_least_one_interest">Please select at least one interest</string>
+    <string name="get_unlimited_naccess"> <font color="F21065"> Get </font> Unlimited\nAccess</string>
 </resources>

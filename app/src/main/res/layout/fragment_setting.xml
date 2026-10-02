@@ -55,7 +55,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <!-- Premium Banner -->
+            <!-- Premium Banner
             <androidx.cardview.widget.CardView
                 android:layout_marginTop="@dimen/_10sdp"
                 android:id="@+id/cardPremiumBanner"
@@ -214,7 +214,7 @@
                         android:text="@string/upgrade_now"
                         android:textAllCaps="false"
                         app:cornerRadius="32dp"
-                        app:secondaryIcon="@drawable/icon_crown"
+                        app:secondaryIcon="@drawable/icon_crown_setting"
                         app:secondaryIconGravity="start"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -224,7 +224,27 @@
                         app:strokeWidth="2dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
+            <com.google.android.material.card.MaterialCardView
+                app:strokeColor="#403737"
+                android:id="@+id/btnUpgradeNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_110sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/setting_card" />
+
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="wrap_content"

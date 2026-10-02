@@ -57,6 +57,9 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         binding.btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+        binding.premiumCard.setOnClickListener {
+            safeNavigate(R.id.newPremiumFragment)
+        }
 
 
         bindNative(
@@ -88,7 +91,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                 }
             }
             
-            safeNavigate(R.id.mainFragment)
+            safeNavigate(R.id.newPremiumFragment)
             
             if (targetLocaleList != null) {
                 androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(targetLocaleList)

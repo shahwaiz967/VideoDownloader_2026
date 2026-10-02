@@ -104,7 +104,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 safeNavigate(R.id.languageFragment, bundle)
             }
             btnUpgradeNow.setOnClickListener {
-                safeNavigate(R.id.premiumFragment,bundle)
+                safeNavigate(R.id.newPremiumFragment,bundle)
             }
 
             historyRow.root.setOnClickListener {

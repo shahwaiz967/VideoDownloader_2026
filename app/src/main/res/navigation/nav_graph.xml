@@ -106,5 +106,13 @@
         android:id="@+id/interestFragment"
         android:name="com.codecx.videodownloader.features.ui.fragments.InterestFragment"
         tools:layout="@layout/fragment_interest"/>
+    <fragment
+        android:id="@+id/newPremiumFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.NewPremiumFragment"
+        tools:layout="@layout/fragment_new_premium"/>
+    <fragment
+        android:id="@+id/freeTrailFragment"
+        android:name="com.codecx.videodownloader.features.ui.fragments.FreeTrailFragment"
+        tools:layout="@layout/fragment_free_trail"/>
 
 </navigation>
