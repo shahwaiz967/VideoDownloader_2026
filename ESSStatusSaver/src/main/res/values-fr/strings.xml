@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">StatusSaver</string>
+
     <string name="this_action_may_contain_ads">Cette action peut contenir des publicités</string>
     <string name="language_selection">Choix de la langue</string>
     <string name="done">Terminé</string>

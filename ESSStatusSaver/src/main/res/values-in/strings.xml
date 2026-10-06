@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">StatusSaver</string>
     <string name="this_action_may_contain_ads">Tindakan ini mungkin mengandung iklan</string>
     <string name="language_selection">Pilihan Bahasa</string>
     <string name="done">Selesai</string>

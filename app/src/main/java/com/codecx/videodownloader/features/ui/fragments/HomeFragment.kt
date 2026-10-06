@@ -51,7 +51,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         quickAccessButtons()
         observeDownload()
         bindAds()
-
+        binding.start3DaysTrailBtn.setOnClickListener {
+            safeNavigate(R.id.freeTrailFragment)
+        }
         binding.btnPasteLink.setOnClickListener {
             if (isFragmentValid) {
                 handleFirstAction {

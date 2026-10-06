@@ -89,9 +89,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         onBackPressWithAd(interstitialHelper){
             showExitDialog()
         }
-        binding.start3DaysTrailBtn.setOnClickListener {
-            safeNavigate(R.id.freeTrailFragment)
-        }
+
     }
 
     private fun showExitDialog(){

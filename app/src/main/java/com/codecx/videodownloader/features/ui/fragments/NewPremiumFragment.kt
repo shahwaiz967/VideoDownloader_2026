@@ -250,14 +250,18 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         binding.cardWeekly.setOnClickListener {
             selectPlan(SelectedPlan.WEEKLY)
+            binding.btnStartTrial.performClick()
         }
 
         binding.cardMonthly.setOnClickListener {
             selectPlan(SelectedPlan.MONTHLY)
+            binding.btnStartTrial.performClick()
+
         }
 
         binding.cardThreeMonths.setOnClickListener {
             selectPlan(SelectedPlan.THREE_MONTHS)
+            binding.btnStartTrial.performClick()
         }
 
         binding.btnStartTrial.setOnClickListener {

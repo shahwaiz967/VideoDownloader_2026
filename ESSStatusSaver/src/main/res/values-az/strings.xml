@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">StatusSaver</string>
+
     <string name="this_action_may_contain_ads">Bu hərəkətdə reklamlar ola bilər</string>
     <string name="language_selection">Dil Seçimi</string>
     <string name="done">Hazırdır</string>

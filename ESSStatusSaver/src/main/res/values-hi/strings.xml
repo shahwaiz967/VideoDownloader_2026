@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">StatusSaver</string>
+
     <string name="this_action_may_contain_ads">इस क्रिया में विज्ञापन हो सकते हैं</string>
     <string name="language_selection">भाषा चयन</string>
     <string name="done">हो गया</string>
