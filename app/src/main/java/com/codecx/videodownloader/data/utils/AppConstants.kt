@@ -34,6 +34,29 @@ object AppConstants {
     const val PLATFORM_INSTAGRAM = "Instagram"
     const val PLATFORM_TIKTOK = "TikTok"
 
+    // ─── Subscriptions ───────────────────────────────────────────────────
+    const val SUB_PREMIUM_WEEKLY = "premium_weekly"
+    const val SUB_PREMIUM_WEEKLY_DISCOUNT = "premium_weekly_discount"
+    const val SUB_PREMIUM_MONTHLY = "premium_monthly"
+    const val SUB_PREMIUM_MONTHLY_DISCOUNT = "premium_monthly_discount"
+    const val SUB_PREMIUM_3_MONTHS = "premium_3_months"
+    const val SUB_PREMIUM_3_MONTHS_DISCOUNT = "premium_3_months_discount"
+    const val SUB_PREMIUM_SPECIAL_OFFER = "premium_special_offer"
+    const val SUB_PREMIUM_WEEKLY_3DAY_TRIAL = "premium_weekly_3day_trial"
+    const val SUB_PREMIUM_WEEKLY_GIFT = "premium_weekly_gift"
+
+    val ALL_SUBSCRIPTION_IDS = listOf(
+        SUB_PREMIUM_WEEKLY,
+        SUB_PREMIUM_WEEKLY_DISCOUNT,
+        SUB_PREMIUM_MONTHLY,
+        SUB_PREMIUM_MONTHLY_DISCOUNT,
+        SUB_PREMIUM_3_MONTHS,
+        SUB_PREMIUM_3_MONTHS_DISCOUNT,
+        SUB_PREMIUM_SPECIAL_OFFER,
+        SUB_PREMIUM_WEEKLY_3DAY_TRIAL,
+        SUB_PREMIUM_WEEKLY_GIFT
+    )
+
     // ─── Intent Keys ──────────────────────────────────────────────────────
     const val INTENT_VIDEO_URI = "video_uri"
     const val INTENT_VIDEO_TITLE = "video_title"

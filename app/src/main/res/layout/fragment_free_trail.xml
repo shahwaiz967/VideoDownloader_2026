@@ -242,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:fontFamily="@font/segoe_regular"
-                            android:text="/ month"
+                            android:text="/ week"
                             android:textColor="#5A6478"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -283,6 +283,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/tvBtnText"
                         android:textColor="@color/white"
                         android:fontFamily="@font/segoe_bold"
                         android:textSize="@dimen/_12ssp"

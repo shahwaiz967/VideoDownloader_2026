@@ -48,7 +48,9 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ivBack.setOnClickListener {
-            findNavController().popBackStack()
+            if (isResumed) {
+                findNavController().popBackStack()
+            }
         }
         reelId = arguments?.getInt(EXTRA_CATEGORY_ID) ?: 0
         goFullscreen()

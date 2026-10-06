@@ -45,7 +45,7 @@ class MyApplication : Application() {
         registerActivityLifecycleCallbacks(billing)
 
         billing.initBilling(
-            subs = listOf(BuildConfig.weeklyPlanId),
+            subs = com.codecx.videodownloader.data.utils.AppConstants.ALL_SUBSCRIPTION_IDS,
             products = emptyList()
         )
 

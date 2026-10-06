@@ -18,6 +18,7 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isValidUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.FragmentSocityBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.base.onBackPressWithAd
@@ -109,7 +110,7 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
         }
 
         onBackPressWithAd(interstitialHelper) {
-            findNavController().popBackStack()
+            safePopBackStack()
         }
 
         binding.ivBack.setOnClickListener {
@@ -158,11 +159,11 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
                 binding.ivStepImage1.setImageResource(R.drawable.facebook_step1_image)
                 binding.tvDescription.text = getString(R.string._1_open_instagram)
                 binding.tvDescription1.visibility = View.GONE
-                binding.openInstaButton.root.visibility = View.VISIBLE
+                binding.openInstaCard.root.visibility = View.VISIBLE
             }
 
         }
-        binding.openInstaButton.openInstaButton.setOnClickListener {
+        binding.openInstaCard.openInstaButton.setOnClickListener {
             openInstagramProfile(requireContext())
         }
     }
