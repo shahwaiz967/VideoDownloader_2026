@@ -51,7 +51,7 @@
                 android:lineSpacingExtra="2dp"
                 android:text="@string/get_unlimited_naccess"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_25ssp"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintEnd_toStartOf="@id/ivPerson"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

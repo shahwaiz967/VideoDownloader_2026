@@ -48,10 +48,10 @@
                     android:includeFontPadding="false"
                     android:text="02"
                     android:textColor="#D32F2F"
-                    android:textSize="26sp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
                 <TextView
-                    android:textSize="@dimen/_8ssp"
+                    android:textSize="@dimen/_6ssp"
                     android:textColor="#D32F2F"
                     android:fontFamily="@font/segoe_bold"
                     android:text="HOURS"
@@ -80,10 +80,10 @@
                     android:includeFontPadding="false"
                     android:text="45"
                     android:textColor="#D32F2F"
-                    android:textSize="26sp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
                 <TextView
-                    android:textSize="@dimen/_8ssp"
+                    android:textSize="@dimen/_6ssp"
                     android:textColor="#D32F2F"
                     android:fontFamily="@font/segoe_bold"
                     android:text="MINUTS"
@@ -111,10 +111,10 @@
                     android:includeFontPadding="false"
                     android:text="18"
                     android:textColor="#D32F2F"
-                    android:textSize="26sp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
                 <TextView
-                    android:textSize="@dimen/_8ssp"
+                    android:textSize="@dimen/_6ssp"
                     android:textColor="#D32F2F"
                     android:fontFamily="@font/segoe_bold"
                     android:text="SECONDS"
