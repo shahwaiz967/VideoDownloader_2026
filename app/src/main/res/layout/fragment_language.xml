@@ -95,13 +95,14 @@
             <LinearLayout
                 android:gravity="center"
                 android:layout_marginTop="@dimen/_14sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/weeklyText"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:fontFamily="@font/segoe_semibold"
@@ -117,7 +118,7 @@
                     android:background="#707070"/>
                 <TextView
                     android:layout_gravity="bottom"
-
+                    android:id="@+id/rs"
                     android:textSize="@dimen/_8sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -127,7 +128,6 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="550"
                     android:textColor="#C60114"
                     android:textSize="@dimen/_12ssp"

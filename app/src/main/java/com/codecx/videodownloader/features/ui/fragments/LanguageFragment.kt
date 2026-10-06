@@ -11,12 +11,18 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.graphics.toColorInt
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.models.LanguageModel
+import com.codecx.videodownloader.data.models.PricesMenu
+import com.codecx.videodownloader.data.utils.AndroidBillingHelper
+import com.codecx.videodownloader.data.utils.AppConstants
+import com.codecx.videodownloader.data.utils.BillingHelper
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.data.utils.safePopBackStack
@@ -24,6 +30,8 @@ import com.codecx.videodownloader.databinding.FragmentLanguageBinding
 import com.codecx.videodownloader.features.adapters.LanguageAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.base.onBackPressWithAd
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
 class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
@@ -35,6 +43,10 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
     private lateinit var defaultRadioBtn: RadioButton
     private lateinit var defaultFlag: ImageView
     private lateinit var defaultCard : CardView
+    private var selectedPlan: PricesMenu? = null
+    private val billingHelper : BillingHelper by lazy {
+        AndroidBillingHelper.getInstance(requireContext())
+    }
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -58,9 +70,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         binding.btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
-        binding.premiumCard.setOnClickListener {
-            safeNavigate(R.id.newPremiumFragment)
-        }
+
 
 
         bindNative(
@@ -74,6 +84,37 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
             false,
             binding.adLayout
         )
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                billingHelper.offersUpdateListener.collectLatest { offers ->
+
+                    val regularOffer = offers.find {
+                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY
+                    } ?: offers.find {
+                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY_DISCOUNT
+                    } ?: offers.firstOrNull()
+
+                    if (regularOffer != null && regularOffer.price.isNotEmpty()) {
+                        selectedPlan = regularOffer
+                        binding.price.text = regularOffer.price.substringBefore(".")
+                        binding.rs.visibility = View.GONE
+
+                    } else {
+                        selectedPlan = PricesMenu(
+                            price = "",
+                            microPrice = 0L,
+                            currencyCode = "",
+                            productId = AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL
+                        )
+                    }
+
+                    binding.premiumCard.setOnClickListener {
+                        safeNavigate(R.id.newPremiumFragment)
+                    }
+                }
+            }
+        }
 
         binding.btnApply.setOnClickListener {
             val selectedLanguage = (binding.rvLanguages.adapter as LanguageAdapter).getSelectedLanguage()
@@ -98,6 +139,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                 androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(targetLocaleList)
             }
         }
+
         
         defaultTitle = binding.defaultLanguageItem.tvLanguageName
         defaultRadioBtn = binding.defaultLanguageItem.radioButton
