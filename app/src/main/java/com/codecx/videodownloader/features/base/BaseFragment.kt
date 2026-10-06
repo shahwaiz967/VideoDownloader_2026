@@ -41,17 +41,20 @@ fun BaseFragment<*>.onBackPressWithAd(
         viewLifecycleOwner,
         object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
+                isEnabled = false
                 showInter(
                     interstitialHelper = interstitialHelper,
                     stringId = RemoteConfigHelper.adIds.backPressInter.adId,
                     adAllowed = RemoteConfigHelper.adIds.backPressInter.isAdEnable,
                     onDismiss = {
-                        isEnabled = false
-                        onBack()
+                        if (isAdded && !isDetached) {
+                            onBack()
+                        }
                     },
                     onFail = {
-                        isEnabled = false
-                        onBack()
+                        if (isAdded && !isDetached) {
+                            onBack()
+                        }
                     }
                 )
             }

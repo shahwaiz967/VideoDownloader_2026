@@ -43,6 +43,8 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import java.io.File
 
 
+
+@androidx.media3.common.util.UnstableApi
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val tabViewModel: TabViewModel by activityViewModel()
@@ -93,7 +95,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun showExitDialog(){
-        val dialog = Dialog(requireContext())
+        val ctx = context ?: return
+        val dialog = Dialog(ctx)
         val binding = DialogExitBinding.inflate(layoutInflater)
         dialog.setContentView(binding.root)
 
@@ -110,7 +113,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
         binding.btnExit.setOnClickListener {
             dialog.dismiss()
-            requireActivity().finish()
+            activity?.finish()
         }
 
         dialog.show()
@@ -122,9 +125,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             width,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-
-
-
     }
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
@@ -136,6 +136,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun loadFragment(fragment: Fragment) {
+        if (!isAdded || isStateSaved || childFragmentManager.isStateSaved) return
+
         val current = childFragmentManager.findFragmentById(R.id.fragmentContainer)
         if (current != null && current::class == fragment::class) {
             return
@@ -143,7 +145,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
         childFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
-            .commit()
+            .commitAllowingStateLoss()
 
         updateTab(fragment)
     }
@@ -163,7 +165,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 downloadViewModel.downloadCompleteEvent.collectLatest { downloadItem ->
-                    Toast.makeText(requireContext(), getString(R.string.download_complete), Toast.LENGTH_SHORT).show()
+                    val ctx = context ?: return@collectLatest
+                    Toast.makeText(ctx, getString(R.string.download_complete), Toast.LENGTH_SHORT).show()
                     showDownloadCompleteSheet(downloadItem)
                 }
             }
@@ -208,8 +211,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         label: TextView,
         isActive: Boolean
     ) {
+        val ctx = context ?: return
         val color = ContextCompat.getColor(
-            requireContext(),
+            ctx,
             R.color.white
         )
 
@@ -223,6 +227,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun showTabsSheet() {
+        if (!isAdded || isDetached) return
         TabsBottomSheetFragment(
             onTabSelected = { tab ->
 
@@ -237,7 +242,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                 refreshTabBadge()
             }
         ).show(
-            requireActivity().supportFragmentManager,
+            childFragmentManager,
             TabsBottomSheetFragment.TAG
         )
     }
@@ -321,7 +326,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
 
     private fun showDownloadCompleteSheet(item: DownloadModel) {
-        val bottomSheet = BottomSheetDialog(requireContext())
+        val ctx = context ?: return
+        val bottomSheet = BottomSheetDialog(ctx)
         bottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE)
         bottomSheet.setContentView(R.layout.download_complete_sheet)
 
@@ -339,7 +345,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
 
         if (item.thumbnailUrl.isNotEmpty()) {
-            Glide.with(requireContext())
+            Glide.with(ctx)
                 .load(item.thumbnailUrl)
                 .placeholder(R.drawable.ic_video_placeholder)
                 .into(ivThumbnail)
@@ -384,6 +390,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun getFileUri(item: DownloadModel): Uri? {
+        val ctx = context ?: return null
         return try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 
@@ -393,8 +400,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                 val file = File(item.localPath)
                 if (!file.exists()) return null
                 FileProvider.getUriForFile(
-                    requireContext(),
-                    "${requireContext().packageName}.fileprovider",
+                    ctx,
+                    "${ctx.packageName}.fileprovider",
                     file
                 )
             }

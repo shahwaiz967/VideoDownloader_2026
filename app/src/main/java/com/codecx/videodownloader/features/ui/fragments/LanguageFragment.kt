@@ -19,6 +19,7 @@ import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.models.LanguageModel
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.FragmentLanguageBinding
 import com.codecx.videodownloader.features.adapters.LanguageAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -51,7 +52,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         binding.btnBack.visibility = if (fromSettings) View.VISIBLE else View.GONE
 
         onBackPressWithAd(interstitialHelper) {
-            findNavController().popBackStack()
+            safePopBackStack()
         }
 
         binding.btnBack.setOnClickListener {

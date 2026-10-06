@@ -20,6 +20,7 @@ import com.codecx.videodownloader.data.utils.ThemeManager
 import com.codecx.videodownloader.data.utils.clearAppCache
 import com.codecx.videodownloader.data.utils.isDefaultBrowser
 import com.codecx.videodownloader.data.utils.safeNavigate
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.FragmentSettingBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.base.onBackPressWithAd
@@ -40,7 +41,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
 
 
         onBackPressWithAd(interstitialHelper) {
-            findNavController().popBackStack()
+            safePopBackStack()
         }
 
         binding.ivBack.setOnClickListener {

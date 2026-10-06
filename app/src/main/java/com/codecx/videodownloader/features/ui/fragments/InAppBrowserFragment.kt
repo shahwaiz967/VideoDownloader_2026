@@ -13,10 +13,12 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.utils.SearchEngineManager
+import com.codecx.videodownloader.data.utils.isWebViewAvailable
 import com.codecx.videodownloader.data.utils.showToast
 import com.codecx.videodownloader.databinding.FragmentInAppBrowserBinding
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -52,6 +54,12 @@ class InAppBrowserFragment :
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (!requireContext().isWebViewAvailable()) {
+            Toast.makeText(requireContext(), getString(R.string.network_error, "WebView not available"), Toast.LENGTH_SHORT).show()
+            findNavController().popBackStack()
+            return
+        }
 
         currentTabId =
             tabViewModel.getSelectedTab()?.id
@@ -312,17 +320,29 @@ class InAppBrowserFragment :
 
     override fun onPause() {
         super.onPause()
-        binding.webView.onPause()
+        try {
+            binding.webView.onPause()
+        } catch (t: Throwable) {
+            t.printStackTrace()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        binding.webView.onResume()
+        try {
+            binding.webView.onResume()
+        } catch (t: Throwable) {
+            t.printStackTrace()
+        }
     }
 
     override fun onDestroyView() {
-        binding.webView.stopLoading()
-        binding.webView.destroy()
+        try {
+            binding.webView.stopLoading()
+            binding.webView.destroy()
+        } catch (t: Throwable) {
+            t.printStackTrace()
+        }
         super.onDestroyView()
     }
 }

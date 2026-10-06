@@ -165,7 +165,7 @@
 
             <include
                 android:visibility="gone"
-                android:id="@+id/open_insta_button"
+                android:id="@+id/openInstaCard"
                 layout="@layout/open_insta_layout"/>
 
             <com.google.android.material.card.MaterialCardView

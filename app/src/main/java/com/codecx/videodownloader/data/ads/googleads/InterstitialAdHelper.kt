@@ -1,20 +1,9 @@
 package com.codecx.videodownloader.data.ads.googleads
 
 import android.app.Activity
-import android.content.Context
-import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import android.webkit.WebView
 import androidx.annotation.LayoutRes
-import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback
-import com.google.android.libraries.ads.mobile.sdk.common.AdRequest
-import com.google.android.libraries.ads.mobile.sdk.common.AdValue
-import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError
-import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
-import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd
-import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAdEventCallback
-
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.GDPR.UMPConsent
@@ -23,9 +12,13 @@ import com.codecx.videodownloader.data.ads.openAd.OpenAdConfig
 import com.codecx.videodownloader.data.ads.utils.LoadingUtils
 import com.codecx.videodownloader.data.ads.utils.isNetworkConnected
 import com.codecx.videodownloader.data.ads.utils.runOnUiThread
-import com.codecx.videodownloader.data.utils.RemoteConfigHelper
-import com.codecx.videodownloader.data.utils.showToast
-import com.google.firebase.analytics.FirebaseAnalytics
+import com.codecx.videodownloader.data.utils.isWebViewAvailable
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback
+import com.google.android.libraries.ads.mobile.sdk.common.AdRequest
+import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAdEventCallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -81,7 +74,7 @@ object InterstitialAdHelper {
                 checkIfTimePassed(lastAdTimer, timerMilliSec)
             }
 
-            if (WebView.getCurrentWebViewPackage() != null && CodecxAd.isSDKInit) {
+            if (activity.isWebViewAvailable() && CodecxAd.isSDKInit) {
                 if (adAllowed && UMPConsent.isUMPAllowed && CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true) {
                     if (isTimerComplete) {
                         if (activity.isNetworkConnected()) {

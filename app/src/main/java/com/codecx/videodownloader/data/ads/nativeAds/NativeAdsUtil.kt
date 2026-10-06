@@ -26,7 +26,7 @@ import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoaderCallba
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdRequest
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import android.os.Bundle
-import androidx.webkit.WebViewCompat
+import com.codecx.videodownloader.data.utils.isWebViewAvailable
 import com.google.android.libraries.ads.mobile.sdk.common.AdValue
 import com.google.firebase.analytics.FirebaseAnalytics
 
@@ -112,7 +112,7 @@ object NativeAdsUtil {
         adContainerView: ViewGroup?,
         nativeId: String, context: Activity, adListener: AdCallBack? = null
     ) {
-        if (isAdAllowed && UMPConsent.isUMPAllowed && WebViewCompat.getCurrentWebViewPackage(context) != null) {
+        if (isAdAllowed && UMPConsent.isUMPAllowed && context.isWebViewAvailable()) {
             if (context.isNetworkConnected()) {
                 val loadingView = LayoutInflater.from(adContainerView?.context ?: context)
                     .inflate(loadingAdView, adContainerView, false)
@@ -187,7 +187,7 @@ object NativeAdsUtil {
             adContainerView?.removeAllViews()
             return
         }
-        if (WebViewCompat.getCurrentWebViewPackage(context) != null && CodecxAd.isSDKInit) {
+        if (context.isWebViewAvailable() && CodecxAd.isSDKInit) {
             if (CodecxAd.getAdConfig()?.isGoogleAdsAllowed == true) {
                 val cacheAd = cacheAds[nativeId]
                 if (cacheAd != null) {

@@ -34,6 +34,7 @@ import androidx.lifecycle.withResumed
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.webkit.WebViewCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.codecx.videodownloader.data.states.ResultState
@@ -48,6 +49,14 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+fun Context.isWebViewAvailable(): Boolean {
+    return try {
+        WebViewCompat.getCurrentWebViewPackage(this) != null
+    } catch (t: Throwable) {
+        t.printStackTrace()
+        false
+    }
+}
 
 fun Activity.applyBlur() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -138,13 +147,23 @@ fun ImageView.loadGif(id: Int) {
         .into(this)
 }
 
-fun Fragment.safePopBackStack() {
-    if (this.isAdded && this.view != null && this.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
-        try {
-            findNavController().popBackStack()
-        } catch (e: Exception) {
-            e.printStackTrace()
+fun Fragment.findNavControllerOrNull(): androidx.navigation.NavController? {
+    return try {
+        if (isAdded && !isDetached && view != null) {
+            findNavController()
+        } else {
+            null
         }
+    } catch (e: Throwable) {
+        null
+    }
+}
+
+fun Fragment.safePopBackStack() {
+    try {
+        findNavControllerOrNull()?.popBackStack()
+    } catch (e: Throwable) {
+        e.printStackTrace()
     }
 }
 
@@ -210,6 +229,7 @@ fun View.beInvisibleIf(value: Boolean) {
         beVisible()
     }
 }
+
 fun String.isValidUrl(): Boolean {
     return Patterns.WEB_URL.matcher(this).matches() ||
             this.startsWith("http://") ||
@@ -262,19 +282,35 @@ fun Activity.keepScreenActive() {
 fun Fragment.safeNavigate(id: Int, args: Bundle? = null, navOptions: NavOptions? = null) {
     try {
         runWhenResumed {
-            findNavController().navigate(id, args, navOptions)
+            val navController = findNavControllerOrNull() ?: return@runWhenResumed
+            val currentDest = navController.currentDestination ?: return@runWhenResumed
+            if (currentDest.id == id) {
+                return@runWhenResumed
+            }
+            val action = currentDest.getAction(id)
+            if (action != null && action.destinationId == currentDest.id) {
+                return@runWhenResumed
+            }
+            navController.navigate(id, args, navOptions)
         }
-    } catch (e: IllegalArgumentException) {
-        Log.e("safeNavigate", "Navigation failed: destination not found. ${e.message}")
-    } catch (e: Exception) {
+    } catch (e: Throwable) {
         Log.e("safeNavigate", "Navigation failed with exception: ${e.message}")
     }
 }
 
 fun View.safeNavigate(id: Int, args: Bundle? = null, navOptions: NavOptions? = null) {
     try {
-        findNavController().navigate(id, args, navOptions)
-    } catch (e: Exception) {
+        val navController = findNavController()
+        val currentDest = navController.currentDestination ?: return
+        if (currentDest.id == id) {
+            return
+        }
+        val action = currentDest.getAction(id)
+        if (action != null && action.destinationId == currentDest.id) {
+            return
+        }
+        navController.navigate(id, args, navOptions)
+    } catch (e: Throwable) {
         Log.e("safeNavigate", "Navigation failed: ${e.message}")
     }
 }
@@ -306,7 +342,10 @@ fun Fragment.handleBackPress(enable: Boolean = true, onPress: () -> Unit) {
 }
 
 
-fun Fragment.attachWithLifeCycle(state: Lifecycle.State = Lifecycle.State.STARTED, work: suspend CoroutineScope.() -> Unit) {
+fun Fragment.attachWithLifeCycle(
+    state: Lifecycle.State = Lifecycle.State.STARTED,
+    work: suspend CoroutineScope.() -> Unit
+) {
     viewLifecycleOwner.lifecycleScope.launch {
         repeatOnLifecycle(state, work)
     }
@@ -330,15 +369,15 @@ fun Fragment.runWhenResumed(action: () -> Unit) {
     }
 }
 
-fun Context.clearAppCache(){
+fun Context.clearAppCache() {
     try {
         cacheDir?.deleteRecursively()
         externalCacheDir?.deleteRecursively()
 
         //Toast.makeText(this, getString(R.string.cache_cleared_successfully), Toast.LENGTH_SHORT).show()
-    }catch (e: Exception){
+    } catch (e: Exception) {
         e.printStackTrace()
-      //  Toast.makeText(this, getString(R.string.failed_to_clear_cache), Toast.LENGTH_SHORT).show()
+        //  Toast.makeText(this, getString(R.string.failed_to_clear_cache), Toast.LENGTH_SHORT).show()
     }
 }
 
@@ -385,7 +424,7 @@ object ThemeManager {
 }
 
 
-enum class SearchEngine(val title: String, val searchUrl: String, val homeUrl: String){
+enum class SearchEngine(val title: String, val searchUrl: String, val homeUrl: String) {
     GOOGLE("Google", "https://www.google.com/search?q=", "https://www.google.com"),
     BING("Bing", "https://www.bing.com/search?q=", "https://www.bing.com"),
     DUCKDUCKGO("DuckDuckGo", "https://duckduckgo.com/?q=", "https://duckduckgo.com"),
@@ -398,8 +437,6 @@ enum class SearchEngine(val title: String, val searchUrl: String, val homeUrl: S
     STARTPAGE("Startpage", "https://startpage.com/sp/search?query=", "https://startpage.com"),
     ECOSIA("Ecosia", "https://www.ecosia.org/search?q=", "https://www.ecosia.org"),
 }
-
-
 
 
 object SearchEngineManager {

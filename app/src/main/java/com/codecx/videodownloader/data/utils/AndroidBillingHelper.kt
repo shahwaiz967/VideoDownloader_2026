@@ -358,32 +358,59 @@ class AndroidBillingHelper(
     }
 
     override fun launchBilling(pricesMenu: PricesMenu) {
+        val activity = currentActivity
+        if (activity == null || activity.isFinishing || activity.isDestroyed) {
+            "AndroidBilling".printLog("launchBilling: Activity is not valid")
+            return
+        }
+
+        val client = billingClient
+        if (client == null || !client.isReady) {
+            "AndroidBilling".printLog("launchBilling: BillingClient is null or not ready")
+            return
+        }
+
         val mProduct = productDetailsMap[pricesMenu.productId]
-
         if (mProduct != null) {
-            val productDetailsParams = if (mProduct.productType == BillingClient.ProductType.SUBS) {
-                val offerToken = pricesMenu.offerToken
-                listOf(
-                    BillingFlowParams.ProductDetailsParams.newBuilder()
-                        .setProductDetails(mProduct)
-                        .setOfferToken(offerToken)
-                        .build()
-                )
-            } else {
-                listOf(
-                    BillingFlowParams.ProductDetailsParams.newBuilder()
-                        .setProductDetails(mProduct)
-                        .build()
-                )
-            }
+            try {
+                val productDetailsParams = if (mProduct.productType == BillingClient.ProductType.SUBS) {
+                    val offerToken = pricesMenu.offerToken.ifEmpty {
+                        mProduct.subscriptionOfferDetails?.firstOrNull()?.offerToken ?: ""
+                    }
+                    if (offerToken.isEmpty()) {
+                        "AndroidBilling".printLog("launchBilling: Offer token is empty for sub")
+                        return
+                    }
+                    listOf(
+                        BillingFlowParams.ProductDetailsParams.newBuilder()
+                            .setProductDetails(mProduct)
+                            .setOfferToken(offerToken)
+                            .build()
+                    )
+                } else {
+                    listOf(
+                        BillingFlowParams.ProductDetailsParams.newBuilder()
+                            .setProductDetails(mProduct)
+                            .build()
+                    )
+                }
 
-            if (productDetailsParams.isNotEmpty()) {
-                val billingFlowParams = BillingFlowParams.newBuilder()
-                    .setProductDetailsParamsList(productDetailsParams)
-                    .build()
-                if (currentActivity != null)
-                    billingClient?.launchBillingFlow(currentActivity!!, billingFlowParams)
+                if (productDetailsParams.isNotEmpty()) {
+                    val billingFlowParams = BillingFlowParams.newBuilder()
+                        .setProductDetailsParamsList(productDetailsParams)
+                        .build()
+
+                    val billingResult = client.launchBillingFlow(activity, billingFlowParams)
+                    if (billingResult.responseCode != BillingClient.BillingResponseCode.OK) {
+                        "AndroidBilling".printLog("launchBillingFlow failed code: ${billingResult.responseCode}, msg: ${billingResult.debugMessage}")
+                    }
+                }
+            } catch (e: Exception) {
+                "AndroidBilling".printLog("launchBilling exception: ${e.message}")
+                e.printStackTrace()
             }
+        } else {
+            "AndroidBilling".printLog("launchBilling: ProductDetails not found in map for ${pricesMenu.productId}")
         }
     }
 

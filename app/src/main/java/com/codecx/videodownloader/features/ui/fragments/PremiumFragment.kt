@@ -18,6 +18,7 @@ import com.codecx.videodownloader.BuildConfig
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.data.models.PricesMenu
 import com.codecx.videodownloader.data.models.PurchaseEvents
 import com.codecx.videodownloader.data.utils.AndroidBillingHelper
@@ -52,7 +53,7 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
         binding.btnBack.setOnClickListener{
             if (fromSettings){
-                findNavController().popBackStack()
+                safePopBackStack()
             }else{
                 showInterstitial()
             }
@@ -150,17 +151,13 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>() {
 
         val trialPlan =
             offers.find { plan ->
-
-                plan.productId == BuildConfig.weeklyPlanId &&
-                        plan.id == BuildConfig.weeklyBasePlanId &&
-                        plan.offerId == BuildConfig.weeklyFreeTrailId
+                plan.productId == com.codecx.videodownloader.data.utils.AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL ||
+                        (plan.productId == BuildConfig.weeklyPlanId && plan.offerId == BuildConfig.weeklyFreeTrailId)
             }
         val solidPlan =
             offers.find { plan ->
-
-                plan.productId == BuildConfig.weeklyPlanId &&
-                        plan.id == BuildConfig.weeklyBasePlanId &&
-                        plan.offerId == null
+                plan.productId == com.codecx.videodownloader.data.utils.AppConstants.SUB_PREMIUM_WEEKLY ||
+                        (plan.productId == BuildConfig.weeklyPlanId && plan.offerId == null)
             }
 
 

@@ -7,25 +7,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.showInter
+import com.codecx.videodownloader.data.models.PricesMenu
 import com.codecx.videodownloader.data.utils.AndroidBillingHelper
+import com.codecx.videodownloader.data.utils.AppConstants
 import com.codecx.videodownloader.data.utils.BillingHelper
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.safeNavigate
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.DialogTimerBinding
 import com.codecx.videodownloader.databinding.FragmentNewPremiumBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     private var countDownTimer: CountDownTimer? = null
-    private val billingHelper : BillingHelper by lazy {
+    private val billingHelper: BillingHelper by lazy {
         AndroidBillingHelper.getInstance(requireContext())
     }
 
@@ -36,6 +43,7 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
     }
 
     private var currentPlan = SelectedPlan.WEEKLY
+    private var currentOffersList: List<PricesMenu> = emptyList()
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -51,25 +59,118 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         setupUI()
         setupListeners()
         selectPlan(SelectedPlan.WEEKLY)
+        observeBillingOffers()
+
         val fromSettings = arguments?.getBoolean("fromSettings", false) ?: false
 
         binding.btnClose.setOnClickListener {
             if (fromSettings) {
-                findNavController().popBackStack()
+                safePopBackStack()
             } else {
                 showDialog()
-
             }
         }
     }
 
+    private fun observeBillingOffers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                billingHelper.offersUpdateListener.collectLatest { offers ->
+                    currentOffersList = offers
+                    updatePricesFromOffers(offers)
+                }
+            }
+        }
+    }
+
+    private fun updatePricesFromOffers(offers: List<PricesMenu>) {
+        // --- Weekly Plan ---
+        val weeklyFull = offers.find { it.productId == AppConstants.SUB_PREMIUM_WEEKLY }
+        val weeklyDiscount = offers.find { it.productId == AppConstants.SUB_PREMIUM_WEEKLY_DISCOUNT }
+
+        if (weeklyDiscount != null && weeklyDiscount.price.isNotEmpty()) {
+            binding.tvWeeklyPrice.text = weeklyDiscount.price
+            if (weeklyFull != null && weeklyFull.price.isNotEmpty()) {
+                binding.tvWeeklyOriginalPrice.text = weeklyFull.price
+                binding.tvWeeklyOriginalPrice.visibility = View.VISIBLE
+            } else {
+                binding.tvWeeklyOriginalPrice.visibility = View.GONE
+            }
+            binding.tvWeeklyDiscount.visibility = View.VISIBLE
+            if (weeklyFull != null && weeklyFull.microPrice > weeklyDiscount.microPrice) {
+                val pct = ((weeklyFull.microPrice - weeklyDiscount.microPrice).toDouble() / weeklyFull.microPrice * 100).toInt()
+                if (pct > 0) binding.tvWeeklyDiscount.text = "$pct% Off"
+            }
+        } else {
+            if (weeklyFull != null && weeklyFull.price.isNotEmpty()) {
+                binding.tvWeeklyPrice.text = weeklyFull.price
+            }
+            binding.tvWeeklyOriginalPrice.visibility = View.GONE
+            binding.tvWeeklyDiscount.visibility = View.GONE
+        }
+
+        // --- Monthly Plan ---
+        val monthlyFull = offers.find { it.productId == AppConstants.SUB_PREMIUM_MONTHLY }
+        val monthlyDiscount = offers.find { it.productId == AppConstants.SUB_PREMIUM_MONTHLY_DISCOUNT }
+
+        if (monthlyDiscount != null && monthlyDiscount.price.isNotEmpty()) {
+            binding.tvMonthlyPrice.text = monthlyDiscount.price
+            if (monthlyFull != null && monthlyFull.price.isNotEmpty()) {
+                binding.tvMonthlyOriginalPrice.text = monthlyFull.price
+                binding.tvMonthlyOriginalPrice.visibility = View.VISIBLE
+            } else {
+                binding.tvMonthlyOriginalPrice.visibility = View.GONE
+            }
+            binding.tvMonthlyDiscount.visibility = View.VISIBLE
+            if (monthlyFull != null && monthlyFull.microPrice > monthlyDiscount.microPrice) {
+                val pct = ((monthlyFull.microPrice - monthlyDiscount.microPrice).toDouble() / monthlyFull.microPrice * 100).toInt()
+                if (pct > 0) binding.tvMonthlyDiscount.text = "$pct% Off"
+            }
+        } else {
+            if (monthlyFull != null && monthlyFull.price.isNotEmpty()) {
+                binding.tvMonthlyPrice.text = monthlyFull.price
+            }
+            binding.tvMonthlyOriginalPrice.visibility = View.GONE
+            binding.tvMonthlyDiscount.visibility = View.GONE
+        }
+
+        // --- 3 Months Plan ---
+        val threeMonthsFull = offers.find { it.productId == AppConstants.SUB_PREMIUM_3_MONTHS }
+        val threeMonthsDiscount = offers.find { it.productId == AppConstants.SUB_PREMIUM_3_MONTHS_DISCOUNT }
+
+        if (threeMonthsDiscount != null && threeMonthsDiscount.price.isNotEmpty()) {
+            binding.tvThreeMonthsPrice.text = threeMonthsDiscount.price
+            if (threeMonthsFull != null && threeMonthsFull.price.isNotEmpty()) {
+                binding.tvThreeMonthsOriginalPrice.text = threeMonthsFull.price
+                binding.tvThreeMonthsOriginalPrice.visibility = View.VISIBLE
+            } else {
+                binding.tvThreeMonthsOriginalPrice.visibility = View.GONE
+            }
+            binding.tvThreeMonthsDiscount.visibility = View.VISIBLE
+            if (threeMonthsFull != null && threeMonthsFull.microPrice > threeMonthsDiscount.microPrice) {
+                val pct = ((threeMonthsFull.microPrice - threeMonthsDiscount.microPrice).toDouble() / threeMonthsFull.microPrice * 100).toInt()
+                if (pct > 0) binding.tvThreeMonthsDiscount.text = "$pct% Off"
+            }
+        } else {
+            if (threeMonthsFull != null && threeMonthsFull.price.isNotEmpty()) {
+                binding.tvThreeMonthsPrice.text = threeMonthsFull.price
+            }
+            binding.tvThreeMonthsOriginalPrice.visibility = View.GONE
+            binding.tvThreeMonthsDiscount.visibility = View.GONE
+        }
+    }
+
     private fun showDialog() {
-        val context = requireContext()
+        val context = context ?: return
         val dialog = android.app.Dialog(context)
         val dialogBinding = DialogTimerBinding.inflate(layoutInflater)
         dialog.setContentView(dialogBinding.root)
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        dialogBinding.btnClaimOffer.setOnClickListener {
+            launchSpecialOfferPurchase()
+        }
 
         dialog.show()
 
@@ -80,7 +181,6 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
             width,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-
 
         val prefs = context.getSharedPreferences("TimerPrefs", android.content.Context.MODE_PRIVATE)
         var endTime = prefs.getLong("timer_end_time", 0L)
@@ -120,6 +220,12 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }
     }
 
+    private fun launchSpecialOfferPurchase() {
+        val offer = currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER }
+            ?: PricesMenu(price = "", microPrice = 0L, currencyCode = "", productId = AppConstants.SUB_PREMIUM_SPECIAL_OFFER)
+        billingHelper.launchBilling(offer)
+    }
+
     private fun setupUI() {
         binding.tvWeeklyOriginalPrice.paintFlags =
             binding.tvWeeklyOriginalPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
@@ -134,7 +240,7 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
     private fun setupListeners() {
         binding.btnClose.setOnClickListener {
-            findNavController().popBackStack()
+            safePopBackStack()
         }
 
         binding.cardWeekly.setOnClickListener {
@@ -150,21 +256,37 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }
 
         binding.btnStartTrial.setOnClickListener {
-            val planName = when (currentPlan) {
-                SelectedPlan.WEEKLY -> "Weekly"
-                SelectedPlan.MONTHLY -> "Monthly"
-                SelectedPlan.THREE_MONTHS -> "3 Months"
-            }
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.trial_started) + " ($planName)",
-                Toast.LENGTH_SHORT
-            ).show()
+            launchSelectedPlanPurchase()
         }
 
         binding.tvTermsLink.setOnClickListener {
             Toast.makeText(requireContext(), "Terms & Conditions", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun launchSelectedPlanPurchase() {
+        val offer = when (currentPlan) {
+            SelectedPlan.WEEKLY -> {
+                val discount = currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_WEEKLY_DISCOUNT }
+                if (discount != null && discount.price.isNotEmpty()) discount
+                else currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_WEEKLY }
+                    ?: PricesMenu(price = "", microPrice = 0L, currencyCode = "", productId = AppConstants.SUB_PREMIUM_WEEKLY)
+            }
+            SelectedPlan.MONTHLY -> {
+                val discount = currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_MONTHLY_DISCOUNT }
+                if (discount != null && discount.price.isNotEmpty()) discount
+                else currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_MONTHLY }
+                    ?: PricesMenu(price = "", microPrice = 0L, currencyCode = "", productId = AppConstants.SUB_PREMIUM_MONTHLY)
+            }
+            SelectedPlan.THREE_MONTHS -> {
+                val discount = currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_3_MONTHS_DISCOUNT }
+                if (discount != null && discount.price.isNotEmpty()) discount
+                else currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_3_MONTHS }
+                    ?: PricesMenu(price = "", microPrice = 0L, currencyCode = "", productId = AppConstants.SUB_PREMIUM_3_MONTHS)
+            }
+        }
+
+        billingHelper.launchBilling(offer)
     }
 
     private fun selectPlan(plan: SelectedPlan) {
