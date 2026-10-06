@@ -179,8 +179,7 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         dialog.show()
 
-        val width = resources.displayMetrics.widthPixels -
-                resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._40sdp)
+        val width = resources.displayMetrics.widthPixels - resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._40sdp)
 
         dialog.window?.setLayout(
             width,
@@ -228,13 +227,8 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
     private fun launchSpecialOfferPurchase() {
         val offer =
             currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER }
-                ?: PricesMenu(
-                    price = "",
-                    microPrice = 0L,
-                    currencyCode = "",
-                    productId = AppConstants.SUB_PREMIUM_SPECIAL_OFFER
-                )
-        billingHelper.launchBilling(offer)
+        if (offer != null)
+            billingHelper.launchBilling(offer)
     }
 
     private fun setupUI() {

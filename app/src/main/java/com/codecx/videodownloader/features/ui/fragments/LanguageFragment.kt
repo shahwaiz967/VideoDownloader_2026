@@ -42,9 +42,9 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
     private lateinit var defaultTitle: TextView
     private lateinit var defaultRadioBtn: RadioButton
     private lateinit var defaultFlag: ImageView
-    private lateinit var defaultCard : CardView
+    private lateinit var defaultCard: CardView
     private var selectedPlan: PricesMenu? = null
-    private val billingHelper : BillingHelper by lazy {
+    private val billingHelper: BillingHelper by lazy {
         AndroidBillingHelper.getInstance(requireContext())
     }
 
@@ -71,8 +71,6 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-
-
         bindNative(
             RemoteConfigHelper.adIds.languageTopNative,
             false,
@@ -88,18 +86,14 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 billingHelper.offersUpdateListener.collectLatest { offers ->
-
                     val regularOffer = offers.find {
                         it.productId == AppConstants.SUB_PREMIUM_WEEKLY
-                    } ?: offers.find {
-                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY_DISCOUNT
-                    } ?: offers.firstOrNull()
+                    }
 
                     if (regularOffer != null && regularOffer.price.isNotEmpty()) {
                         selectedPlan = regularOffer
                         binding.price.text = regularOffer.price.substringBefore(".")
                         binding.rs.visibility = View.GONE
-
                     } else {
                         selectedPlan = PricesMenu(
                             price = "",
@@ -110,48 +104,56 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                     }
 
                     binding.premiumCard.setOnClickListener {
-                        safeNavigate(R.id.newPremiumFragment)
+                        val offer = offers.find {
+                            it.productId == AppConstants.SUB_PREMIUM_WEEKLY
+                        }
+                        if (offer != null)
+                            billingHelper.launchBilling(offer)
                     }
                 }
             }
         }
 
         binding.btnApply.setOnClickListener {
-            val selectedLanguage = (binding.rvLanguages.adapter as LanguageAdapter).getSelectedLanguage()
+            val selectedLanguage =
+                (binding.rvLanguages.adapter as LanguageAdapter).getSelectedLanguage()
             val currentLocales = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
-            val currentLangCode = if (!currentLocales.isEmpty) currentLocales[0]?.toLanguageTag() else null
-            
+            val currentLangCode =
+                if (!currentLocales.isEmpty) currentLocales[0]?.toLanguageTag() else null
+
             var targetLocaleList: androidx.core.os.LocaleListCompat? = null
 
             if (selectedLanguage != null) {
                 if (!selectedLanguage.code.equals(currentLangCode, ignoreCase = true)) {
-                    targetLocaleList = androidx.core.os.LocaleListCompat.forLanguageTags(selectedLanguage.code)
+                    targetLocaleList =
+                        androidx.core.os.LocaleListCompat.forLanguageTags(selectedLanguage.code)
                 }
             } else if (defaultRadioBtn.isChecked) {
                 if (currentLangCode != null) {
                     targetLocaleList = androidx.core.os.LocaleListCompat.getEmptyLocaleList()
                 }
             }
-            
+
             safeNavigate(R.id.newPremiumFragment)
-            
+
             if (targetLocaleList != null) {
                 androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(targetLocaleList)
             }
         }
 
-        
+
         defaultTitle = binding.defaultLanguageItem.tvLanguageName
         defaultRadioBtn = binding.defaultLanguageItem.radioButton
         defaultFlag = binding.defaultLanguageItem.ivFlag
         defaultCard = binding.defaultLanguageItem.mainCard
 
         val currentLocales = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
-        val currentLangCode = if (!currentLocales.isEmpty) currentLocales[0]?.toLanguageTag() else null
+        val currentLangCode =
+            if (!currentLocales.isEmpty) currentLocales[0]?.toLanguageTag() else null
 
         defaultFlag.visibility = View.GONE
         defaultTitle.text = getString(R.string.system_default)
-        
+
         fun selectDefault() {
             defaultTitle.setTextColor(Color.WHITE)
             defaultRadioBtn.isChecked = true
@@ -161,7 +163,7 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                 (binding.rvLanguages.adapter as LanguageAdapter).clearSelection()
             }
         }
-        
+
         fun deselectDefault() {
             defaultTitle.setTextColor(Color.BLACK)
             defaultRadioBtn.isChecked = false
@@ -182,13 +184,21 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         languageRecycler(currentLangCode, ::deselectDefault)
     }
 
-    private fun languageRecycler(currentLangCode: String?, onItemSelected: () -> Unit){
+    private fun languageRecycler(currentLangCode: String?, onItemSelected: () -> Unit) {
         languages = listOf(
             LanguageModel(getString(R.string.english), R.drawable.english, "en"),
             LanguageModel(getString(R.string.arabic), R.drawable.arabic, "ar"),
             LanguageModel(getString(R.string.bangla), R.drawable.bangla, "bn"),
-            LanguageModel(getString(R.string.chinese_simplified), R.drawable.chinese_simplified, "zh-CN"),
-            LanguageModel(getString(R.string.chinese_hong_kong), R.drawable.chinese_hond_kong, "zh-HK"),
+            LanguageModel(
+                getString(R.string.chinese_simplified),
+                R.drawable.chinese_simplified,
+                "zh-CN"
+            ),
+            LanguageModel(
+                getString(R.string.chinese_hong_kong),
+                R.drawable.chinese_hond_kong,
+                "zh-HK"
+            ),
             LanguageModel(getString(R.string.chinese), R.drawable.chine, "zh"),
             LanguageModel(getString(R.string.dutch), R.drawable.dutch, "nl"),
             LanguageModel(getString(R.string.french_canada), R.drawable.canada, "fr-CA"),
@@ -220,23 +230,24 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
             LanguageModel(getString(R.string.urdu), R.drawable.pakistan, "ur"),
             LanguageModel(getString(R.string.vietnamese), R.drawable.vietnam, "vi")
         )
-        
+
         var initialSelectedIndex = -1
         if (currentLangCode != null) {
-            initialSelectedIndex = languages.indexOfFirst { 
-                currentLangCode.equals(it.code, ignoreCase = true) || 
-                currentLangCode.replace("-Hans", "").equals(it.code, ignoreCase = true)
+            initialSelectedIndex = languages.indexOfFirst {
+                currentLangCode.equals(it.code, ignoreCase = true) ||
+                        currentLangCode.replace("-Hans", "").equals(it.code, ignoreCase = true)
             }
             if (initialSelectedIndex == -1) {
-                initialSelectedIndex = languages.indexOfFirst { 
-                    currentLangCode.startsWith(it.code.split("-")[0], ignoreCase = true) 
+                initialSelectedIndex = languages.indexOfFirst {
+                    currentLangCode.startsWith(it.code.split("-")[0], ignoreCase = true)
                 }
             }
         }
 
         binding.rvLanguages.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvLanguages.adapter = LanguageAdapter(languages, initialSelected = initialSelectedIndex) {
-            onItemSelected()
-        }
+        binding.rvLanguages.adapter =
+            LanguageAdapter(languages, initialSelected = initialSelectedIndex) {
+                onItemSelected()
+            }
     }
 }
