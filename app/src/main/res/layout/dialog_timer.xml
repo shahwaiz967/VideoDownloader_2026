@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/timer_icon"
+        android:background="@drawable/timer_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1.15"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,16 +20,16 @@
         <LinearLayout
             android:id="@+id/layoutTimer"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.14"
+           android:layout_marginHorizontal="@dimen/_50sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.70"
-            app:layout_constraintWidth_percent="0.68">
+            app:layout_constraintVertical_bias="0.65"
+            >
             <LinearLayout
                 android:id="@+id/layoutHours"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -60,6 +60,15 @@
                     />
 
             </LinearLayout>
+
+            <TextView
+
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="#D32F2F"
+                android:textSize="@dimen/_30sdp"/>
 
 
             <LinearLayout
@@ -93,7 +102,14 @@
 
             </LinearLayout>
 
+            <TextView
 
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="#D32F2F"
+                android:textSize="@dimen/_30sdp"/>
 
             <LinearLayout
                 android:layout_marginEnd="@dimen/_5sdp"
@@ -141,11 +157,10 @@
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.11"
+            android:layout_marginBottom="@dimen/_33sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.93"
-            app:layout_constraintWidth_percent="0.72" />
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

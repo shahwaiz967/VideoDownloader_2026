@@ -46,6 +46,10 @@ class DownloadViewModel(
     private val _downloadStartedEvent = MutableSharedFlow<Unit>()
     val downloadStartedEvent = _downloadStartedEvent.asSharedFlow()
 
+    var giftX: Float? = null
+    var giftY: Float? = null
+    var isGiftVisible: Boolean = true
+
 
     private var downloadJob: Job? = null
 

@@ -1,13 +1,13 @@
 package com.codecx.videodownloader.features.ui.fragments
 
+import android.annotation.SuppressLint
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -27,16 +27,14 @@ import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import kotlin.math.abs
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var tabId: Long = -1L
     private val downloadViewModel: DownloadViewModel by activityViewModel()
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
     private var isFirstActionDone = false
-    private var progressDialog: androidx.appcompat.app.AlertDialog? = null
-
 
     override fun bindLayout(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -45,15 +43,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return FragmentHomeBinding.inflate(inflater)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         quickAccessButtons()
         observeDownload()
         bindAds()
+        setupDraggableGift()
+        startGiftAnimation()
+
         binding.start3DaysTrailBtn.setOnClickListener {
             safeNavigate(R.id.freeTrailFragment)
         }
+
         binding.btnPasteLink.setOnClickListener {
             if (isFragmentValid) {
                 handleFirstAction {
@@ -91,7 +92,196 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 }
             }
         }
+    }
 
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupDraggableGift() {
+
+        val giftView = binding.giftLayout.root
+        val closeButton = binding.giftLayout.btnClose
+
+
+        giftView.post {
+            downloadViewModel.giftX?.let { giftView.x = it }
+            downloadViewModel.giftY?.let { giftView.y = it }
+
+            giftView.visibility = if (downloadViewModel.isGiftVisible) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+
+            if (giftView.visibility == View.VISIBLE) {
+                startGiftAnimation()
+            }
+        }
+
+
+        closeButton.setOnClickListener {
+            downloadViewModel.isGiftVisible = false
+            giftView.animate().cancel()
+            giftView.visibility = View.GONE
+        }
+
+        var dX = 0f
+        var dY = 0f
+        var touchDownX = 0f
+        var touchDownY = 0f
+        var isDragging = false
+
+        val touchSlop = android.view.ViewConfiguration
+            .get(requireContext()).scaledTouchSlop
+
+        giftView.setOnTouchListener { v, event ->
+
+            val parentView = v.parent as? View
+                ?: return@setOnTouchListener false
+
+            when (event.actionMasked) {
+
+                MotionEvent.ACTION_DOWN -> {
+                    dX = v.x - event.rawX
+                    dY = v.y - event.rawY
+
+                    touchDownX = event.rawX
+                    touchDownY = event.rawY
+
+                    isDragging = false
+
+
+                  /*  v.animate().cancel()
+                    v.scaleX = 1f
+                    v.scaleY = 1f*/
+
+                    true
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+
+                    val deltaX = abs(event.rawX - touchDownX)
+                    val deltaY = abs(event.rawY - touchDownY)
+
+                    if (deltaX > touchSlop || deltaY > touchSlop) {
+                        isDragging = true
+                    }
+
+                    if (isDragging) {
+
+                        val maxX = (parentView.width - v.width)
+                            .coerceAtLeast(0).toFloat()
+
+                        val maxY = (parentView.height - v.height)
+                            .coerceAtLeast(0).toFloat()
+
+                        val newX = (event.rawX + dX)
+                            .coerceIn(0f, maxX)
+
+                        val newY = (event.rawY + dY)
+                            .coerceIn(0f, maxY)
+
+
+                        v.x = newX
+                        v.y = newY
+
+
+                        downloadViewModel.giftX = newX
+                        downloadViewModel.giftY = newY
+                    }
+
+                    true
+                }
+
+
+                MotionEvent.ACTION_UP -> {
+
+                    if (!isDragging) {
+                        v.performClick()
+                    } else {
+                        val parentView = v.parent as? View
+
+                        parentView?.let { parent ->
+
+
+                            val screenCenter = parent.width / 2f
+
+
+                            val targetX = if (v.x + v.width / 2f >= screenCenter) {
+
+                                (parent.width - v.width).toFloat()
+                            } else {
+
+                                0f
+                            }
+
+
+                            v.animate()
+                                .x(targetX)
+                                .setDuration(300)
+                                .withEndAction {
+
+                                    downloadViewModel.giftX = v.x
+                                    downloadViewModel.giftY = v.y
+
+                                    if (downloadViewModel.isGiftVisible) {
+                                        startGiftAnimation()
+                                    }
+                                }
+                                .start()
+                        }
+                    }
+
+                    true
+                }
+
+
+
+                MotionEvent.ACTION_CANCEL -> {
+                    if (downloadViewModel.isGiftVisible) {
+                        startGiftAnimation()
+                    }
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+
+        giftView.setOnClickListener {
+            safeNavigate(R.id.freeTrailFragment)
+        }
+    }
+
+    private fun startGiftAnimation() {
+        val giftView = binding.giftLayout.root
+
+        giftView.animate().cancel()
+
+        giftView.scaleX = 1f
+        giftView.scaleY = 1f
+
+        giftView.animate()
+            .scaleX(1.08f)
+            .scaleY(1.08f)
+            .setDuration(700)
+            .withEndAction {
+                if (view != null && giftView.visibility == View.VISIBLE) {
+                    giftView.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(700)
+                        .withEndAction {
+                            if (view != null &&
+                                giftView.visibility == View.VISIBLE
+                            ) {
+                                startGiftAnimation()
+                            }
+                        }
+                        .start()
+                }
+            }
+            .start()
     }
 
     private fun bindAds() {
@@ -118,12 +308,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     onComplete()
                 }
             )
-
         }
     }
 
     private fun observeDownload() {
-
         observeDownloadState(
             viewModel = downloadViewModel,
             onLoading = {
@@ -164,7 +352,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-
     private fun quickAccessButtons() {
         binding.facebookButton.itemIcon.setImageResource(R.drawable.facebook_icon)
         binding.facebookButton.itemTitle.text = getString(R.string.fb_saver)
@@ -199,9 +386,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.threadButton.itemIcon.setImageResource(R.drawable.ic_thredo)
         binding.threadButton.itemTitle.text = getString(R.string.thread_title)
         binding.threadButton.cardRoot.setOnClickListener { navigate(R.string.thread) }
-
     }
-
 
     private fun navigate(@StringRes title: Int) {
         val bundle = Bundle().apply {
@@ -220,7 +405,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             "www."
         )
     }
-
 
     companion object {
         private const val ARG_TAB_ID = "tab_id"
@@ -243,5 +427,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-
+    override fun onDestroyView() {
+        binding.giftLayout.root.animate().cancel()
+        super.onDestroyView()
+    }
 }
