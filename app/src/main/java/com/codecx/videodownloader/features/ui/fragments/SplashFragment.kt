@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navOptions
 import com.codecx.videodownloader.R
+import com.codecx.videodownloader.data.ads.CodecxAd
+import com.codecx.videodownloader.data.ads.CodecxAdsConfig
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.openAd.OpenAppUtil
 import com.codecx.videodownloader.data.ads.utils.LoadingUtils
@@ -21,8 +23,11 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper.OPEN_AD_TYPE
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentSplashBinding
 import com.codecx.videodownloader.features.base.BaseFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
 import kotlin.getValue
 
@@ -34,6 +39,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     ): FragmentSplashBinding {
         return FragmentSplashBinding.inflate(inflater)
     }
+
     private val appUpdate: AppUpdateChecker by inject()
 
     private var progress = 0
@@ -60,6 +66,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             binding.tvProgress.text = "0%"
             appUpdate.checkAppUpdate {
                 lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        CodecxAd.initAds(
+                            CodecxAdsConfig.Builder().setIsGoogleAdsAllowed(true).build(),
+                            requireContext()
+                        )
+                    }
                     RemoteConfigHelper.checkRemoteConfig {
                         loadAds()
                         startProgressAnimation()
@@ -111,7 +123,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         }
 
         val adItem = RemoteConfigHelper.adIds.splashFullScreenAd
-        if (adItem.isAdEnable) {
+        if (adItem.isAdEnable && !PrefManager.isProUser) {
             if (adItem.adFormat == OPEN_AD_TYPE) {
                 LoadingUtils.showAdLoadingScreen(requireContext(), R.layout.dialog_ad_loading)
                 val openAdUtil = OpenAppUtil()

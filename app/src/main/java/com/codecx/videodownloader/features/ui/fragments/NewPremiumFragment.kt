@@ -179,10 +179,10 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         dialog.show()
 
-        val width = resources.displayMetrics.widthPixels - resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._40sdp)
+       // val width = resources.displayMetrics.widthPixels - resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._40sdp)
 
         dialog.window?.setLayout(
-            width,
+            ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 

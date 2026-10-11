@@ -14,6 +14,7 @@ import com.codecx.videodownloader.data.ads.openAd.OpenApp
 import com.codecx.videodownloader.data.models.PurchaseEvents
 import com.codecx.videodownloader.data.utils.AndroidBillingHelper
 import com.codecx.videodownloader.data.utils.BillingHelper
+import com.codecx.videodownloader.data.utils.PrefManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -28,12 +29,10 @@ class MyApplication : Application() {
         RemoteConfigHelper.init(this)
         OpenApp(this)
         OpenAdConfig.enableResumeAd()
-        CoroutineScope(Dispatchers.Main).launch {
-            CodecxAd.initAds(CodecxAdsConfig.Builder().build(), this@MyApplication)
-        }
+
         startKoin {
             androidContext(this@MyApplication)
-            modules(vmModule, singleModule,appModule)
+            modules(vmModule, singleModule, appModule)
         }
         AppCompatDelegate.setDefaultNightMode(
             if (ThemeManager.isDarkMode(this)) AppCompatDelegate.MODE_NIGHT_YES
@@ -51,17 +50,15 @@ class MyApplication : Application() {
 
         CoroutineScope(Dispatchers.Default).launch {
             billing.purchaseUpdateEventListener.collectLatest { event ->
-
                 when (event) {
                     PurchaseEvents.PurchaseInit -> {}
 
                     is PurchaseEvents.OldPurchaseUpdate -> {
-
-
+                        PrefManager.setPremium(this@MyApplication, event.isPro)
                     }
 
                     PurchaseEvents.PurchaseDone -> {
-
+                        PrefManager.setPremium(this@MyApplication, true)
                     }
                 }
             }

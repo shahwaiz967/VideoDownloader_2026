@@ -48,6 +48,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
+import androidx.core.content.edit
 
 fun Context.isWebViewAvailable(): Boolean {
     return try {
@@ -469,6 +470,7 @@ fun String.printLog(message: String) {
 object PrefManager {
     private const val PREFS = "app_prefs"
     private const val KEY_FIRST_RUN = "is_first_run"
+    var isProUser: Boolean = false
 
     fun isFirstRun(context: Context): Boolean {
         return context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -477,9 +479,23 @@ object PrefManager {
 
     fun setFirstRun(context: Context, isFirstRun: Boolean) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .edit()
-            .putBoolean(KEY_FIRST_RUN, isFirstRun)
-            .apply()
+            .edit {
+                putBoolean(KEY_FIRST_RUN, isFirstRun)
+            }
+    }
+
+    fun isPremium(context: Context): Boolean {
+        isProUser = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getBoolean("isPro", false)
+        return isProUser
+    }
+
+    fun setPremium(context: Context, isPremium: Boolean) {
+        isProUser = isPremium
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .edit {
+                putBoolean("isPro", isPremium)
+            }
     }
 }
 

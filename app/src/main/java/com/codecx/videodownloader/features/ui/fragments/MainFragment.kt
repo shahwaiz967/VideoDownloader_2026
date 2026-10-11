@@ -135,7 +135,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private fun loadFragment(fragment: Fragment) {
         if (!isAdded || isStateSaved || childFragmentManager.isStateSaved) return
-
         val current = childFragmentManager.findFragmentById(R.id.fragmentContainer)
         if (current != null && current::class == fragment::class) {
             return

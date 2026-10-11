@@ -1,6 +1,7 @@
 package com.codecx.videodownloader.data.ads
 
 import android.content.Context
+import com.codecx.videodownloader.BuildConfig
 import com.google.android.gms.ads.MobileAds
 import com.google.android.libraries.ads.mobile.sdk.initialization.InitializationConfig
 import com.codecx.videodownloader.R
@@ -12,7 +13,7 @@ import kotlin.coroutines.suspendCoroutine
 object CodecxAd {
 
     private var adConfig: CodecxAdsConfig? = null
-    val isSDKInit get() =  com.google.android.libraries.ads.mobile.sdk.MobileAds.isInitialized
+    val isSDKInit get() = com.google.android.libraries.ads.mobile.sdk.MobileAds.isInitialized
     fun getAdConfig(): CodecxAdsConfig? {
         return adConfig
     }
@@ -24,7 +25,7 @@ object CodecxAd {
                 try {
                     com.google.android.libraries.ads.mobile.sdk.MobileAds.initialize(
                         context,
-                        InitializationConfig.Builder("ca-app-pub-1234567890123456~1234567890").build()
+                        InitializationConfig.Builder(BuildConfig.app_id).build()
                     ) {
                         if (continuation.isActive)
                             continuation.resume(Unit)

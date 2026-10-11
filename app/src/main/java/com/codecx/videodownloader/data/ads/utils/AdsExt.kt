@@ -29,6 +29,7 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper.BANNER_AD_TYPE
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper.COLLAPSIBLE_AD_TYPE
 import com.codecx.videodownloader.data.utils.currentActivity
 import com.codecx.videodownloader.MainActivity
+import com.codecx.videodownloader.data.utils.PrefManager
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
 import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import kotlinx.coroutines.CoroutineScope
@@ -147,7 +148,7 @@ fun Fragment.showInter(
     onFail: () -> Unit
 ) {
     val mainActivity = activity as? MainActivity
-    if (mainActivity != null && CodecxAd.isSDKInit) {
+    if (mainActivity != null && CodecxAd.isSDKInit && !PrefManager.isProUser) {
         interstitialHelper.loadShowInterstitial(
             adId = stringId,
             adAllowed = adAllowed,
@@ -206,7 +207,7 @@ fun Fragment.bindNative(
 
 fun Fragment.bindNative(adItem: AdItem, isPro: Boolean, container: ViewGroup?) {
     if (currentActivity != null) {
-        if (!adItem.isAdEnable || isPro) {
+        if (!adItem.isAdEnable || isPro || PrefManager.isProUser) {
             container?.removeAllViews()
             container?.visibility = View.GONE
             return
