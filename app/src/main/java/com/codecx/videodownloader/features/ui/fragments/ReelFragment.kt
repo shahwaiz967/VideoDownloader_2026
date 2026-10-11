@@ -21,6 +21,7 @@ import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.models.ReelItem
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
+import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.FragmentReelBinding
 import com.codecx.videodownloader.features.adapters.ReelsPagerAdapter
 import com.codecx.videodownloader.features.base.BaseFragment
@@ -46,10 +47,12 @@ class ReelFragment : BaseFragment<FragmentReelBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.ivBack.setOnClickListener {
-            if (isResumed) {
-                findNavController().popBackStack()
+        if (parentFragment is MainFragment) {
+            binding.ivBack.visibility = View.GONE
+        } else {
+            binding.ivBack.visibility = View.VISIBLE
+            binding.ivBack.setOnClickListener {
+                safePopBackStack()
             }
         }
         reelId = arguments?.getInt(EXTRA_CATEGORY_ID) ?: 0

@@ -88,6 +88,7 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>() {
     }
 
     private fun navigateToNext() {
+        if (!isFragmentValid) return
         val complete = {
             PrefManager.setFirstRun(requireContext(), false)
             safeNavigate(R.id.languageFragment)

@@ -43,7 +43,6 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import java.io.File
 
 
-
 @androidx.media3.common.util.UnstableApi
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
@@ -86,13 +85,13 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         observeDownloadCompletion()
         observeDownloadStart()
 
-        onBackPressWithAd(interstitialHelper){
+        onBackPressWithAd(interstitialHelper) {
             showExitDialog()
         }
 
     }
 
-    private fun showExitDialog(){
+    private fun showExitDialog() {
         val ctx = context ?: return
         val dialog = Dialog(ctx)
         val binding = DialogExitBinding.inflate(layoutInflater)
@@ -124,6 +123,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
     }
+
     private fun initStartupPage() {
         val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
         if (currentFragment != null) {
@@ -163,7 +163,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 downloadViewModel.downloadCompleteEvent.collectLatest { downloadItem ->
                     val ctx = context ?: return@collectLatest
-                    Toast.makeText(ctx, getString(R.string.download_complete), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, getString(R.string.download_complete), Toast.LENGTH_SHORT)
+                        .show()
                     showDownloadCompleteSheet(downloadItem)
                 }
             }
@@ -281,7 +282,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             onComplete = onComplete
         )
     }
-
 
 
     fun openInAppBrowser(

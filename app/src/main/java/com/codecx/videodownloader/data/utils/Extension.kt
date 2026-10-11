@@ -34,7 +34,7 @@ import androidx.lifecycle.withResumed
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.webkit.WebViewCompat
+import android.webkit.WebView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.codecx.videodownloader.data.states.ResultState
@@ -52,7 +52,25 @@ import androidx.core.content.edit
 
 fun Context.isWebViewAvailable(): Boolean {
     return try {
-        WebViewCompat.getCurrentWebViewPackage(this) != null
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val pkg = WebView.getCurrentWebViewPackage()
+            pkg != null
+        } else {
+            val pm = packageManager
+            val webViewPackages = listOf(
+                "com.google.android.webview",
+                "com.android.webview",
+                "com.android.chrome"
+            )
+            webViewPackages.any { pkgName ->
+                try {
+                    val info = pm.getPackageInfo(pkgName, 0)
+                    info != null && info.applicationInfo != null && info.applicationInfo?.enabled == true
+                } catch (t: Throwable) {
+                    false
+                }
+            }
+        }
     } catch (t: Throwable) {
         t.printStackTrace()
         false
@@ -133,20 +151,6 @@ fun Int.toDp(context: Context): Int {
     ).toInt()
 }
 
-fun ImageView.animateMockup() {
-    val animation = AnimationSet(true).apply {
-        addAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in))
-        interpolator = LinearInterpolator()
-    }
-    startAnimation(animation)
-}
-
-fun ImageView.loadGif(id: Int) {
-    Glide.with(this)
-        .load(id)
-        .transition(DrawableTransitionOptions.withCrossFade())
-        .into(this)
-}
 
 fun Fragment.findNavControllerOrNull(): androidx.navigation.NavController? {
     return try {
