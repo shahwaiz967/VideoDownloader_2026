@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@drawable/bg_premium_top_gradient"
+    android:fitsSystemWindows="true"
     tools:context=".features.ui.fragments.NewPremiumFragment">
-
-
 
 
     <ScrollView
@@ -26,8 +24,8 @@
             <ImageView
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/eclips_cicle"
                 android:scaleType="fitStart"
+                android:src="@drawable/eclips_cicle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,7 +106,6 @@
             </LinearLayout>
 
 
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardFeatures"
                 android:layout_width="match_parent"
@@ -118,8 +115,8 @@
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_17sdp"
                 app:layout_constraintTop_toBottomOf="@id/layoutCardPreviews"
-                app:strokeWidth="@dimen/_1sdp"
-                app:strokeColor="#F1F5F9">
+                app:strokeColor="#F1F5F9"
+                app:strokeWidth="@dimen/_1sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -159,10 +156,11 @@
                             android:textColor="#1A1A1A"
                             android:textSize="11sp" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="@dimen/_2sdp"
                         android:layout_height="match_parent"
-                        android:background="#F1F5F9"/>
+                        android:background="#F1F5F9" />
 
 
                     <LinearLayout
@@ -201,7 +199,7 @@
                     <View
                         android:layout_width="@dimen/_2sdp"
                         android:layout_height="match_parent"
-                        android:background="#F1F5F9"/>
+                        android:background="#F1F5F9" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -237,7 +235,8 @@
                     <View
                         android:layout_width="@dimen/_2sdp"
                         android:layout_height="match_parent"
-                        android:background="#F1F5F9"/>
+                        android:background="#F1F5F9" />
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -328,14 +327,20 @@
 
                     <TextView
                         android:id="@+id/tvWeeklyDiscount"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:ellipsize="marquee"
                         android:fontFamily="@font/segoe_bold"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:scrollHorizontally="true"
                         android:text="30% Off"
                         android:textColor="#FF0055"
                         android:textSize="13sp"
+                        app:layout_constraintEnd_toStartOf="@+id/tvWeeklyOriginalPrice"
                         app:layout_constraintStart_toEndOf="@id/rbWeekly"
                         app:layout_constraintTop_toBottomOf="@id/tvWeeklyTitle" />
 
@@ -351,11 +356,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:fontFamily="@font/segoe_semibold"
                         android:id="@+id/tvWeeklyOriginalPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:fontFamily="@font/segoe_semibold"
                         android:text="Rs 1,650"
                         android:textColor="#9E9E9E"
                         android:textSize="13sp"
@@ -433,8 +438,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Rs 4,750"
                         android:fontFamily="@font/segoe_semibold"
+                        android:text="Rs 4,750"
                         android:textColor="#9E9E9E"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -526,8 +531,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Rs 11,500"
                         android:fontFamily="@font/segoe_semibold"
+                        android:text="Rs 11,500"
                         android:textColor="#9E9E9E"
                         android:textSize="13sp"
 
@@ -546,9 +551,9 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:backgroundTint="#FF0055"
                 android:fontFamily="@font/segoe_bold"
+                android:paddingVertical="@dimen/_10sdp"
                 android:text="Purchase Now"
                 android:textAllCaps="false"
-                android:paddingVertical="@dimen/_10sdp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp"
                 app:cornerRadius="@dimen/_20sdp"

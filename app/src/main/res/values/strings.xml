@@ -249,4 +249,6 @@
     <string name="health_fitness"><![CDATA[Health & Fitness]]></string>
     <string name="please_select_at_least_one_interest">Please select at least one interest</string>
     <string name="get_unlimited_naccess"><font color="#F21065">Get</font> Unlimited\nAccess</string>
+    <string name="your_subscription_will_renew_at_the_end_of_each_billing_cycle_term_amp_conditions"><![CDATA[Your subscription will renew at the end of each billing cycle.]]></string>
+    <string name="terms_amp_conditions"><u>Terms &amp; conditions</u></string>
 </resources>

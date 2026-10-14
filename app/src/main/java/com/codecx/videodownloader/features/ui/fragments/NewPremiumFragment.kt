@@ -1,6 +1,11 @@
 package com.codecx.videodownloader.features.ui.fragments
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.content.Intent
 import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -184,6 +189,21 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        val scaleX = ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_X, 1.0f, 1.10f).apply {
+            duration = 600
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE
+        }
+        val scaleY = ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_Y, 1.0f, 1.10f).apply {
+            duration = 600
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE
+        }
+        val pulseAnimation = AnimatorSet().apply {
+            playTogether(scaleX, scaleY)
+            start()
+        }
+
         dialogBinding.btnClaimOffer.setOnClickListener {
             launchSpecialOfferPurchase()
         }
@@ -233,10 +253,14 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }.start()
 
         dialog.setOnDismissListener {
+            pulseAnimation.cancel()
             showInterstitial()
             countDownTimer?.cancel()
         }
     }
+
+
+
 
     private fun launchSpecialOfferPurchase() {
         val offer =
@@ -286,7 +310,7 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }
 
         binding.tvTermsLink.setOnClickListener {
-            Toast.makeText(requireContext(), "Terms & Conditions", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-for-video-downloader.html")))
         }
     }
 
