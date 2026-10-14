@@ -6,6 +6,15 @@
     android:layout_gravity="center"
     android:background="@android:color/transparent">
 
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -14,30 +23,31 @@
         app:layout_constraintDimensionRatio="1:1.15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClose"
         app:layout_constraintWidth_percent="0.9">
 
         <LinearLayout
             android:id="@+id/layoutTimer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_50sdp"
             android:gravity="bottom"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-           android:layout_marginHorizontal="@dimen/_50sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.65"
-            >
+            app:layout_constraintVertical_bias="0.65">
+
             <LinearLayout
                 android:id="@+id/layoutHours"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:gravity="center"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvHours"
                     android:layout_width="wrap_content"
@@ -50,35 +60,36 @@
                     android:textColor="#D32F2F"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:textSize="@dimen/_6ssp"
-                    android:textColor="#D32F2F"
-                    android:fontFamily="@font/segoe_bold"
-                    android:text="HOURS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="HOURS"
+                    android:textColor="#D32F2F"
+                    android:textSize="@dimen/_6ssp" />
 
             </LinearLayout>
 
             <TextView
 
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text=":"
                 android:textColor="#D32F2F"
-                android:textSize="@dimen/_30sdp"/>
+                android:textSize="@dimen/_30sdp" />
 
 
             <LinearLayout
                 android:id="@+id/layoutMinuts"
 
-                android:gravity="center"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvMinutes"
                     android:layout_width="wrap_content"
@@ -91,34 +102,35 @@
                     android:textColor="#D32F2F"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:textSize="@dimen/_6ssp"
-                    android:textColor="#D32F2F"
-                    android:fontFamily="@font/segoe_bold"
-                    android:text="MINUTS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="MINUTS"
+                    android:textColor="#D32F2F"
+                    android:textSize="@dimen/_6ssp" />
 
             </LinearLayout>
 
             <TextView
 
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text=":"
                 android:textColor="#D32F2F"
-                android:textSize="@dimen/_30sdp"/>
+                android:textSize="@dimen/_30sdp" />
 
             <LinearLayout
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:id="@+id/layoutSeconds"
-                android:gravity="center"
-                android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvSeconds"
                     android:layout_width="wrap_content"
@@ -129,35 +141,34 @@
                     android:textColor="#D32F2F"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:textSize="@dimen/_6ssp"
-                    android:textColor="#D32F2F"
-                    android:fontFamily="@font/segoe_bold"
-                    android:text="SECONDS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:fontFamily="@font/segoe_bold"
+                    android:text="SECONDS"
+                    android:textColor="#D32F2F"
+                    android:textSize="@dimen/_6ssp" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/btnClaimOffer"
-            android:padding="@dimen/_10sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_33sdp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/segoe_bold"
             android:gravity="center"
+            android:padding="@dimen/_10sdp"
             android:text="GET OFFER NOW"
             android:textColor="#D32F2F"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="@dimen/_33sdp"
             app:layout_constraintStart_toStartOf="parent"
 
             />

@@ -87,28 +87,18 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 billingHelper.offersUpdateListener.collectLatest { offers ->
                     val regularOffer = offers.find {
-                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY
+                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY && it.offerId == null
                     }
 
                     if (regularOffer != null && regularOffer.price.isNotEmpty()) {
                         selectedPlan = regularOffer
                         binding.price.text = regularOffer.price.substringBefore(".")
                         binding.rs.visibility = View.GONE
-                    } else {
-                        selectedPlan = PricesMenu(
-                            price = "",
-                            microPrice = 0L,
-                            currencyCode = "",
-                            productId = AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL
-                        )
                     }
 
                     binding.premiumCard.setOnClickListener {
-                        val offer = offers.find {
-                            it.productId == AppConstants.SUB_PREMIUM_WEEKLY
-                        }
-                        if (offer != null)
-                            billingHelper.launchBilling(offer)
+                        if (selectedPlan != null)
+                            billingHelper.launchBilling(selectedPlan!!)
                     }
                 }
             }

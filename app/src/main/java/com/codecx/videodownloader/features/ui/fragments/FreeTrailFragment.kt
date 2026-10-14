@@ -56,21 +56,23 @@ class FreeTrailFragment : BaseFragment<FragmentFreeTrailBinding>() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 billingHelper.offersUpdateListener.collectLatest { offers ->
                     val trialOffer = offers.find {
-                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL
+                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL && it.offerId == AppConstants.INTRODUCTORY_ID
                     }
                     val regularOffer = offers.find {
-                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY
+                        it.productId == AppConstants.SUB_PREMIUM_WEEKLY_3DAY_TRIAL && it.offerId == null
                     }
 
                     if (trialOffer != null && trialOffer.price.isNotEmpty()) {
                         // Trial Available
                         selectedPlan = trialOffer
                         binding.headerPrice.text = regularOffer?.price ?: ""
-                        binding.tvHeaderSubtitle.text = "Try all PRO features free for 3 Days."
-                        binding.headerTitle.text = "3 Day Free Trial"
+                        binding.tvHeaderSubtitle.text =
+                            "Try all PRO features free for ${trialOffer.formateBillingPeriod()}."
+                        binding.headerTitle.text = "${trialOffer.formateBillingPeriod()} Free Trial"
                         binding.tvBadge.visibility = View.VISIBLE
                         binding.tvSubtitle.text = "Starting today  •  Cancel anytime"
-                        binding.tvBtnText.text = "Start 3-Days Free Trial"
+                        binding.tvBtnText.text =
+                            "Start ${trialOffer.formateBillingPeriod()} Free Trial"
                     } else if (regularOffer != null && regularOffer.price.isNotEmpty()) {
                         // Trial NOT Available - Simple Billing Info
                         selectedPlan = regularOffer

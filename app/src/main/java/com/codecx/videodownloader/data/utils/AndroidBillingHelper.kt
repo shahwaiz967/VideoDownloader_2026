@@ -301,6 +301,7 @@ class AndroidBillingHelper(
 
                 offer.pricingPhases.pricingPhaseList.firstOrNull()?.let { phase ->
                     "AndroidBillingInfo".printLog("${offer.basePlanId} --- ${phase.formattedPrice}")
+
                     offerList.add(
                         PricesMenu(
                             price = phase.formattedPrice,
@@ -309,7 +310,8 @@ class AndroidBillingHelper(
                             id = offer.basePlanId,
                             productId = productId,
                             offerId = offer.offerId,
-                            offerToken = offer.offerToken
+                            offerToken = offer.offerToken,
+                            billingPeriod = phase.billingPeriod
                         )
                     )
 

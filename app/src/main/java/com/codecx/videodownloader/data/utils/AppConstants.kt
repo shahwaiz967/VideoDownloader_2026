@@ -4,6 +4,7 @@ object AppConstants {
     const val REEL_ACCESS_TOKEN: String =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiRmlyc3ROYW1lIjoiZG93bmxvYWRlcl9uZXciLCJMYXN0TmFtZSI6ImRvd25sb2FkZXJfbmV3IiwiVXNlcm5hbWUiOiJkb3dubG9hZGVyX25ldyIsImVtYWlsIjoiZG93bmxvYWRlcl9uZXdAZ21haWwuY29tIn0sImlhdCI6MTY5ODEyNzc0OX0.496rh0QGPsWM0X2LMBlmDZ6hU6Dd9BYdtfQg_pzgLdo"
     const val REEL_BASE_URL: String = "https://downloadvid.app/"
+
     // ─── API ───────────────────────────────────────────────────────────────
     const val BASE_URL = "https://auto-download-all-in-one.p.rapidapi.com"
     const val API_ENDPOINT = "/v1/social/autolink"
@@ -33,6 +34,7 @@ object AppConstants {
     const val PLATFORM_FACEBOOK = "Facebook"
     const val PLATFORM_INSTAGRAM = "Instagram"
     const val PLATFORM_TIKTOK = "TikTok"
+    const val INTRODUCTORY_ID = "newcustomeracquisition"
 
     // ─── Subscriptions ───────────────────────────────────────────────────
     const val SUB_PREMIUM_WEEKLY = "premium_weekly"
@@ -53,8 +55,7 @@ object AppConstants {
         SUB_PREMIUM_3_MONTHS,
         SUB_PREMIUM_3_MONTHS_DISCOUNT,
         SUB_PREMIUM_SPECIAL_OFFER,
-        SUB_PREMIUM_WEEKLY_3DAY_TRIAL,
-        SUB_PREMIUM_WEEKLY_GIFT
+        SUB_PREMIUM_WEEKLY_3DAY_TRIAL
     )
 
     // ─── Intent Keys ──────────────────────────────────────────────────────
