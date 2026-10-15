@@ -34,6 +34,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.Locale
 import java.util.concurrent.TimeUnit
+import androidx.core.content.edit
+import com.codecx.videodownloader.data.utils.beVisibleIf
 
 class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
@@ -189,24 +191,38 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        val scaleX = ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_X, 1.0f, 1.10f).apply {
-            duration = 600
-            repeatCount = ValueAnimator.INFINITE
-            repeatMode = ValueAnimator.REVERSE
-        }
-        val scaleY = ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_Y, 1.0f, 1.10f).apply {
-            duration = 600
-            repeatCount = ValueAnimator.INFINITE
-            repeatMode = ValueAnimator.REVERSE
-        }
+        val scaleX =
+            ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_X, 1.0f, 1.10f).apply {
+                duration = 600
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+            }
+        val scaleY =
+            ObjectAnimator.ofFloat(dialogBinding.btnClaimOffer, View.SCALE_Y, 1.0f, 1.10f).apply {
+                duration = 600
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+            }
+
         val pulseAnimation = AnimatorSet().apply {
             playTogether(scaleX, scaleY)
             start()
         }
+        val offer =
+            currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER && it.offerId == INTRODUCTORY_ID }
+        val full =
+            currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER && it.offerId == null }
 
+        dialogBinding.offer50.beVisibleIf(offer != null)
+        dialogBinding.btnClaimOffer.text = if (offer != null) "GET OFFER NOW" else "GET NOW"
+        dialogBinding.priceText.text =
+            if (offer != null) "First ${offer.formateBillingPeriod()} ${offer.price} then ${full?.price ?: ""}/${full?.formateBillingPeriod()}" else "${full?.price}/${full?.formateBillingPeriod()}"
         dialogBinding.btnClaimOffer.setOnClickListener {
-            launchSpecialOfferPurchase()
+            val p = offer ?: full
+            if (p != null)
+                billingHelper.launchBilling(p)
         }
+
         dialogBinding.btnClose.setOnClickListener {
             dialog.dismiss()
         }
@@ -226,7 +242,7 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
 
         if (endTime <= currentTime) {
             endTime = currentTime + TimeUnit.HOURS.toMillis(24)
-            prefs.edit().putLong("timer_end_time", endTime).apply()
+            prefs.edit { putLong("timer_end_time", endTime) }
         }
 
         val remainingMillis = endTime - currentTime
@@ -259,18 +275,6 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }
     }
 
-
-
-
-    private fun launchSpecialOfferPurchase() {
-        val offer =
-            currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER && it.offerId == INTRODUCTORY_ID }
-        val full =
-            currentOffersList.find { it.productId == AppConstants.SUB_PREMIUM_SPECIAL_OFFER && it.offerId == null }
-        val p = offer ?: full
-        if (p != null)
-            billingHelper.launchBilling(p)
-    }
 
     private fun setupUI() {
         binding.tvWeeklyOriginalPrice.paintFlags =
@@ -310,7 +314,12 @@ class NewPremiumFragment : BaseFragment<FragmentNewPremiumBinding>() {
         }
 
         binding.tvTermsLink.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-for-video-downloader.html")))
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://appycreators12.blogspot.com/p/privacy-policy-for-video-downloader.html")
+                )
+            )
         }
     }
 
