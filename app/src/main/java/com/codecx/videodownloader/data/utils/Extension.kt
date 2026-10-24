@@ -242,6 +242,32 @@ fun String.isValidUrl(): Boolean {
             this.startsWith("www.")
 }
 
+fun String.isAdultUrl(): Boolean {
+    if (this.isBlank()) return false
+    val lowerUrl = this.lowercase(Locale.getDefault())
+
+    val adultDomains = listOf(
+        "pornhub", "xvideos", "xnxx", "redtube", "xhamster", "youporn",
+        "spankbang", "eporner", "tube8", "beeg", "brazzers", "chaturbate",
+        "stripchat", "onlyfans", "hqporner", "thumbzilla", "xhamsterlive",
+        "tnaflix", "drtuber", "sunpornet", "empflix", "4tube", "faphouse",
+        "vixen", "bangbros", "naughtyamerica", "realitykings", "cam4",
+        "camsoda", "myfreecams", "livejasmin", "bongacams", "anyporn",
+        "daftsex", "motherless", "txxx", "upornia", "vjav", "javhd",
+        "javmost", "missav", "jable", "91porn", "avple", "xvideos2",
+        "youjizz", "porncom", "xanimu", "hentai", "porno", "rule34",
+        "heavy-r", "cliphunter", "imagefap", "xcafe", "fapbox", "porndig",
+        "javfree", "ddfnetwork", "babes"
+    )
+
+    val adultKeywords = listOf(
+        "porn", "xxx", "adult", "sexvideo", "sexvid", "xrated", "hentai",
+        "porno", "18plus", "erotic", "nsfw"
+    )
+
+    return adultDomains.any { lowerUrl.contains(it) } || adultKeywords.any { lowerUrl.contains(it) }
+}
+
 fun String.showLog(message: String?) {
     message?.let {
         Log.d(this, it)

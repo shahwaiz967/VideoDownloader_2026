@@ -21,6 +21,7 @@ import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.ads.utils.showInterWithCounter
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
+import com.codecx.videodownloader.data.utils.isAdultUrl
 import com.codecx.videodownloader.data.utils.isValidUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safeNavigate
@@ -57,37 +58,61 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         binding.btnPasteLink.setOnClickListener {
             if (isFragmentValid) {
-                handleFirstAction {
-                    val text = requireContext().getClipboardText()
-                    if (!text.isNullOrEmpty()) {
-                        binding.etUrl.setText(text)
-                        if (!text.isValidUrl()) {
-                            makeText(
-                                requireContext(),
-                                getString(R.string.invalid_url),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            return@handleFirstAction
-                        }
-                        downloadViewModel.getDownloadInfo(text)
-                    } else {
+                val text = requireContext().getClipboardText()
+                if (!text.isNullOrEmpty()) {
+                    binding.etUrl.setText(text)
+                    if (!text.isValidUrl()) {
                         makeText(
                             requireContext(),
-                            getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
+                            getString(R.string.invalid_url),
+                            Toast.LENGTH_SHORT
                         ).show()
+                        return@setOnClickListener
                     }
+                    if (text.isAdultUrl()) {
+                        makeText(
+                            requireContext(),
+                            getString(R.string.adult_site_restricted),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@setOnClickListener
+                    }
+                    handleFirstAction {
+                        downloadViewModel.getDownloadInfo(text)
+                    }
+                } else {
+                    makeText(
+                        requireContext(),
+                        getString(R.string.empty_clipboard), Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
 
         binding.btnDownload.setOnClickListener {
             if (isFragmentValid) {
+                val url = binding.etUrl.text.toString().trim()
+                if (url.isEmpty()) {
+                    binding.etUrl.error = getString(R.string.enter_url)
+                    return@setOnClickListener
+                }
+                if (!url.isValidUrl()) {
+                    makeText(
+                        requireContext(),
+                        getString(R.string.invalid_url),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+                if (url.isAdultUrl()) {
+                    makeText(
+                        requireContext(),
+                        getString(R.string.adult_site_restricted),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
                 handleFirstAction {
-                    val url = binding.etUrl.text.toString().trim()
-                    if (url.isEmpty()) {
-                        binding.etUrl.error = getString(R.string.enter_url)
-                        return@handleFirstAction
-                    }
                     downloadViewModel.getDownloadInfo(url)
                 }
             }
@@ -341,6 +366,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         ?.trim() ?: return@post
 
                 if (text.isNotEmpty() && isValidUrl(text)) {
+                    if (text.isAdultUrl()) {
+                        makeText(
+                            requireContext(),
+                            getString(R.string.adult_site_restricted),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@post
+                    }
                     binding.etUrl.setText(text)
                     binding.etUrl.setSelection(text.length)
 

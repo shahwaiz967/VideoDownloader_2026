@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Video Downloader</string>
     <string name="hello_blank_fragment">Hello History fragment</string>
     <string name="download_without_limits">Download Without Limits</string>
@@ -187,6 +187,7 @@
     <string name="view">View</string>
     <string name="empty_clipboard">Empty ClipBoard</string>
     <string name="invalid_url">Invalid URL</string>
+    <string name="adult_site_restricted" tools:ignore="MissingTranslation">Downloading from adult sites is restricted</string>
 
     <!-- Platforms -->
     <string name="facebook">Facebook</string>
