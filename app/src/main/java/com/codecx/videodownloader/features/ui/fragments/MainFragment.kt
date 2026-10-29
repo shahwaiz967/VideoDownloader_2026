@@ -3,7 +3,6 @@ package com.codecx.videodownloader.features.ui.fragments
 import android.app.Dialog
 import android.app.DownloadManager
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,7 +13,6 @@ import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -33,10 +31,8 @@ import com.codecx.videodownloader.databinding.FragmentMainBinding
 import com.codecx.videodownloader.features.base.BaseFragment
 import com.codecx.videodownloader.features.base.onBackPressWithAd
 import com.codecx.videodownloader.features.ui.viewmodel.DownloadViewModel
-import com.codecx.videodownloader.features.ui.viewmodel.TabViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.card.MaterialCardView
-import com.google.firebase.perf.config.RemoteConfigManager
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
@@ -46,24 +42,24 @@ import java.io.File
 @androidx.media3.common.util.UnstableApi
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
-    private val tabViewModel: TabViewModel by activityViewModel()
+   // private val tabViewModel: TabViewModel by activityViewModel()
     private val downloadViewModel: DownloadViewModel by activityViewModel()
     private val STORAGE_FOLDER = "VideoDownloader"
 
     private lateinit var ivThumbnail: ImageView
 
 
-    private var currentTab = TAB_HOME
+    //private var currentTab = TAB_HOME
     private val interstitialHelper = InterstitialAdHelper.InterstitialHelper()
 
 
-    companion object {
+    /*companion object {
         const val TAB_HOME = 0
         const val TAB_DOWNLOADS = 1
         const val TAB_REELS = 2
         const val TAB_PLAYER = 3
 
-    }
+    }*/
 
     override fun bindLayout(
         inflater: LayoutInflater,
@@ -76,12 +72,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tabCard.setOnClickListener {
+        /*binding.tabCard.setOnClickListener {
             showTabsSheet()
         }
-        navigation()
+
         refreshTabBadge()
+
+        */
+
         initStartupPage()
+        navigation()
+
         observeDownloadCompletion()
         observeDownloadStart()
 
@@ -125,12 +126,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun initStartupPage() {
-        val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
-        if (currentFragment != null) {
-            updateTab(currentFragment)
-        } else {
-            loadFragment(HomeFragment())
-        }
+        loadFragment(HomeFragment())
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -144,10 +140,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             .replace(R.id.fragmentContainer, fragment)
             .commitAllowingStateLoss()
 
-        updateTab(fragment)
+        //updateTab(fragment)
     }
 
-    fun updateTab(fragment: Fragment) {
+    /*fun updateTab(fragment: Fragment) {
         val tab = when (fragment) {
             is HomeFragment -> TAB_HOME
             is DownloadFragment -> TAB_DOWNLOADS
@@ -156,7 +152,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             else -> currentTab
         }
         selectTab(tab)
-    }
+    }*/
 
     private fun observeDownloadCompletion() {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -181,7 +177,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
     }
 
-    private fun selectTab(tab: Int) {
+    /*private fun selectTab(tab: Int) {
         currentTab = tab
 
         setTabActive(
@@ -203,9 +199,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             binding.tvNavPlayer,
             tab == TAB_PLAYER
         )
-    }
+    }*/
 
-    private fun setTabActive(
+   /* private fun setTabActive(
         label: TextView,
         isActive: Boolean
     ) {
@@ -222,9 +218,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             if (isActive) Typeface.BOLD
             else Typeface.NORMAL
         )
-    }
+    }*/
 
-    private fun showTabsSheet() {
+    /*private fun showTabsSheet() {
         if (!isAdded || isDetached) return
         TabsBottomSheetFragment(
             onTabSelected = { tab ->
@@ -243,11 +239,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             childFragmentManager,
             TabsBottomSheetFragment.TAG
         )
-    }
+    }*/
 
-    private fun refreshTabBadge() {
+    /*private fun refreshTabBadge() {
         (binding.ivTabBadge as? TextView)?.text = tabViewModel.getTabCount().toString()
-    }
+    }*/
 
 
     private fun navigation() {
@@ -284,7 +280,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
 
-    fun openInAppBrowser(
+    /*fun openInAppBrowser(
         url: String,
         createNewTab: Boolean = false
     ) {
@@ -319,7 +315,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             R.id.inAppBrowserFragment,
             bundle
         )
-    }
+    }*/
 
 
     private fun showDownloadCompleteSheet(item: DownloadModel) {

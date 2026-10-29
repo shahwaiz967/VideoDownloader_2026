@@ -50,10 +50,10 @@
             android:contentDescription="@string/premium"
             android:src="@drawable/icon_premium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tab_card"
+            app:layout_constraintEnd_toStartOf="@id/ivSettings"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.card.MaterialCardView
+       <!-- <com.google.android.material.card.MaterialCardView
             android:layout_marginEnd="@dimen/_10sdp"
             android:id="@+id/tab_card"
             app:strokeWidth="@dimen/_2sdp"
@@ -75,7 +75,7 @@
                 android:textSize="@dimen/_14ssp"
                 />
 
-        </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>-->
 
 
 

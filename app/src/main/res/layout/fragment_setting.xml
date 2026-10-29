@@ -269,12 +269,12 @@
                     <include
                         layout="@layout/item_setting_row"
                         android:id="@+id/languageRow"/>
-                    <include
+                    <!--<include
                         layout="@layout/item_setting_row"
                         android:id="@+id/historyRow"/>
                     <include
                         layout="@layout/item_setting_row"
-                        android:id="@+id/bookMarkRow"/>
+                        android:id="@+id/bookMarkRow"/>-->
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/rowDarkMode"
@@ -344,7 +344,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <!--<androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/rowSetDefaultBrowser"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
@@ -395,11 +395,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/gray"
-                        />
+                        />-->
 
-                    <include
+                   <!-- <include
                         layout="@layout/item_setting_row"
-                        android:id="@+id/searchEngine"/>
+                        android:id="@+id/searchEngine"/>-->
                     <include
                         layout="@layout/item_setting_row"
                         android:id="@+id/cacheRow"/>

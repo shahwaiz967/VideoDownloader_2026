@@ -49,7 +49,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity?.intent?.action == Intent.ACTION_VIEW) {
+        /*if (activity?.intent?.action == Intent.ACTION_VIEW) {
             val uri = activity?.intent?.data
             if (uri != null) {
                 safeNavigate(R.id.inAppBrowserFragment, args = Bundle().apply {
@@ -76,6 +76,24 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                         loadAds()
                         startProgressAnimation()
                     }
+                }
+            }
+        }*/
+
+        binding.progressBar.isIndeterminate = false
+        binding.progressBar.progress = 0
+        binding.tvProgress.text = "0%"
+        appUpdate.checkAppUpdate {
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    CodecxAd.initAds(
+                        CodecxAdsConfig.Builder().setIsGoogleAdsAllowed(true).build(),
+                        requireContext()
+                    )
+                }
+                RemoteConfigHelper.checkRemoteConfig {
+                    loadAds()
+                    startProgressAnimation()
                 }
             }
         }

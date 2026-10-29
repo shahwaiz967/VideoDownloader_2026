@@ -62,11 +62,11 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
         with(binding){
             languageRow.tvLanguage.text = getString(R.string.language)
 
-            historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
+           /* historyRow.ivLanguageIcon.setImageResource(R.drawable.history_icon)
             historyRow.tvLanguage.text = getString(R.string.history)
 
             bookMarkRow.ivLanguageIcon.setImageResource(R.drawable.bookmark_icon)
-            bookMarkRow.tvLanguage.text = getString(R.string.bookmark)
+            bookMarkRow.tvLanguage.text = getString(R.string.bookmark)*/
 
             cacheRow.ivLanguageIcon.setImageResource(R.drawable.ic_clear_cache)
             cacheRow.view3.visibility = View.GONE
@@ -74,9 +74,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
             cacheRow.clearCache.visibility = View.VISIBLE
             cacheRow.ivLanguageArrow.visibility = View.GONE
 
-            searchEngine.tvSearchEngine.visibility = View.VISIBLE
+            /*searchEngine.tvSearchEngine.visibility = View.VISIBLE
             searchEngine.ivLanguageIcon.setImageResource(R.drawable.ic_search)
-            searchEngine.tvLanguage.text = getString(R.string.search_engine)
+            searchEngine.tvLanguage.text = getString(R.string.search_engine)*/
 
 
             rateUSRow.ivLanguageIcon.setImageResource(R.drawable.rate_us_icon)
@@ -108,12 +108,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 safeNavigate(R.id.newPremiumFragment,bundle)
             }
 
-            historyRow.root.setOnClickListener {
+            /*historyRow.root.setOnClickListener {
                 safeNavigate(R.id.historyFragment)
             }
             bookMarkRow.root.setOnClickListener {
                 safeNavigate(R.id.bookMarkFragment)
-            }
+            }*/
 
             cacheRow.clearCache.setOnClickListener {
                 requireContext().clearAppCache()
@@ -159,12 +159,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 )
             }
 
-            searchEngine.root.setOnClickListener {
+           /* searchEngine.root.setOnClickListener {
                 showSearchEngineDialog()
             }
             searchEngine.tvSearchEngine.text = SearchEngineManager.getSelectedSearchEngine(requireContext()).title
-
-            swDefaultBrowser.setOnCheckedChangeListener { _, bool ->
+*/
+           /* swDefaultBrowser.setOnCheckedChangeListener { _, bool ->
                 if (bool){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
                         val roleManager = requireContext().getSystemService(RoleManager::class.java)
@@ -186,19 +186,21 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                     )
                     startActivity(intent)
                 }
-            }
+            }*/
             swDarkMode.isChecked = ThemeManager.isDarkMode(requireContext())
 
             swDarkMode.setOnCheckedChangeListener { _, isChecked ->
                 ThemeManager.setDarkMode(requireContext(), isChecked)
             }
-            swDefaultBrowser.isChecked = requireContext().isDefaultBrowser()
+
+
+            //swDefaultBrowser.isChecked = requireContext().isDefaultBrowser()
 
 
         }
     }
 
-    private fun showSearchEngineDialog(){
+    /*private fun showSearchEngineDialog(){
         val engine = SearchEngine.values()
         val engineTitle = engine.map { it.title }.toTypedArray()
         val currentEngine = SearchEngineManager.getSelectedSearchEngine(requireContext())
@@ -216,7 +218,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>() {
                 dialog.dismiss()
             }
             .show()
-    }
+    }*/
 }
 
 

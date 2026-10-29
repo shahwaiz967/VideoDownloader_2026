@@ -405,7 +405,7 @@ fun Context.clearAppCache() {
         cacheDir?.deleteRecursively()
         externalCacheDir?.deleteRecursively()
 
-        //Toast.makeText(this, getString(R.string.cache_cleared_successfully), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Cache cleared successfully", Toast.LENGTH_SHORT).show()
     } catch (e: Exception) {
         e.printStackTrace()
         //  Toast.makeText(this, getString(R.string.failed_to_clear_cache), Toast.LENGTH_SHORT).show()
