@@ -36,8 +36,7 @@ object UMPConsent {
                 UserMessagingPlatform.loadAndShowConsentFormIfRequired(
                     activity
                 ) {
-                    isUMPAllowed = consentInformation.canRequestAds()
-                    listener.onRequest(isUMPAllowed)
+                    listener.onRequest(consentInformation.canRequestAds())
                 }
             },
             {

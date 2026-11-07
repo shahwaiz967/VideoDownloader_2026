@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navOptions
+import com.codecx.statussaver.BuildConfig
 import com.codecx.videodownloader.R
 import com.codecx.videodownloader.data.ads.CodecxAd
 import com.codecx.videodownloader.data.ads.CodecxAdsConfig
+import com.codecx.videodownloader.data.ads.GDPR.UMPConsent
 import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.openAd.OpenAppUtil
 import com.codecx.videodownloader.data.ads.utils.LoadingUtils
@@ -30,6 +32,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
 import kotlin.getValue
+import kotlin.time.Duration.Companion.milliseconds
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     override fun bindLayout(
@@ -84,18 +87,30 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         binding.progressBar.progress = 0
         binding.tvProgress.text = "0%"
         appUpdate.checkAppUpdate {
-            lifecycleScope.launch {
-                withContext(Dispatchers.IO) {
-                    CodecxAd.initAds(
-                        CodecxAdsConfig.Builder().setIsGoogleAdsAllowed(true).build(),
-                        requireContext()
-                    )
-                }
-                RemoteConfigHelper.checkRemoteConfig {
-                    loadAds()
-                    startProgressAnimation()
-                }
+            if (activity != null && isFragmentValid) {
+                UMPConsent.requestForUMP(
+                    activity = requireActivity(),
+                    enableTest = RemoteConfigHelper.isInTestMode,
+                    listener = object : UMPConsent.UMPRequestListener {
+                        override fun onRequest(isAccepted: Boolean) {
+                            lifecycleScope.launch {
+                                withContext(Dispatchers.IO) {
+                                    CodecxAd.initAds(
+                                        CodecxAdsConfig.Builder().setIsGoogleAdsAllowed(true)
+                                            .build(),
+                                        requireContext()
+                                    )
+                                }
+                                RemoteConfigHelper.checkRemoteConfig {
+                                    loadAds()
+                                    startProgressAnimation()
+                                }
+                            }
+                        }
+                    })
             }
+
+
         }
     }
 
@@ -127,9 +142,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             binding.btnNext.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
             binding.tvProgress.visibility = View.GONE
-            binding.btnNext.setOnClickListener {
-                moveNext()
-            }
+        }
+        binding.btnNext.setOnClickListener {
+            moveNext()
         }
     }
 
