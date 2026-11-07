@@ -32,8 +32,8 @@ android {
         applicationId = "com.video.downloader.hd.fourk.videoplayer"
         minSdk = 24
         targetSdk = 36
-        versionCode = 10
-        versionName = "10.0"
+        versionCode = 11
+        versionName = "11.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "weeklyPlanId", "\"weekly_price\"")
