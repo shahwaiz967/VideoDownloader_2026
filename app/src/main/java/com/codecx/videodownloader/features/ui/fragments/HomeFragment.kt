@@ -5,7 +5,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -21,9 +20,7 @@ import com.codecx.videodownloader.data.ads.utils.showInter
 import com.codecx.videodownloader.data.ads.utils.showInterWithCounter
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
-import com.codecx.videodownloader.data.utils.isAdultUrl
 import com.codecx.videodownloader.data.utils.isValidUrl
-import com.codecx.videodownloader.data.utils.isYoutubeUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
@@ -70,22 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         ).show()
                         return@setOnClickListener
                     }
-                    if (text.isAdultUrl()) {
-                        makeText(
-                            requireContext(),
-                            getString(R.string.adult_site_restricted),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@setOnClickListener
-                    }
-                    if (text.isYoutubeUrl()) {
-                        makeText(
-                            requireContext(),
-                            getString(R.string.youtube_not_supported),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@setOnClickListener
-                    }
+
                     handleFirstAction {
                         downloadViewModel.getDownloadInfo(text)
                     }
@@ -113,22 +95,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     ).show()
                     return@setOnClickListener
                 }
-                if (url.isAdultUrl()) {
-                    makeText(
-                        requireContext(),
-                        getString(R.string.adult_site_restricted),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
-                }
-                if (url.isYoutubeUrl()) {
-                    makeText(
-                        requireContext(),
-                        getString(R.string.youtube_not_supported),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
-                }
+
                 handleFirstAction {
                     downloadViewModel.getDownloadInfo(url)
                 }
@@ -382,23 +349,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     clipboard.primaryClip?.getItemAt(0)?.coerceToText(requireContext())?.toString()
                         ?.trim() ?: return@post
 
-                if (text.isNotEmpty() && isValidUrl(text)) {
-                    if (text.isAdultUrl()) {
-                        makeText(
-                            requireContext(),
-                            getString(R.string.adult_site_restricted),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@post
-                    }
-                    if (text.isYoutubeUrl()) {
-                        makeText(
-                            requireContext(),
-                            getString(R.string.youtube_not_supported),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@post
-                    }
+                if (text.isNotEmpty() && text.isValidUrl()) {
+
                     binding.etUrl.setText(text)
                     binding.etUrl.setSelection(text.length)
 
@@ -457,12 +409,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun isValidUrl(text: String): Boolean {
-        return Patterns.WEB_URL.matcher(text)
-            .matches() || text.startsWith("http://") || text.startsWith("https://") || text.startsWith(
-            "www."
-        )
-    }
+
 
     companion object {
         private const val ARG_TAB_ID = "tab_id"

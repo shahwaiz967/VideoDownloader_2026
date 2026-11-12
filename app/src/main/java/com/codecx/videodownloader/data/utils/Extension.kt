@@ -50,6 +50,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 import androidx.core.content.edit
+import androidx.core.net.toUri
 
 fun Context.isWebViewAvailable(): Boolean {
     return try {
@@ -237,24 +238,17 @@ fun View.beInvisibleIf(value: Boolean) {
 }
 
 fun String.isValidUrl(): Boolean {
-    return Patterns.WEB_URL.matcher(this).matches() ||
+    return (Patterns.WEB_URL.matcher(this).matches() ||
             this.startsWith("http://") ||
             this.startsWith("https://") ||
-            this.startsWith("www.")
+            this.startsWith("www.")) && !isYoutubeUrl() && !isAdultUrl()
 }
 
-fun String.isYoutubeUrl() : Boolean
-{
-    if (isBlank()) return false
-
+fun String.isYoutubeUrl(): Boolean {
     return try {
-        val uri = Uri.parse(
-            if (startsWith("http", ignoreCase = true)) this
-            else "https://$this"
-        )
-
+        val uri = (if (startsWith("http", ignoreCase = true)) this
+        else "https://$this").toUri()
         val host = uri.host?.lowercase(Locale.ROOT) ?: return false
-
         host == "youtu.be" ||
                 host == "youtube.com" ||
                 host.endsWith(".youtube.com") ||
@@ -264,6 +258,7 @@ fun String.isYoutubeUrl() : Boolean
         false
     }
 }
+
 fun String.isAdultUrl(): Boolean {
     if (this.isBlank()) return false
     val lowerUrl = this.lowercase(Locale.getDefault())

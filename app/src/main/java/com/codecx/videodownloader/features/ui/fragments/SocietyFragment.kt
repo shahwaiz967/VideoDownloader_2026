@@ -15,9 +15,7 @@ import com.codecx.videodownloader.data.ads.googleads.InterstitialAdHelper
 import com.codecx.videodownloader.data.ads.utils.bindNative
 import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
-import com.codecx.videodownloader.data.utils.isAdultUrl
 import com.codecx.videodownloader.data.utils.isValidUrl
-import com.codecx.videodownloader.data.utils.isYoutubeUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safePopBackStack
 import com.codecx.videodownloader.databinding.FragmentSocityBinding
@@ -65,14 +63,7 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
                     makeText(requireContext(), getString(R.string.invalid_url), Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
-                if (text.isAdultUrl()) {
-                    makeText(requireContext(), getString(R.string.adult_site_restricted), Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-                if (text.isYoutubeUrl()) {
-                    makeText(requireContext(), getString(R.string.youtube_not_supported), Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
+
                 downloadViewModel.getDownloadInfo(text)
             } else {
                 makeText(requireContext(),
@@ -90,14 +81,7 @@ class SocietyFragment : BaseFragment<FragmentSocityBinding>() {
                 makeText(requireContext(), getString(R.string.invalid_url), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (url.isAdultUrl()) {
-                makeText(requireContext(), getString(R.string.adult_site_restricted), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            if (url.isYoutubeUrl()) {
-                makeText(requireContext(), getString(R.string.youtube_not_supported), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+
             downloadViewModel.getDownloadInfo(url)
         }
     }

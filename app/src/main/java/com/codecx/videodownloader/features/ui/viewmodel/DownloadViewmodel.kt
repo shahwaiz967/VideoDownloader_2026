@@ -7,8 +7,7 @@ import com.codecx.videodownloader.data.models.DownloadModel
 import com.codecx.videodownloader.data.repo.DownloadRepo
 import com.codecx.videodownloader.data.states.ResultState
 import com.codecx.videodownloader.data.utils.ReelApiService
-import com.codecx.videodownloader.data.utils.isAdultUrl
-import com.codecx.videodownloader.data.utils.isYoutubeUrl
+import com.codecx.videodownloader.data.utils.isValidUrl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -56,15 +55,8 @@ class DownloadViewModel(
     private var downloadJob: Job? = null
 
     fun getDownloadInfo(url: String) {
-        if (url.isBlank()) return
-        if (url.isAdultUrl()) {
-            _downloadInfo.value = ResultState.Error("Downloading from adult sites is restricted")
-            return
-        }
-        if (url.isYoutubeUrl()) {
-            _downloadInfo.value = ResultState.Error("YouTube videos are not supported due to policy")
-            return
-        }
+        if (!url.isValidUrl()) return
+
         if (downloadJob?.isActive == true) return
         downloadJob?.cancel()
         downloadJob = viewModelScope.launch {
