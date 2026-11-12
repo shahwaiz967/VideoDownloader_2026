@@ -23,6 +23,7 @@ import com.codecx.videodownloader.data.utils.RemoteConfigHelper
 import com.codecx.videodownloader.data.utils.getClipboardText
 import com.codecx.videodownloader.data.utils.isAdultUrl
 import com.codecx.videodownloader.data.utils.isValidUrl
+import com.codecx.videodownloader.data.utils.isYoutubeUrl
 import com.codecx.videodownloader.data.utils.observeDownloadState
 import com.codecx.videodownloader.data.utils.safeNavigate
 import com.codecx.videodownloader.databinding.FragmentHomeBinding
@@ -77,6 +78,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         ).show()
                         return@setOnClickListener
                     }
+                    if (text.isYoutubeUrl()) {
+                        makeText(
+                            requireContext(),
+                            getString(R.string.youtube_not_supported),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@setOnClickListener
+                    }
                     handleFirstAction {
                         downloadViewModel.getDownloadInfo(text)
                     }
@@ -108,6 +117,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     makeText(
                         requireContext(),
                         getString(R.string.adult_site_restricted),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+                if (url.isYoutubeUrl()) {
+                    makeText(
+                        requireContext(),
+                        getString(R.string.youtube_not_supported),
                         Toast.LENGTH_SHORT
                     ).show()
                     return@setOnClickListener
@@ -370,6 +387,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         makeText(
                             requireContext(),
                             getString(R.string.adult_site_restricted),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@post
+                    }
+                    if (text.isYoutubeUrl()) {
+                        makeText(
+                            requireContext(),
+                            getString(R.string.youtube_not_supported),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@post

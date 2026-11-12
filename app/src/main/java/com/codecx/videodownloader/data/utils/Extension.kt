@@ -9,6 +9,7 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -242,6 +243,27 @@ fun String.isValidUrl(): Boolean {
             this.startsWith("www.")
 }
 
+fun String.isYoutubeUrl() : Boolean
+{
+    if (isBlank()) return false
+
+    return try {
+        val uri = Uri.parse(
+            if (startsWith("http", ignoreCase = true)) this
+            else "https://$this"
+        )
+
+        val host = uri.host?.lowercase(Locale.ROOT) ?: return false
+
+        host == "youtu.be" ||
+                host == "youtube.com" ||
+                host.endsWith(".youtube.com") ||
+                host == "youtube-nocookie.com" ||
+                host.endsWith(".youtube-nocookie.com")
+    } catch (e: Exception) {
+        false
+    }
+}
 fun String.isAdultUrl(): Boolean {
     if (this.isBlank()) return false
     val lowerUrl = this.lowercase(Locale.getDefault())

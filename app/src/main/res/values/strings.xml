@@ -188,6 +188,7 @@
     <string name="empty_clipboard">Empty ClipBoard</string>
     <string name="invalid_url">Invalid URL</string>
     <string name="adult_site_restricted" tools:ignore="MissingTranslation">Downloading from adult sites is restricted</string>
+    <string name="youtube_not_supported" tools:ignore="MissingTranslation">YouTube videos are not supported due to policy</string>
 
     <!-- Platforms -->
     <string name="facebook">Facebook</string>
